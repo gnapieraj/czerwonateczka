@@ -5,3 +5,5 @@ DerivedData/
 .vscode/
 tools/macos-studio/.venv/
 tools/macos-studio/out/
+__pycache__/
+*.pyc
