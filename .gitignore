@@ -3,3 +3,5 @@ xcuserdata/
 DerivedData/
 *.xcuserstate
 .vscode/
+tools/macos-studio/.venv/
+tools/macos-studio/out/

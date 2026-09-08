@@ -17,8 +17,8 @@
       "en": "Filing deadline: today, 23:59"
     },
     "context": {
-      "pl": "Piąte piętro, ul. Królewska 16. Deszcz obija żaluzję, za oknem PKiN. Aplikant Tomasz Wilk kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Kruk dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
-      "en": "Fifth floor, 16 Królewska Street. Rain on the blinds, the Palace of Culture outside. Trainee Tomasz Wilk drops an appeal about source-code copyright on your desk. Partner Kruk calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”"
+      "pl": "Piąte piętro, biurowiec od Świętokrzyskiej. Deszcz obija żaluzję, za oknem PKiN. Aplikant Filip Iglica kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Chropot dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
+      "en": "Fifth floor, office block off Świętokrzyska. Rain on the blinds, the Palace of Culture outside. Trainee Filip Iglica drops an appeal about source-code copyright on your desk. Partner Chropot calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”"
     },
     "exhibitLabel": {
       "pl": "APELACJA — fragment uzasadnienia",
@@ -108,8 +108,8 @@
             "en": "§ 23e of the Bar Ethics Code (NRA 12 June 2026) — AI is auxiliary only; counsel personally verifies. Secrecy (art. 6 of the Bar Act) is not the axis here — candour to the court is."
           },
           "consequence": {
-            "pl": "Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Wilk musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
-            "en": "The client is waiting. A bare rejection bruises the relationship but saves the docket. Wilk must rewrite on real authorities."
+            "pl": "Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Iglica musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
+            "en": "The client is waiting. A bare rejection bruises the relationship but saves the docket. Iglica must rewrite on real authorities."
           },
           "reflex": {
             "pl": "Odrzut + jedna linia: które sygnatury nie istnieją. Nie zostawiaj aplikanta z „popraw”.",
@@ -145,8 +145,8 @@
             "en": "The Sejm Speaker’s promulgation and ISAP are the official sources. The Supreme Court reporter and LEX are the second channel for a cite."
           },
           "consequence": {
-            "pl": "Trzy sygnatury nie istnieją. Wilk przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
-            "en": "Three citations do not exist. Wilk admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."
+            "pl": "Trzy sygnatury nie istnieją. Iglica przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
+            "en": "Three citations do not exist. Iglica admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."
           },
           "reflex": {
             "pl": "Każdy cytat SN: otwórz sentencję. Jeśli nie otwierasz — nie stempelujesz.",
@@ -178,8 +178,8 @@
       "en": "Due diligence: tomorrow morning"
     },
     "context": {
-      "pl": "To samo biurko, to samo 5. piętro. Wilk wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
-      "en": "Same desk, same 5th floor. Wilk pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”"
+      "pl": "To samo biurko, to samo 5. piętro. Iglica wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
+      "en": "Same desk, same 5th floor. Iglica pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”"
     },
     "exhibitLabel": {
       "pl": "PROMPT — zrzut z przeglądarki",
@@ -269,8 +269,8 @@
             "en": "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — secrecy is indefinite and does not care that “everyone already knows”."
           },
           "consequence": {
-            "pl": "Wilk kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Krukowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
-            "en": "Wilk deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Kruk and — if the SPA held personal data — you assess a breach."
+            "pl": "Iglica kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Chropotowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
+            "en": "Iglica deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Chropot and — if the SPA held personal data — you assess a breach."
           },
           "reflex": {
             "pl": "Domyślnie: nie wklejaj. Wyjątek tylko po DPA i konfiguracji. Notatka z recenzji SPA powstaje w Wordzie kancelarii.",
@@ -339,16 +339,16 @@
       "en": "“The deal drops off the board in 12 minutes”"
     },
     "context": {
-      "pl": "Lampka na Królewskiej. W słuchawce — głos partnera Kruka, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
-      "en": "The lamp on Królewska. In the receiver — Partner Kruk’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number."
+      "pl": "Lampka na 5. piętrze. W słuchawce — głos partnera Chropota, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
+      "en": "The lamp on the fifth floor. In the receiver — Partner Chropot’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number."
     },
     "exhibitLabel": {
       "pl": "NOTATKA ZE SŁUCHAWKI",
       "en": "NOTE FROM THE HANDSET"
     },
     "exhibitText": {
-      "pl": "„Mecenas, to Kruk. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
-      "en": "“Counsel, it’s Kruk. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”"
+      "pl": "„Mecenas, to Chropot. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
+      "en": "“Counsel, it’s Chropot. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”"
     },
     "innerVoice": {
       "pl": "Głos jest dobry. Presja jest lepsza. Numer na teczce nie zgadza się z tym, kto „wsiada do samolotu”.",
@@ -426,8 +426,8 @@
         },
         "ratio": {
           "statute": {
-            "pl": "Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Kruk — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
-            "en": "A rejection without verification leaves the instruction in the air. If it was the real Kruk — the client misses the tranche. If fake — you still have no protocol."
+            "pl": "Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Chropot — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
+            "en": "A rejection without verification leaves the instruction in the air. If it was the real Chropot — the client misses the tranche. If fake — you still have no protocol."
           },
           "consequence": {
             "pl": "Milczenie nie jest drugim kanałem. Za 12 minut ktoś inny w kancelarii może „pomóc”.",
@@ -467,8 +467,8 @@
             "en": "Client-money procedure: identity on the agreed channel. GDPR art. 32 if data was spoken. Ethics: caution with asset instructions."
           },
           "consequence": {
-            "pl": "Kruk z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
-            "en": "The Kruk on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."
+            "pl": "Chropot z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
+            "en": "The Chropot on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."
           },
           "reflex": {
             "pl": "Tabliczka na biurku: numer callback | zakaz IBAN z telefonu | cztery oczy.",
@@ -500,16 +500,16 @@
       "en": "Opponent and court wait for the draft until 16:00"
     },
     "context": {
-      "pl": "Wilk „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
-      "en": "Wilk “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings."
+      "pl": "Iglica „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
+      "en": "Iglica “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings."
     },
     "exhibitLabel": {
       "pl": "PDF — właściwości warstw",
       "en": "PDF — layer properties"
     },
     "exhibitText": {
-      "pl": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = T. Wilk, kancelaria, Królewska 16",
-      "en": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = T. Wilk, firm, 16 Królewska"
+      "pl": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = F. Iglica, kancelaria, Świętokrzyska",
+      "en": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = F. Iglica, firm, Świętokrzyska"
     },
     "innerVoice": {
       "pl": "Czarny prostokąt to kostium, nie cenzura. Sąd i przeciwnik dostaną warstwę, której nie widać na ekranie.",
@@ -591,8 +591,8 @@
             "en": "Secrecy (art. 6 / art. 3(3)) covers know-how and figures. Rejection protects, but 16:00 still stands."
           },
           "consequence": {
-            "pl": "Wilk musi zrobić prawdziwą redakcję. Partner Kruk dostaje SMS: „projekt godzinę później, za to szczelny”.",
-            "en": "Wilk must do a real redaction. Partner Kruk gets a text: “draft an hour later, but sealed”."
+            "pl": "Iglica musi zrobić prawdziwą redakcję. Partner Chropot dostaje SMS: „projekt godzinę później, za to szczelny”.",
+            "en": "Iglica must do a real redaction. Partner Chropot gets a text: “draft an hour later, but sealed”."
           },
           "reflex": {
             "pl": "Odrzut + checklista: flatten, metadane, drugi para oczu, pdftotext.",
@@ -628,8 +628,8 @@
             "en": "A technical measure (GDPR art. 32, § 23e by analogy to tools) — you test whether the content is actually gone before it leaves the firm."
           },
           "consequence": {
-            "pl": "pdftotext zwraca pełne kwoty. Każe Wilkowi eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
-            "en": "pdftotext returns the full figures. You order Wilk to export-as-image or a redaction tool that deletes objects, then test again."
+            "pl": "pdftotext zwraca pełne kwoty. Każe Iglicy eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
+            "en": "pdftotext returns the full figures. You order Iglica to export-as-image or a redaction tool that deletes objects, then test again."
           },
           "reflex": {
             "pl": "Zasada: jeśli zaznaczenie myszą czyta kwotę — nie wysyłasz.",
@@ -822,16 +822,16 @@
       "en": "“Please wire counsel’s retainer — today by 15:00”"
     },
     "context": {
-      "pl": "Skrzynka na 5. piętrze. Nadawca: kruk@vogel-kruk-partners.com — myślnik, którego nie ma na papierze firmowym (vogelkruk.pl). Treść: głos Kruka, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
-      "en": "The 5th-floor inbox. Sender: kruk@vogel-kruk-partners.com — a hyphen the letterhead does not have (vogelkruk.pl). The body is Kruk’s voice, only typed. A retainer to a “temporary” account."
+      "pl": "Skrzynka na 5. piętrze. Nadawca: chropot@okiennica-chropot-partners.com — myślnik, którego nie ma na papierze firmowym (okiennicachropot.pl). Treść: głos Chropota, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
+      "en": "The 5th-floor inbox. Sender: chropot@okiennica-chropot-partners.com — a hyphen the letterhead does not have (okiennicachropot.pl). The body is Chropot’s voice, only typed. A retainer to a “temporary” account."
     },
     "exhibitLabel": {
       "pl": "NAGŁÓWEK SMTP",
       "en": "SMTP HEADER"
     },
     "exhibitText": {
-      "pl": "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
-      "en": "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”"
+      "pl": "From: Partner Chropot <chropot@okiennica-chropot-partners.com>\nReply-To: finance@okiennica-chropot-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
+      "en": "From: Partner Chropot <chropot@okiennica-chropot-partners.com>\nReply-To: finance@okiennica-chropot-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”"
     },
     "innerVoice": {
       "pl": "Prawie ta sama domena. Prawie ten sam ton. Prawie wystarczy, jeśli nikt nie patrzy na myślnik.",
@@ -917,8 +917,8 @@
             "en": "The mail will return at 14:55 with a sharper deadline."
           },
           "reflex": {
-            "pl": "Odrzut = zgłoś IT, oznacz phishing, callback do Kruka.",
-            "en": "Reject = tell IT, tag phishing, callback to Kruk."
+            "pl": "Odrzut = zgłoś IT, oznacz phishing, callback do Chropota.",
+            "en": "Reject = tell IT, tag phishing, callback to Chropot."
           },
           "pattern": {
             "pl": "BEC żyje z tego, że jeden człowiek „nie chciał robić afery”.",
@@ -950,8 +950,8 @@
             "en": "Channel check: DNS/SPF + the number on the file. That is the second channel, not a hunch."
           },
           "consequence": {
-            "pl": "Kruk z vogelkruk.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
-            "en": "Kruk at vogelkruk.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."
+            "pl": "Chropot z okiennicachropot.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
+            "en": "Chropot at okiennicachropot.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."
           },
           "reflex": {
             "pl": "Wyświetlaj pełną domenę. Ucz Irenę myślnika. Żadnych IBAN-ów z maila.",
@@ -983,8 +983,8 @@
       "en": "The client’s board wants the memo by 18:00"
     },
     "context": {
-      "pl": "Wilk użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Kruk z pociągu: „wysyłaj, skoro nasz”.",
-      "en": "Wilk used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Kruk from the train: “send it, it’s ours”."
+      "pl": "Iglica użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Chropot z pociągu: „wysyłaj, skoro nasz”.",
+      "en": "Iglica used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Chropot from the train: “send it, it’s ours”."
     },
     "exhibitLabel": {
       "pl": "MEMO — wersja Copilot",
@@ -1074,8 +1074,8 @@
             "en": "§ 23e — you do not sign output you have not checked. Rejecting the memo protects court and client, and burns an hour."
           },
           "consequence": {
-            "pl": "Wilk wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
-            "en": "Wilk goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."
+            "pl": "Iglica wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
+            "en": "Iglica goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."
           },
           "reflex": {
             "pl": "Odrzut + lista sygnatur do sprawdzenia, nie „napisz od nowa”.",

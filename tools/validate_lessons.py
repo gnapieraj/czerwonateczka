@@ -11,6 +11,9 @@ assert [x["id"] for x in lessons if x["demo"]] == ["01-sygnatura", "03-glos", "0
 assert "Art. 6" in blob or "art. 6" in blob
 assert "DKN.5131.31.2022" in blob
 assert "ust. 1 lit. f" in blob or "5(1)(f)" in blob
+for banned in ("Vogel", "Kruk", "Wilk", "Królewska 16", "vogelkruk"):
+    assert banned not in blob, banned
+assert "Iglica" in blob and "Chropot" in blob
 sygn = next(x for x in lessons if x["id"] == "01-sygnatura")
 stamp = next(c for c in sygn["choices"] if c["kind"] == "stamp")
 assert stamp["delta"]["sad"] == -45

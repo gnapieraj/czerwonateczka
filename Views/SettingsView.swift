@@ -38,8 +38,8 @@ struct SettingsView: View {
 
                     Text(Copy.s(
                         store.language,
-                        pl: "Offline. Bez konta. Bez analityki. iPad 9 i iPhone SE 3 — bez Apple Intelligence, bez generatora obrazów w urządzeniu.",
-                        en: "Offline. No account. No analytics. iPad 9 and iPhone SE 3 — no Apple Intelligence, no on-device image generator."
+                        pl: "Offline. Bez konta. Bez analityki. Generator obrazów siedzi na Mac Studio, nie na iPadzie.",
+                        en: "Offline. No account. No analytics. The image generator sits on the Mac Studio, not on the iPad."
                     ))
                     .font(Typeface.body(15))
                     .foregroundStyle(Noir.paper)
@@ -76,8 +76,8 @@ struct VisualBibleView: View {
 
                     Text(Copy.s(
                         store.language,
-                        pl: "Spójność postaci to ten sam plik PNG w każdej teczce — nie nowy prompt. Lokalny model (Mac Studio, ComfyUI / Flux) wolno użyć raz, offline, z img2img tej biblii. iPad 9 / SE 3 nie utrzymują tożsamości Sin City.",
-                        en: "Character lock is the same PNG in every file — not a new prompt. A local model (Mac Studio, ComfyUI / Flux) may be used once, offline, img2img against this bible. iPad 9 / SE 3 will not hold a Sin City identity."
+                        pl: "Spójność postaci to ten sam plik w każdej teczce — nie nowy prompt. Grafikę dopina lokalny model na Mac Studio M2 Ultra (mflux / Flux, 128 GB), offline, img2img z World/bible. iPad 9 i SE 3 nie generują obrazów.",
+                        en: "Character lock is the same file in every dossier — not a new prompt. Art is finished on the Mac Studio M2 Ultra (mflux / Flux, 128 GB), offline, img2img from World/bible. iPad 9 and SE 3 do not generate images."
                     ))
                     .font(Typeface.body(16))
                     .foregroundStyle(Noir.paper)
@@ -128,9 +128,9 @@ struct VisualBibleView: View {
         switch person {
         case .mecenas:
             return Copy.s(store.language, pl: "Gracz. Nigdy pełna twarz. Sygnet, pieczęć, żaluzja.", en: "The player. Never a full face. Signet, seal, blinds.")
-        case .wilk:
+        case .iglica:
             return Copy.s(store.language, pl: "Okrągłe okulary, rozczochrane włosy, nerwowy. Apelacja, prompt, memo.", en: "Round glasses, messy hair, nervous. Appeal, prompt, memo.")
-        case .kruk:
+        case .chropot:
             return Copy.s(store.language, pl: "Pociąg PKP, płaszcz, bilet czerwony. Presja z drugiego panelu.", en: "PKP train, overcoat, red ticket. Pressure from the second panel.")
         case .irena:
             return Copy.s(store.language, pl: "Kok, łańcuszek okularów w czerwieni. USB, HR, sekretariat.", en: "Bun, red glasses chain. USB, HR, secretariat.")

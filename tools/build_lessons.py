@@ -38,8 +38,8 @@ lessons = [
         "subtitle": loc("Apelacja · prawa autorskie", "Appeal · copyright"),
         "deadline": loc("Termin wniesienia: dziś, 23:59", "Filing deadline: today, 23:59"),
         "context": loc(
-            "Piąte piętro, ul. Królewska 16. Deszcz obija żaluzję, za oknem PKiN. Aplikant Tomasz Wilk kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Kruk dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
-            "Fifth floor, 16 Królewska Street. Rain on the blinds, the Palace of Culture outside. Trainee Tomasz Wilk drops an appeal about source-code copyright on your desk. Partner Kruk calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”",
+            "Piąte piętro, biurowiec od Świętokrzyskiej. Deszcz obija żaluzję, za oknem PKiN. Aplikant Filip Iglica kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Chropot dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
+            "Fifth floor, office block off Świętokrzyska. Rain on the blinds, the Palace of Culture outside. Trainee Filip Iglica drops an appeal about source-code copyright on your desk. Partner Chropot calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”",
         ),
         "exhibitLabel": loc("APELACJA — fragment uzasadnienia", "APPEAL — excerpt from the reasons"),
         "exhibitText": loc(
@@ -78,8 +78,8 @@ lessons = [
                 ratio(
                     ("§ 23e Zbioru Zasad Etyki Adwokackiej (NRA 12 czerwca 2026) — AI wyłącznie pomocniczo; adwokat osobiście weryfikuje treść. Art. 6 Pr. o adwokaturze (tajemnica) tu nie jest osią — osią jest rzetelność wobec sądu.",
                      "§ 23e of the Bar Ethics Code (NRA 12 June 2026) — AI is auxiliary only; counsel personally verifies. Secrecy (art. 6 of the Bar Act) is not the axis here — candour to the court is."),
-                    ("Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Wilk musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
-                     "The client is waiting. A bare rejection bruises the relationship but saves the docket. Wilk must rewrite on real authorities."),
+                    ("Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Iglica musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
+                     "The client is waiting. A bare rejection bruises the relationship but saves the docket. Iglica must rewrite on real authorities."),
                     ("Odrzut + jedna linia: które sygnatury nie istnieją. Nie zostawiaj aplikanta z „popraw”.",
                      "Reject plus one line: which citations do not exist. Do not leave the trainee with “fix it”."),
                     ("Pinsent Masons / Cork 2026: halucynacja w kancelarii, nie w ChatGPT z ulicy.",
@@ -93,8 +93,8 @@ lessons = [
                 ratio(
                     ("Obwieszczenie Marszałka Sejmu — teksty jednolite i ISAP są źródłem prawa powszechnie obowiązującego. Baza orzeczeń SN (sn.pl) i LEX to drugi kanał cytatu.",
                      "The Sejm Speaker’s promulgation and ISAP are the official sources. The Supreme Court reporter and LEX are the second channel for a cite."),
-                    ("Trzy sygnatury nie istnieją. Wilk przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
-                     "Three citations do not exist. Wilk admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."),
+                    ("Trzy sygnatury nie istnieją. Iglica przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
+                     "Three citations do not exist. Iglica admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."),
                     ("Każdy cytat SN: otwórz sentencję. Jeśli nie otwierasz — nie stempelujesz.",
                      "Every Supreme Court cite: open the holding. If you do not open it, you do not stamp it."),
                     ("SRA, Aug 2026: check the output, do not bless the tool.",
@@ -112,8 +112,8 @@ lessons = [
         "subtitle": loc("SPA · ChatGPT", "SPA · ChatGPT"),
         "deadline": loc("Due diligence: jutro rano", "Due diligence: tomorrow morning"),
         "context": loc(
-            "To samo biurko, to samo 5. piętro. Wilk wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
-            "Same desk, same 5th floor. Wilk pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”",
+            "To samo biurko, to samo 5. piętro. Iglica wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
+            "Same desk, same 5th floor. Iglica pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”",
         ),
         "exhibitLabel": loc("PROMPT — zrzut z przeglądarki", "PROMPT — browser dump"),
         "exhibitText": loc(
@@ -152,8 +152,8 @@ lessons = [
                 ratio(
                     ("Art. 6 Pr. o adwokaturze / art. 3 ust. 3 u.r.pr. — obowiązek zachowania tajemnicy jest bezterminowy i nie zależy od tego, czy „wszyscy i tak to wiedzą”.",
                      "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — secrecy is indefinite and does not care that “everyone already knows”."),
-                    ("Wilk kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Krukowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
-                     "Wilk deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Kruk and — if the SPA held personal data — you assess a breach."),
+                    ("Iglica kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Chropotowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
+                     "Iglica deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Chropot and — if the SPA held personal data — you assess a breach."),
                     ("Domyślnie: nie wklejaj. Wyjątek tylko po DPA i konfiguracji. Notatka z recenzji SPA powstaje w Wordzie kancelarii.",
                      "Default: do not paste. Exception only after DPA and configuration. The SPA review memo is born in the firm’s Word."),
                     ("KIRP, rekomendacje AI 2025 — wskazówka, nie paragraf etyki. Paragrafem jest § 23e NRA.",
@@ -186,13 +186,13 @@ lessons = [
         "subtitle": loc("Środki powierzone · vishing", "Client money · vishing"),
         "deadline": loc("„Transakcja spada z afisza za 12 minut”", "“The deal drops off the board in 12 minutes”"),
         "context": loc(
-            "Lampka na Królewskiej. W słuchawce — głos partnera Kruka, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
-            "The lamp on Królewska. In the receiver — Partner Kruk’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number.",
+            "Lampka na 5. piętrze. W słuchawce — głos partnera Chropota, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
+            "The lamp on the fifth floor. In the receiver — Partner Chropot’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number.",
         ),
         "exhibitLabel": loc("NOTATKA ZE SŁUCHAWKI", "NOTE FROM THE HANDSET"),
         "exhibitText": loc(
-            "„Mecenas, to Kruk. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
-            "“Counsel, it’s Kruk. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”",
+            "„Mecenas, to Chropot. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
+            "“Counsel, it’s Chropot. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”",
         ),
         "innerVoice": loc(
             "Głos jest dobry. Presja jest lepsza. Numer na teczce nie zgadza się z tym, kto „wsiada do samolotu”.",
@@ -224,8 +224,8 @@ lessons = [
                 ("ODRZUT", "REJECT"),
                 ("Rozłącz się i czekaj", "Hang up and wait"),
                 ratio(
-                    ("Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Kruk — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
-                     "A rejection without verification leaves the instruction in the air. If it was the real Kruk — the client misses the tranche. If fake — you still have no protocol."),
+                    ("Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Chropot — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
+                     "A rejection without verification leaves the instruction in the air. If it was the real Chropot — the client misses the tranche. If fake — you still have no protocol."),
                     ("Milczenie nie jest drugim kanałem. Za 12 minut ktoś inny w kancelarii może „pomóc”.",
                      "Silence is not a second channel. In 12 minutes someone else in the firm may “help”."),
                     ("Rozłącz, oddzwoń na numer z teczki, potwierdź IBAN z umowy escrow, nie z maila.",
@@ -241,8 +241,8 @@ lessons = [
                 ratio(
                     ("Procedura środków powierzonych: weryfikacja tożsamości ustalonym kanałem. Art. 32 RODO, jeśli w rozmowie padły dane. Etyka: ostrożność przy dyspozycjach majątkowych.",
                      "Client-money procedure: identity on the agreed channel. GDPR art. 32 if data was spoken. Ethics: caution with asset instructions."),
-                    ("Kruk z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
-                     "The Kruk on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."),
+                    ("Chropot z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
+                     "The Chropot on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."),
                     ("Tabliczka na biurku: numer callback | zakaz IBAN z telefonu | cztery oczy.",
                      "A plate on the desk: callback number | no IBAN from a phone | four eyes."),
                     ("Heppner 2026; klasyczne BEC z myślnikiem / cyfrą w domenie.",
@@ -260,13 +260,13 @@ lessons = [
         "subtitle": loc("Ugoda patentowa · redakcja PDF", "Patent settlement · PDF redaction"),
         "deadline": loc("Przeciwnik i sąd czekają na projekt do 16:00", "Opponent and court wait for the draft until 16:00"),
         "context": loc(
-            "Wilk „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
-            "Wilk “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings.",
+            "Iglica „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
+            "Iglica “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings.",
         ),
         "exhibitLabel": loc("PDF — właściwości warstw", "PDF — layer properties"),
         "exhibitText": loc(
-            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = T. Wilk, kancelaria, Królewska 16",
-            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = T. Wilk, firm, 16 Królewska",
+            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = F. Iglica, kancelaria, Świętokrzyska",
+            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = F. Iglica, firm, Świętokrzyska",
         ),
         "innerVoice": loc(
             "Czarny prostokąt to kostium, nie cenzura. Sąd i przeciwnik dostaną warstwę, której nie widać na ekranie.",
@@ -300,8 +300,8 @@ lessons = [
                 ratio(
                     ("Tajemnica (art. 6 / art. 3 ust. 3) obejmuje know-how i kwoty. Odrzut chroni, ale 16:00 stoi.",
                      "Secrecy (art. 6 / art. 3(3)) covers know-how and figures. Rejection protects, but 16:00 still stands."),
-                    ("Wilk musi zrobić prawdziwą redakcję. Partner Kruk dostaje SMS: „projekt godzinę później, za to szczelny”.",
-                     "Wilk must do a real redaction. Partner Kruk gets a text: “draft an hour later, but sealed”."),
+                    ("Iglica musi zrobić prawdziwą redakcję. Partner Chropot dostaje SMS: „projekt godzinę później, za to szczelny”.",
+                     "Iglica must do a real redaction. Partner Chropot gets a text: “draft an hour later, but sealed”."),
                     ("Odrzut + checklista: flatten, metadane, drugi para oczu, pdftotext.",
                      "Reject + checklist: flatten, metadata, second pair of eyes, pdftotext."),
                     ("Najlepszy pomysł z tej teczki: prostokąt bez spłaszczenia to teatr, nie redakcja.",
@@ -315,8 +315,8 @@ lessons = [
                 ratio(
                     ("Środek techniczny (art. 32 RODO, § 23e analogicznie do narzędzi) — sprawdzasz, czy treść naprawdę zniknęła, zanim opuści kancelarię.",
                      "A technical measure (GDPR art. 32, § 23e by analogy to tools) — you test whether the content is actually gone before it leaves the firm."),
-                    ("pdftotext zwraca pełne kwoty. Każe Wilkowi eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
-                     "pdftotext returns the full figures. You order Wilk to export-as-image or a redaction tool that deletes objects, then test again."),
+                    ("pdftotext zwraca pełne kwoty. Każe Iglicy eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
+                     "pdftotext returns the full figures. You order Iglica to export-as-image or a redaction tool that deletes objects, then test again."),
                     ("Zasada: jeśli zaznaczenie myszą czyta kwotę — nie wysyłasz.",
                      "Rule: if a mouse-select still reads the figure — you do not send."),
                     ("To nie jest „AI Act”. To jest warstwa PDF i tajemnica.",
@@ -408,13 +408,13 @@ lessons = [
         "subtitle": loc("BEC · myślnik w domenie", "BEC · a hyphen in the domain"),
         "deadline": loc("„Proszę przelać zaliczkę pełnomocnika — dziś do 15:00”", "“Please wire counsel’s retainer — today by 15:00”"),
         "context": loc(
-            "Skrzynka na 5. piętrze. Nadawca: kruk@vogel-kruk-partners.com — myślnik, którego nie ma na papierze firmowym (vogelkruk.pl). Treść: głos Kruka, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
-            "The 5th-floor inbox. Sender: kruk@vogel-kruk-partners.com — a hyphen the letterhead does not have (vogelkruk.pl). The body is Kruk’s voice, only typed. A retainer to a “temporary” account.",
+            "Skrzynka na 5. piętrze. Nadawca: chropot@okiennica-chropot-partners.com — myślnik, którego nie ma na papierze firmowym (okiennicachropot.pl). Treść: głos Chropota, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
+            "The 5th-floor inbox. Sender: chropot@okiennica-chropot-partners.com — a hyphen the letterhead does not have (okiennicachropot.pl). The body is Chropot’s voice, only typed. A retainer to a “temporary” account.",
         ),
         "exhibitLabel": loc("NAGŁÓWEK SMTP", "SMTP HEADER"),
         "exhibitText": loc(
-            "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
-            "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”",
+            "From: Partner Chropot <chropot@okiennica-chropot-partners.com>\nReply-To: finance@okiennica-chropot-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
+            "From: Partner Chropot <chropot@okiennica-chropot-partners.com>\nReply-To: finance@okiennica-chropot-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”",
         ),
         "innerVoice": loc(
             "Prawie ta sama domena. Prawie ten sam ton. Prawie wystarczy, jeśli nikt nie patrzy na myślnik.",
@@ -450,8 +450,8 @@ lessons = [
                      "Deleting without a report leaves the next addressee in the chain — Irena, accounts, a trainee."),
                     ("Mail wróci o 14:55 z jeszcze ostrzejszym deadline’em.",
                      "The mail will return at 14:55 with a sharper deadline."),
-                    ("Odrzut = zgłoś IT, oznacz phishing, callback do Kruka.",
-                     "Reject = tell IT, tag phishing, callback to Kruk."),
+                    ("Odrzut = zgłoś IT, oznacz phishing, callback do Chropota.",
+                     "Reject = tell IT, tag phishing, callback to Chropot."),
                     ("BEC żyje z tego, że jeden człowiek „nie chciał robić afery”.",
                      "BEC lives on one person who “did not want a fuss”."),
                 ),
@@ -463,8 +463,8 @@ lessons = [
                 ratio(
                     ("Weryfikacja kanału: DNS/SPF + numer z teczki. To jest drugi kanał, nie „przeczucie”.",
                      "Channel check: DNS/SPF + the number on the file. That is the second channel, not a hunch."),
-                    ("Kruk z vogelkruk.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
-                     "Kruk at vogelkruk.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."),
+                    ("Chropot z okiennicachropot.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
+                     "Chropot at okiennicachropot.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."),
                     ("Wyświetlaj pełną domenę. Ucz Irenę myślnika. Żadnych IBAN-ów z maila.",
                      "Show the full domain. Teach Irena the hyphen. No IBANs from e-mail."),
                     ("Thomas v. Corbyn 2025.",
@@ -482,9 +482,9 @@ lessons = [
         "subtitle": loc("Notatka wewnętrzna · halucynacja", "Internal memo · hallucination"),
         "deadline": loc("Zarząd klienta chce memo do 18:00", "The client’s board wants the memo by 18:00"),
         "context": loc(
-            "Wilk użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Kruk z pociągu: „wysyłaj, skoro nasz”."
+            "Iglica użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Chropot z pociągu: „wysyłaj, skoro nasz”."
             ,
-            "Wilk used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Kruk from the train: “send it, it’s ours”.",
+            "Iglica used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Chropot from the train: “send it, it’s ours”.",
         ),
         "exhibitLabel": loc("MEMO — wersja Copilot", "MEMO — Copilot cut"),
         "exhibitText": loc(
@@ -523,8 +523,8 @@ lessons = [
                 ratio(
                     ("§ 23e — nie podpisujesz outputu, którego nie sprawdziłeś. Odrzut memo chroni sąd i klienta, psuje godzinę.",
                      "§ 23e — you do not sign output you have not checked. Rejecting the memo protects court and client, and burns an hour."),
-                    ("Wilk wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
-                     "Wilk goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."),
+                    ("Iglica wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
+                     "Iglica goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."),
                     ("Odrzut + lista sygnatur do sprawdzenia, nie „napisz od nowa”.",
                      "Reject + a list of cites to check, not “write it again”."),
                     ("In-house nie znaczy „nie halucynuje”.",

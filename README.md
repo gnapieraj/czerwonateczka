@@ -4,9 +4,9 @@ Gra edukacyjna dla adwokatów, radców, sędziów i aplikantów. Offline, PL + E
 
 ## Klimat i miejsce
 
-Sin City: czerń, biel, **tylko krew**. Akcja: **Kancelaria Vogel, Kruk i Wspólnicy, ul. Królewska 16, 5. piętro, Śródmieście, Warszawa**. Za żaluzją PKiN w deszczu.
+Sin City: czerń, biel, **tylko krew**. Akcja (fikcja): **Kancelaria Okiennica, Chropot i Wspólnicy**, 5. piętro, biurowiec od Świętokrzyskiej, Śródmieście. Za żaluzją PKiN w deszczu. Nazwy i adres nie wskazują prawdziwej kancelarii.
 
-Warstwa komiksowa to **bundlowane PNG** (obsada + biuro), nie generator na iPadzie. iPad 9 (A13) i iPhone SE 3 nie utrzymają tożsamości postaci. Lokalny model (Mac Studio, ComfyUI / Flux) — tylko offline, raz, img2img z `World/VisualBible.md`.
+Warstwa komiksowa to **bundlowane assety**. Generator obrazów: **Mac Studio M2 Ultra 128 GB**, skrypt `tools/macos-studio/generate_noir.py` (mflux / Flux, MLX, offline, img2img z `World/bible/`). iPad tylko odtwarza gotowe pliki.
 
 ## Uruchomienie (Mac Studio, Xcode 26)
 
@@ -30,3 +30,5 @@ python3 tools/validate_lessons.py
 ```
 
 Na Macu: ⌘U (`LessonPackTests`).
+
+Grafika (tylko Studio): `python3 tools/macos-studio/generate_noir.py --smoke`

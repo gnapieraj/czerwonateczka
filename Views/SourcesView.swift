@@ -42,8 +42,8 @@ struct SourcesView: View {
 
                     Text(Copy.s(
                         store.language,
-                        pl: "Gra nie jest poradą prawną. Kancelaria i osoby w grze są fikcyjne. Cytaty ustawowe mają być prawdziwe.",
-                        en: "This is not legal advice. The firm and people in the game are fictional. The statutory citations are meant to be real."
+                        pl: "Gra nie jest poradą prawną. Kancelaria Okiennica, Chropot i Wspólnicy oraz osoby w grze są fikcyjne. Cytaty ustawowe mają być prawdziwe.",
+                        en: "This is not legal advice. Okiennica, Chropot & Partners and the people in the game are fictional. The statutory citations are meant to be real."
                     ))
                     .font(Typeface.body(15))
                     .foregroundStyle(Noir.paper)

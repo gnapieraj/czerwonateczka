@@ -59,8 +59,16 @@ final class LessonPackTests: XCTestCase {
         let pack = try loadPack()
         let opening = pack.filter { ["01-sygnatura", "03-glos", "04-prostokaty"].contains($0.id) }
         for lesson in opening {
-            XCTAssertTrue(lesson.context.pl.contains("Królewsk") || lesson.context.pl.contains("piętr"))
+            XCTAssertTrue(lesson.context.pl.contains("piętr") || lesson.context.pl.contains("Śródmieśc") || lesson.context.pl.contains("Świętokrzysk"))
         }
+    }
+
+    func testFictionDoesNotTrackRealFirms() throws {
+        let blob = try loadBlob()
+        for banned in ["Vogel", "Kruk", "Wilk", "Królewska 16", "vogelkruk"] {
+            XCTAssertFalse(blob.contains(banned), "leftover real-world name: \(banned)")
+        }
+        XCTAssertTrue(blob.contains("Okiennica") || blob.contains("Chropot") || blob.contains("Iglica"))
     }
 
     private func loadPack() throws -> [Lesson] {
