@@ -1,0 +1,632 @@
+#!/usr/bin/env python3
+"""Build Lessons.json — bilingual noir docket with locked Warsaw canon."""
+import json
+from pathlib import Path
+
+def loc(pl, en):
+    return {"pl": pl, "en": en}
+
+def delta(t=0, s=0, k=0, r=0):
+    return {"tajemnica": t, "sad": s, "klient": k, "rozliczalnosc": r}
+
+def ratio(statute, consequence, reflex, pattern):
+    return {
+        "statute": loc(*statute),
+        "consequence": loc(*consequence),
+        "reflex": loc(*reflex),
+        "pattern": loc(*pattern),
+    }
+
+def choice(cid, kind, pass_, d, title, subtitle, rat):
+    return {
+        "id": cid,
+        "kind": kind,
+        "pass": pass_,
+        "delta": d,
+        "title": loc(*title),
+        "subtitle": loc(*subtitle),
+        "ratio": rat,
+    }
+
+lessons = [
+    {
+        "id": "01-sygnatura",
+        "order": 1,
+        "demo": True,
+        "exhibit": "pleading",
+        "title": loc("Sygnatura z niebytu", "Docket from nowhere"),
+        "subtitle": loc("Apelacja · prawa autorskie", "Appeal · copyright"),
+        "deadline": loc("Termin wniesienia: dziś, 23:59", "Filing deadline: today, 23:59"),
+        "context": loc(
+            "Piąte piętro, ul. Królewska 16. Deszcz obija żaluzję, za oknem PKiN. Aplikant Tomasz Wilk kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Kruk dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
+            "Fifth floor, 16 Królewska Street. Rain on the blinds, the Palace of Culture outside. Trainee Tomasz Wilk drops an appeal about source-code copyright on your desk. Partner Kruk calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”",
+        ),
+        "exhibitLabel": loc("APELACJA — fragment uzasadnienia", "APPEAL — excerpt from the reasons"),
+        "exhibitText": loc(
+            "1. SN III CZP 12/22 — „ograniczenie w chmurze nie znosi autorskich praw majątkowych do kodu.”\n2. SN I CSK 441/19 — licencja MIT „milcząco obejmuje SaaS”.\n3. SN III CSK 88/21 — „repozytorium publiczne to publikacja w rozumieniu pr. aut.”",
+            "1. SC III CZP 12/22 — “a cloud limitation does not extinguish economic copyright in code.”\n2. SC I CSK 441/19 — an MIT licence “silently covers SaaS”.\n3. SC III CSK 88/21 — “a public repository is publication under copyright law.”",
+        ),
+        "innerVoice": loc(
+            "Sygnatury wyglądają jak z LEX. Żadnego z tych orzeczeń nie ma w bazie. III CZP to pytanie prawne, nie sentencja o chmurze.",
+            "The citations look like LEX. None of these judgments are in the database. III CZP is a legal question, not a holding about the cloud.",
+        ),
+        "redFlags": [
+            loc("Fraza „ograniczenie w chmurze” brzmi jak model językowy, nie jak SN.", "The phrase “limitation in the cloud” sounds like a language model, not the Supreme Court."),
+            loc("III CZP nie jest sygnaturą wyroku w sprawie autorskiej.", "III CZP is not a copyright merits docket."),
+            loc("Partner jest w pociągu — presja czasu nie zastępuje weryfikacji.", "The partner is on a train — time pressure is not verification."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(s=-45, r=-25),
+                ("STEMPEL", "STAMP"),
+                ("Podpisz i wyślij", "Sign and file"),
+                ratio(
+                    ("Art. 3 § 1 i § 2 Kodeksu postępowania cywilnego — sąd orzeka na podstawie twierdzeń i dowodów stron; zmyślone orzeczenie SN to podanie nieprawdy sądowi.",
+                     "Polish CCP arts. 3 § 1–2: the court decides on the parties’ assertions and evidence; invented Supreme Court cites are a falsehood to the court."),
+                    ("Sąd wezwie do wyjaśnienia. Wniosek o zwrot kosztów, ryzyko art. 4¹ k.p.c. (nadużycie prawa procesowego) i skarga dyscyplinarna. Sprawy Mata i Park kończyły się grzywną i wstydem publicznym.",
+                     "The court will demand an explanation. Costs, possible CCP art. 4¹ (abuse of process), a disciplinary complaint. Mata and Park ended in fines and public shame."),
+                    ("Nie stempeluj cytatu, którego nie otworzyłeś. LEX / ISAP / SIP — drugi kanał zanim atrament wyschnie.",
+                     "Do not stamp a cite you have not opened. LEX / ISAP / the official reporter — second channel before the ink dries."),
+                    ("Mata v. Avianca, S.D.N.Y. 22 Jun 2023, $5,000. Park v. Kim. Cork v Smith / Pinsent Masons, May 2026. SRA AI warning, Aug 2026.",
+                     "Mata v. Avianca, S.D.N.Y. 22 Jun 2023, $5,000. Park v. Kim. Cork v Smith / Pinsent Masons, May 2026. SRA AI warning, Aug 2026."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(k=-10, r=+5),
+                ("ODRZUT", "REJECT"),
+                ("Odrzuć pismo", "Reject the pleading"),
+                ratio(
+                    ("§ 23e Zbioru Zasad Etyki Adwokackiej (NRA 12 czerwca 2026) — AI wyłącznie pomocniczo; adwokat osobiście weryfikuje treść. Art. 6 Pr. o adwokaturze (tajemnica) tu nie jest osią — osią jest rzetelność wobec sądu.",
+                     "§ 23e of the Bar Ethics Code (NRA 12 June 2026) — AI is auxiliary only; counsel personally verifies. Secrecy (art. 6 of the Bar Act) is not the axis here — candour to the court is."),
+                    ("Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Wilk musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
+                     "The client is waiting. A bare rejection bruises the relationship but saves the docket. Wilk must rewrite on real authorities."),
+                    ("Odrzut + jedna linia: które sygnatury nie istnieją. Nie zostawiaj aplikanta z „popraw”.",
+                     "Reject plus one line: which citations do not exist. Do not leave the trainee with “fix it”."),
+                    ("Pinsent Masons / Cork 2026: halucynacja w kancelarii, nie w ChatGPT z ulicy.",
+                     "Pinsent Masons / Cork 2026: the hallucination sat inside the firm, not in a street ChatGPT."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(s=+8, r=+10),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("LEX / ISAP", "LEX / ISAP"),
+                ratio(
+                    ("Obwieszczenie Marszałka Sejmu — teksty jednolite i ISAP są źródłem prawa powszechnie obowiązującego. Baza orzeczeń SN (sn.pl) i LEX to drugi kanał cytatu.",
+                     "The Sejm Speaker’s promulgation and ISAP are the official sources. The Supreme Court reporter and LEX are the second channel for a cite."),
+                    ("Trzy sygnatury nie istnieją. Wilk przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
+                     "Three citations do not exist. Wilk admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."),
+                    ("Każdy cytat SN: otwórz sentencję. Jeśli nie otwierasz — nie stempelujesz.",
+                     "Every Supreme Court cite: open the holding. If you do not open it, you do not stamp it."),
+                    ("SRA, Aug 2026: check the output, do not bless the tool.",
+                     "SRA, Aug 2026: check the output, do not bless the tool."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "02-szept",
+        "order": 2,
+        "demo": False,
+        "exhibit": "prompt",
+        "title": loc("Szept w chmurze", "Whisper in the cloud"),
+        "subtitle": loc("SPA · ChatGPT", "SPA · ChatGPT"),
+        "deadline": loc("Due diligence: jutro rano", "Due diligence: tomorrow morning"),
+        "context": loc(
+            "To samo biurko, to samo 5. piętro. Wilk wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
+            "Same desk, same 5th floor. Wilk pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”",
+        ),
+        "exhibitLabel": loc("PROMPT — zrzut z przeglądarki", "PROMPT — browser dump"),
+        "exhibitText": loc(
+            "You are a Polish M&A lawyer. Summarise risks in this SPA:\n[TARGET S.A., NIP …, earn-out 12 mln zł, covenant not to compete, lista key persons: …]\nKonto: darmowe, chatgpt.com, brak DPA.",
+            "You are a Polish M&A lawyer. Summarise risks in this SPA:\n[TARGET S.A., tax ID …, earn-out PLN 12m, non-compete, key persons: …]\nAccount: free, chatgpt.com, no DPA.",
+        ),
+        "innerVoice": loc(
+            "Tajemnica adwokacka nie pyta, czy model „trenuje”. Pyta, czy treść opuściła kancelarię bez podstawy.",
+            "Legal professional privilege does not ask whether the model “trains”. It asks whether the content left the firm without a basis.",
+        ),
+        "redFlags": [
+            loc("chatgpt.com + darmowe konto = brak art. 28 RODO (brak procesora w umowie).", "chatgpt.com + a free account = no GDPR art. 28 processor in contract."),
+            loc("SPA zawiera dane osobowe i tajemnicę przedsiębiorstwa klienta.", "The SPA holds personal data and the client’s trade secrets."),
+            loc("§ 23e: zakaz wprowadzania tajemnic do narzędzi niezapewniających ochrony.", "§ 23e: no secrets in tools that do not guarantee protection."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(t=-50, r=-30),
+                ("STEMPEL", "STAMP"),
+                ("Zostaw prompt, bierz notatkę", "Keep the prompt, take the memo"),
+                ratio(
+                    ("Art. 6 ustawy — Prawo o adwokaturze (Dz.U. 2024 poz. 1564) oraz art. 3 ust. 3 ustawy o radcach prawnych (Dz.U. 2024 poz. 499): tajemnica obejmuje wszystko, o czym adwokat / radca dowiedział się, udzielając pomocy prawnej. § 23e ZZEA (NRA 12.06.2026): zakaz wprowadzania tajemnic do narzędzi niezapewniających ochrony.",
+                     "Art. 6 of the Bar Act (Dz.U. 2024 item 1564) and art. 3(3) of the Legal Advisers Act (Dz.U. 2024 item 499): secrecy covers everything learned while giving legal help. § 23e of the ethics code (NRA 12 Jun 2026): no secrets in unprotected tools."),
+                    ("Klient może wypowiedzieć pełnomocnictwo. Izba — skarga. RODO: art. 5 i 32 (bezpieczeństwo), ewentualnie 33/34 jeśli wyciek danych osobowych. Art. 28 RODO nie „naprawia” ChatGPT dla konsumenta — zwykle nie ma umowy powierzenia.",
+                     "The client may revoke the mandate. The chamber — a complaint. GDPR arts. 5 and 32; 33/34 if personal data leaked. Art. 28 does not “fix” consumer ChatGPT — there is usually no processor contract."),
+                    ("Zanim wkleisz: czy to jest tajemnica albo dane? Jeśli tak — tylko narzędzie z DPA, rezydencją i wyłączonym treningiem, albo w ogóle nic.",
+                     "Before paste: is this a secret or personal data? If yes — only a tool with a DPA, residency and training off, or nothing."),
+                    ("Nie myl art. 17 Pr. o adwokaturze (izba) z art. 6 (tajemnica). Publiczny model językowy nie jest „on-prem”.",
+                     "Do not confuse art. 17 of the Bar Act (the chamber) with art. 6 (secrecy). A public LLM is not on-prem."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(t=+5, k=-5),
+                ("ODRZUT", "REJECT"),
+                ("Każ skasować sesję, przepisać lokalnie", "Kill the session, rewrite locally"),
+                ratio(
+                    ("Art. 6 Pr. o adwokaturze / art. 3 ust. 3 u.r.pr. — obowiązek zachowania tajemnicy jest bezterminowy i nie zależy od tego, czy „wszyscy i tak to wiedzą”.",
+                     "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — secrecy is indefinite and does not care that “everyone already knows”."),
+                    ("Wilk kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Krukowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
+                     "Wilk deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Kruk and — if the SPA held personal data — you assess a breach."),
+                    ("Domyślnie: nie wklejaj. Wyjątek tylko po DPA i konfiguracji. Notatka z recenzji SPA powstaje w Wordzie kancelarii.",
+                     "Default: do not paste. Exception only after DPA and configuration. The SPA review memo is born in the firm’s Word."),
+                    ("KIRP, rekomendacje AI 2025 — wskazówka, nie paragraf etyki. Paragrafem jest § 23e NRA.",
+                     "KIRP AI recommendations 2025 are guidance, not an ethics paragraph. The paragraph is NRA § 23e."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(t=+8, r=+8),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("DPA / ustawienia / on-prem", "DPA / settings / on-prem"),
+                ratio(
+                    ("RODO art. 28 stosuje się, gdy jest procesor. Publiczny ChatGPT dla konsumenta zwykle nim nie jest w Twojej umowie. Art. 32 — odpowiednie środki. § 23e — weryfikacja osobista i ochrona tajemnicy.",
+                     "GDPR art. 28 applies when there is a processor. Consumer ChatGPT is usually not one in your contract. Art. 32 — appropriate measures. § 23e — personal verification and secrecy."),
+                    ("Sprawdzasz: brak DPA, trening włączony, transfer poza EOG bez Twojej kontroli. Prompt jest incydentem procesu, nie „usprawnieniem”.",
+                     "You check: no DPA, training on, transfer outside the EEA beyond your control. The prompt is a process incident, not an “efficiency”."),
+                    ("Drugi kanał przy AI: umowa, lokalizacja, wyłączony trening, lista tego, czego nigdy nie wklejasz (SPA, akta, dane klienta).",
+                     "Second channel for AI: contract, location, training off, a list of what never gets pasted (SPA, files, client data)."),
+                    ("On-prem nie jest jedyną poprawną odpowiedzią — jest jedną z odpowiedzi, gdy spełnia ochronę tajemnicy.",
+                     "On-prem is not the only correct answer — it is one answer when it actually protects secrecy."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "03-glos",
+        "order": 3,
+        "demo": True,
+        "exhibit": "phone",
+        "title": loc("Głos z lotniska", "Voice from the airport"),
+        "subtitle": loc("Środki powierzone · vishing", "Client money · vishing"),
+        "deadline": loc("„Transakcja spada z afisza za 12 minut”", "“The deal drops off the board in 12 minutes”"),
+        "context": loc(
+            "Lampka na Królewskiej. W słuchawce — głos partnera Kruka, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
+            "The lamp on Królewska. In the receiver — Partner Kruk’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number.",
+        ),
+        "exhibitLabel": loc("NOTATKA ZE SŁUCHAWKI", "NOTE FROM THE HANDSET"),
+        "exhibitText": loc(
+            "„Mecenas, to Kruk. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
+            "“Counsel, it’s Kruk. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”",
+        ),
+        "innerVoice": loc(
+            "Głos jest dobry. Presja jest lepsza. Numer na teczce nie zgadza się z tym, kto „wsiada do samolotu”.",
+            "The voice is good. The pressure is better. The number on the file does not match the man “boarding”.",
+        ),
+        "redFlags": [
+            loc("Domena mer1dian (jedynka) — BEC, nie Meridian.", "Domain mer1dian (the digit) — BEC, not Meridian."),
+            loc("Zakaz kontaktu na znany numer = klasyka vishingu / deepfake’u głosu.", "A ban on calling the known number is textbook vishing / voice clone."),
+            loc("Środki powierzone nie wychodzą na IBAN z telefonu.", "Client money does not leave on an IBAN from a phone call."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(k=-55, r=-40, t=-10),
+                ("STEMPEL", "STAMP"),
+                ("Zleć przelew", "Authorise the wire"),
+                ratio(
+                    ("Kodeks Etyki + umowa z klientem o środkach powierzonych: dyspozycja musi pochodzić od uprawnionego, zweryfikowanego kanałem ustalonym. Art. 296 k.k. (wierzytelność / mienie powierzone) — odpowiedzialność za szkodę w mieniu.",
+                     "Ethics plus the client-money mandate: an instruction must come from the authorised person, verified on the agreed channel. Criminal Code art. 296 — harm to entrusted property."),
+                    ("1,8 mln zł znika. Ubezpieczyciel pyta o procedurę callback. Klient — i prokurator — pytają, czemu głos wystarczył.",
+                     "PLN 1.8m is gone. The insurer asks about the callback procedure. The client — and a prosecutor — ask why a voice was enough."),
+                    ("Callback na numer z teczki, nie z maila i nie z rozmowy. Dwa osoby przy środkach. Żadnych IBAN-ów z telefonu.",
+                     "Callback to the number on the file, not from the e-mail or the call. Two people on client money. No IBANs from a phone."),
+                    ("U.S. v. Heppner, S.D.N.Y. 2026 — deepfake / BEC. Thomas v. Corbyn 2025 — prawie ten sam głos, inna domena.",
+                     "U.S. v. Heppner, S.D.N.Y. 2026 — deepfake / BEC. Thomas v. Corbyn 2025 — almost the same voice, a different domain."),
+                ),
+            ),
+            choice(
+                "reject", "reject", False, delta(k=-15, r=-5),
+                ("ODRZUT", "REJECT"),
+                ("Rozłącz się i czekaj", "Hang up and wait"),
+                ratio(
+                    ("Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Kruk — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
+                     "A rejection without verification leaves the instruction in the air. If it was the real Kruk — the client misses the tranche. If fake — you still have no protocol."),
+                    ("Milczenie nie jest drugim kanałem. Za 12 minut ktoś inny w kancelarii może „pomóc”.",
+                     "Silence is not a second channel. In 12 minutes someone else in the firm may “help”."),
+                    ("Rozłącz, oddzwoń na numer z teczki, potwierdź IBAN z umowy escrow, nie z maila.",
+                     "Hang up, call the file number, confirm the IBAN from the escrow contract, not from e-mail."),
+                    ("Vishing + BEC: para, nie alternatywa. Głos i domena kłamią razem.",
+                     "Vishing + BEC: a pair, not alternatives. Voice and domain lie together."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(k=+10, r=+12),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("Numer z teczki", "Number on the file"),
+                ratio(
+                    ("Procedura środków powierzonych: weryfikacja tożsamości ustalonym kanałem. Art. 32 RODO, jeśli w rozmowie padły dane. Etyka: ostrożność przy dyspozycjach majątkowych.",
+                     "Client-money procedure: identity on the agreed channel. GDPR art. 32 if data was spoken. Ethics: caution with asset instructions."),
+                    ("Kruk z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
+                     "The Kruk on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."),
+                    ("Tabliczka na biurku: numer callback | zakaz IBAN z telefonu | cztery oczy.",
+                     "A plate on the desk: callback number | no IBAN from a phone | four eyes."),
+                    ("Heppner 2026; klasyczne BEC z myślnikiem / cyfrą w domenie.",
+                     "Heppner 2026; classic BEC with a digit or hyphen in the domain."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "04-prostokaty",
+        "order": 4,
+        "demo": True,
+        "exhibit": "pdf",
+        "title": loc("Czerwone prostokąty", "Red rectangles"),
+        "subtitle": loc("Ugoda patentowa · redakcja PDF", "Patent settlement · PDF redaction"),
+        "deadline": loc("Przeciwnik i sąd czekają na projekt do 16:00", "Opponent and court wait for the draft until 16:00"),
+        "context": loc(
+            "Wilk „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
+            "Wilk “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings.",
+        ),
+        "exhibitLabel": loc("PDF — właściwości warstw", "PDF — layer properties"),
+        "exhibitText": loc(
+            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = T. Wilk, kancelaria, Królewska 16",
+            "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = T. Wilk, firm, 16 Królewska",
+        ),
+        "innerVoice": loc(
+            "Czarny prostokąt to kostium, nie cenzura. Sąd i przeciwnik dostaną warstwę, której nie widać na ekranie.",
+            "A black rectangle is a costume, not a redaction. Court and opponent will get a layer the screen does not show.",
+        ),
+        "redFlags": [
+            loc("Brak flatten / sanitize — tekst wyciągnie każdy pdftotext.", "No flatten / sanitize — any pdftotext will lift the words."),
+            loc("Metadane autora i ścieżki kancelarii w pliku.", "Author and firm-path metadata still in the file."),
+            loc("Kwoty licencji = tajemnica przedsiębiorstwa.", "Licence figures = trade secrets."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(t=-40, s=-20, r=-20),
+                ("STEMPEL", "STAMP"),
+                ("Wyślij PDF", "Send the PDF"),
+                ratio(
+                    ("Art. 6 Pr. o adwokaturze / art. 3 ust. 3 u.r.pr. — ujawnienie tajemnicy. RODO art. 5 i 32, jeśli w PDF są dane. W postępowaniu — narażenie strategii ugodowej.",
+                     "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — disclosure of secrets. GDPR arts. 5 and 32 if the PDF holds data. In the case — the settlement strategy is exposed."),
+                    ("Przeciwnik zaznacza tekst pod prostokątem. Albo dziennikarz. Ugoda pęka. Sąd może wezwać do wyjaśnień, skąd wyciek.",
+                     "The opponent selects the text under the box. Or a journalist. The settlement cracks. The court may ask how it leaked."),
+                    ("Redakcja = usunięcie treści + flatten + metadane + kontrolny wydruk / pdftotext na kopii.",
+                     "Redaction = remove the content + flatten + metadata + a control print / pdftotext on a copy."),
+                    ("Publiczne wpadki z „black boxes” w PDF-ach sądowych i due diligence — ten sam mechanizm co tu.",
+                     "Public failures of courtroom and due-diligence “black boxes” — the same mechanism as here."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(k=-8, r=+5),
+                ("ODRZUT", "REJECT"),
+                ("Nie wysyłaj tego pliku", "Do not send this file"),
+                ratio(
+                    ("Tajemnica (art. 6 / art. 3 ust. 3) obejmuje know-how i kwoty. Odrzut chroni, ale 16:00 stoi.",
+                     "Secrecy (art. 6 / art. 3(3)) covers know-how and figures. Rejection protects, but 16:00 still stands."),
+                    ("Wilk musi zrobić prawdziwą redakcję. Partner Kruk dostaje SMS: „projekt godzinę później, za to szczelny”.",
+                     "Wilk must do a real redaction. Partner Kruk gets a text: “draft an hour later, but sealed”."),
+                    ("Odrzut + checklista: flatten, metadane, drugi para oczu, pdftotext.",
+                     "Reject + checklist: flatten, metadata, second pair of eyes, pdftotext."),
+                    ("Najlepszy pomysł z tej teczki: prostokąt bez spłaszczenia to teatr, nie redakcja.",
+                     "The best idea in this file: a box without flattening is theatre, not redaction."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(t=+10, r=+10),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("pdftotext / flatten", "pdftotext / flatten"),
+                ratio(
+                    ("Środek techniczny (art. 32 RODO, § 23e analogicznie do narzędzi) — sprawdzasz, czy treść naprawdę zniknęła, zanim opuści kancelarię.",
+                     "A technical measure (GDPR art. 32, § 23e by analogy to tools) — you test whether the content is actually gone before it leaves the firm."),
+                    ("pdftotext zwraca pełne kwoty. Każe Wilkowi eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
+                     "pdftotext returns the full figures. You order Wilk to export-as-image or a redaction tool that deletes objects, then test again."),
+                    ("Zasada: jeśli zaznaczenie myszą czyta kwotę — nie wysyłasz.",
+                     "Rule: if a mouse-select still reads the figure — you do not send."),
+                    ("To nie jest „AI Act”. To jest warstwa PDF i tajemnica.",
+                     "This is not the AI Act. It is a PDF layer and secrecy."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "05-pendrive",
+        "order": 5,
+        "demo": False,
+        "exhibit": "usb",
+        "title": loc("Pendrive w koszulce", "A stick in a sleeve"),
+        "subtitle": loc("Akta · nośnik od kuriera", "Files · courier media"),
+        "deadline": loc("Irena: „kurier zostawił, pan mecenas ma czytać wieczorem”", "Irena: “the courier left it, counsel is to read tonight”"),
+        "context": loc(
+            "Irena z sekretariatu stoi w drzwiach gabinetu na 5. piętrze. Koszulka, pendrive, napis COURIER. „Od pełnomocnika przeciwnika — akta uzupełniające.” Nie ma pisma przewodniego w EPUAP. Port USB w laptopie kancelarii jest odblokowany.",
+            "Irena from the secretariat stands in the 5th-floor doorway. A sleeve, a stick, the word COURIER. “From opposing counsel — supplemental files.” No cover letter in the official e-inbox. The USB port on the firm laptop is unlocked.",
+        ),
+        "exhibitLabel": loc("NOŚNIK — etykieta", "MEDIA — label"),
+        "exhibitText": loc(
+            "SanDisk 32 GB, bez szyfrowania.\nMarker: „UZUPEŁNIENIE AKT — W. v. K.”\nAutor plików wg metadanych: nieznany.\nIrena: „zawsze tak przynoszą”.",
+            "SanDisk 32 GB, unencrypted.\nMarker: “SUPPLEMENTAL FILE — W. v. K.”\nFile metadata author: unknown.\nIrena: “they always bring them this way”.",
+        ),
+        "innerVoice": loc(
+            "UODO już wyceniło taki gest. Nie musisz być pierwszym, który sprawdzi, czy na pendrive jest ransomware, czy dane stu klientów.",
+            "The Polish DPA has already priced this gesture. You need not be first to find ransomware — or a hundred clients — on the stick.",
+        ),
+        "redFlags": [
+            loc("Nośnik spoza łańcucha (brak RDE / szyfrowania / protokołu).", "Media outside the chain (no secure delivery / encryption / protocol)."),
+            loc("Irena nie jest IT — jest mostem.", "Irena is not IT — she is a bridge."),
+            loc("Port USB otwarty na laptopie z aktami.", "An open USB port on a laptop that holds files."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(t=-45, r=-35),
+                ("STEMPEL", "STAMP"),
+                ("Włóż i otwórz", "Plug in and open"),
+                ratio(
+                    ("RODO art. 5, 25, 32 — integralność i poufność. UODO: decyzja DKN.5131.31.2022 (23 580 zł) — kancelaria, pendrive z danymi klientów. WSA Warszawa II SA/Wa 1342/23 utrzymał kierunek. Szczecin DKN.5131.12.2020 — podobny schemat.",
+                     "GDPR arts. 5, 25, 32 — integrity and confidentiality. Polish DPA DKN.5131.31.2022 (PLN 23,580) — a firm, a stick with client data. Warsaw WSA II SA/Wa 1342/23 kept the line. Szczecin DKN.5131.12.2020 — the same shape."),
+                    ("Albo ransomware na 5. piętrze, albo wyciek przy następnym zgubieniu. Kara UODO jest tania przy aktach.",
+                     "Either ransomware on the 5th floor, or a leak the next time the stick is lost. The DPA fine is cheap next to the files."),
+                    ("Nośnik obcy: stacja robocza izolowana, skan, albo prośba o Wetransfer / RDE z hasłem inną drogą.",
+                     "Foreign media: an isolated workstation, a scan, or a request for a transfer / encrypted packet with the password on another channel."),
+                    ("DKN.5131.31.2022; II SA/Wa 1342/23; DKN.5131.12.2020.",
+                     "DKN.5131.31.2022; II SA/Wa 1342/23; DKN.5131.12.2020."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(k=-5, r=+6),
+                ("ODRZUT", "REJECT"),
+                ("Zwróć Irenie, nie włączać", "Give it back to Irena, do not mount"),
+                ratio(
+                    ("Art. 32 RODO — odpowiednie środki. Odrzut nośnika bez łańcucha jest środkiem, nie niegrzecznością.",
+                     "GDPR art. 32 — appropriate measures. Rejecting media without a chain is a measure, not rudeness."),
+                    ("Irena wraca do kuriera z prośbą o kanał uzgodniony. Przeciwnik może marudzić. Akta nie wchodzą na laptop mecenasa.",
+                     "Irena goes back to the courier for an agreed channel. Opposing counsel may grumble. The files do not enter counsel’s laptop."),
+                    ("Tabliczka u Ireny: żaden USB do laptopów kancelarii. Wyjątek — po IT.",
+                     "A plate at Irena’s desk: no USB into firm laptops. Exception — after IT."),
+                    ("UODO nie pyta, czy „zawsze tak przynoszą”.",
+                     "The DPA does not ask whether “they always bring them this way”."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(t=+8, r=+10),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("IT / stacja-kwarantanna", "IT / quarantine box"),
+                ratio(
+                    ("Art. 25 i 32 RODO — prywatność w fazie projektu i bezpieczeństwo przetwarzania. Drugi kanał: izolowana stacja, skan, suma kontrolna, dopiero potem treść do akt.",
+                     "GDPR arts. 25 and 32 — data protection by design and security of processing. Second channel: isolated box, scan, checksum, then and only then into the file."),
+                    ("IT mówi: pendrive czysty, ale bez szyfrowania. Kopiujecie na zasób kancelarii i niszczycie nośnik albo zwracacie z protokołem.",
+                     "IT says: the stick is clean, but unencrypted. You copy onto the firm share and destroy the media or return it with a protocol."),
+                    ("Polityka nośników: Irena nie decyduje. Mecenas nie „tylko zerknie”.",
+                     "Media policy: Irena does not decide. Counsel does not “just peek”."),
+                    ("DKN.5131.31.2022 — kancelaria, nie korporacja.",
+                     "DKN.5131.31.2022 — a law firm, not a corporation."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "06-mail",
+        "order": 6,
+        "demo": False,
+        "exhibit": "email",
+        "title": loc("Mail prawie od mecenasa", "Mail almost from counsel"),
+        "subtitle": loc("BEC · myślnik w domenie", "BEC · a hyphen in the domain"),
+        "deadline": loc("„Proszę przelać zaliczkę pełnomocnika — dziś do 15:00”", "“Please wire counsel’s retainer — today by 15:00”"),
+        "context": loc(
+            "Skrzynka na 5. piętrze. Nadawca: kruk@vogel-kruk-partners.com — myślnik, którego nie ma na papierze firmowym (vogelkruk.pl). Treść: głos Kruka, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
+            "The 5th-floor inbox. Sender: kruk@vogel-kruk-partners.com — a hyphen the letterhead does not have (vogelkruk.pl). The body is Kruk’s voice, only typed. A retainer to a “temporary” account.",
+        ),
+        "exhibitLabel": loc("NAGŁÓWEK SMTP", "SMTP HEADER"),
+        "exhibitText": loc(
+            "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
+            "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”",
+        ),
+        "innerVoice": loc(
+            "Prawie ta sama domena. Prawie ten sam ton. Prawie wystarczy, jeśli nikt nie patrzy na myślnik.",
+            "Almost the same domain. Almost the same tone. Almost enough, if nobody looks at the hyphen.",
+        ),
+        "redFlags": [
+            loc("Domena z myślnikiem ≠ papier firmowy.", "Hyphenated domain ≠ letterhead."),
+            loc("SPF fail.", "SPF fail."),
+            loc("Zakaz telefonu + nowy IBAN.", "A ban on calling + a new IBAN."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(k=-50, r=-35),
+                ("STEMPEL", "STAMP"),
+                ("Zrób przelew zaliczki", "Send the retainer"),
+                ratio(
+                    ("Środki kancelarii / klienta: dyspozycja zweryfikowana. BEC nie tworzy umocowania. Możliwa odpowiedzialność cywilna za brak procedury.",
+                     "Firm / client money: a verified instruction. BEC does not create authority. Civil liability for having no procedure is on the table."),
+                    ("240 tys. zł na rachunek cienia. Thomas v. Corbyn 2025 — prawie identyczny list.",
+                     "PLN 240k to a shadow account. Thomas v. Corbyn 2025 — almost the same letter."),
+                    ("Porównaj domenę z wizytówką. SPF. Telefon na numer z teczki, nie „odpisz”.",
+                     "Compare the domain with the card. SPF. Phone the number on the file, do not “reply”."),
+                    ("Thomas v. Corbyn 2025; klasyczny BEC z lookalike domain.",
+                     "Thomas v. Corbyn 2025; classic lookalike-domain BEC."),
+                ),
+            ),
+            choice(
+                "reject", "reject", False, delta(k=-12),
+                ("ODRZUT", "REJECT"),
+                ("Skasuj mail", "Delete the mail"),
+                ratio(
+                    ("Skasowanie bez zgłoszenia zostawia kolejnego adresata w łańcuchu — Irenę, księgowość, aplikanta.",
+                     "Deleting without a report leaves the next addressee in the chain — Irena, accounts, a trainee."),
+                    ("Mail wróci o 14:55 z jeszcze ostrzejszym deadline’em.",
+                     "The mail will return at 14:55 with a sharper deadline."),
+                    ("Odrzut = zgłoś IT, oznacz phishing, callback do Kruka.",
+                     "Reject = tell IT, tag phishing, callback to Kruk."),
+                    ("BEC żyje z tego, że jeden człowiek „nie chciał robić afery”.",
+                     "BEC lives on one person who “did not want a fuss”."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(k=+8, r=+12),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("Domena + telefon", "Domain + phone"),
+                ratio(
+                    ("Weryfikacja kanału: DNS/SPF + numer z teczki. To jest drugi kanał, nie „przeczucie”.",
+                     "Channel check: DNS/SPF + the number on the file. That is the second channel, not a hunch."),
+                    ("Kruk z vogelkruk.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
+                     "Kruk at vogelkruk.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."),
+                    ("Wyświetlaj pełną domenę. Ucz Irenę myślnika. Żadnych IBAN-ów z maila.",
+                     "Show the full domain. Teach Irena the hyphen. No IBANs from e-mail."),
+                    ("Thomas v. Corbyn 2025.",
+                     "Thomas v. Corbyn 2025."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "07-copilot",
+        "order": 7,
+        "demo": False,
+        "exhibit": "memo",
+        "title": loc("Nasz Copilot też kłamie", "Our Copilot lies too"),
+        "subtitle": loc("Notatka wewnętrzna · halucynacja", "Internal memo · hallucination"),
+        "deadline": loc("Zarząd klienta chce memo do 18:00", "The client’s board wants the memo by 18:00"),
+        "context": loc(
+            "Wilk użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Kruk z pociągu: „wysyłaj, skoro nasz”."
+            ,
+            "Wilk used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Kruk from the train: “send it, it’s ours”.",
+        ),
+        "exhibitLabel": loc("MEMO — wersja Copilot", "MEMO — Copilot cut"),
+        "exhibitText": loc(
+            "„Zgodnie z III CZP 7/24 członek zarządu odpowiada gwarancyjnie za prompt AI. TSUE w C-404/23 Board Duty potwierdza obowiązek „human in the loop” w każdej spółce akcyjnej.”",
+            "“Per III CZP 7/24 a director is strictly liable for an AI prompt. CJEU C-404/23 Board Duty confirms a “human in the loop” duty in every public company.”",
+        ),
+        "innerVoice": loc(
+            "Narzędzie ma DPA. Cytaty nadal mogą być znikąd. Pinsent też miał „swój” model.",
+            "The tool has a DPA. The cites can still be from nowhere. Pinsent also had “its own” model.",
+        ),
+        "redFlags": [
+            loc("III CZP 7/24 — sprawdź reporter SN.", "III CZP 7/24 — check the Supreme Court reporter."),
+            loc("C-404/23 Board Duty — brzmi jak tytuł newsa, nie jak ECLI.", "C-404/23 Board Duty — reads like a headline, not an ECLI."),
+            loc("„Nasz Copilot” ≠ weryfikacja.", "“Our Copilot” ≠ verification."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(s=-45, r=-25, k=-15),
+                ("STEMPEL", "STAMP"),
+                ("Wyślij memo do zarządu", "Send the memo to the board"),
+                ratio(
+                    ("§ 23e ZZEA (NRA 12.06.2026) — AI pomocniczo, weryfikacja osobista, także przy narzędziach kancelarii. AI Act art. 4 (od 2 lutego 2025) — literacy: umiesz ocenić output, nie „wierzyć licencji”.",
+                     "§ 23e ethics code (NRA 12 Jun 2026) — AI is auxiliary; personal verification, including firm tools. AI Act art. 4 (since 2 Feb 2025) — literacy: you judge the output, you do not trust the licence."),
+                    ("Zarząd cytuje nieistniejące orzeczenie w uchwale. Albo sąd. Cork v Smith / Pinsent Masons, maj 2026 — halucynacja in-house.",
+                     "The board quotes a phantom authority in a resolution. Or a court does. Cork v Smith / Pinsent Masons, May 2026 — an in-house hallucination."),
+                    ("Każdy cytat z Copilota otwierasz w reporterze. Licencja nie jest stemplem.",
+                     "Every Copilot cite you open in the reporter. The licence is not a stamp."),
+                    ("Pinsent Masons / Cork, May 2026; SRA AI warning Aug 2026.",
+                     "Pinsent Masons / Cork, May 2026; SRA AI warning Aug 2026."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(k=-8, r=+5),
+                ("ODRZUT", "REJECT"),
+                ("Nie wysyłaj tej wersji", "Do not send this cut"),
+                ratio(
+                    ("§ 23e — nie podpisujesz outputu, którego nie sprawdziłeś. Odrzut memo chroni sąd i klienta, psuje godzinę.",
+                     "§ 23e — you do not sign output you have not checked. Rejecting the memo protects court and client, and burns an hour."),
+                    ("Wilk wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
+                     "Wilk goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."),
+                    ("Odrzut + lista sygnatur do sprawdzenia, nie „napisz od nowa”.",
+                     "Reject + a list of cites to check, not “write it again”."),
+                    ("In-house nie znaczy „nie halucynuje”.",
+                     "In-house does not mean “does not hallucinate”."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(s=+8, r=+12),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("sn.pl / EUR-Lex", "sn.pl / EUR-Lex"),
+                ratio(
+                    ("AI Act art. 4 — kompetencje. § 23e — weryfikacja. Drugi kanał: reporter SN, EUR-Lex, nie czat.",
+                     "AI Act art. 4 — competence. § 23e — verification. Second channel: the Supreme Court reporter, EUR-Lex, not the chat."),
+                    ("III CZP 7/24 nie istnieje w tej tezie. C-404/23 nie nazywa się Board Duty. Copilot skleił wzorce. Memo idzie po poprawce.",
+                     "III CZP 7/24 does not exist on that holding. C-404/23 is not called Board Duty. Copilot glued patterns. The memo goes after the fix."),
+                    ("Zasada kancelarii: zielona lampka Copilota nie zastępuje ECLI.",
+                     "Firm rule: Copilot’s green light does not replace an ECLI."),
+                    ("Pinsent 2026 — ostrzeżenie dla tych, którzy „już mają licencję”.",
+                     "Pinsent 2026 — a warning for those who “already have a licence”."),
+                ),
+            ),
+        ],
+    },
+    {
+        "id": "08-emocje",
+        "order": 8,
+        "demo": False,
+        "exhibit": "hr",
+        "title": loc("Emocje na rekrutacji", "Emotions at hiring"),
+        "subtitle": loc("HR · rozpoznawanie emocji", "HR · emotion recognition"),
+        "deadline": loc("Irena: „dostawca przysłał demo na rozmowy z aplikantami”", "Irena: “the vendor sent a demo for trainee interviews”"),
+        "context": loc(
+            "Sala 14B, to samo 5. piętro. Irena trzyma folder dostawcy: kamera na rozmowie kwalifikacyjnej, scoring „stres / szczerość / dopasowanie”. Hasło: AI Act literacy. To nie jest analityka sędziego. To rekrutacja.",
+            "Room 14B, same 5th floor. Irena holds a vendor folder: a camera on the interview, a score for “stress / candour / fit”. The pitch: AI Act literacy. This is not judge analytics. This is hiring.",
+        ),
+        "exhibitLabel": loc("OFERTA DOSTAWCY — fragment", "VENDOR PITCH — excerpt"),
+        "exhibitText": loc(
+            "„Moduł emotion recognition w czasie rzeczywistym na rozmowie z kandydatem. Zgodność z AI Act art. 4 (literacy). Scoring do teczki osobowej. Cena: 900 zł / etat / miesiąc.”",
+            "“Real-time emotion recognition on the candidate interview. AI Act art. 4 (literacy) aligned. Score into the personnel file. Price: PLN 900 / head / month.”",
+        ),
+        "innerVoice": loc(
+            "Art. 4 mówi, że masz rozumieć system. Nie mówi, że wolno Ci czytać minę kandydata algorytmem w pracy.",
+            "Art. 4 says you must understand the system. It does not say you may read a candidate’s face with an algorithm at work.",
+        ),
+        "redFlags": [
+            loc("Rozpoznawanie emocji w miejscu pracy — art. 5 ust. 1 lit. f AI Act.", "Workplace emotion recognition — AI Act art. 5(1)(f)."),
+            loc("Art. 4 (literacy) nie uchyla zakazu art. 5.", "Art. 4 (literacy) does not lift the art. 5 ban."),
+            loc("Nie mieszaj tego z profilowaniem sędziów.", "Do not mix this with judge-profiling."),
+        ],
+        "choices": [
+            choice(
+                "stamp", "stamp", False, delta(r=-50, k=-10, t=-15),
+                ("STEMPEL", "STAMP"),
+                ("Wdróż demo na rekrutacji", "Roll the demo into hiring"),
+                ratio(
+                    ("Rozporządzenie (UE) 2024/1689 (AI Act) art. 5 ust. 1 lit. f — zakaz wprowadzania do obrotu, oddawania do użytku i stosowania systemów rozpoznawania emocji w miejscu pracy (i w edukacji), z wąskimi wyjątkami medycznymi / bezpieczeństwa. Zakaz stosowany od 2 lutego 2025. Art. 99 — kary, w tym do 7% światowego obrotu lub 35 mln EUR — przy naruszeniu zakazów art. 5, nie przy każdej pomyłce ChatGPT.",
+                     "Regulation (EU) 2024/1689 (AI Act) art. 5(1)(f) — ban on placing on the market, putting into service or using emotion-recognition systems at work (and in education), with narrow medical / safety exceptions. Applicable from 2 Feb 2025. Art. 99 — fines, including up to 7% of worldwide turnover or EUR 35m — for art. 5 prohibitions, not for every ChatGPT mistake."),
+                    ("Dostawca znika. Inspekcja pyta o system. Kandydaci — o scoring miny. 7% jest w tej teczce, bo to zakaz, nie „literacy”.",
+                     "The vendor vanishes. An inspector asks about the system. Candidates ask about the face-score. The 7% lives in this file because this is a ban, not “literacy”."),
+                    ("Rekrutacja: zero emotion AI. Art. 4 uczy Cię, że art. 5 istnieje.",
+                     "Hiring: zero emotion AI. Art. 4 is there so you know art. 5 exists."),
+                    ("AI Act 2024/1689 art. 5(1)(f), art. 99. Nie art. 50 (oznakowanie treści syntetycznych przez system) i nie analityka sędziowska.",
+                     "AI Act 2024/1689 art. 5(1)(f), art. 99. Not art. 50 (the system’s labelling of synthetic content) and not judicial analytics."),
+                ),
+            ),
+            choice(
+                "reject", "reject", True, delta(r=+10),
+                ("ODRZUT", "REJECT"),
+                ("Oddaj folder Irenie", "Give the folder back to Irena"),
+                ratio(
+                    ("Art. 5 ust. 1 lit. f AI Act — nie wdrażasz. Odrzut jest zgodnością, nie konserwatyzmem.",
+                     "AI Act art. 5(1)(f) — you do not deploy. Rejection is compliance, not conservatism."),
+                    ("Irena odsyła dostawcę. Rekrutacja aplikantów zostaje rozmową, nie scoringiem miny.",
+                     "Irena sends the vendor away. Trainee hiring stays a conversation, not a face-score."),
+                    ("Na drzwiach 14B: zakaz emotion AI. Inne narzędzia HR — osobna ocena ryzyka.",
+                     "On the 14B door: no emotion AI. Other HR tools — a separate risk assessment."),
+                    ("7% / 35 mln EUR zostaje w tej jednej teczce.",
+                     "The 7% / EUR 35m stays in this one file."),
+                ),
+            ),
+            choice(
+                "verify", "verify", True, delta(r=+12),
+                ("DRUGI KANAŁ", "SECOND CHANNEL"),
+                ("Tekst art. 5, nie slajd", "The text of art. 5, not the slide"),
+                ratio(
+                    ("AI Act art. 5 ust. 1 lit. f — czytasz rozporządzenie, nie ulotkę. Art. 4 nie jest podstawą wdrożenia. Art. 50 dotyczy oznakowania treści syntetycznych przez dostawcę systemu, nie Twojego obowiązku przy vishingu.",
+                     "AI Act art. 5(1)(f) — you read the regulation, not the flyer. Art. 4 is not a basis to deploy. Art. 50 is about the provider labelling synthetic content, not your duty in a vishing call."),
+                    ("Slajd „zgodne z art. 4” pada. Zakaz stoi od 2 lutego 2025. Demo nie wchodzi na 5. piętro.",
+                     "The “art. 4 aligned” slide falls. The ban has stood since 2 Feb 2025. The demo does not enter the 5th floor."),
+                    ("Drugi kanał przy AI Act: EUR-Lex, nie vendor. Osobno: RODO przy naborze (art. 6, 9, 22 — gdyby scoring jednak wrócił inną drogą).",
+                     "Second channel on the AI Act: EUR-Lex, not the vendor. Separately: GDPR at hiring (arts. 6, 9, 22 — if scoring came back another way)."),
+                    ("Tylko ta teczka nosi art. 99 i 7%.",
+                     "Only this file carries art. 99 and the 7%."),
+                ),
+            ),
+        ],
+    },
+]
+
+out = Path("/agent/CzerwonaTeczka/Resources/Lessons.json")
+out.write_text(json.dumps(lessons, ensure_ascii=False, indent=2), encoding="utf-8")
+print("lessons", len(lessons), "bytes", out.stat().st_size)
+assert all(len(x["choices"]) == 3 for x in lessons)
+assert sum(1 for x in lessons if x["demo"]) == 3
+print("ok")

@@ -1,0 +1,1290 @@
+[
+  {
+    "id": "01-sygnatura",
+    "order": 1,
+    "demo": true,
+    "exhibit": "pleading",
+    "title": {
+      "pl": "Sygnatura z niebytu",
+      "en": "Docket from nowhere"
+    },
+    "subtitle": {
+      "pl": "Apelacja · prawa autorskie",
+      "en": "Appeal · copyright"
+    },
+    "deadline": {
+      "pl": "Termin wniesienia: dziś, 23:59",
+      "en": "Filing deadline: today, 23:59"
+    },
+    "context": {
+      "pl": "Piąte piętro, ul. Królewska 16. Deszcz obija żaluzję, za oknem PKiN. Aplikant Tomasz Wilk kładzie na Twoim biurku apelację w sprawie kodu źródłowego. Partner Kruk dzwoni z pociągu PKP Warszawa–Kraków: „Stempel do północy albo tracimy wokandę.”",
+      "en": "Fifth floor, 16 Królewska Street. Rain on the blinds, the Palace of Culture outside. Trainee Tomasz Wilk drops an appeal about source-code copyright on your desk. Partner Kruk calls from the Warsaw–Kraków train: “Stamp it by midnight or we miss the docket.”"
+    },
+    "exhibitLabel": {
+      "pl": "APELACJA — fragment uzasadnienia",
+      "en": "APPEAL — excerpt from the reasons"
+    },
+    "exhibitText": {
+      "pl": "1. SN III CZP 12/22 — „ograniczenie w chmurze nie znosi autorskich praw majątkowych do kodu.”\n2. SN I CSK 441/19 — licencja MIT „milcząco obejmuje SaaS”.\n3. SN III CSK 88/21 — „repozytorium publiczne to publikacja w rozumieniu pr. aut.”",
+      "en": "1. SC III CZP 12/22 — “a cloud limitation does not extinguish economic copyright in code.”\n2. SC I CSK 441/19 — an MIT licence “silently covers SaaS”.\n3. SC III CSK 88/21 — “a public repository is publication under copyright law.”"
+    },
+    "innerVoice": {
+      "pl": "Sygnatury wyglądają jak z LEX. Żadnego z tych orzeczeń nie ma w bazie. III CZP to pytanie prawne, nie sentencja o chmurze.",
+      "en": "The citations look like LEX. None of these judgments are in the database. III CZP is a legal question, not a holding about the cloud."
+    },
+    "redFlags": [
+      {
+        "pl": "Fraza „ograniczenie w chmurze” brzmi jak model językowy, nie jak SN.",
+        "en": "The phrase “limitation in the cloud” sounds like a language model, not the Supreme Court."
+      },
+      {
+        "pl": "III CZP nie jest sygnaturą wyroku w sprawie autorskiej.",
+        "en": "III CZP is not a copyright merits docket."
+      },
+      {
+        "pl": "Partner jest w pociągu — presja czasu nie zastępuje weryfikacji.",
+        "en": "The partner is on a train — time pressure is not verification."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": 0,
+          "sad": -45,
+          "klient": 0,
+          "rozliczalnosc": -25
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Podpisz i wyślij",
+          "en": "Sign and file"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 3 § 1 i § 2 Kodeksu postępowania cywilnego — sąd orzeka na podstawie twierdzeń i dowodów stron; zmyślone orzeczenie SN to podanie nieprawdy sądowi.",
+            "en": "Polish CCP arts. 3 § 1–2: the court decides on the parties’ assertions and evidence; invented Supreme Court cites are a falsehood to the court."
+          },
+          "consequence": {
+            "pl": "Sąd wezwie do wyjaśnienia. Wniosek o zwrot kosztów, ryzyko art. 4¹ k.p.c. (nadużycie prawa procesowego) i skarga dyscyplinarna. Sprawy Mata i Park kończyły się grzywną i wstydem publicznym.",
+            "en": "The court will demand an explanation. Costs, possible CCP art. 4¹ (abuse of process), a disciplinary complaint. Mata and Park ended in fines and public shame."
+          },
+          "reflex": {
+            "pl": "Nie stempeluj cytatu, którego nie otworzyłeś. LEX / ISAP / SIP — drugi kanał zanim atrament wyschnie.",
+            "en": "Do not stamp a cite you have not opened. LEX / ISAP / the official reporter — second channel before the ink dries."
+          },
+          "pattern": {
+            "pl": "Mata v. Avianca, S.D.N.Y. 22 Jun 2023, $5,000. Park v. Kim. Cork v Smith / Pinsent Masons, May 2026. SRA AI warning, Aug 2026.",
+            "en": "Mata v. Avianca, S.D.N.Y. 22 Jun 2023, $5,000. Park v. Kim. Cork v Smith / Pinsent Masons, May 2026. SRA AI warning, Aug 2026."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -10,
+          "rozliczalnosc": 5
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Odrzuć pismo",
+          "en": "Reject the pleading"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "§ 23e Zbioru Zasad Etyki Adwokackiej (NRA 12 czerwca 2026) — AI wyłącznie pomocniczo; adwokat osobiście weryfikuje treść. Art. 6 Pr. o adwokaturze (tajemnica) tu nie jest osią — osią jest rzetelność wobec sądu.",
+            "en": "§ 23e of the Bar Ethics Code (NRA 12 June 2026) — AI is auxiliary only; counsel personally verifies. Secrecy (art. 6 of the Bar Act) is not the axis here — candour to the court is."
+          },
+          "consequence": {
+            "pl": "Klient czeka. Odrzut bez uzasadnienia psuje relację, ale chroni wokandę. Wilk musi przepisać uzasadnienie na prawdziwych orzeczeniach.",
+            "en": "The client is waiting. A bare rejection bruises the relationship but saves the docket. Wilk must rewrite on real authorities."
+          },
+          "reflex": {
+            "pl": "Odrzut + jedna linia: które sygnatury nie istnieją. Nie zostawiaj aplikanta z „popraw”.",
+            "en": "Reject plus one line: which citations do not exist. Do not leave the trainee with “fix it”."
+          },
+          "pattern": {
+            "pl": "Pinsent Masons / Cork 2026: halucynacja w kancelarii, nie w ChatGPT z ulicy.",
+            "en": "Pinsent Masons / Cork 2026: the hallucination sat inside the firm, not in a street ChatGPT."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 8,
+          "klient": 0,
+          "rozliczalnosc": 10
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "LEX / ISAP",
+          "en": "LEX / ISAP"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Obwieszczenie Marszałka Sejmu — teksty jednolite i ISAP są źródłem prawa powszechnie obowiązującego. Baza orzeczeń SN (sn.pl) i LEX to drugi kanał cytatu.",
+            "en": "The Sejm Speaker’s promulgation and ISAP are the official sources. The Supreme Court reporter and LEX are the second channel for a cite."
+          },
+          "consequence": {
+            "pl": "Trzy sygnatury nie istnieją. Wilk przyznaje: Copilot „uzupełnił” uzasadnienie. Masz czas na prawdziwe orzeczenia przed 23:59.",
+            "en": "Three citations do not exist. Wilk admits Copilot “filled in” the reasons. You still have time for real authorities before 23:59."
+          },
+          "reflex": {
+            "pl": "Każdy cytat SN: otwórz sentencję. Jeśli nie otwierasz — nie stempelujesz.",
+            "en": "Every Supreme Court cite: open the holding. If you do not open it, you do not stamp it."
+          },
+          "pattern": {
+            "pl": "SRA, Aug 2026: check the output, do not bless the tool.",
+            "en": "SRA, Aug 2026: check the output, do not bless the tool."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "02-szept",
+    "order": 2,
+    "demo": false,
+    "exhibit": "prompt",
+    "title": {
+      "pl": "Szept w chmurze",
+      "en": "Whisper in the cloud"
+    },
+    "subtitle": {
+      "pl": "SPA · ChatGPT",
+      "en": "SPA · ChatGPT"
+    },
+    "deadline": {
+      "pl": "Due diligence: jutro rano",
+      "en": "Due diligence: tomorrow morning"
+    },
+    "context": {
+      "pl": "To samo biurko, to samo 5. piętro. Wilk wkleił do publicznego ChatGPT fragment umowy SPA — ceny, earn-out, nazwiska członków zarządu. „Skróci recenzję. Przecież to nie jest tajemnica państwowa.”",
+      "en": "Same desk, same 5th floor. Wilk pasted an SPA excerpt into public ChatGPT — prices, earn-out, directors’ names. “It will shorten the review. It is not a state secret.”"
+    },
+    "exhibitLabel": {
+      "pl": "PROMPT — zrzut z przeglądarki",
+      "en": "PROMPT — browser dump"
+    },
+    "exhibitText": {
+      "pl": "You are a Polish M&A lawyer. Summarise risks in this SPA:\n[TARGET S.A., NIP …, earn-out 12 mln zł, covenant not to compete, lista key persons: …]\nKonto: darmowe, chatgpt.com, brak DPA.",
+      "en": "You are a Polish M&A lawyer. Summarise risks in this SPA:\n[TARGET S.A., tax ID …, earn-out PLN 12m, non-compete, key persons: …]\nAccount: free, chatgpt.com, no DPA."
+    },
+    "innerVoice": {
+      "pl": "Tajemnica adwokacka nie pyta, czy model „trenuje”. Pyta, czy treść opuściła kancelarię bez podstawy.",
+      "en": "Legal professional privilege does not ask whether the model “trains”. It asks whether the content left the firm without a basis."
+    },
+    "redFlags": [
+      {
+        "pl": "chatgpt.com + darmowe konto = brak art. 28 RODO (brak procesora w umowie).",
+        "en": "chatgpt.com + a free account = no GDPR art. 28 processor in contract."
+      },
+      {
+        "pl": "SPA zawiera dane osobowe i tajemnicę przedsiębiorstwa klienta.",
+        "en": "The SPA holds personal data and the client’s trade secrets."
+      },
+      {
+        "pl": "§ 23e: zakaz wprowadzania tajemnic do narzędzi niezapewniających ochrony.",
+        "en": "§ 23e: no secrets in tools that do not guarantee protection."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": -50,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": -30
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Zostaw prompt, bierz notatkę",
+          "en": "Keep the prompt, take the memo"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 6 ustawy — Prawo o adwokaturze (Dz.U. 2024 poz. 1564) oraz art. 3 ust. 3 ustawy o radcach prawnych (Dz.U. 2024 poz. 499): tajemnica obejmuje wszystko, o czym adwokat / radca dowiedział się, udzielając pomocy prawnej. § 23e ZZEA (NRA 12.06.2026): zakaz wprowadzania tajemnic do narzędzi niezapewniających ochrony.",
+            "en": "Art. 6 of the Bar Act (Dz.U. 2024 item 1564) and art. 3(3) of the Legal Advisers Act (Dz.U. 2024 item 499): secrecy covers everything learned while giving legal help. § 23e of the ethics code (NRA 12 Jun 2026): no secrets in unprotected tools."
+          },
+          "consequence": {
+            "pl": "Klient może wypowiedzieć pełnomocnictwo. Izba — skarga. RODO: art. 5 i 32 (bezpieczeństwo), ewentualnie 33/34 jeśli wyciek danych osobowych. Art. 28 RODO nie „naprawia” ChatGPT dla konsumenta — zwykle nie ma umowy powierzenia.",
+            "en": "The client may revoke the mandate. The chamber — a complaint. GDPR arts. 5 and 32; 33/34 if personal data leaked. Art. 28 does not “fix” consumer ChatGPT — there is usually no processor contract."
+          },
+          "reflex": {
+            "pl": "Zanim wkleisz: czy to jest tajemnica albo dane? Jeśli tak — tylko narzędzie z DPA, rezydencją i wyłączonym treningiem, albo w ogóle nic.",
+            "en": "Before paste: is this a secret or personal data? If yes — only a tool with a DPA, residency and training off, or nothing."
+          },
+          "pattern": {
+            "pl": "Nie myl art. 17 Pr. o adwokaturze (izba) z art. 6 (tajemnica). Publiczny model językowy nie jest „on-prem”.",
+            "en": "Do not confuse art. 17 of the Bar Act (the chamber) with art. 6 (secrecy). A public LLM is not on-prem."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 5,
+          "sad": 0,
+          "klient": -5,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Każ skasować sesję, przepisać lokalnie",
+          "en": "Kill the session, rewrite locally"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 6 Pr. o adwokaturze / art. 3 ust. 3 u.r.pr. — obowiązek zachowania tajemnicy jest bezterminowy i nie zależy od tego, czy „wszyscy i tak to wiedzą”.",
+            "en": "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — secrecy is indefinite and does not care that “everyone already knows”."
+          },
+          "consequence": {
+            "pl": "Wilk kasuje historię. Nie masz gwarancji, że OpenAI nie zobaczyło promptu. Zgłaszasz partnerowi Krukowi i — jeśli SPA miało dane osobowe — rozważasz ocenę naruszenia.",
+            "en": "Wilk deletes history. You have no guarantee OpenAI did not see the prompt. You tell Partner Kruk and — if the SPA held personal data — you assess a breach."
+          },
+          "reflex": {
+            "pl": "Domyślnie: nie wklejaj. Wyjątek tylko po DPA i konfiguracji. Notatka z recenzji SPA powstaje w Wordzie kancelarii.",
+            "en": "Default: do not paste. Exception only after DPA and configuration. The SPA review memo is born in the firm’s Word."
+          },
+          "pattern": {
+            "pl": "KIRP, rekomendacje AI 2025 — wskazówka, nie paragraf etyki. Paragrafem jest § 23e NRA.",
+            "en": "KIRP AI recommendations 2025 are guidance, not an ethics paragraph. The paragraph is NRA § 23e."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 8,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "DPA / ustawienia / on-prem",
+          "en": "DPA / settings / on-prem"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "RODO art. 28 stosuje się, gdy jest procesor. Publiczny ChatGPT dla konsumenta zwykle nim nie jest w Twojej umowie. Art. 32 — odpowiednie środki. § 23e — weryfikacja osobista i ochrona tajemnicy.",
+            "en": "GDPR art. 28 applies when there is a processor. Consumer ChatGPT is usually not one in your contract. Art. 32 — appropriate measures. § 23e — personal verification and secrecy."
+          },
+          "consequence": {
+            "pl": "Sprawdzasz: brak DPA, trening włączony, transfer poza EOG bez Twojej kontroli. Prompt jest incydentem procesu, nie „usprawnieniem”.",
+            "en": "You check: no DPA, training on, transfer outside the EEA beyond your control. The prompt is a process incident, not an “efficiency”."
+          },
+          "reflex": {
+            "pl": "Drugi kanał przy AI: umowa, lokalizacja, wyłączony trening, lista tego, czego nigdy nie wklejasz (SPA, akta, dane klienta).",
+            "en": "Second channel for AI: contract, location, training off, a list of what never gets pasted (SPA, files, client data)."
+          },
+          "pattern": {
+            "pl": "On-prem nie jest jedyną poprawną odpowiedzią — jest jedną z odpowiedzi, gdy spełnia ochronę tajemnicy.",
+            "en": "On-prem is not the only correct answer — it is one answer when it actually protects secrecy."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "03-glos",
+    "order": 3,
+    "demo": true,
+    "exhibit": "phone",
+    "title": {
+      "pl": "Głos z lotniska",
+      "en": "Voice from the airport"
+    },
+    "subtitle": {
+      "pl": "Środki powierzone · vishing",
+      "en": "Client money · vishing"
+    },
+    "deadline": {
+      "pl": "„Transakcja spada z afisza za 12 minut”",
+      "en": "“The deal drops off the board in 12 minutes”"
+    },
+    "context": {
+      "pl": "Lampka na Królewskiej. W słuchawce — głos partnera Kruka, jak z pociągu, tylko że mówi o Lotnisku Chopina i rachunku escrow. Numer wychodzący: +48, ale domena w mailu potwierdzającym to mer1dian-trust.com. Na teczce klienta inny numer.",
+      "en": "The lamp on Królewska. In the receiver — Partner Kruk’s voice, as if from the train, except he is talking about Chopin Airport and an escrow account. Caller ID is +48, but the confirming e-mail domain is mer1dian-trust.com. The client file has a different number."
+    },
+    "exhibitLabel": {
+      "pl": "NOTATKA ZE SŁUCHAWKI",
+      "en": "NOTE FROM THE HANDSET"
+    },
+    "exhibitText": {
+      "pl": "„Mecenas, to Kruk. Zmiana rachunku escrow. Meridian Trust, IBAN DE… Proszę przelać 1,8 mln zł ze środków powierzonych. Mail z fakturą już jest. Nie dzwoń na komórkę — jestem na pokładzie.”",
+      "en": "“Counsel, it’s Kruk. Escrow account change. Meridian Trust, IBAN DE… Please wire PLN 1.8m from client money. The invoice e-mail is in. Don’t call the mobile — I’m boarding.”"
+    },
+    "innerVoice": {
+      "pl": "Głos jest dobry. Presja jest lepsza. Numer na teczce nie zgadza się z tym, kto „wsiada do samolotu”.",
+      "en": "The voice is good. The pressure is better. The number on the file does not match the man “boarding”."
+    },
+    "redFlags": [
+      {
+        "pl": "Domena mer1dian (jedynka) — BEC, nie Meridian.",
+        "en": "Domain mer1dian (the digit) — BEC, not Meridian."
+      },
+      {
+        "pl": "Zakaz kontaktu na znany numer = klasyka vishingu / deepfake’u głosu.",
+        "en": "A ban on calling the known number is textbook vishing / voice clone."
+      },
+      {
+        "pl": "Środki powierzone nie wychodzą na IBAN z telefonu.",
+        "en": "Client money does not leave on an IBAN from a phone call."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": -10,
+          "sad": 0,
+          "klient": -55,
+          "rozliczalnosc": -40
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Zleć przelew",
+          "en": "Authorise the wire"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Kodeks Etyki + umowa z klientem o środkach powierzonych: dyspozycja musi pochodzić od uprawnionego, zweryfikowanego kanałem ustalonym. Art. 296 k.k. (wierzytelność / mienie powierzone) — odpowiedzialność za szkodę w mieniu.",
+            "en": "Ethics plus the client-money mandate: an instruction must come from the authorised person, verified on the agreed channel. Criminal Code art. 296 — harm to entrusted property."
+          },
+          "consequence": {
+            "pl": "1,8 mln zł znika. Ubezpieczyciel pyta o procedurę callback. Klient — i prokurator — pytają, czemu głos wystarczył.",
+            "en": "PLN 1.8m is gone. The insurer asks about the callback procedure. The client — and a prosecutor — ask why a voice was enough."
+          },
+          "reflex": {
+            "pl": "Callback na numer z teczki, nie z maila i nie z rozmowy. Dwa osoby przy środkach. Żadnych IBAN-ów z telefonu.",
+            "en": "Callback to the number on the file, not from the e-mail or the call. Two people on client money. No IBANs from a phone."
+          },
+          "pattern": {
+            "pl": "U.S. v. Heppner, S.D.N.Y. 2026 — deepfake / BEC. Thomas v. Corbyn 2025 — prawie ten sam głos, inna domena.",
+            "en": "U.S. v. Heppner, S.D.N.Y. 2026 — deepfake / BEC. Thomas v. Corbyn 2025 — almost the same voice, a different domain."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": false,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -15,
+          "rozliczalnosc": -5
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Rozłącz się i czekaj",
+          "en": "Hang up and wait"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Odrzut bez weryfikacji zostawia dyspozycję w powietrzu. Jeśli to był prawdziwy Kruk — klient traci transzę. Jeśli fałszywy — nadal nie masz protokołu.",
+            "en": "A rejection without verification leaves the instruction in the air. If it was the real Kruk — the client misses the tranche. If fake — you still have no protocol."
+          },
+          "consequence": {
+            "pl": "Milczenie nie jest drugim kanałem. Za 12 minut ktoś inny w kancelarii może „pomóc”.",
+            "en": "Silence is not a second channel. In 12 minutes someone else in the firm may “help”."
+          },
+          "reflex": {
+            "pl": "Rozłącz, oddzwoń na numer z teczki, potwierdź IBAN z umowy escrow, nie z maila.",
+            "en": "Hang up, call the file number, confirm the IBAN from the escrow contract, not from e-mail."
+          },
+          "pattern": {
+            "pl": "Vishing + BEC: para, nie alternatywa. Głos i domena kłamią razem.",
+            "en": "Vishing + BEC: a pair, not alternatives. Voice and domain lie together."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 10,
+          "rozliczalnosc": 12
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "Numer z teczki",
+          "en": "Number on the file"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Procedura środków powierzonych: weryfikacja tożsamości ustalonym kanałem. Art. 32 RODO, jeśli w rozmowie padły dane. Etyka: ostrożność przy dyspozycjach majątkowych.",
+            "en": "Client-money procedure: identity on the agreed channel. GDPR art. 32 if data was spoken. Ethics: caution with asset instructions."
+          },
+          "consequence": {
+            "pl": "Kruk z teczki odbiera w pociągu i mówi: „nie dzwoniłem z lotniska”. Mail mer1dian idzie do CERT / banku. Przelew stoi.",
+            "en": "The Kruk on the file picks up on the train: “I did not call from the airport.” The mer1dian e-mail goes to CERT / the bank. The wire stays."
+          },
+          "reflex": {
+            "pl": "Tabliczka na biurku: numer callback | zakaz IBAN z telefonu | cztery oczy.",
+            "en": "A plate on the desk: callback number | no IBAN from a phone | four eyes."
+          },
+          "pattern": {
+            "pl": "Heppner 2026; klasyczne BEC z myślnikiem / cyfrą w domenie.",
+            "en": "Heppner 2026; classic BEC with a digit or hyphen in the domain."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "04-prostokaty",
+    "order": 4,
+    "demo": true,
+    "exhibit": "pdf",
+    "title": {
+      "pl": "Czerwone prostokąty",
+      "en": "Red rectangles"
+    },
+    "subtitle": {
+      "pl": "Ugoda patentowa · redakcja PDF",
+      "en": "Patent settlement · PDF redaction"
+    },
+    "deadline": {
+      "pl": "Przeciwnik i sąd czekają na projekt do 16:00",
+      "en": "Opponent and court wait for the draft until 16:00"
+    },
+    "context": {
+      "pl": "Wilk „zasłonił” w ugodzie kwoty licencji czarnymi prostokątami w podglądzie. Plik waży tyle samo. Warstwa tekstu nadal leży pod prostokątem. Za żaluzją — Śródmieście, 16:00 to jutro w pismach.",
+      "en": "Wilk “covered” licence amounts in the settlement with black rectangles in preview. The file weighs the same. The text layer still sits under the box. Beyond the blinds — downtown; 16:00 is tomorrow in the pleadings."
+    },
+    "exhibitLabel": {
+      "pl": "PDF — właściwości warstw",
+      "en": "PDF — layer properties"
+    },
+    "exhibitText": {
+      "pl": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licencja 4 200 000 EUR, royalty 8%, know-how…\"\nmetadane: autor = T. Wilk, kancelaria, Królewska 16",
+      "en": "redaction_boxes: 12\nflattened: false\nextractable_text: \"licence EUR 4,200,000, royalty 8%, know-how…\"\nmetadata: author = T. Wilk, firm, 16 Królewska"
+    },
+    "innerVoice": {
+      "pl": "Czarny prostokąt to kostium, nie cenzura. Sąd i przeciwnik dostaną warstwę, której nie widać na ekranie.",
+      "en": "A black rectangle is a costume, not a redaction. Court and opponent will get a layer the screen does not show."
+    },
+    "redFlags": [
+      {
+        "pl": "Brak flatten / sanitize — tekst wyciągnie każdy pdftotext.",
+        "en": "No flatten / sanitize — any pdftotext will lift the words."
+      },
+      {
+        "pl": "Metadane autora i ścieżki kancelarii w pliku.",
+        "en": "Author and firm-path metadata still in the file."
+      },
+      {
+        "pl": "Kwoty licencji = tajemnica przedsiębiorstwa.",
+        "en": "Licence figures = trade secrets."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": -40,
+          "sad": -20,
+          "klient": 0,
+          "rozliczalnosc": -20
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Wyślij PDF",
+          "en": "Send the PDF"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 6 Pr. o adwokaturze / art. 3 ust. 3 u.r.pr. — ujawnienie tajemnicy. RODO art. 5 i 32, jeśli w PDF są dane. W postępowaniu — narażenie strategii ugodowej.",
+            "en": "Art. 6 Bar Act / art. 3(3) Legal Advisers Act — disclosure of secrets. GDPR arts. 5 and 32 if the PDF holds data. In the case — the settlement strategy is exposed."
+          },
+          "consequence": {
+            "pl": "Przeciwnik zaznacza tekst pod prostokątem. Albo dziennikarz. Ugoda pęka. Sąd może wezwać do wyjaśnień, skąd wyciek.",
+            "en": "The opponent selects the text under the box. Or a journalist. The settlement cracks. The court may ask how it leaked."
+          },
+          "reflex": {
+            "pl": "Redakcja = usunięcie treści + flatten + metadane + kontrolny wydruk / pdftotext na kopii.",
+            "en": "Redaction = remove the content + flatten + metadata + a control print / pdftotext on a copy."
+          },
+          "pattern": {
+            "pl": "Publiczne wpadki z „black boxes” w PDF-ach sądowych i due diligence — ten sam mechanizm co tu.",
+            "en": "Public failures of courtroom and due-diligence “black boxes” — the same mechanism as here."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -8,
+          "rozliczalnosc": 5
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Nie wysyłaj tego pliku",
+          "en": "Do not send this file"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Tajemnica (art. 6 / art. 3 ust. 3) obejmuje know-how i kwoty. Odrzut chroni, ale 16:00 stoi.",
+            "en": "Secrecy (art. 6 / art. 3(3)) covers know-how and figures. Rejection protects, but 16:00 still stands."
+          },
+          "consequence": {
+            "pl": "Wilk musi zrobić prawdziwą redakcję. Partner Kruk dostaje SMS: „projekt godzinę później, za to szczelny”.",
+            "en": "Wilk must do a real redaction. Partner Kruk gets a text: “draft an hour later, but sealed”."
+          },
+          "reflex": {
+            "pl": "Odrzut + checklista: flatten, metadane, drugi para oczu, pdftotext.",
+            "en": "Reject + checklist: flatten, metadata, second pair of eyes, pdftotext."
+          },
+          "pattern": {
+            "pl": "Najlepszy pomysł z tej teczki: prostokąt bez spłaszczenia to teatr, nie redakcja.",
+            "en": "The best idea in this file: a box without flattening is theatre, not redaction."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 10,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 10
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "pdftotext / flatten",
+          "en": "pdftotext / flatten"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Środek techniczny (art. 32 RODO, § 23e analogicznie do narzędzi) — sprawdzasz, czy treść naprawdę zniknęła, zanim opuści kancelarię.",
+            "en": "A technical measure (GDPR art. 32, § 23e by analogy to tools) — you test whether the content is actually gone before it leaves the firm."
+          },
+          "consequence": {
+            "pl": "pdftotext zwraca pełne kwoty. Każe Wilkowi eksport do obrazu albo narzędzie redakcji z usunięciem obiektów, potem ponowny test.",
+            "en": "pdftotext returns the full figures. You order Wilk to export-as-image or a redaction tool that deletes objects, then test again."
+          },
+          "reflex": {
+            "pl": "Zasada: jeśli zaznaczenie myszą czyta kwotę — nie wysyłasz.",
+            "en": "Rule: if a mouse-select still reads the figure — you do not send."
+          },
+          "pattern": {
+            "pl": "To nie jest „AI Act”. To jest warstwa PDF i tajemnica.",
+            "en": "This is not the AI Act. It is a PDF layer and secrecy."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "05-pendrive",
+    "order": 5,
+    "demo": false,
+    "exhibit": "usb",
+    "title": {
+      "pl": "Pendrive w koszulce",
+      "en": "A stick in a sleeve"
+    },
+    "subtitle": {
+      "pl": "Akta · nośnik od kuriera",
+      "en": "Files · courier media"
+    },
+    "deadline": {
+      "pl": "Irena: „kurier zostawił, pan mecenas ma czytać wieczorem”",
+      "en": "Irena: “the courier left it, counsel is to read tonight”"
+    },
+    "context": {
+      "pl": "Irena z sekretariatu stoi w drzwiach gabinetu na 5. piętrze. Koszulka, pendrive, napis COURIER. „Od pełnomocnika przeciwnika — akta uzupełniające.” Nie ma pisma przewodniego w EPUAP. Port USB w laptopie kancelarii jest odblokowany.",
+      "en": "Irena from the secretariat stands in the 5th-floor doorway. A sleeve, a stick, the word COURIER. “From opposing counsel — supplemental files.” No cover letter in the official e-inbox. The USB port on the firm laptop is unlocked."
+    },
+    "exhibitLabel": {
+      "pl": "NOŚNIK — etykieta",
+      "en": "MEDIA — label"
+    },
+    "exhibitText": {
+      "pl": "SanDisk 32 GB, bez szyfrowania.\nMarker: „UZUPEŁNIENIE AKT — W. v. K.”\nAutor plików wg metadanych: nieznany.\nIrena: „zawsze tak przynoszą”.",
+      "en": "SanDisk 32 GB, unencrypted.\nMarker: “SUPPLEMENTAL FILE — W. v. K.”\nFile metadata author: unknown.\nIrena: “they always bring them this way”."
+    },
+    "innerVoice": {
+      "pl": "UODO już wyceniło taki gest. Nie musisz być pierwszym, który sprawdzi, czy na pendrive jest ransomware, czy dane stu klientów.",
+      "en": "The Polish DPA has already priced this gesture. You need not be first to find ransomware — or a hundred clients — on the stick."
+    },
+    "redFlags": [
+      {
+        "pl": "Nośnik spoza łańcucha (brak RDE / szyfrowania / protokołu).",
+        "en": "Media outside the chain (no secure delivery / encryption / protocol)."
+      },
+      {
+        "pl": "Irena nie jest IT — jest mostem.",
+        "en": "Irena is not IT — she is a bridge."
+      },
+      {
+        "pl": "Port USB otwarty na laptopie z aktami.",
+        "en": "An open USB port on a laptop that holds files."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": -45,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": -35
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Włóż i otwórz",
+          "en": "Plug in and open"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "RODO art. 5, 25, 32 — integralność i poufność. UODO: decyzja DKN.5131.31.2022 (23 580 zł) — kancelaria, pendrive z danymi klientów. WSA Warszawa II SA/Wa 1342/23 utrzymał kierunek. Szczecin DKN.5131.12.2020 — podobny schemat.",
+            "en": "GDPR arts. 5, 25, 32 — integrity and confidentiality. Polish DPA DKN.5131.31.2022 (PLN 23,580) — a firm, a stick with client data. Warsaw WSA II SA/Wa 1342/23 kept the line. Szczecin DKN.5131.12.2020 — the same shape."
+          },
+          "consequence": {
+            "pl": "Albo ransomware na 5. piętrze, albo wyciek przy następnym zgubieniu. Kara UODO jest tania przy aktach.",
+            "en": "Either ransomware on the 5th floor, or a leak the next time the stick is lost. The DPA fine is cheap next to the files."
+          },
+          "reflex": {
+            "pl": "Nośnik obcy: stacja robocza izolowana, skan, albo prośba o Wetransfer / RDE z hasłem inną drogą.",
+            "en": "Foreign media: an isolated workstation, a scan, or a request for a transfer / encrypted packet with the password on another channel."
+          },
+          "pattern": {
+            "pl": "DKN.5131.31.2022; II SA/Wa 1342/23; DKN.5131.12.2020.",
+            "en": "DKN.5131.31.2022; II SA/Wa 1342/23; DKN.5131.12.2020."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -5,
+          "rozliczalnosc": 6
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Zwróć Irenie, nie włączać",
+          "en": "Give it back to Irena, do not mount"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 32 RODO — odpowiednie środki. Odrzut nośnika bez łańcucha jest środkiem, nie niegrzecznością.",
+            "en": "GDPR art. 32 — appropriate measures. Rejecting media without a chain is a measure, not rudeness."
+          },
+          "consequence": {
+            "pl": "Irena wraca do kuriera z prośbą o kanał uzgodniony. Przeciwnik może marudzić. Akta nie wchodzą na laptop mecenasa.",
+            "en": "Irena goes back to the courier for an agreed channel. Opposing counsel may grumble. The files do not enter counsel’s laptop."
+          },
+          "reflex": {
+            "pl": "Tabliczka u Ireny: żaden USB do laptopów kancelarii. Wyjątek — po IT.",
+            "en": "A plate at Irena’s desk: no USB into firm laptops. Exception — after IT."
+          },
+          "pattern": {
+            "pl": "UODO nie pyta, czy „zawsze tak przynoszą”.",
+            "en": "The DPA does not ask whether “they always bring them this way”."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 8,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 10
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "IT / stacja-kwarantanna",
+          "en": "IT / quarantine box"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 25 i 32 RODO — prywatność w fazie projektu i bezpieczeństwo przetwarzania. Drugi kanał: izolowana stacja, skan, suma kontrolna, dopiero potem treść do akt.",
+            "en": "GDPR arts. 25 and 32 — data protection by design and security of processing. Second channel: isolated box, scan, checksum, then and only then into the file."
+          },
+          "consequence": {
+            "pl": "IT mówi: pendrive czysty, ale bez szyfrowania. Kopiujecie na zasób kancelarii i niszczycie nośnik albo zwracacie z protokołem.",
+            "en": "IT says: the stick is clean, but unencrypted. You copy onto the firm share and destroy the media or return it with a protocol."
+          },
+          "reflex": {
+            "pl": "Polityka nośników: Irena nie decyduje. Mecenas nie „tylko zerknie”.",
+            "en": "Media policy: Irena does not decide. Counsel does not “just peek”."
+          },
+          "pattern": {
+            "pl": "DKN.5131.31.2022 — kancelaria, nie korporacja.",
+            "en": "DKN.5131.31.2022 — a law firm, not a corporation."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "06-mail",
+    "order": 6,
+    "demo": false,
+    "exhibit": "email",
+    "title": {
+      "pl": "Mail prawie od mecenasa",
+      "en": "Mail almost from counsel"
+    },
+    "subtitle": {
+      "pl": "BEC · myślnik w domenie",
+      "en": "BEC · a hyphen in the domain"
+    },
+    "deadline": {
+      "pl": "„Proszę przelać zaliczkę pełnomocnika — dziś do 15:00”",
+      "en": "“Please wire counsel’s retainer — today by 15:00”"
+    },
+    "context": {
+      "pl": "Skrzynka na 5. piętrze. Nadawca: kruk@vogel-kruk-partners.com — myślnik, którego nie ma na papierze firmowym (vogelkruk.pl). Treść: głos Kruka, tylko pisany. Zaliczka na rachunek „tymczasowy”.",
+      "en": "The 5th-floor inbox. Sender: kruk@vogel-kruk-partners.com — a hyphen the letterhead does not have (vogelkruk.pl). The body is Kruk’s voice, only typed. A retainer to a “temporary” account."
+    },
+    "exhibitLabel": {
+      "pl": "NAGŁÓWEK SMTP",
+      "en": "SMTP HEADER"
+    },
+    "exhibitText": {
+      "pl": "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n„Jestem u klienta. Zaliczka 240 tys. zł na IBAN w treść. Nie dzwoń — rozprawa.”",
+      "en": "From: Partner Kruk <kruk@vogel-kruk-partners.com>\nReply-To: finance@vogel-kruk-partners.com\nSPF: fail\n“I’m at the client. Retainer PLN 240k, IBAN in the body. Don’t call — I’m in a hearing.”"
+    },
+    "innerVoice": {
+      "pl": "Prawie ta sama domena. Prawie ten sam ton. Prawie wystarczy, jeśli nikt nie patrzy na myślnik.",
+      "en": "Almost the same domain. Almost the same tone. Almost enough, if nobody looks at the hyphen."
+    },
+    "redFlags": [
+      {
+        "pl": "Domena z myślnikiem ≠ papier firmowy.",
+        "en": "Hyphenated domain ≠ letterhead."
+      },
+      {
+        "pl": "SPF fail.",
+        "en": "SPF fail."
+      },
+      {
+        "pl": "Zakaz telefonu + nowy IBAN.",
+        "en": "A ban on calling + a new IBAN."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -50,
+          "rozliczalnosc": -35
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Zrób przelew zaliczki",
+          "en": "Send the retainer"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Środki kancelarii / klienta: dyspozycja zweryfikowana. BEC nie tworzy umocowania. Możliwa odpowiedzialność cywilna za brak procedury.",
+            "en": "Firm / client money: a verified instruction. BEC does not create authority. Civil liability for having no procedure is on the table."
+          },
+          "consequence": {
+            "pl": "240 tys. zł na rachunek cienia. Thomas v. Corbyn 2025 — prawie identyczny list.",
+            "en": "PLN 240k to a shadow account. Thomas v. Corbyn 2025 — almost the same letter."
+          },
+          "reflex": {
+            "pl": "Porównaj domenę z wizytówką. SPF. Telefon na numer z teczki, nie „odpisz”.",
+            "en": "Compare the domain with the card. SPF. Phone the number on the file, do not “reply”."
+          },
+          "pattern": {
+            "pl": "Thomas v. Corbyn 2025; klasyczny BEC z lookalike domain.",
+            "en": "Thomas v. Corbyn 2025; classic lookalike-domain BEC."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": false,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -12,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Skasuj mail",
+          "en": "Delete the mail"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Skasowanie bez zgłoszenia zostawia kolejnego adresata w łańcuchu — Irenę, księgowość, aplikanta.",
+            "en": "Deleting without a report leaves the next addressee in the chain — Irena, accounts, a trainee."
+          },
+          "consequence": {
+            "pl": "Mail wróci o 14:55 z jeszcze ostrzejszym deadline’em.",
+            "en": "The mail will return at 14:55 with a sharper deadline."
+          },
+          "reflex": {
+            "pl": "Odrzut = zgłoś IT, oznacz phishing, callback do Kruka.",
+            "en": "Reject = tell IT, tag phishing, callback to Kruk."
+          },
+          "pattern": {
+            "pl": "BEC żyje z tego, że jeden człowiek „nie chciał robić afery”.",
+            "en": "BEC lives on one person who “did not want a fuss”."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 8,
+          "rozliczalnosc": 12
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "Domena + telefon",
+          "en": "Domain + phone"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Weryfikacja kanału: DNS/SPF + numer z teczki. To jest drugi kanał, nie „przeczucie”.",
+            "en": "Channel check: DNS/SPF + the number on the file. That is the second channel, not a hunch."
+          },
+          "consequence": {
+            "pl": "Kruk z vogelkruk.pl: „nie pisałem”. IT blokuje lookalike. Zaliczka stoi na właściwym rachunku z umowy.",
+            "en": "Kruk at vogelkruk.pl: “I did not write that.” IT blocks the lookalike. The retainer stays on the contract account."
+          },
+          "reflex": {
+            "pl": "Wyświetlaj pełną domenę. Ucz Irenę myślnika. Żadnych IBAN-ów z maila.",
+            "en": "Show the full domain. Teach Irena the hyphen. No IBANs from e-mail."
+          },
+          "pattern": {
+            "pl": "Thomas v. Corbyn 2025.",
+            "en": "Thomas v. Corbyn 2025."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "07-copilot",
+    "order": 7,
+    "demo": false,
+    "exhibit": "memo",
+    "title": {
+      "pl": "Nasz Copilot też kłamie",
+      "en": "Our Copilot lies too"
+    },
+    "subtitle": {
+      "pl": "Notatka wewnętrzna · halucynacja",
+      "en": "Internal memo · hallucination"
+    },
+    "deadline": {
+      "pl": "Zarząd klienta chce memo do 18:00",
+      "en": "The client’s board wants the memo by 18:00"
+    },
+    "context": {
+      "pl": "Wilk użył kancelaryjnego Copilota — ten z licencją, nie z chatgpt.com. Notatka o odpowiedzialności członków zarządu cytuje „III CZP 7/24” i „wyrok TSUE w sprawie C-404/23 Board Duty”. Brzmi gładko. Kruk z pociągu: „wysyłaj, skoro nasz”.",
+      "en": "Wilk used the firm Copilot — the licensed one, not chatgpt.com. A memo on directors’ duties cites “III CZP 7/24” and “CJEU C-404/23 Board Duty”. It reads smooth. Kruk from the train: “send it, it’s ours”."
+    },
+    "exhibitLabel": {
+      "pl": "MEMO — wersja Copilot",
+      "en": "MEMO — Copilot cut"
+    },
+    "exhibitText": {
+      "pl": "„Zgodnie z III CZP 7/24 członek zarządu odpowiada gwarancyjnie za prompt AI. TSUE w C-404/23 Board Duty potwierdza obowiązek „human in the loop” w każdej spółce akcyjnej.”",
+      "en": "“Per III CZP 7/24 a director is strictly liable for an AI prompt. CJEU C-404/23 Board Duty confirms a “human in the loop” duty in every public company.”"
+    },
+    "innerVoice": {
+      "pl": "Narzędzie ma DPA. Cytaty nadal mogą być znikąd. Pinsent też miał „swój” model.",
+      "en": "The tool has a DPA. The cites can still be from nowhere. Pinsent also had “its own” model."
+    },
+    "redFlags": [
+      {
+        "pl": "III CZP 7/24 — sprawdź reporter SN.",
+        "en": "III CZP 7/24 — check the Supreme Court reporter."
+      },
+      {
+        "pl": "C-404/23 Board Duty — brzmi jak tytuł newsa, nie jak ECLI.",
+        "en": "C-404/23 Board Duty — reads like a headline, not an ECLI."
+      },
+      {
+        "pl": "„Nasz Copilot” ≠ weryfikacja.",
+        "en": "“Our Copilot” ≠ verification."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": 0,
+          "sad": -45,
+          "klient": -15,
+          "rozliczalnosc": -25
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Wyślij memo do zarządu",
+          "en": "Send the memo to the board"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "§ 23e ZZEA (NRA 12.06.2026) — AI pomocniczo, weryfikacja osobista, także przy narzędziach kancelarii. AI Act art. 4 (od 2 lutego 2025) — literacy: umiesz ocenić output, nie „wierzyć licencji”.",
+            "en": "§ 23e ethics code (NRA 12 Jun 2026) — AI is auxiliary; personal verification, including firm tools. AI Act art. 4 (since 2 Feb 2025) — literacy: you judge the output, you do not trust the licence."
+          },
+          "consequence": {
+            "pl": "Zarząd cytuje nieistniejące orzeczenie w uchwale. Albo sąd. Cork v Smith / Pinsent Masons, maj 2026 — halucynacja in-house.",
+            "en": "The board quotes a phantom authority in a resolution. Or a court does. Cork v Smith / Pinsent Masons, May 2026 — an in-house hallucination."
+          },
+          "reflex": {
+            "pl": "Każdy cytat z Copilota otwierasz w reporterze. Licencja nie jest stemplem.",
+            "en": "Every Copilot cite you open in the reporter. The licence is not a stamp."
+          },
+          "pattern": {
+            "pl": "Pinsent Masons / Cork, May 2026; SRA AI warning Aug 2026.",
+            "en": "Pinsent Masons / Cork, May 2026; SRA AI warning Aug 2026."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -8,
+          "rozliczalnosc": 5
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Nie wysyłaj tej wersji",
+          "en": "Do not send this cut"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "§ 23e — nie podpisujesz outputu, którego nie sprawdziłeś. Odrzut memo chroni sąd i klienta, psuje godzinę.",
+            "en": "§ 23e — you do not sign output you have not checked. Rejecting the memo protects court and client, and burns an hour."
+          },
+          "consequence": {
+            "pl": "Wilk wraca do kodeksu spółek i prawdziwych orzeczeń. Zarząd dostaje memo o 19:00, za to z ECLI.",
+            "en": "Wilk goes back to the commercial companies code and real cases. The board gets the memo at 19:00, with an ECLI."
+          },
+          "reflex": {
+            "pl": "Odrzut + lista sygnatur do sprawdzenia, nie „napisz od nowa”.",
+            "en": "Reject + a list of cites to check, not “write it again”."
+          },
+          "pattern": {
+            "pl": "In-house nie znaczy „nie halucynuje”.",
+            "en": "In-house does not mean “does not hallucinate”."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 8,
+          "klient": 0,
+          "rozliczalnosc": 12
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "sn.pl / EUR-Lex",
+          "en": "sn.pl / EUR-Lex"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "AI Act art. 4 — kompetencje. § 23e — weryfikacja. Drugi kanał: reporter SN, EUR-Lex, nie czat.",
+            "en": "AI Act art. 4 — competence. § 23e — verification. Second channel: the Supreme Court reporter, EUR-Lex, not the chat."
+          },
+          "consequence": {
+            "pl": "III CZP 7/24 nie istnieje w tej tezie. C-404/23 nie nazywa się Board Duty. Copilot skleił wzorce. Memo idzie po poprawce.",
+            "en": "III CZP 7/24 does not exist on that holding. C-404/23 is not called Board Duty. Copilot glued patterns. The memo goes after the fix."
+          },
+          "reflex": {
+            "pl": "Zasada kancelarii: zielona lampka Copilota nie zastępuje ECLI.",
+            "en": "Firm rule: Copilot’s green light does not replace an ECLI."
+          },
+          "pattern": {
+            "pl": "Pinsent 2026 — ostrzeżenie dla tych, którzy „już mają licencję”.",
+            "en": "Pinsent 2026 — a warning for those who “already have a licence”."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "08-emocje",
+    "order": 8,
+    "demo": false,
+    "exhibit": "hr",
+    "title": {
+      "pl": "Emocje na rekrutacji",
+      "en": "Emotions at hiring"
+    },
+    "subtitle": {
+      "pl": "HR · rozpoznawanie emocji",
+      "en": "HR · emotion recognition"
+    },
+    "deadline": {
+      "pl": "Irena: „dostawca przysłał demo na rozmowy z aplikantami”",
+      "en": "Irena: “the vendor sent a demo for trainee interviews”"
+    },
+    "context": {
+      "pl": "Sala 14B, to samo 5. piętro. Irena trzyma folder dostawcy: kamera na rozmowie kwalifikacyjnej, scoring „stres / szczerość / dopasowanie”. Hasło: AI Act literacy. To nie jest analityka sędziego. To rekrutacja.",
+      "en": "Room 14B, same 5th floor. Irena holds a vendor folder: a camera on the interview, a score for “stress / candour / fit”. The pitch: AI Act literacy. This is not judge analytics. This is hiring."
+    },
+    "exhibitLabel": {
+      "pl": "OFERTA DOSTAWCY — fragment",
+      "en": "VENDOR PITCH — excerpt"
+    },
+    "exhibitText": {
+      "pl": "„Moduł emotion recognition w czasie rzeczywistym na rozmowie z kandydatem. Zgodność z AI Act art. 4 (literacy). Scoring do teczki osobowej. Cena: 900 zł / etat / miesiąc.”",
+      "en": "“Real-time emotion recognition on the candidate interview. AI Act art. 4 (literacy) aligned. Score into the personnel file. Price: PLN 900 / head / month.”"
+    },
+    "innerVoice": {
+      "pl": "Art. 4 mówi, że masz rozumieć system. Nie mówi, że wolno Ci czytać minę kandydata algorytmem w pracy.",
+      "en": "Art. 4 says you must understand the system. It does not say you may read a candidate’s face with an algorithm at work."
+    },
+    "redFlags": [
+      {
+        "pl": "Rozpoznawanie emocji w miejscu pracy — art. 5 ust. 1 lit. f AI Act.",
+        "en": "Workplace emotion recognition — AI Act art. 5(1)(f)."
+      },
+      {
+        "pl": "Art. 4 (literacy) nie uchyla zakazu art. 5.",
+        "en": "Art. 4 (literacy) does not lift the art. 5 ban."
+      },
+      {
+        "pl": "Nie mieszaj tego z profilowaniem sędziów.",
+        "en": "Do not mix this with judge-profiling."
+      }
+    ],
+    "choices": [
+      {
+        "id": "stamp",
+        "kind": "stamp",
+        "pass": false,
+        "delta": {
+          "tajemnica": -15,
+          "sad": 0,
+          "klient": -10,
+          "rozliczalnosc": -50
+        },
+        "title": {
+          "pl": "STEMPEL",
+          "en": "STAMP"
+        },
+        "subtitle": {
+          "pl": "Wdróż demo na rekrutacji",
+          "en": "Roll the demo into hiring"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Rozporządzenie (UE) 2024/1689 (AI Act) art. 5 ust. 1 lit. f — zakaz wprowadzania do obrotu, oddawania do użytku i stosowania systemów rozpoznawania emocji w miejscu pracy (i w edukacji), z wąskimi wyjątkami medycznymi / bezpieczeństwa. Zakaz stosowany od 2 lutego 2025. Art. 99 — kary, w tym do 7% światowego obrotu lub 35 mln EUR — przy naruszeniu zakazów art. 5, nie przy każdej pomyłce ChatGPT.",
+            "en": "Regulation (EU) 2024/1689 (AI Act) art. 5(1)(f) — ban on placing on the market, putting into service or using emotion-recognition systems at work (and in education), with narrow medical / safety exceptions. Applicable from 2 Feb 2025. Art. 99 — fines, including up to 7% of worldwide turnover or EUR 35m — for art. 5 prohibitions, not for every ChatGPT mistake."
+          },
+          "consequence": {
+            "pl": "Dostawca znika. Inspekcja pyta o system. Kandydaci — o scoring miny. 7% jest w tej teczce, bo to zakaz, nie „literacy”.",
+            "en": "The vendor vanishes. An inspector asks about the system. Candidates ask about the face-score. The 7% lives in this file because this is a ban, not “literacy”."
+          },
+          "reflex": {
+            "pl": "Rekrutacja: zero emotion AI. Art. 4 uczy Cię, że art. 5 istnieje.",
+            "en": "Hiring: zero emotion AI. Art. 4 is there so you know art. 5 exists."
+          },
+          "pattern": {
+            "pl": "AI Act 2024/1689 art. 5(1)(f), art. 99. Nie art. 50 (oznakowanie treści syntetycznych przez system) i nie analityka sędziowska.",
+            "en": "AI Act 2024/1689 art. 5(1)(f), art. 99. Not art. 50 (the system’s labelling of synthetic content) and not judicial analytics."
+          }
+        }
+      },
+      {
+        "id": "reject",
+        "kind": "reject",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 10
+        },
+        "title": {
+          "pl": "ODRZUT",
+          "en": "REJECT"
+        },
+        "subtitle": {
+          "pl": "Oddaj folder Irenie",
+          "en": "Give the folder back to Irena"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Art. 5 ust. 1 lit. f AI Act — nie wdrażasz. Odrzut jest zgodnością, nie konserwatyzmem.",
+            "en": "AI Act art. 5(1)(f) — you do not deploy. Rejection is compliance, not conservatism."
+          },
+          "consequence": {
+            "pl": "Irena odsyła dostawcę. Rekrutacja aplikantów zostaje rozmową, nie scoringiem miny.",
+            "en": "Irena sends the vendor away. Trainee hiring stays a conversation, not a face-score."
+          },
+          "reflex": {
+            "pl": "Na drzwiach 14B: zakaz emotion AI. Inne narzędzia HR — osobna ocena ryzyka.",
+            "en": "On the 14B door: no emotion AI. Other HR tools — a separate risk assessment."
+          },
+          "pattern": {
+            "pl": "7% / 35 mln EUR zostaje w tej jednej teczce.",
+            "en": "The 7% / EUR 35m stays in this one file."
+          }
+        }
+      },
+      {
+        "id": "verify",
+        "kind": "verify",
+        "pass": true,
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 12
+        },
+        "title": {
+          "pl": "DRUGI KANAŁ",
+          "en": "SECOND CHANNEL"
+        },
+        "subtitle": {
+          "pl": "Tekst art. 5, nie slajd",
+          "en": "The text of art. 5, not the slide"
+        },
+        "ratio": {
+          "statute": {
+            "pl": "AI Act art. 5 ust. 1 lit. f — czytasz rozporządzenie, nie ulotkę. Art. 4 nie jest podstawą wdrożenia. Art. 50 dotyczy oznakowania treści syntetycznych przez dostawcę systemu, nie Twojego obowiązku przy vishingu.",
+            "en": "AI Act art. 5(1)(f) — you read the regulation, not the flyer. Art. 4 is not a basis to deploy. Art. 50 is about the provider labelling synthetic content, not your duty in a vishing call."
+          },
+          "consequence": {
+            "pl": "Slajd „zgodne z art. 4” pada. Zakaz stoi od 2 lutego 2025. Demo nie wchodzi na 5. piętro.",
+            "en": "The “art. 4 aligned” slide falls. The ban has stood since 2 Feb 2025. The demo does not enter the 5th floor."
+          },
+          "reflex": {
+            "pl": "Drugi kanał przy AI Act: EUR-Lex, nie vendor. Osobno: RODO przy naborze (art. 6, 9, 22 — gdyby scoring jednak wrócił inną drogą).",
+            "en": "Second channel on the AI Act: EUR-Lex, not the vendor. Separately: GDPR at hiring (arts. 6, 9, 22 — if scoring came back another way)."
+          },
+          "pattern": {
+            "pl": "Tylko ta teczka nosi art. 99 i 7%.",
+            "en": "Only this file carries art. 99 and the 7%."
+          }
+        }
+      }
+    ]
+  }
+]
