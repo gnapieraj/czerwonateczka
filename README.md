@@ -4,9 +4,9 @@ Gra edukacyjna dla adwokatów, radców, sędziów i aplikantów. Offline, PL + E
 
 ## Klimat i miejsce
 
-Sin City: czerń, biel, **tylko krew**. Akcja (fikcja): **Kancelaria Okiennica, Chropot i Wspólnicy**, 5. piętro, biurowiec od Świętokrzyskiej, Śródmieście. Za żaluzją PKiN w deszczu. Nazwy i adres nie wskazują prawdziwej kancelarii.
+Komiks noir: czerń, biel, **tylko krew**. Akcja (fikcja): **Kancelaria Colgante i Wspólnicy**, 5. piętro, biurowiec od Świętokrzyskiej, Śródmieście. Za żaluzją PKiN w deszczu. Nazwy i adres nie wskazują prawdziwej kancelarii.
 
-Warstwa komiksowa to **bundlowane assety**. Generator obrazów: **Mac Studio M2 Ultra 128 GB**, skrypt `tools/macos-studio/generate_noir.py` (mflux / Flux, MLX, offline, img2img z `World/bible/`). iPad tylko odtwarza gotowe pliki.
+Warstwa komiksowa to **bundlowane assety**: mastery `World/bible/` plus płyty misji z modelu komercyjnego (GenerateImage). iPad tylko odtwarza gotowe pliki.
 
 ## Uruchomienie (Mac Studio, Xcode 26)
 

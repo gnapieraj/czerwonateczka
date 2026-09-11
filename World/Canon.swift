@@ -11,23 +11,33 @@ enum Noir {
 }
 
 enum Typeface {
-    static func display(_ size: CGFloat) -> Font { .system(size: size, weight: .semibold, design: .serif) }
-    static func body(_ size: CGFloat) -> Font { .system(size: size, weight: .regular, design: .default) }
-    static func mono(_ size: CGFloat) -> Font { .system(size: size, weight: .medium, design: .monospaced) }
+    /// Comic lettering (Gobo Caps, OFL). Latin Extended-A — ą ę ć ł ń ó ś ź ż.
+    static let comic = "Gobo Caps"
+    static let comicItalic = "Gobo Caps Italic"
+
+    static func display(_ size: CGFloat) -> Font { .custom(comic, size: size) }
+    static func body(_ size: CGFloat) -> Font { .custom(comic, size: size) }
+    static func italic(_ size: CGFloat) -> Font { .custom(comicItalic, size: size) }
+    static func mono(_ size: CGFloat) -> Font { .custom(comic, size: size) }
 }
 
 /// Locked fiction. Names are invented; they must not track a real Warsaw firm or street parcel.
 enum Canon {
-    static let firmPL = "Kancelaria Okiennica, Chropot i Wspólnicy"
-    static let firmEN = "Okiennica, Chropot & Partners"
+    static let firmPL = "Kancelaria Colgante i Wspólnicy"
+    static let firmEN = "Colgante & Partners"
     static let addressPL = "5. piętro, biurowiec od Świętokrzyskiej, Śródmieście, Warszawa"
     static let addressEN = "5th floor, office block off Świętokrzyska, Downtown Warsaw"
     static let windowPL = "Za żaluzją: PKiN w deszczu."
     static let windowEN = "Beyond the blinds: the Palace of Culture in the rain."
-    static let domainReal = "okiennicachropot.pl"
-    static let domainLookalike = "okiennica-chropot-partners.com"
+    static let domainReal = "colgante.pl"
+    static let domainLookalike = "colgante-partners.com"
     static let fictionPL = "Kancelaria, adres i osoby są fikcyjne. Wszelkie podobieństwo do prawdziwych kancelarii jest niezamierzone."
     static let fictionEN = "The firm, address and people are fictional. Any resemblance to a real practice is unintended."
+
+    static func firm(_ language: AppLanguage) -> String { language == .polish ? firmPL : firmEN }
+    static func address(_ language: AppLanguage) -> String { language == .polish ? addressPL : addressEN }
+    static func window(_ language: AppLanguage) -> String { language == .polish ? windowPL : windowEN }
+    static func fiction(_ language: AppLanguage) -> String { language == .polish ? fictionPL : fictionEN }
 }
 
 enum Cast: String, CaseIterable {

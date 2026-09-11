@@ -1,23 +1,29 @@
 # Biblia wizualna — Czerwona Teczka
 
-Akcja: **Kancelaria Okiennica, Chropot i Wspólnicy** (fikcja). **5. piętro, biurowiec od Świętokrzyskiej, Śródmieście, Warszawa.** Za żaluzją: PKiN w deszczu. Nie używamy prawdziwego numeru działki ani nazw istniejących kancelarii.
+Akcja: **Kancelaria Colgante i Wspólnicy** (fikcja). **5. piętro, biurowiec od Świętokrzyskiej, Śródmieście, Warszawa.** Za żaluzją: PKiN w deszczu. Nie używamy prawdziwego numeru działki ani nazw istniejących kancelarii.
 
-Styl: Frank Miller / Sin City. Czerń, biel, raster Ben-Day. **Jedyny kolor: krew.**
+Styl: komiks noir. Czerń, biel, raster gazetowy. **Jedyny kolor: krew.**
 
 ## Zasada spójności
 
 Nie generuj twarzy w runtime na iPadzie 9 / iPhone SE 3.
 
-Lokalny model na **Mac Studio M2 Ultra, 128 GB**: `tools/macos-studio/generate_noir.py` (mflux / Flux, MLX, offline).
+Płyty kanoniczne: **World/bible/** (model komercyjny). Płyty misji: **GenerateImage** z tymi samymi referencjami. iPad tylko odtwarza bundel.
 
 1. Zablokuj prompt stylu (plik `prompts.json`).
 2. Img2img z masterów w `World/bible/` (ten sam PNG obsady, niska siła 0.28–0.38).
 3. Włóż wynik do `Assets.xcassets`.
 4. W kodzie odwołuj się do **nazwy imagesetu**, nie do promptu.
 
+## Napisy
+
+Lokalny Flux **nie maluje liter** — zwłaszcza polskich (ą ę ł ń ó ś ź ż). Na płytach zostaje sałatka (`POLIYIEE`, `ON:OURIER`). Szyld, adres, Colgante, numery teczek i stemple to **SwiftUI**; `LetteringScrim` przykrywa glyph-salad.
+
+W `prompts.json` stoi `lettering_lock`: puste tablice, pieczęcie jako tarcze krwi, koperty i bilety bez napisów.
+
 ## Prompt stylu (lock)
 
-`Frank Miller Sin City comic, high-contrast black ink, Ben-Day dots, rain, venetian blinds, ONLY blood red as accent, no other chromatic color, fictional Polish law office, grain, not photoreal, not anime, no readable real firm names on plaques`
+`high-contrast black-and-white crime comic, hard black ink, newsprint halftone dots, rain, venetian blinds, ONLY blood red as accent, no other chromatic color, fictional Polish law office, grain, not photoreal, not anime, blank plaques without letters`
 
 ## Obsada (zawsze te same pliki)
 
@@ -27,7 +33,7 @@ Lokalny model na **Mac Studio M2 Ultra, 128 GB**: `tools/macos-studio/generate_n
 | Aplikant Filip Iglica | `AplikantIglica` | Okrągłe okulary, rozczochrane włosy, nerw. Pleading / prompt / memo. |
 | Partner Chropot | `PartnerChropot` | Pociąg PKP, płaszcz, czerwony bilet. Presja. |
 | Irena, sekretariat | `SekretariatIrena` | Kok, czerwony łańcuszek okularów. USB / HR. |
-| Miejsce | `OfficeNight` | 5. piętro, żaluzja, PKiN, deszcz. Bez prawdziwego adresu na szyldzie. |
-| Biurko | `DeskFolders` | Trzy teczki 01 / 03 / 04. |
+| Miejsce | `OfficeNight` | 5. piętro, żaluzja, PKiN, deszcz. Pusty szyld — nazwa w UI. |
+| Biurko | `DeskFolders` | Trzy teczki, pieczęcie bez cyfr — numery w UI. |
 
 Nie wymyślaj nowej kancelarii ani nowej twarzy „na lekcję 09”.

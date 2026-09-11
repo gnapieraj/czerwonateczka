@@ -3,7 +3,7 @@
 import uuid
 from pathlib import Path
 
-ROOT = Path("/agent/CzerwonaTeczka")
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def uid(name: str) -> str:
@@ -20,9 +20,11 @@ files = {
     "RootView.swift": "Views/RootView.swift",
     "SplashView.swift": "Views/SplashView.swift",
     "ComicStage.swift": "Views/ComicStage.swift",
+    "ComicIntroView.swift": "Views/ComicIntroView.swift",
     "Components.swift": "Views/Components.swift",
     "DeskView.swift": "Views/DeskView.swift",
     "CasePlayView.swift": "Views/CasePlayView.swift",
+    "AwarenessView.swift": "Views/AwarenessView.swift",
     "RatioView.swift": "Views/RatioView.swift",
     "SourcesView.swift": "Views/SourcesView.swift",
     "SettingsView.swift": "Views/SettingsView.swift",
@@ -33,6 +35,9 @@ resources = {
     "Lessons.json": "Resources/Lessons.json",
     "PrivacyInfo.xcprivacy": "Resources/PrivacyInfo.xcprivacy",
     "Assets.xcassets": "Resources/Assets.xcassets",
+    "GoboCaps-Regular.otf": "Resources/Fonts/GoboCaps-Regular.otf",
+    "GoboCaps-Italic.otf": "Resources/Fonts/GoboCaps-Italic.otf",
+    "OFL.txt": "Resources/Fonts/OFL.txt",
 }
 
 ids = {
@@ -99,6 +104,7 @@ app_build = """
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Resources/AppInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Czerwona Teczka";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";

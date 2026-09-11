@@ -1,5 +1,19 @@
 import SwiftUI
 
+struct InkPlate<Content: View>: View {
+    @ViewBuilder var content: Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            content
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Noir.ink)
+        .overlay(Rectangle().stroke(Color.white.opacity(0.28), lineWidth: 1))
+    }
+}
+
 struct MeterBar: View {
     let label: String
     let value: Int
@@ -8,7 +22,7 @@ struct MeterBar: View {
         HStack(spacing: 10) {
             Text(label)
                 .font(Typeface.mono(11))
-                .foregroundStyle(Noir.paperDim)
+                .foregroundStyle(Noir.paper)
                 .frame(width: 118, alignment: .leading)
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
@@ -94,48 +108,73 @@ struct ScreenChrome<Content: View>: View {
     let title: String
     var kicker: String = "CZERWONA TECZKA"
     var onBack: (() -> Void)? = nil
+    var backCaption: String? = nil
     var onTrailing: (() -> Void)? = nil
     var trailingSystemImage: String = "gearshape"
+    var onSecondTrailing: (() -> Void)? = nil
+    var secondTrailingSystemImage: String = "person.3.sequence"
     @ViewBuilder var content: Content
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack {
+            HStack(spacing: 8) {
                 if let onBack {
                     Button(action: onBack) {
-                        Image(systemName: "chevron.left")
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.white)
-                            .frame(width: 36, height: 36)
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.title3.weight(.semibold))
+                            if let backCaption {
+                                Text(backCaption)
+                                    .font(Typeface.mono(13))
+                            }
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 8)
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
                 } else {
                     Image(systemName: "building.columns")
                         .foregroundStyle(Noir.paper)
+                        .frame(width: 44, height: 44)
                 }
                 Spacer()
+                if let onSecondTrailing {
+                    Button(action: onSecondTrailing) {
+                        Image(systemName: secondTrailingSystemImage)
+                            .foregroundStyle(Noir.paper)
+                            .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                }
                 if let onTrailing {
                     Button(action: onTrailing) {
                         Image(systemName: trailingSystemImage)
                             .foregroundStyle(Noir.paper)
-                            .frame(width: 36, height: 36)
+                            .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 10)
             .padding(.top, 8)
-            Text(kicker)
-                .font(Typeface.mono(11))
-                .foregroundStyle(Noir.blood)
-                .tracking(3)
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
-            Text(title)
-                .font(Typeface.display(34))
-                .foregroundStyle(.white)
-                .padding(.horizontal, 16)
-                .padding(.bottom, 8)
+            .background(Noir.ink)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(kicker)
+                    .font(Typeface.mono(11))
+                    .foregroundStyle(Noir.blood)
+                    .tracking(3)
+                Text(title)
+                    .font(Typeface.display(34))
+                    .foregroundStyle(.white)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Noir.ink)
             content
         }
     }

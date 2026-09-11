@@ -22,6 +22,25 @@ enum ChoiceKind: String, Codable {
     case verify
 }
 
+enum DecisionVerdict: String, Codable {
+    case unsound
+    case incomplete
+    case sound
+
+    var isSound: Bool { self == .sound }
+
+    func label(_ language: AppLanguage) -> String {
+        switch (self, language) {
+        case (.unsound, .polish): return "BŁĘDNE"
+        case (.unsound, .english): return "UNSOUND"
+        case (.incomplete, .polish): return "NIEPEŁNE"
+        case (.incomplete, .english): return "INCOMPLETE"
+        case (.sound, .polish): return "TRAFNE"
+        case (.sound, .english): return "SOUND"
+        }
+    }
+}
+
 struct Loc: Codable, Equatable {
     var pl: String
     var en: String
@@ -65,6 +84,7 @@ struct RatioCopy: Codable, Equatable, Identifiable {
     var consequence: Loc
     var reflex: Loc
     var pattern: Loc
+    var patternStory: Loc?
 
     var id: String { statute.pl }
 }
@@ -72,11 +92,72 @@ struct RatioCopy: Codable, Equatable, Identifiable {
 struct Choice: Codable, Equatable, Identifiable {
     var id: String
     var kind: ChoiceKind
-    var pass: Bool
+    var verdict: DecisionVerdict
     var delta: MeterDelta
     var title: Loc
     var subtitle: Loc
     var ratio: RatioCopy
+
+    var pass: Bool { verdict.isSound }
+
+    enum CodingKeys: String, CodingKey {
+        case id, kind, verdict, pass, delta, title, subtitle, ratio
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        kind = try c.decode(ChoiceKind.self, forKey: .kind)
+        if let decoded = try c.decodeIfPresent(DecisionVerdict.self, forKey: .verdict) {
+            verdict = decoded
+        } else {
+            verdict = try c.decode(Bool.self, forKey: .pass) ? .sound : .unsound
+        }
+        delta = try c.decode(MeterDelta.self, forKey: .delta)
+        title = try c.decode(Loc.self, forKey: .title)
+        subtitle = try c.decode(Loc.self, forKey: .subtitle)
+        ratio = try c.decode(RatioCopy.self, forKey: .ratio)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(id, forKey: .id)
+        try c.encode(kind, forKey: .kind)
+        try c.encode(verdict, forKey: .verdict)
+        try c.encode(delta, forKey: .delta)
+        try c.encode(title, forKey: .title)
+        try c.encode(subtitle, forKey: .subtitle)
+        try c.encode(ratio, forKey: .ratio)
+    }
+}
+
+enum DocketTone: String, Codable, Equatable {
+    case shadow
+    case probono
+}
+
+enum ComicVoice: String, Codable, Equatable {
+    case caption
+    case balloon
+}
+
+struct ComicBeat: Codable, Equatable, Identifiable {
+    var asset: String
+    var caption: Loc
+    var voice: ComicVoice
+
+    var id: String { asset + caption.pl + voice.rawValue }
+
+    enum CodingKeys: String, CodingKey {
+        case asset, caption, voice
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        asset = try c.decode(String.self, forKey: .asset)
+        caption = try c.decode(Loc.self, forKey: .caption)
+        voice = try c.decodeIfPresent(ComicVoice.self, forKey: .voice) ?? .caption
+    }
 }
 
 struct Lesson: Codable, Equatable, Identifiable {
@@ -84,15 +165,27 @@ struct Lesson: Codable, Equatable, Identifiable {
     var order: Int
     var demo: Bool
     var exhibit: ExhibitKind
+    var hero: String
+    var tone: DocketTone
     var title: Loc
     var subtitle: Loc
     var deadline: Loc
     var context: Loc
+    var beats: [ComicBeat]
     var exhibitLabel: Loc
     var exhibitText: Loc
     var innerVoice: Loc
     var redFlags: [Loc]
     var choices: [Choice]
+    var awareness: AwarenessBrief
+    var sourceIds: [String]
+}
+
+struct AwarenessBrief: Codable, Equatable {
+    var threat: Loc
+    var minimize: Loc
+    var practice: Loc
+    var watchFor: [Loc]
 }
 
 struct Outcome: Equatable {
@@ -101,12 +194,50 @@ struct Outcome: Equatable {
     var meters: Meters
 }
 
+struct DocketStamp: Codable, Equatable {
+    var lessonId: String
+    var verdict: DecisionVerdict
+    var kind: ChoiceKind
+
+    var pass: Bool { verdict.isSound }
+
+    enum CodingKeys: String, CodingKey {
+        case lessonId, verdict, pass, kind
+    }
+
+    init(lessonId: String, verdict: DecisionVerdict, kind: ChoiceKind) {
+        self.lessonId = lessonId
+        self.verdict = verdict
+        self.kind = kind
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        lessonId = try c.decode(String.self, forKey: .lessonId)
+        kind = try c.decode(ChoiceKind.self, forKey: .kind)
+        if let decoded = try c.decodeIfPresent(DecisionVerdict.self, forKey: .verdict) {
+            verdict = decoded
+        } else {
+            verdict = try c.decode(Bool.self, forKey: .pass) ? .sound : .unsound
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(lessonId, forKey: .lessonId)
+        try c.encode(verdict, forKey: .verdict)
+        try c.encode(kind, forKey: .kind)
+    }
+}
+
 enum Route: Equatable {
     case splash
     case desk
+    case comic(Lesson)
     case play(Lesson)
     case ratio(Outcome)
-    case sources
+    case awareness(Lesson)
+    case sources([String]?)
     case settings
     case bible
 }

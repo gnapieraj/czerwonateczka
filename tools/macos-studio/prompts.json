@@ -3,14 +3,15 @@
     "machine": "Mac Studio M2 Ultra, 128 GB unified memory",
     "note": "Run only on that Mac. iPad 9 / iPhone SE 3 never call this."
   },
-  "style_lock": "Frank Miller Sin City comic illustration, high-contrast black ink, Ben-Day dots, film-grain, rain, venetian blinds, chiaroscuro desk lamp, ONLY blood red as the single chromatic accent, no blue no gold no green, not photoreal, not anime, not 3D render, Polish downtown Warsaw night, Palace of Culture silhouette in rain through window, fictional law office, no readable real law-firm names, no logos of existing brands",
-  "negative": "color photograph, glossy 3D, anime, extra colors, blue neon, gold, green, readable real firm names, Vogel, Kruk, Wardynski, street number of a real Warsaw law office",
+  "style_lock": "high-contrast black-and-white crime comic plate, hard black ink contours, newsprint grain, rain streaks on glass only, venetian blinds, banker's lamp chiaroscuro, ONLY blood-red as the single chromatic accent, no blue no gold no green, not photoreal, not anime, not 3D, downtown Warsaw night, Palace of Culture needle-spire in rain",
+  "lettering_lock": "mute plate: zero glyphs, zero letters, zero digits, unmarked paper, blank brass plate, wax as a plain blood-red disc, empty envelope, no stamps, no captions, no tickets with print",
+  "negative": "color photograph, glossy 3D, anime, extra colors, blue neon, gold, green, readable text, letters, words, typography, captions, Polish diacritics, English writing, misspelled gibberish, speech balloons, logos, Vogel, Kruk, Wardynski, street number, KANCELARIA, Colgante, CONFIDENTIAL, PKP, POUFNE, ADWOKAT",
   "mflux": {
     "model": "dev",
     "quantize": 8,
-    "steps": 24,
-    "guidance": 3.5,
-    "img2img_strength": 0.32
+    "steps": 28,
+    "guidance": 4.0,
+    "img2img_strength": 0.36
   },
   "jobs": [
     {
@@ -19,8 +20,9 @@
       "bible": "World/bible/office-night.png",
       "width": 1536,
       "height": 1024,
-      "seed": 1605,
-      "prompt": "Wide comic panel: fifth-floor Warsaw law office at night, venetian blinds, heavy rain, Palace of Culture and Science silhouette outside, dark wooden desk, banker's lamp, red wax seal on a dossier, ashtray, rotary phone. No street number. No real firm name on the plaque — only generic word KANCELARIA."
+      "seed": 2801,
+      "txt2img": true,
+      "prompt": "Wide comic panel from inside a fifth-floor law office: dark wood desk, banker's lamp pool of light, rotary phone, ashtray, one unmarked manila dossier with a plain blood-red wax disc, venetian blinds, heavy rain on the glass, Palace of Culture needle-spire wet and distant. Empty brass plate. No paper writing."
     },
     {
       "id": "mecenas-pov",
@@ -28,8 +30,9 @@
       "bible": "World/bible/mecenas-pov.png",
       "width": 1536,
       "height": 1024,
-      "seed": 1606,
-      "prompt": "First-person comic panel: lawyer's hands on the desk, fountain pen, Polish eagle signet ring, cracked blood-red wax seal, manila folders, blinds casting stripe shadows, rainy Warsaw night through the window. No face of the player."
+      "seed": 2802,
+      "txt2img": true,
+      "prompt": "First-person comic panel: two lawyer hands only, fountain pen, signet ring with an eagle, cracked plain blood-red wax disc, blank manila folders, stripe shadows from blinds, rainy Warsaw and Palace of Culture through the window. No face. No writing on paper."
     },
     {
       "id": "aplikant-iglica",
@@ -38,7 +41,8 @@
       "width": 1024,
       "height": 1536,
       "seed": 2101,
-      "prompt": "Portrait of the same young male trainee: round thin wire glasses, messy dark hair, nervous upward glance, rumpled white shirt, ink stains on knuckles, one thin blood-red streak under the left eye behind the lens, blinds on the left. Keep this exact face."
+      "img2img_strength": 0.34,
+      "prompt": "Tight portrait of the same young male trainee: round thin wire glasses, messy dark hair, nervous glance, rumpled white shirt, ink on knuckles, one thin blood-red streak under the left eye, blinds at left. Same face. No papers, no books, no signs."
     },
     {
       "id": "partner-chropot",
@@ -47,7 +51,8 @@
       "width": 1024,
       "height": 1536,
       "seed": 2102,
-      "prompt": "Portrait of the same middle-aged male partner on a night train: receding hair, heavy overcoat, vintage telephone handset, rain on the window, one blood-red PKP ticket in the breast pocket. Keep this exact face."
+      "img2img_strength": 0.78,
+      "prompt": "Portrait of the same middle-aged male partner: receding hair, heavy overcoat, vintage telephone handset, night rain, a blank blood-red rectangle in the breast pocket with no print. Same face. No station signs."
     },
     {
       "id": "sekretariat-irena",
@@ -56,7 +61,8 @@
       "width": 1024,
       "height": 1536,
       "seed": 2103,
-      "prompt": "Portrait of the same stern woman, hair in a bun, rectangular glasses with a blood-red beaded chain, holding a courier envelope stamped CONFIDENTIAL, office doorway silhouette behind her. Keep this exact face."
+      "img2img_strength": 0.78,
+      "prompt": "Portrait of the same stern woman: hair in a bun, rectangular glasses, blood-red beaded chain, holding a blank cream envelope with a plain blood-red wax disc and no stamps, doorway silhouette behind. Same face. No wall signs."
     },
     {
       "id": "desk-folders",
@@ -64,8 +70,9 @@
       "bible": "World/bible/desk-folders.png",
       "width": 1536,
       "height": 1024,
-      "seed": 1607,
-      "prompt": "Comic panel of the same desk: three manila folders stamped 01 03 04 with blood-red wax seals, banker's lamp, blinds, Palace of Culture in the rain. No real address."
+      "seed": 2807,
+      "txt2img": true,
+      "prompt": "Comic panel of the same desk: three unmarked manila folders, each with only a plain blood-red wax disc, no numerals, no tabs, banker's lamp, blinds, Palace of Culture in the rain. Empty blotter. No writing."
     }
   ]
 }

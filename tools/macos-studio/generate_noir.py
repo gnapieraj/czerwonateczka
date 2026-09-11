@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Generate locked Sin City plates on Mac Studio (M2 Ultra, 128 GB) via mflux/MLX.
+"""Generate locked high-contrast noir comic plates on Mac Studio (M2 Ultra, 128 GB) via mflux/MLX.
 
 Does not run on iPad. Does not invent new faces: every job img2img's a bible plate
 with a low strength so Tomasz's successor Filip Iglica stays Filip Iglica.
+Does not paint Polish (or any) lettering — `lettering_lock` keeps plaques blank;
+SwiftUI owns Colgante, addresses, folder numbers.
 
 Usage (on the Studio, from the CzerwonaTeczka folder):
 
@@ -62,21 +64,52 @@ def bootstrap() -> None:
     subprocess.check_call([str(pip), "install", "mflux"])
 
 
+def local_flux_dev() -> Path | None:
+    snap = (
+        Path.home()
+        / ".cache/huggingface/hub/models--black-forest-labs--FLUX.1-dev/snapshots"
+    )
+    if not snap.exists():
+        return None
+    for child in sorted(snap.iterdir()):
+        if (child / "transformer").exists() and (child / "vae").exists():
+            return child
+    return None
+
+
+def archive_previous(dest: Path) -> None:
+    if not dest.exists():
+        return
+    n = 1
+    while True:
+        candidate = dest.with_name(f"{dest.stem}_{n}{dest.suffix}")
+        if not candidate.exists():
+            dest.rename(candidate)
+            print("archived", candidate)
+            return
+        n += 1
+
+
 def run_job(spec: dict, job: dict, smoke: bool) -> Path:
     bible = ROOT / job["bible"]
     if not bible.exists():
         die(f"Brak mastera biblii: {bible}")
     OUT.mkdir(parents=True, exist_ok=True)
     dest = OUT / f"{job['id']}.png"
+    archive_previous(dest)
+    dest = OUT / f"{job['id']}.next.png"
     mfx = spec["mflux"]
-    prompt = f"{spec['style_lock']}. {job['prompt']}"
+    lettering = spec.get("lettering_lock", "").strip()
+    prompt = f"{spec['style_lock']}. {lettering}. {job['prompt']}".replace("  ", " ").strip()
     steps = 4 if smoke else int(mfx["steps"])
-    model = "schnell" if smoke else mfx["model"]
-    strength = 0.22 if smoke else float(mfx["img2img_strength"])
-    cmd = [
-        str(venv_mflux()),
-        "--model",
-        model,
+    local = None if smoke else local_flux_dev()
+    model = "schnell" if smoke else (str(local) if local else mfx["model"])
+    strength = 0.22 if smoke else float(job.get("img2img_strength", mfx["img2img_strength"]))
+    txt2img = bool(job.get("txt2img")) and not smoke
+    cmd = [str(venv_mflux()), "--model", model]
+    if local and not smoke:
+        cmd += ["--base-model", "dev"]
+    cmd += [
         "--prompt",
         prompt,
         "--negative-prompt",
@@ -93,18 +126,25 @@ def run_job(spec: dict, job: dict, smoke: bool) -> Path:
         str(mfx["guidance"]),
         "-q",
         str(mfx["quantize"]),
-        "--image",
-        str(bible),
-        str(strength),
+        "--vae-tiling",
         "--output",
         str(dest),
     ]
+    if not txt2img:
+        insert_at = cmd.index("--vae-tiling")
+        cmd[insert_at:insert_at] = ["--image", str(bible), str(strength)]
     print(" ".join(cmd))
     env = os.environ.copy()
-    # Unified memory: leave headroom for the desktop.
     env.setdefault("PYTORCH_MPS_HIGH_WATERMARK_RATIO", "0.0")
+    env.setdefault("HF_HUB_OFFLINE", "1")
+    env.setdefault("TRANSFORMERS_OFFLINE", "1")
     subprocess.check_call(cmd, env=env, cwd=str(ROOT))
-    return dest
+    final = OUT / f"{job['id']}.png"
+    if dest.exists():
+        dest.replace(final)
+    elif not final.exists():
+        die(f"mflux nie zapisał {dest} ani {final}")
+    return final
 
 
 def install_into_xcassets(job: dict, png: Path) -> None:
@@ -144,7 +184,7 @@ def install_into_xcassets(job: dict, png: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--smoke", action="store_true", help="schnell, 4 steps — test instalacji")
-    parser.add_argument("--job", help="tylko jedno id z prompts.json")
+    parser.add_argument("--job", action="append", help="id z prompts.json (można powtórzyć)")
     parser.add_argument("--skip-install", action="store_true")
     parser.add_argument("--no-assets", action="store_true", help="nie kopiuj do Assets.xcassets")
     args = parser.parse_args()
@@ -153,9 +193,10 @@ def main() -> None:
     spec = load_spec()
     jobs = spec["jobs"]
     if args.job:
-        jobs = [j for j in jobs if j["id"] == args.job]
+        wanted = set(args.job)
+        jobs = [j for j in jobs if j["id"] in wanted]
         if not jobs:
-            die(f"Nie ma joba {args.job}")
+            die(f"Nie ma jobów {sorted(wanted)}")
     if not args.skip_install:
         bootstrap()
     if not venv_mflux().exists():

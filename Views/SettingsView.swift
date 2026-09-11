@@ -6,18 +6,22 @@ struct SettingsView: View {
     var body: some View {
         ZStack {
             StageBackground()
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    ScreenChrome(
-                        title: Copy.s(store.language, pl: "Ustawienia", en: "Settings"),
-                        onBack: { store.backToDesk() }
-                    ) { EmptyView() }
+            VStack(spacing: 0) {
+                ScreenChrome(
+                    title: Copy.s(store.language, pl: "Ustawienia", en: "Settings"),
+                    onBack: { store.back() },
+                    backCaption: Copy.s(store.language, pl: "Wstecz", en: "Back")
+                ) { EmptyView() }
 
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
                     Picker(Copy.s(store.language, pl: "Język", en: "Language"), selection: $store.language) {
                         Text("Polski").tag(AppLanguage.polish)
                         Text("English").tag(AppLanguage.english)
                     }
                     .pickerStyle(.segmented)
+                    .padding(16)
+                    .background(Noir.ink)
                     .padding(.horizontal, 16)
 
                     Toggle(isOn: $store.campaignMeters) {
@@ -30,18 +34,29 @@ struct SettingsView: View {
                                 en: "Off for a meeting: each file resets to 100. On: stamps stay for the evening."
                             ))
                             .font(Typeface.body(13))
-                            .foregroundStyle(Noir.mist)
+                            .foregroundStyle(Noir.paper)
                         }
                     }
                     .tint(Noir.blood)
+                    .padding(16)
+                    .background(Noir.ink)
                     .padding(.horizontal, 16)
 
-                    Text(Copy.s(
-                        store.language,
-                        pl: "Offline. Bez konta. Bez analityki. Generator obrazów siedzi na Mac Studio, nie na iPadzie.",
-                        en: "Offline. No account. No analytics. The image generator sits on the Mac Studio, not on the iPad."
-                    ))
-                    .font(Typeface.body(15))
+                    InkPlate {
+                        Text(Copy.s(
+                            store.language,
+                            pl: "Offline. Bez konta. Bez analityki.",
+                            en: "Offline. No account. No analytics."
+                        ))
+                        .font(Typeface.body(15))
+                        .foregroundStyle(Noir.paper)
+                    }
+                    .padding(.horizontal, 16)
+
+                    Button(Copy.s(store.language, pl: "Źródła — przepisy i orzeczenia", en: "Sources — statutes and cases")) {
+                        store.openSources()
+                    }
+                    .font(Typeface.mono(13))
                     .foregroundStyle(Noir.paper)
                     .padding(.horizontal, 16)
 
@@ -51,10 +66,22 @@ struct SettingsView: View {
                     .font(Typeface.mono(13))
                     .foregroundStyle(Noir.blood)
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 32)
+
+                    if !store.stamps.isEmpty {
+                        Button(Copy.s(store.language, pl: "Zdejmij stemple z wokandy", en: "Clear stamps from the docket")) {
+                            store.clearStamps()
+                        }
+                        .font(Typeface.mono(13))
+                        .foregroundStyle(Noir.paper)
+                        .padding(.horizontal, 16)
+                    }
+
+                    Color.clear.frame(height: 32)
+                    }
+                    .frame(maxWidth: 720)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 16)
                 }
-                .frame(maxWidth: 720)
-                .frame(maxWidth: .infinity)
             }
         }
     }
@@ -66,60 +93,62 @@ struct VisualBibleView: View {
     var body: some View {
         ZStack {
             StageBackground()
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    ScreenChrome(
-                        title: Copy.s(store.language, pl: "Biblia wizualna", en: "Visual bible"),
-                        kicker: Copy.s(store.language, pl: "NIE GENERUJ TWARZY W LOCIE", en: "DO NOT GENERATE FACES LIVE"),
-                        onBack: { store.backToDesk() }
-                    ) { EmptyView() }
+            VStack(spacing: 0) {
+                ScreenChrome(
+                    title: Copy.s(store.language, pl: "Obsada", en: "The cast"),
+                    kicker: Copy.s(store.language, pl: "BIBLIA WIZUALNA", en: "VISUAL BIBLE"),
+                    onBack: { store.back() },
+                    backCaption: Copy.s(store.language, pl: "Wstecz", en: "Back")
+                ) { EmptyView() }
 
-                    Text(Copy.s(
-                        store.language,
-                        pl: "Spójność postaci to ten sam plik w każdej teczce — nie nowy prompt. Grafikę dopina lokalny model na Mac Studio M2 Ultra (mflux / Flux, 128 GB), offline, img2img z World/bible. iPad 9 i SE 3 nie generują obrazów.",
-                        en: "Character lock is the same file in every dossier — not a new prompt. Art is finished on the Mac Studio M2 Ultra (mflux / Flux, 128 GB), offline, img2img from World/bible. iPad 9 and SE 3 do not generate images."
-                    ))
-                    .font(Typeface.body(16))
-                    .foregroundStyle(Noir.paper)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                    InkPlate {
+                        Text(Copy.s(
+                            store.language,
+                            pl: "Zanim otworzysz teczkę — kto stoi na 5. piętrze. Te same twarze wracają w każdej sprawie.",
+                            en: "Before you open a file — who stands on the 5th floor. The same faces return in every case."
+                        ))
+                        .font(Typeface.body(16))
+                        .foregroundStyle(Noir.paper)
+                    }
                     .padding(.horizontal, 16)
 
                     ForEach(Cast.allCases, id: \.self) { person in
-                        HStack(alignment: .top, spacing: 12) {
-                            Image(person.asset)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 96, height: 128)
-                                .clipped()
-                                .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(person.name(store.language))
-                                    .font(Typeface.display(20))
-                                    .foregroundStyle(.white)
-                                Text(lockLine(person))
-                                    .font(Typeface.body(14))
-                                    .foregroundStyle(Noir.mist)
-                            }
-                        }
+                        ComicPanel(
+                            asset: person.asset,
+                            caption: person.name(store.language) + " — " + lockLine(person),
+                            minHeight: 160
+                        )
                         .padding(.horizontal, 16)
                     }
 
-                    Image("OfficeNight")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 180)
-                        .clipped()
-                        .overlay(Rectangle().stroke(Noir.blood, lineWidth: 2))
-                        .overlay(alignment: .bottomLeading) {
-                            Text(Canon.addressPL)
-                                .font(Typeface.mono(11))
-                                .foregroundStyle(.white)
-                                .padding(8)
-                        }
-                        .padding(16)
-                        .padding(.bottom, 32)
+                    ComicPanel(
+                        asset: "OfficeNight",
+                        caption: Canon.firm(store.language) + ". " + Canon.window(store.language),
+                        bloodCaption: true,
+                        minHeight: 180
+                    )
+                    .padding(.horizontal, 16)
+
+                    Button {
+                        store.back()
+                    } label: {
+                        Text(Copy.s(store.language, pl: "Do biurka — wokanda", en: "To the desk — the docket"))
+                            .font(Typeface.mono(14))
+                            .foregroundStyle(Color.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(14)
+                            .background(Noir.blood)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(16)
+                    .padding(.bottom, 32)
+                    }
+                    .frame(maxWidth: 720)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 16)
                 }
-                .frame(maxWidth: 720)
-                .frame(maxWidth: .infinity)
             }
         }
     }

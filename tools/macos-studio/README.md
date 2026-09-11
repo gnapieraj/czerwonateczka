@@ -36,7 +36,8 @@ Pierwsze `flux-dev` ściąga kilka GB z Hugging Face (offline po cache).
 
 - Nie zmieniaj `style_lock` ani seedów w `prompts.json` „dla urozmaicenia”.
 - Siła img2img > 0.45 rozjeżdża twarz Iglicy i Chropota.
-- Na szyldach tylko słowo KANCELARIA — bez Vogel, Kruk, Królewska 16, bez numeru działki.
+- Zero czytelnych liter w płycie (Flux psuje polski). Szyld, Colgante, numery teczek — tylko SwiftUI.
+- Na tablicach pusto — bez Vogel, Kruk, Królewska 16, bez numeru działki.
 - Po generacji: Xcode ⌘R na iPadzie.
 
 ComfyUI jest opcją, jeśli wolisz węzły. Ten skrypt jest krótszą drogą na M2 Ultra.
