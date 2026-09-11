@@ -1,0 +1,64 @@
+---
+const action = import.meta.env.PUBLIC_NEWSLETTER_FORM_ACTION?.trim();
+const emailField = import.meta.env.PUBLIC_NEWSLETTER_EMAIL_FIELD || "email";
+const nameField = import.meta.env.PUBLIC_NEWSLETTER_NAME_FIELD || "first_name";
+---
+
+{
+  action ? (
+    <form class="newsletter-form" action={action} method="post" data-newsletter-form>
+      <label>
+        Imię <span class="fine-print">(opcjonalnie)</span>
+        <input name={nameField} autocomplete="given-name" maxlength="80" />
+      </label>
+      <label>
+        Adres e-mail
+        <input name={emailField} type="email" autocomplete="email" required maxlength="254" />
+      </label>
+      <div class="hp" aria-hidden="true">
+        <label>
+          Firma
+          <input name="company_website" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
+      <label class="consent">
+        <input name="consent" type="checkbox" value="1" required />
+        <span>
+          Zgadzam się na newsletter „Czerwona lampka” od Grzegorza Napieraja.
+          Mogę wypisać się w każdej chwili. Szczegóły: <a href="/prywatnosc">prywatność</a>.
+        </span>
+      </label>
+      <input name="source" type="hidden" value="colgante.pl" />
+      <button class="button" type="submit">Wyślij potwierdzenie →</button>
+      <p class="form-status" aria-live="polite">
+        Po wysłaniu otrzymasz wiadomość z linkiem potwierdzającym zapis.
+      </p>
+    </form>
+  ) : (
+    <div class="callout">
+      <p class="eyebrow">LISTA OCZEKUJĄCA</p>
+      <h3>Zapisy ruszą po uruchomieniu pierwszego wydania.</h3>
+      <p class="muted">
+        Formularz nie zbiera jeszcze adresów. Możesz napisać do autora i poprosić o
+        informację o starcie.
+      </p>
+      <a class="button button-secondary" href="mailto:kontakt@grzegorznapieraj.pl?subject=Czerwona%20lampka%20%E2%80%94%20informacja%20o%20starcie">
+        Powiadom mnie o starcie
+      </a>
+    </div>
+  )
+}
+
+{
+  action && (
+    <script>
+      const form = document.querySelector<HTMLFormElement>("[data-newsletter-form]");
+      form?.addEventListener("submit", (event) => {
+        const trap = form.querySelector<HTMLInputElement>('input[name="company_website"]');
+        if (trap?.value.trim()) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  )
+}

@@ -1,0 +1,144 @@
+---
+import OptimizedImage from "../../components/OptimizedImage.astro";
+import { lessonPath, lessons, sourcesFor } from "../../data/content";
+import { materialBySlug } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return lessons.map((lesson) => ({
+    params: { slug: lesson.web.slug },
+    props: { lesson },
+  }));
+}
+
+const { lesson } = Astro.props;
+const lessonSources = sourcesFor(lesson.sourceIds);
+const material = materialBySlug(lesson.web.materialSlug);
+const previous = lessons.find((item) => item.order === lesson.order - 1);
+const next = lessons.find((item) => item.order === lesson.order + 1);
+---
+
+<BaseLayout
+  title={lesson.title.pl}
+  description={lesson.web.lead}
+  image={`/assets/${lesson.hero}.webp`}
+>
+  <div class="shell">
+    <nav class="breadcrumbs" aria-label="Okruszki">
+      <a href="/">Start</a><span aria-hidden="true">/</span>
+      <a href="/wokanda">Wokanda</a><span aria-hidden="true">/</span>
+      <span>{String(lesson.order).padStart(2, "0")}</span>
+    </nav>
+    <section class="case-hero">
+      <div class="case-hero-copy">
+        <p>
+          <span class="docket-number">TECZKA {String(lesson.order).padStart(2, "0")}</span>
+          <span class="tag">{lesson.web.topic}</span>
+          {lesson.tone === "probono" && <span class="tag">PRO BONO</span>}
+        </p>
+        <h1>{lesson.title.pl}</h1>
+        <p class="lead">{lesson.web.lead}</p>
+        <p class="fine-print">{lesson.subtitle.pl} · {lesson.deadline.pl}</p>
+      </div>
+      <OptimizedImage
+        name={lesson.hero}
+        alt=""
+        width={1400}
+        height={900}
+        sizes="(max-width: 820px) 100vw, 52vw"
+        eager
+      />
+    </section>
+  </div>
+
+  <section class="reading section">
+    <p class="eyebrow">ZAGROŻENIE</p>
+    <h2>Co jest stawką?</h2>
+    <p class="lead">{lesson.awareness.threat.pl}</p>
+    <details class="reveal">
+      <summary>Otwórz kontekst sprawy</summary>
+      <div class="reveal-content">
+        <p>{lesson.context.pl}</p>
+        <p class="eyebrow">GŁOS WEWNĘTRZNY</p>
+        <p>{lesson.innerVoice.pl}</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">CO POWINNO ZAPALIĆ LAMPKĘ</p>
+        <h2>Czerwone flagi</h2>
+      </div>
+      <p class="muted">
+        Sygnały nie przesądzają same o wyniku. Mówią, w którym miejscu trzeba
+        zatrzymać automatyzm i sprawdzić fakty.
+      </p>
+    </div>
+    <div class="split">
+      <div class="callout">
+        <ul class="flag-list">
+          {lesson.redFlags.map((flag) => <li>{flag.pl}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">REFLEKS</p>
+        <h3>Ruch do zabrania na biurko</h3>
+        <p class="lead">{lesson.web.practical}</p>
+        {material && (
+          <a class="button button-secondary" href={`/materialy/${material.slug}`}>
+            Otwórz: {material.title} →
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="reading section">
+    <p class="eyebrow">BRIEFING KANCELARYJNY</p>
+    <h2>Od scenariusza do praktyki</h2>
+    <div class="ink-card">
+      <h3>Na co zwracać uwagę</h3>
+      <ul class="flag-list">
+        {lesson.awareness.watchFor.map((item) => <li>{item.pl}</li>)}
+      </ul>
+    </div>
+    <div class="ink-card">
+      <h3>Jak minimalizować</h3>
+      <p>{lesson.awareness.minimize.pl}</p>
+    </div>
+    <div class="ink-card">
+      <h3>W kancelarii — praktyka</h3>
+      <p>{lesson.awareness.practice.pl}</p>
+    </div>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">ŹRÓDŁA TEJ TECZKI</p>
+        <h2>Sprawdź pełny tekst</h2>
+      </div>
+      <p class="muted">
+        Stan źródeł: 10.09.2026. Przykłady zagraniczne są ilustracjami, a nie
+        polskim precedensem.
+      </p>
+    </div>
+    <div class="source-grid">
+      {lessonSources.map((source) => (
+        <article class="source-card">
+          <p class="eyebrow">{source.category.pl}</p>
+          <a href={source.url} rel="external noopener">{source.title.pl} ↗</a>
+          <p>{source.note.pl}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <nav class="shell section-sm actions" aria-label="Następna i poprzednia teczka">
+    {previous && <a class="button button-secondary" href={lessonPath(previous)}>← {previous.title.pl}</a>}
+    <a class="button button-quiet" href="/wokanda">Wróć na wokandę</a>
+    {next && <a class="button" href={lessonPath(next)}>{next.title.pl} →</a>}
+  </nav>
+</BaseLayout>

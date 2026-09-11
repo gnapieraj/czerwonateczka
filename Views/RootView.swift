@@ -28,5 +28,7 @@ struct RootView: View {
             }
         }
         .tint(Noir.blood)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clipped()
     }
 }

@@ -45,6 +45,8 @@ final class GameStore: ObservableObject {
             }
         } else if ProcessInfo.processInfo.arguments.contains("--desk") {
             self.route = .desk
+        } else if ProcessInfo.processInfo.arguments.contains("--bible") {
+            self.route = .bible
         }
         seenBible = UserDefaults.standard.bool(forKey: "docket.seenBible")
         stamps = Self.loadStamps(key: stampsKey)

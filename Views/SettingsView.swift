@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var store: GameStore
+    @EnvironmentObject private var soundtrack: Soundtrack
 
     var body: some View {
         ZStack {
@@ -20,6 +21,33 @@ struct SettingsView: View {
                         Text("English").tag(AppLanguage.english)
                     }
                     .pickerStyle(.segmented)
+                    .padding(16)
+                    .background(Noir.ink)
+                    .padding(.horizontal, 16)
+
+                    Toggle(isOn: Binding(
+                        get: { !soundtrack.isMuted },
+                        set: { soundtrack.isMuted = !$0 }
+                    )) {
+                        HStack(alignment: .top, spacing: 12) {
+                            Image(systemName: soundtrack.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                                .font(.title3)
+                                .foregroundStyle(soundtrack.isMuted ? Noir.blood : Noir.paper)
+                                .frame(width: 28)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(Copy.s(store.language, pl: "Muzyka biurka", en: "Desk music"))
+                                    .foregroundStyle(.white)
+                                Text(Copy.s(
+                                    store.language,
+                                    pl: "Wolna pętla fortepianu napisana na potrzeby gry. Przełącznik dzwonka na iPhonie też ją wycisza.",
+                                    en: "A slow piano loop written for this game. The iPhone Ring/Silent switch also mutes it."
+                                ))
+                                .font(Typeface.body(13))
+                                .foregroundStyle(Noir.paper)
+                            }
+                        }
+                    }
+                    .tint(Noir.blood)
                     .padding(16)
                     .background(Noir.ink)
                     .padding(.horizontal, 16)
@@ -118,7 +146,8 @@ struct VisualBibleView: View {
                         ComicPanel(
                             asset: person.asset,
                             caption: person.name(store.language) + " — " + lockLine(person),
-                            minHeight: 160
+                            minHeight: person == .mecenas ? 200 : 280,
+                            contentMode: .fit
                         )
                         .padding(.horizontal, 16)
                     }

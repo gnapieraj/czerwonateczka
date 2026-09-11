@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ComicLettering: View {
     let text: String
@@ -31,21 +32,19 @@ struct ComicPagePanel: View {
     let language: AppLanguage
 
     var body: some View {
-        GeometryReader { geo in
-            ZStack(alignment: beat.voice == .balloon ? .bottom : .topLeading) {
-                Color.black
-                Image(beat.asset)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: geo.size.width, height: geo.size.height)
-                ComicLettering(text: beat.caption.t(language), voice: beat.voice)
-                    .padding(8)
-                    .frame(
-                        maxWidth: .infinity,
-                        alignment: beat.voice == .balloon ? .center : .leading
-                    )
-            }
+        ZStack(alignment: beat.voice == .balloon ? .bottom : .topLeading) {
+            Color.black
+            Image(beat.asset)
+                .resizable()
+                .scaledToFit()
+            ComicLettering(text: beat.caption.t(language), voice: beat.voice)
+                .padding(8)
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: beat.voice == .balloon ? .center : .leading
+                )
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .clipped()
         .contentShape(Rectangle())
         .overlay(Rectangle().stroke(Color.black, lineWidth: 3))
@@ -101,20 +100,35 @@ struct ComicBoard: View {
     }
 }
 
+/// Fills a proposed frame without letting `scaledToFill` inflate the parent layout.
+struct CroppedImage: View {
+    let name: String
+    var contentMode: ContentMode = .fill
+
+    var body: some View {
+        Color.clear
+            .overlay {
+                Image(name)
+                    .resizable()
+                    .aspectRatio(contentMode: contentMode)
+            }
+            .clipped()
+            .contentShape(Rectangle())
+    }
+}
+
 struct ComicPanel: View {
     let asset: String
     var caption: String? = nil
     var bloodCaption: Bool = false
     var minHeight: CGFloat = 160
+    var contentMode: ContentMode = .fill
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Image(asset)
-                .resizable()
-                .scaledToFill()
+            CroppedImage(name: asset, contentMode: contentMode)
                 .frame(maxWidth: .infinity)
                 .frame(height: minHeight)
-                .clipped()
             if let caption, !caption.isEmpty {
                 Text(caption)
                     .font(Typeface.body(15))
@@ -125,6 +139,7 @@ struct ComicPanel: View {
                     .background(Noir.paper)
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .clipShape(Rectangle())
         .overlay(Rectangle().stroke(Color.white.opacity(0.85), lineWidth: 2))
         .shadow(color: Noir.blood.opacity(0.25), radius: 0, x: 3, y: 3)
@@ -154,14 +169,149 @@ struct StageBackground: View {
     var dim: Double = 0.78
 
     var body: some View {
-        ZStack {
-            Noir.void
-            Image(image)
-                .resizable()
-                .scaledToFill()
+        Rectangle()
+            .fill(Noir.void)
+            .ignoresSafeArea()
+            .overlay {
+                CroppedImage(name: image)
                 .overlay(Color.black.opacity(dim))
-            BlindsOverlay()
+                .overlay { BlindsOverlay() }
+            }
+            .clipped()
+            .ignoresSafeArea()
+            .allowsHitTesting(false)
+    }
+}
+
+/// UIKit paging so a finger swipe actually turns comic pages.
+struct HorizontalPager<Page: View>: UIViewControllerRepresentable {
+    let pageCount: Int
+    @Binding var selection: Int
+    @ViewBuilder var page: (Int) -> Page
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(selection: $selection)
+    }
+
+    func makeUIViewController(context: Context) -> UIPageViewController {
+        let controller = UIPageViewController(
+            transitionStyle: .scroll,
+            navigationOrientation: .horizontal
+        )
+        controller.dataSource = context.coordinator
+        controller.delegate = context.coordinator
+        controller.view.backgroundColor = .white
+        context.coordinator.install(pageCount: pageCount, page: page)
+        let start = context.coordinator.clamped(selection)
+        if let current = context.coordinator.controller(at: start) {
+            controller.setViewControllers([current], direction: .forward, animated: false)
         }
-        .ignoresSafeArea()
+        DispatchQueue.main.async {
+            context.coordinator.tuneScroll(controller)
+        }
+        return controller
+    }
+
+    func updateUIViewController(_ controller: UIPageViewController, context: Context) {
+        context.coordinator.selection = $selection
+        context.coordinator.install(pageCount: pageCount, page: page)
+        context.coordinator.tuneScroll(controller)
+        guard !context.coordinator.isTransitioning else { return }
+        let target = context.coordinator.clamped(selection)
+        let current = controller.viewControllers?.first.flatMap { context.coordinator.index(of: $0) }
+        if current != target, let next = context.coordinator.controller(at: target) {
+            controller.setViewControllers(
+                [next],
+                direction: target >= (current ?? target) ? .forward : .reverse,
+                animated: current != nil
+            )
+        }
+    }
+
+    final class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+        var selection: Binding<Int>
+        var isTransitioning = false
+        private var hosts: [Int: UIHostingController<Page>] = [:]
+        private var count = 0
+
+        init(selection: Binding<Int>) {
+            self.selection = selection
+        }
+
+        func clamped(_ index: Int) -> Int {
+            min(max(index, 0), max(count - 1, 0))
+        }
+
+        func install(pageCount: Int, page: (Int) -> Page) {
+            count = pageCount
+            for index in 0..<pageCount {
+                let root = page(index)
+                if let host = hosts[index] {
+                    host.rootView = root
+                } else {
+                    let host = UIHostingController(rootView: root)
+                    host.sizingOptions = []
+                    host.safeAreaRegions = []
+                    host.view.backgroundColor = .white
+                    host.view.clipsToBounds = true
+                    host.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                    hosts[index] = host
+                }
+            }
+            hosts.keys.filter { $0 >= pageCount }.forEach { hosts.removeValue(forKey: $0) }
+        }
+
+        func controller(at index: Int) -> UIViewController? { hosts[index] }
+
+        func index(of controller: UIViewController) -> Int? {
+            hosts.first { $0.value === controller }?.key
+        }
+
+        func tuneScroll(_ page: UIPageViewController) {
+            for subview in page.view.subviews {
+                guard let scroll = subview as? UIScrollView else { continue }
+                scroll.delaysContentTouches = false
+                scroll.canCancelContentTouches = true
+                scroll.isPagingEnabled = true
+                scroll.alwaysBounceHorizontal = true
+            }
+        }
+
+        func pageViewController(
+            _ pageViewController: UIPageViewController,
+            viewControllerBefore viewController: UIViewController
+        ) -> UIViewController? {
+            guard let index = index(of: viewController), index > 0 else { return nil }
+            return hosts[index - 1]
+        }
+
+        func pageViewController(
+            _ pageViewController: UIPageViewController,
+            viewControllerAfter viewController: UIViewController
+        ) -> UIViewController? {
+            guard let index = index(of: viewController), index + 1 < count else { return nil }
+            return hosts[index + 1]
+        }
+
+        func pageViewController(
+            _ pageViewController: UIPageViewController,
+            willTransitionTo pendingViewControllers: [UIViewController]
+        ) {
+            isTransitioning = true
+        }
+
+        func pageViewController(
+            _ pageViewController: UIPageViewController,
+            didFinishAnimating finished: Bool,
+            previousViewControllers: [UIViewController],
+            transitionCompleted completed: Bool
+        ) {
+            isTransitioning = false
+            guard completed,
+                  let visible = pageViewController.viewControllers?.first,
+                  let index = index(of: visible)
+            else { return }
+            selection.wrappedValue = index
+        }
     }
 }

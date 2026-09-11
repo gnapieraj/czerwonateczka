@@ -1,0 +1,514 @@
+[
+  {
+    "id": "bar",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Prawo o adwokaturze — art. 6",
+      "en": "Bar Act — art. 6"
+    },
+    "note": {
+      "pl": "Dz.U. 2024 poz. 1564; tajemnica zawodowa adwokata.",
+      "en": "Journal of Laws 2024 item 1564; advocate’s professional secrecy."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2024/1564/text.html"
+  },
+  {
+    "id": "radca",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Ustawa o radcach prawnych — art. 3 ust. 3–5",
+      "en": "Legal Advisers Act — art. 3(3)–(5)"
+    },
+    "note": {
+      "pl": "Dz.U. 2024 poz. 499 z późn. zm.; tajemnica zawodowa radcy prawnego.",
+      "en": "Journal of Laws 2024 item 499, as amended; legal adviser’s professional secrecy."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2024/499/text.html"
+  },
+  {
+    "id": "kpc",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Kodeks postępowania cywilnego — art. 3 i 4¹",
+      "en": "Code of Civil Procedure — arts. 3 and 4¹"
+    },
+    "note": {
+      "pl": "Dz.U. 2026 poz. 468 z późn. zm.; rzetelność czynności i nadużycie prawa procesowego.",
+      "en": "Journal of Laws 2026 item 468, as amended; procedural candour and abuse of process."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2026/468/text.html"
+  },
+  {
+    "id": "criminal",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Kodeks karny — art. 266 § 1",
+      "en": "Criminal Code — art. 266 § 1"
+    },
+    "note": {
+      "pl": "Dz.U. 2025 poz. 383 z późn. zm.; ujawnienie lub wykorzystanie informacji wymaga spełnienia wszystkich znamion.",
+      "en": "Journal of Laws 2025 item 383, as amended; disclosure or use requires every element of the offence."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2025/383/text.html"
+  },
+  {
+    "id": "civil-code",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Kodeks cywilny — art. 355 i 471",
+      "en": "Civil Code — arts. 355 and 471"
+    },
+    "note": {
+      "pl": "Dz.U. 2026 poz. 795; zawodowa staranność i odpowiedzialność kontraktowa zależna od przesłanek.",
+      "en": "Journal of Laws 2026 item 795; professional care and contractual liability subject to statutory conditions."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2026/795/text.html"
+  },
+  {
+    "id": "uznk",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Ustawa o zwalczaniu nieuczciwej konkurencji — art. 11 ust. 2",
+      "en": "Unfair Competition Act — art. 11(2)"
+    },
+    "note": {
+      "pl": "Dz.U. 2026 poz. 85; przesłanki tajemnicy przedsiębiorstwa.",
+      "en": "Journal of Laws 2026 item 85; statutory conditions for trade-secret protection."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2026/85/text.html"
+  },
+  {
+    "id": "labour-code",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Kodeks pracy — art. 22²–22³",
+      "en": "Labour Code — arts. 22²–22³"
+    },
+    "note": {
+      "pl": "Monitoring pracowników wymaga odrębnej podstawy, celu, proporcjonalności i informacji.",
+      "en": "Employee monitoring requires a separate basis, purpose, proportionality and notice."
+    },
+    "url": "https://eli.gov.pl/api/acts/DU/2025/277/text.html"
+  },
+  {
+    "id": "gdpr",
+    "category": {
+      "pl": "Prawo UE",
+      "en": "EU law"
+    },
+    "title": {
+      "pl": "Rozporządzenie (UE) 2016/679 (RODO)",
+      "en": "Regulation (EU) 2016/679 (GDPR)"
+    },
+    "note": {
+      "pl": "W szczególności art. 5, 9, 22, 28 oraz 32–34; każdy przepis ma odrębne przesłanki.",
+      "en": "In particular arts. 5, 9, 22, 28 and 32–34; each provision has distinct conditions."
+    },
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  {
+    "id": "aiact",
+    "category": {
+      "pl": "Prawo UE",
+      "en": "EU law"
+    },
+    "title": {
+      "pl": "Rozporządzenie (UE) 2024/1689 (AI Act)",
+      "en": "Regulation (EU) 2024/1689 (AI Act)"
+    },
+    "note": {
+      "pl": "Art. 3 pkt 39, art. 4, art. 5 ust. 1 lit. f, art. 50 i art. 99; tekst skonsolidowany.",
+      "en": "Arts. 3(39), 4, 5(1)(f), 50 and 99; consolidated text."
+    },
+    "url": "https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:02024R1689-20260727"
+  },
+  {
+    "id": "polish-ai-act",
+    "category": {
+      "pl": "Prawo obowiązujące",
+      "en": "Binding law"
+    },
+    "title": {
+      "pl": "Ustawa o systemach sztucznej inteligencji",
+      "en": "Polish AI Systems Act"
+    },
+    "note": {
+      "pl": "Dz.U. 2026 poz. 1003; obowiązuje od 11.08.2026, a rozdziały egzekucyjne i karne od 28.10.2026.",
+      "en": "Journal of Laws 2026 item 1003; applies from 11 Aug 2026, with enforcement and penalty chapters from 28 Oct 2026."
+    },
+    "url": "https://eli.gov.pl/eli/DU/2026/1003/ogl/pol"
+  },
+  {
+    "id": "kea",
+    "category": {
+      "pl": "Etyka zawodowa",
+      "en": "Professional ethics"
+    },
+    "title": {
+      "pl": "Kodeks Etyki Adwokackiej — § 19 ust. 6 i § 23e",
+      "en": "Code of Ethics for Advocates — § 19(6) and § 23e"
+    },
+    "note": {
+      "pl": "Tekst jednolity ogłoszony uchwałą Prezydium NRA nr 174/2026 z 23.06.2026.",
+      "en": "Consolidated text published by NRA Presidium Resolution 174/2026 of 23 June 2026."
+    },
+    "url": "https://www.adwokatura.pl/regulaminy/wykonywanie-zawodu-etyka-i-doskonalenie-zawodowe/"
+  },
+  {
+    "id": "kirp-ai",
+    "category": {
+      "pl": "Wytyczne",
+      "en": "Guidance"
+    },
+    "title": {
+      "pl": "KIRP: AI w pracy radcy prawnego",
+      "en": "KIRP: AI in legal-adviser practice"
+    },
+    "note": {
+      "pl": "Rekomendacje z 2025 r.; dokument pomocniczy, nie przepis prawa.",
+      "en": "2025 recommendations; guidance, not binding legislation."
+    },
+    "url": "https://kirp.pl/rekomendacje-dotyczace-korzystania-z-ai/"
+  },
+  {
+    "id": "nra-cyber",
+    "category": {
+      "pl": "Wytyczne",
+      "en": "Guidance"
+    },
+    "title": {
+      "pl": "NRA: dobre praktyki cyberbezpieczeństwa",
+      "en": "NRA: cybersecurity good practices"
+    },
+    "note": {
+      "pl": "Uchwała NRA nr 25/2025 z 22.11.2025; standard praktyczny, nie ustawa.",
+      "en": "NRA Resolution 25/2025 of 22 Nov 2025; practical guidance, not legislation."
+    },
+    "url": "https://www.adwokatura.pl/regulaminy/wykonywanie-zawodu-etyka-i-doskonalenie-zawodowe/"
+  },
+  {
+    "id": "advocate-funds",
+    "category": {
+      "pl": "Reguły zawodowe",
+      "en": "Professional rules"
+    },
+    "title": {
+      "pl": "Regulamin wykonywania zawodu adwokata — § 6",
+      "en": "Advocate-practice regulations — § 6"
+    },
+    "note": {
+      "pl": "Sposób przyjmowania i dysponowania środkami klienta powinien wynikać z pisemnej umowy i dokumentacji.",
+      "en": "Receipt and disposition of client money should follow a written agreement and records."
+    },
+    "url": "https://nra.pl/szukaj-dokumenty/dokument/1089/"
+  },
+  {
+    "id": "kerp-funds",
+    "category": {
+      "pl": "Reguły zawodowe",
+      "en": "Professional rules"
+    },
+    "title": {
+      "pl": "Kodeks Etyki Radcy Prawnego — art. 37",
+      "en": "Code of Ethics for Legal Advisers — art. 37"
+    },
+    "note": {
+      "pl": "Reguły postępowania radcy prawnego ze środkami klienta.",
+      "en": "Rules governing a legal adviser’s handling of client money."
+    },
+    "url": "https://kirp.pl/wp-content/uploads/2024/02/kodeks-etyki-radcy-prawnego-i-regulamin-wykonywania-zawodu.pdf"
+  },
+  {
+    "id": "bec-gov",
+    "category": {
+      "pl": "Wytyczne",
+      "en": "Guidance"
+    },
+    "title": {
+      "pl": "Gov.pl: oszustwa typu BEC",
+      "en": "Gov.pl: business email compromise"
+    },
+    "note": {
+      "pl": "Operacyjne czerwone flagi i obowiązek niezależnego potwierdzania zmiany rachunku.",
+      "en": "Operational warning signs and independent confirmation of account changes."
+    },
+    "url": "https://www.gov.pl/web/baza-wiedzy/oszustwa-typu-bec"
+  },
+  {
+    "id": "csirt-media",
+    "category": {
+      "pl": "Wytyczne techniczne",
+      "en": "Technical guidance"
+    },
+    "title": {
+      "pl": "CSIRT CeZ: bezpieczne korzystanie z nośników",
+      "en": "CSIRT CeZ: safe use of removable media"
+    },
+    "note": {
+      "pl": "Niezaufanych nośników nie podłącza się do stacji roboczych z dostępem do chronionych zasobów.",
+      "en": "Untrusted media should not be connected to workstations with access to protected resources."
+    },
+    "url": "https://www.cez.gov.pl/sites/default/files/paragraph.attachments.field_attachments/2025-06/Podstawy%20bezpiecze%C5%84stwa%204%20-%20bezpieczne%20korzystanie%20z%20urz%C4%85dze%C5%84%20i%20no%C5%9Bnik%C3%B3w%20danych.pdf"
+  },
+  {
+    "id": "isap-disclaimer",
+    "category": {
+      "pl": "Baza informacyjna",
+      "en": "Information database"
+    },
+    "title": {
+      "pl": "ISAP — informacja o charakterze bazy",
+      "en": "ISAP — database status notice"
+    },
+    "note": {
+      "pl": "ISAP wprost wskazuje, że internetowy system aktów prawnych nie jest źródłem prawa; oficjalnym publikatorom służą dzienniki urzędowe.",
+      "en": "ISAP expressly states that its online database is not a source of law; official journals promulgate legislation."
+    },
+    "url": "https://isap.sejm.gov.pl/isap.nsf/home.xsp"
+  },
+  {
+    "id": "uodo-usb",
+    "category": {
+      "pl": "Orzeczenie polskie",
+      "en": "Polish decision"
+    },
+    "title": {
+      "pl": "Prezes UODO, DKN.5131.31.2022",
+      "en": "Polish DPA, DKN.5131.31.2022"
+    },
+    "note": {
+      "pl": "Decyzja z 20.04.2023: utrata wysłanego, niezaszyfrowanego nośnika; kara 23 580 zł. To nie była sprawa malware.",
+      "en": "Decision of 20 Apr 2023: loss of an unencrypted device in transit; PLN 23,580 fine. It was not a malware case."
+    },
+    "url": "https://orzeczenia.uodo.gov.pl/document/urn:ndoc:gov:pl:uodo:2022:dkn_5131_31/content"
+  },
+  {
+    "id": "wsa-uodo-usb",
+    "category": {
+      "pl": "Orzeczenie polskie",
+      "en": "Polish decision"
+    },
+    "title": {
+      "pl": "WSA w Warszawie, II SA/Wa 1342/23",
+      "en": "Warsaw administrative court, II SA/Wa 1342/23"
+    },
+    "note": {
+      "pl": "Wyrok z 17.04.2024 oddalający skargę; CBOSA oznacza go jako nieprawomocny.",
+      "en": "Judgment of 17 Apr 2024 dismissing the challenge; CBOSA marks it as non-final."
+    },
+    "url": "https://orzeczenia.nsa.gov.pl/doc/30952A118D"
+  },
+  {
+    "id": "sn-iii-czp-12-22",
+    "category": {
+      "pl": "Orzeczenie polskie",
+      "en": "Polish decision"
+    },
+    "title": {
+      "pl": "SN, III CZP 12/22",
+      "en": "Polish Supreme Court, III CZP 12/22"
+    },
+    "note": {
+      "pl": "Uchwała z 6.04.2022 istnieje, ale nie zawiera tezy o prawach autorskich do kodu.",
+      "en": "The resolution of 6 Apr 2022 exists but contains no holding about copyright in source code."
+    },
+    "url": "https://www.sn.pl/orzecznictwo/Biuletyn_IC_SN/Biuletyn%20Izby%20Cywilnej%20S%C4%85du%20Najwy%C5%BCszego%202022_05_06.pdf"
+  },
+  {
+    "id": "sn-search",
+    "category": {
+      "pl": "Baza orzeczeń",
+      "en": "Case-law database"
+    },
+    "title": {
+      "pl": "Sąd Najwyższy — baza orzeczeń i zagadnień prawnych",
+      "en": "Polish Supreme Court — judgments and legal questions"
+    },
+    "note": {
+      "pl": "Sygnatura jest punktem startu; trzeba przeczytać pełny tekst i sprawdzić tezę w kontekście.",
+      "en": "A docket number is only a starting point; read the full text and verify the holding in context."
+    },
+    "url": "https://www.sn.pl/orzecznictwo/SitePages/Baza_orzeczen.aspx"
+  },
+  {
+    "id": "sn-iii-czp-7-24",
+    "category": {
+      "pl": "Orzeczenie polskie",
+      "en": "Polish decision"
+    },
+    "title": {
+      "pl": "SN, III CZP 7/24",
+      "en": "Polish Supreme Court, III CZP 7/24"
+    },
+    "note": {
+      "pl": "Rzeczywista sprawa dotycząca rozliczeń między byłymi konkubentami, nie odpowiedzialności za AI.",
+      "en": "A real case concerning property settlement between former cohabitants, not AI liability."
+    },
+    "url": "https://www.sn.pl/sprawy/SitePages/Zagadnienia_prawne_SN.aspx"
+  },
+  {
+    "id": "cjeu-c403-404",
+    "category": {
+      "pl": "Orzeczenie UE",
+      "en": "EU judgment"
+    },
+    "title": {
+      "pl": "TSUE, sprawy połączone C-403/23 i C-404/23",
+      "en": "CJEU, joined Cases C-403/23 and C-404/23"
+    },
+    "note": {
+      "pl": "Luxone i Sofein przeciwko Consip, ECLI:EU:C:2024:805; zamówienia publiczne, nie obowiązki zarządu wobec AI.",
+      "en": "Luxone and Sofein v Consip, ECLI:EU:C:2024:805; public procurement, not corporate AI duties."
+    },
+    "url": "https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:62023CJ0403"
+  },
+  {
+    "id": "court-redaction",
+    "category": {
+      "pl": "Wytyczne techniczne",
+      "en": "Technical guidance"
+    },
+    "title": {
+      "pl": "U.S. Court of Appeals for the D.C. Circuit: redakcja dokumentów",
+      "en": "U.S. Court of Appeals for the D.C. Circuit: document redaction"
+    },
+    "note": {
+      "pl": "Przykład techniczny: czarne pole tylko ukrywa tekst; należy użyć funkcji trwałej redakcji i usunąć ukryte dane.",
+      "en": "Technical illustration: a black box merely hides text; use permanent redaction and remove hidden information."
+    },
+    "url": "https://www.cadc.uscourts.gov/sites/cadc/files/ecfRedactionGuide.pdf"
+  },
+  {
+    "id": "openai-privacy",
+    "category": {
+      "pl": "Warunki dostawcy",
+      "en": "Provider terms"
+    },
+    "title": {
+      "pl": "OpenAI — polityka prywatności dla Europy",
+      "en": "OpenAI — Europe privacy policy"
+    },
+    "note": {
+      "pl": "Usługa konsumencka: dostawca jest administratorem; wykorzystanie treści i transfery zależą od aktualnej polityki i ustawień.",
+      "en": "Consumer service: the provider is a controller; content use and transfers depend on current policy and settings."
+    },
+    "url": "https://openai.com/policies/eu-privacy-policy/"
+  },
+  {
+    "id": "openai-dpa",
+    "category": {
+      "pl": "Warunki dostawcy",
+      "en": "Provider terms"
+    },
+    "title": {
+      "pl": "OpenAI — Data Processing Addendum",
+      "en": "OpenAI — Data Processing Addendum"
+    },
+    "note": {
+      "pl": "DPA dotyczy kwalifikujących się usług biznesowych i ról administrator–procesor; nie należy przenosić go automatycznie na konto konsumenckie.",
+      "en": "The DPA applies to qualifying business services and controller–processor roles; it should not be assumed to cover a consumer account."
+    },
+    "url": "https://openai.com/en-GB/policies/data-processing-addendum/"
+  },
+  {
+    "id": "mata",
+    "category": {
+      "pl": "Przykład zagraniczny",
+      "en": "Foreign illustration"
+    },
+    "title": {
+      "pl": "Mata v. Avianca, 22-cv-1461 (PKC)",
+      "en": "Mata v. Avianca, 22-cv-1461 (PKC)"
+    },
+    "note": {
+      "pl": "S.D.N.Y., 22.06.2023, Doc. 54. Rule 11; niewiążące w Polsce.",
+      "en": "S.D.N.Y., 22 Jun 2023, Doc. 54. Rule 11; not binding in Poland."
+    },
+    "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/"
+  },
+  {
+    "id": "park",
+    "category": {
+      "pl": "Przykład zagraniczny",
+      "en": "Foreign illustration"
+    },
+    "title": {
+      "pl": "Park v. Kim, No. 22-2057",
+      "en": "Park v. Kim, No. 22-2057"
+    },
+    "note": {
+      "pl": "2d Cir., 30.01.2024; skierowanie pełnomocniczki do Grievance Panel. Niewiążące w Polsce.",
+      "en": "2d Cir., 30 Jan 2024; counsel referred to the Grievance Panel. Not binding in Poland."
+    },
+    "url": "https://law.justia.com/cases/federal/appellate-courts/ca2/22-2057/22-2057-2024-01-30.html"
+  },
+  {
+    "id": "cork",
+    "category": {
+      "pl": "Przykład zagraniczny",
+      "en": "Foreign illustration"
+    },
+    "title": {
+      "pl": "Cork & Anor v Smith [2026] EWHC 1199 (Ch)",
+      "en": "Cork & Anor v Smith [2026] EWHC 1199 (Ch)"
+    },
+    "note": {
+      "pl": "High Court, 22.05.2026; dwa pisma wprowadzające sąd w błąd przy użyciu firmowego pilota AI. Niewiążące w Polsce.",
+      "en": "High Court, 22 May 2026; two misleading letters produced during a firm AI pilot. Not binding in Poland."
+    },
+    "url": "https://www.bailii.org/ew/cases/EWHC/Ch/2026/1199.html"
+  },
+  {
+    "id": "heppner",
+    "category": {
+      "pl": "Przykład zagraniczny",
+      "en": "Foreign illustration"
+    },
+    "title": {
+      "pl": "United States v. Heppner, No. 25 Cr. 503 (JSR)",
+      "en": "United States v. Heppner, No. 25 Cr. 503 (JSR)"
+    },
+    "note": {
+      "pl": "S.D.N.Y., 17.02.2026; konsumencki Claude, privilege i work product. Nie jest wykładnią polskiej tajemnicy.",
+      "en": "S.D.N.Y., 17 Feb 2026; consumer Claude, privilege and work product. It does not interpret Polish professional secrecy."
+    },
+    "url": "https://jlellis.net/wp-content/uploads/2026/02/USA-v-Heppner-Order-2026-02-17-AI-Not-Privileged.pdf"
+  },
+  {
+    "id": "thomas",
+    "category": {
+      "pl": "Przykład zagraniczny",
+      "en": "Foreign illustration"
+    },
+    "title": {
+      "pl": "Thomas v. Corbyn Restaurant Development Corp., D083655",
+      "en": "Thomas v. Corbyn Restaurant Development Corp., D083655"
+    },
+    "note": {
+      "pl": "California Court of Appeal, 27.05.2025; BEC przy ugodzie 475 000 USD. Niewiążące w Polsce.",
+      "en": "California Court of Appeal, 27 May 2025; BEC involving a $475,000 settlement. Not binding in Poland."
+    },
+    "url": "https://law.justia.com/cases/california/court-of-appeal/2025/d083655.html"
+  }
+]

@@ -23,7 +23,9 @@ struct MeterBar: View {
             Text(label)
                 .font(Typeface.mono(11))
                 .foregroundStyle(Noir.paper)
-                .frame(width: 118, alignment: .leading)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .frame(minWidth: 64, maxWidth: 118, alignment: .leading)
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Rectangle().fill(Color.white.opacity(0.08))
@@ -168,8 +170,11 @@ struct ScreenChrome<Content: View>: View {
                     .foregroundStyle(Noir.blood)
                     .tracking(3)
                 Text(title)
-                    .font(Typeface.display(34))
+                    .font(Typeface.display(28))
                     .foregroundStyle(.white)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.72)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)

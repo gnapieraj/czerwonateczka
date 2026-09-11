@@ -1,0 +1,74 @@
+---
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="O projekcie">
+  <section class="reading section">
+    <p class="eyebrow">THE RED FILE / CZERWONA TECZKA</p>
+    <h1>Decyzja pod presją</h1>
+    <p class="lead">
+      Czerwona Teczka to edukacyjna gra na iPhone’a i iPada dla prawników,
+      aplikantów i osób pracujących przy bezpieczeństwie informacji.
+    </p>
+    <p>
+      Akcja dzieje się na piątym piętrze fikcyjnej Kancelarii Colgante i
+      Wspólnicy. Na biurku lądują apelacja z nieistniejącą tezą, poufny prompt,
+      telefon z pilną dyspozycją, źle zredagowany PDF, nieznany nośnik i mail,
+      który prawie wygląda znajomo.
+    </p>
+    <div class="callout">
+      <p class="eyebrow">GRANICA FIKCJI</p>
+      <h2>{site.firm} nie istnieje.</h2>
+      <p>
+        Nazwa, adres i bohaterowie są fikcyjni. Nie reprezentują prawdziwej
+        kancelarii, nie przyjmują klientów i nie udzielają porad. Realnym autorem
+        serwisu jest {site.author}.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">MECHANIKA</p>
+        <h2>Trzy ruchy. Trzy różne koszty.</h2>
+      </div>
+      <p class="muted">
+        Gra nie sprowadza decyzji do „tak/nie”. Odrzut może być bezpieczniejszy,
+        ale nadal niepełny.
+      </p>
+    </div>
+    <div class="card-grid">
+      <article class="ink-card">
+        <p class="eyebrow">STEMPEL</p>
+        <h3>Puść dalej</h3>
+        <p class="muted">Akceptujesz dokument, dyspozycję albo technologię w obecnym stanie.</p>
+      </article>
+      <article class="paper-card">
+        <p class="eyebrow">ODRZUT</p>
+        <h3>Zatrzymaj</h3>
+        <p>Chronisz przed częścią ryzyka, ale możesz zostawić zespół bez instrukcji i śladu.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">DRUGI KANAŁ</p>
+        <h3>Zweryfikuj</h3>
+        <p class="muted">Sprawdzasz źródło, osobę, dokument lub warunki narzędzia poza pierwotnym komunikatem.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="reading section">
+    <p class="eyebrow">STATUS</p>
+    <h2>Wersja pilotażowa</h2>
+    <p>
+      Gra działa offline, bez konta i bez analityki. Zawiera osiem teczek w języku
+      polskim i angielskim. Witryna rozwija materiały edukacyjne i źródła; nie
+      zastępuje samej rozgrywki.
+    </p>
+    <div class="actions">
+      <a class="button" href="/wokanda">Otwórz wokandę →</a>
+      <a class="button button-secondary" href="/jak-czytac-gre">Jak czytać grę</a>
+    </div>
+  </section>
+</BaseLayout>

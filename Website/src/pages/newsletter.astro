@@ -1,0 +1,91 @@
+---
+import NewsletterForm from "../components/NewsletterForm.astro";
+import { newsletterSequence } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Czerwona lampka"
+  description="Newsletter Grzegorza Napieraja o cyberbezpieczeństwie dla prawników: incydent, sygnały ostrzegawcze i praktyczny refleks."
+>
+  <section class="reading section">
+    <p class="eyebrow">NEWSLETTER GRZEGORZA NAPIERAJA / IT SECURITY</p>
+    <h1>Czerwona lampka</h1>
+    <p class="lead">
+      Jedna wiadomość, którą da się przeczytać przed pierwszą kawą: prawdziwy
+      incydent, trzy sygnały ostrzegawcze i jeden ruch do wdrożenia.
+    </p>
+    <div class="callout">
+      <h2>Co otrzymasz</h2>
+      <ul class="flag-list">
+        <li>krótkie omówienie bez sensacyjnego tonu,</li>
+        <li>rozróżnienie prawa, wytycznych i zagranicznych ilustracji,</li>
+        <li>checklistę albo pytanie kontrolne do użycia w zespole,</li>
+        <li>maksymalnie dwie wiadomości w miesiącu.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reading section-sm">
+    <p class="eyebrow">PRZYKŁADOWE WYDANIE / 00</p>
+    <h2>Rachunek zmienił się w jednym mailu</h2>
+    <p>
+      Wiadomość wygląda jak dalszy ciąg znanego wątku. Ton się zgadza, podpis też.
+      Zmienia się tylko rachunek i pojawia się prośba, aby „tym razem” ominąć telefon.
+    </p>
+    <div class="card-grid">
+      <article class="ink-card">
+        <p class="eyebrow">01</p>
+        <h3>Presja</h3>
+        <p class="muted">Płatność ma wyjść przed końcem dnia albo ugoda upadnie.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">02</p>
+        <h3>Zmiana</h3>
+        <p class="muted">Nowy rachunek pojawia się wyłącznie w wiadomości.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">03</p>
+        <h3>Izolacja</h3>
+        <p class="muted">Nadawca zniechęca do kontaktu drugim kanałem.</p>
+      </article>
+    </div>
+    <div class="paper-card">
+      <p class="eyebrow">REFLEKS</p>
+      <p>
+        Zmiany danych płatniczych potwierdzaj na numerze zapisanym wcześniej w
+        zatwierdzonym źródle. Nie na numerze z podejrzanej wiadomości.
+      </p>
+    </div>
+  </section>
+
+  <section class="reading section" aria-labelledby="signup-title">
+    <p class="eyebrow">DOUBLE OPT-IN / BEZ ŚLEDZENIA REKLAMOWEGO</p>
+    <h2 id="signup-title">Zapisz się świadomie</h2>
+    <p class="muted">
+      Nadawcą i administratorem listy jest Grzegorz Napieraj, nie fikcyjna
+      kancelaria Colgante. Zapis wymaga potwierdzenia linkiem. W każdej wiadomości
+      będzie bezpośrednia możliwość wypisania.
+    </p>
+    <NewsletterForm />
+    <p class="fine-print">
+      Szczegóły przetwarzania znajdziesz w <a href="/prywatnosc">informacji o prywatności</a>.
+    </p>
+  </section>
+
+  <section class="reading section-sm">
+    <p class="eyebrow">SEKWENCJA POWITALNA</p>
+    <h2>Cztery wiadomości na start</h2>
+    <p class="muted">
+      Najpierw potwierdzenie, potem kontekst projektu i materiały. Zaproszenie do
+      rozmowy o IT Security pojawia się dopiero na końcu.
+    </p>
+    <ol class="check-list">
+      {newsletterSequence.map((item) => (
+        <li>
+          <strong>{item.number} · {item.title}.</strong> {item.body}
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>

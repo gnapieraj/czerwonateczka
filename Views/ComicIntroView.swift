@@ -30,11 +30,7 @@ struct ComicIntroView: View {
                 if beats.isEmpty {
                     emptyFallback
                 } else {
-                    ComicBoard(beats: pages[pageIndex], language: store.language)
-                        .padding(10)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .clipped()
-                        .contentShape(Rectangle())
+                    comicPager
                     pageNumber
                 }
                 footer
@@ -75,8 +71,11 @@ struct ComicIntroView: View {
                     .foregroundStyle(Noir.blood)
                     .tracking(2)
                 Text(lesson.title.t(store.language))
-                    .font(Typeface.display(22))
+                    .font(Typeface.display(20))
                     .foregroundStyle(Color.black)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 0)
             if lesson.tone == .probono {
@@ -111,7 +110,7 @@ struct ComicIntroView: View {
                     Copy.s(store.language, pl: "Poprzednia", en: "Previous"),
                     systemImage: "chevron.left"
                 ) {
-                    pageIndex -= 1
+                    goToPage(pageIndex - 1)
                 }
             }
 
@@ -121,7 +120,7 @@ struct ComicIntroView: View {
                     systemImage: "chevron.right",
                     imageOnRight: true
                 ) {
-                    pageIndex += 1
+                    goToPage(pageIndex + 1)
                 }
             } else {
                 Button {
@@ -140,6 +139,33 @@ struct ComicIntroView: View {
         .padding(.horizontal, 14)
         .padding(.bottom, 16)
         .background(Color.white)
+    }
+
+    private var comicPager: some View {
+        HorizontalPager(pageCount: pages.count, selection: $pageIndex) { index in
+            ComicBoard(beats: pages[index], language: store.language)
+                .padding(10)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .contentShape(Rectangle())
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityElement(children: .contain)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                goToPage(pageIndex + 1)
+            case .decrement:
+                goToPage(pageIndex - 1)
+            default:
+                break
+            }
+        }
+    }
+
+    private func goToPage(_ index: Int) {
+        let clamped = min(max(index, 0), max(pages.count - 1, 0))
+        guard clamped != pageIndex else { return }
+        pageIndex = clamped
     }
 
     private func pageButton(

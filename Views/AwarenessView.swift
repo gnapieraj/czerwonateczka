@@ -20,22 +20,23 @@ struct AwarenessView: View {
 
                     InkPlate {
                         HStack(alignment: .top, spacing: 12) {
-                            Image(lesson.hero)
-                                .resizable()
-                                .scaledToFill()
+                            CroppedImage(name: lesson.hero)
                                 .frame(width: 64, height: 86)
-                                .clipped()
                                 .overlay(Rectangle().stroke(Noir.blood, lineWidth: 2))
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(String(format: "%02d", lesson.order))
                                     .font(Typeface.mono(11))
                                     .foregroundStyle(Noir.paperDim)
                                 Text(lesson.title.t(store.language))
-                                    .font(Typeface.display(24))
+                                    .font(Typeface.display(22))
                                     .foregroundStyle(.white)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.7)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 Text(lesson.subtitle.t(store.language))
                                     .font(Typeface.mono(12))
                                     .foregroundStyle(Noir.paper)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
                     }

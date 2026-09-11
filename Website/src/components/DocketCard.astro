@@ -1,0 +1,30 @@
+---
+import type { lessons } from "../data/content";
+import { lessonPath } from "../data/content";
+import OptimizedImage from "./OptimizedImage.astro";
+
+interface Props {
+  lesson: (typeof lessons)[number];
+}
+
+const { lesson } = Astro.props;
+---
+
+<article class="docket-card" data-topic={lesson.web.topic}>
+  <OptimizedImage
+    name={lesson.hero}
+    alt=""
+    width={1280}
+    height={720}
+    sizes="(max-width: 560px) 100vw, (max-width: 820px) 92vw, 560px"
+  />
+  <div class="docket-card-content">
+    <p>
+      <span class="docket-number">{String(lesson.order).padStart(2, "0")}</span>
+      <span class="tag">{lesson.web.topic}</span>
+      {lesson.tone === "probono" && <span class="tag">PRO BONO</span>}
+    </p>
+    <h3><a class="card-link" href={lessonPath(lesson)}>{lesson.title.pl}</a></h3>
+    <p class="muted">{lesson.web.lead}</p>
+  </div>
+</article>

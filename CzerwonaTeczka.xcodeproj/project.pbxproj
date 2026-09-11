@@ -24,6 +24,7 @@
 		E4A7C01C1A17B0E14D8A9C31 /* AwarenessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */; };
 		F7CC169E7D645CF3BB0D05B5 /* SourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95E3FF4D3A5AB38852DAC4 /* SourcesView.swift */; };
 		8E00521A92B65EA5875DE302 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1930187AB7D45FD69572AEDD /* SettingsView.swift */; };
+		C8A0D105E000000000000002 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000001 /* Soundtrack.swift */; };
 		D2A8A909660552B9BD8D1AF6 /* LessonPackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEEC05FFD558CC835E99B1 /* LessonPackTests.swift */; };
 		D3F087537AEA5B25A5E19E02 /* Lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 8121A333A7E756B59E8E362D /* Lessons.json */; };
 		BCD78093871F55F2AF685FC4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 437F0B1E4A0156E7AE63CEED /* PrivacyInfo.xcprivacy */; };
@@ -31,6 +32,7 @@
 		F07BCA95C0A1C5E1A7B00002 /* GoboCaps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00001 /* GoboCaps-Regular.otf */; };
 		F07BCA95C0A1C5E1A7B00004 /* GoboCaps-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00003 /* GoboCaps-Italic.otf */; };
 		F07BCA95C0A1C5E1A7B00006 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00005 /* OFL.txt */; };
+		C8A0D105E000000000000004 /* NightDocket.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000003 /* NightDocket.m4a */; };
 		B4408679666E58E687176255 /* Lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 8121A333A7E756B59E8E362D /* Lessons.json */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		F07BCA95C0A1C5E1A7B00003 /* GoboCaps-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file.otf; path = "Fonts/GoboCaps-Italic.otf"; sourceTree = "<group>"; };
 		F07BCA95C0A1C5E1A7B00005 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fonts/OFL.txt; sourceTree = "<group>"; };
 		F07BCA95C0A1C5E1A7B00007 /* AppInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		C8A0D105E000000000000001 /* Soundtrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundtrack.swift; sourceTree = "<group>"; };
+		C8A0D105E000000000000003 /* NightDocket.m4a */ = {isa = PBXFileReference; lastKnownFileType = audio.m4a; path = Audio/NightDocket.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -81,6 +85,7 @@
 				E1D2793289175D4C87352463,
 				47AB4334627D59FA880F9C9D,
 				D9633DA9E56B50DAAA64C2E0,
+				C8A0D105E000000000000001,
 			);
 			path = Engine;
 			name = Engine;
@@ -124,6 +129,7 @@
 				F07BCA95C0A1C5E1A7B00003,
 				F07BCA95C0A1C5E1A7B00005,
 				F07BCA95C0A1C5E1A7B00007,
+				C8A0D105E000000000000003,
 			);
 			path = Resources;
 			name = Resources;
@@ -249,6 +255,7 @@
 				F07BCA95C0A1C5E1A7B00002 /* GoboCaps-Regular.otf in Resources */,
 				F07BCA95C0A1C5E1A7B00004 /* GoboCaps-Italic.otf in Resources */,
 				F07BCA95C0A1C5E1A7B00006 /* OFL.txt in Resources */,
+				C8A0D105E000000000000004 /* NightDocket.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 				06EDAD42824A54429820574C /* Copy.swift in Sources */,
 				2CFFA7C51A4854DA866B0299 /* LessonLoader.swift in Sources */,
 				1A287C3963335194830F6314 /* GameStore.swift in Sources */,
+				C8A0D105E000000000000002 /* Soundtrack.swift in Sources */,
 				F3A2029F0EB25A5A801FE645 /* Canon.swift in Sources */,
 				54FD5B211B09507097D80F6E /* RootView.swift in Sources */,
 				21892BF46C895DC3B889EFE8 /* SplashView.swift in Sources */,

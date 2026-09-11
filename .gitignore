@@ -7,3 +7,9 @@ tools/macos-studio/.venv/
 tools/macos-studio/out/
 __pycache__/
 *.pyc
+Website/node_modules/
+Website/dist/
+Website/.astro/
+Website/.env
+Website/public/assets/
+Website/public/fonts/

@@ -1,0 +1,79 @@
+---
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { administrator } = site;
+---
+
+<BaseLayout
+  title="Prywatność"
+  description="Informacja o przetwarzaniu danych na colgante.pl: administrator, kontakt, logi hostingu i prawa osób, których dane dotyczą."
+>
+  <article class="reading section">
+    <p class="eyebrow">INFORMACJA O PRYWATNOŚCI</p>
+    <h1>Prywatność</h1>
+    <p class="lead">
+      {site.firm} jest fikcją i nie jest administratorem danych. Administratorem jest {site.author}.
+    </p>
+
+    <section class="section-sm">
+      <h2>1. Administrator</h2>
+      <p>
+        <strong>{site.author}</strong>, {site.authorFirm}<br />
+        {administrator.street}, {administrator.postalCode} {administrator.city}<br />
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>2. Jakie dane i na jakiej podstawie</h2>
+      <p>
+        Witryna jest statyczna: bez konta, bez trackerów reklamowych i bez zapisu do
+        newslettera. Przetwarzamy:
+      </p>
+      <ul class="flag-list">
+        <li>
+          logi techniczne hostingu (adres IP, czas, żądany adres, przeglądarka) —
+          bezpieczeństwo i ciągłość usługi, art. 6 ust. 1 lit. f RODO;
+        </li>
+        <li>
+          treść korespondencji na {site.contactEmail}, jeśli sam napiszesz — odpowiedź
+          na wiadomość, art. 6 ust. 1 lit. b albo f RODO.
+        </li>
+      </ul>
+      <p>
+        Lista „Czerwona lampka” nie jest prowadzona. Formularz nie zbiera adresów.
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>3. Odbiorcy i okres</h2>
+      <p>
+        Logi przetwarza dostawca hostingu w Europejskim Obszarze Gospodarczym
+        (OVHcloud). Nie sprzedajemy danych. Nie przekazujemy ich poza EOG.
+      </p>
+      <p>
+        Logi przechowujemy nie dłużej, niż wymaga tego bezpieczeństwo usługi
+        (zazwyczaj do 12 miesięcy). Korespondencję — do zakończenia sprawy, a jeśli
+        powstanie obowiązek rachunkowy, przez czas wynikający z przepisów.
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>4. Twoje prawa</h2>
+      <p>
+        Przysługuje Ci dostęp, sprostowanie, usunięcie, ograniczenie przetwarzania,
+        przeniesienie danych oraz sprzeciw wobec przetwarzania opartego na art. 6
+        ust. 1 lit. f RODO. Nie stosujemy profilowania ani zautomatyzowanych decyzji
+        wywołujących skutki prawne. Nie ustawiamy reklamowych ani analitycznych
+        plików cookies.
+      </p>
+      <p>
+        Skargę możesz złożyć do Prezesa Urzędu Ochrony Danych Osobowych,
+        ul. Stawki 2, 00-193 Warszawa.
+      </p>
+    </section>
+
+    <p class="fine-print">Ostatnia aktualizacja: 11.09.2026.</p>
+  </article>
+</BaseLayout>

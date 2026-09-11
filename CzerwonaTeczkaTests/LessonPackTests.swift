@@ -18,6 +18,15 @@ final class LessonPackTests: XCTestCase {
         }
     }
 
+    func testOriginalPianoBedIsInRepo() {
+        let url = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("Resources/Audio/NightDocket.m4a")
+        XCTAssertTrue(FileManager.default.fileExists(atPath: url.path), url.path)
+        XCTAssertNotNil(Bundle(for: Soundtrack.self).url(forResource: "NightDocket", withExtension: "m4a"))
+    }
+
     func testEightLessonsThreeDemo() throws {
         let lessons = try loadPack()
         XCTAssertEqual(lessons.count, 8)

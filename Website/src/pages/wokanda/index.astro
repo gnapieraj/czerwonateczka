@@ -1,0 +1,64 @@
+---
+import DocketCard from "../../components/DocketCard.astro";
+import { lessons } from "../../data/content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const topics = [...new Set(lessons.map((lesson) => lesson.web.topic))];
+---
+
+<BaseLayout
+  title="Wokanda"
+  description="Osiem edukacyjnych teczek o AI, BEC, tajemnicy, dokumentach i bezpieczeństwie pracy prawnika."
+>
+  <section class="shell section-sm">
+    <p class="eyebrow">BIURKO / 8 TECZEK</p>
+    <h1>Wokanda</h1>
+    <p class="lead">
+      To nie test wiedzy z jedną magiczną odpowiedzią. Każda sprawa pokazuje,
+      co zmieniają presja, niepełna procedura i niezależna weryfikacja.
+    </p>
+    <div class="actions no-print" aria-label="Filtry tematów">
+      <button class="button button-secondary" type="button" data-filter="all" aria-pressed="true">Wszystkie</button>
+      {topics.map((topic) => (
+        <button class="button button-quiet" type="button" data-filter={topic} aria-pressed="false">
+          {topic}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section-sm">
+    <h2 class="visually-hidden">Lista teczek</h2>
+    <div class="docket-grid" data-docket-grid>
+      {lessons.map((lesson) => (
+        <DocketCard lesson={lesson} />
+      ))}
+    </div>
+    <p class="form-status" data-filter-status aria-live="polite"></p>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-filter]"));
+  const items = Array.from(document.querySelectorAll<HTMLElement>("[data-topic]"));
+  const status = document.querySelector<HTMLElement>("[data-filter-status]");
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.filter;
+      let visible = 0;
+      for (const item of items) {
+        const matches = selected === "all" || item.dataset.topic === selected;
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      for (const candidate of buttons) {
+        const active = candidate === button;
+        candidate.setAttribute("aria-pressed", String(active));
+        candidate.classList.toggle("button-secondary", active);
+        candidate.classList.toggle("button-quiet", !active);
+      }
+      if (status) status.textContent = `Widoczne teczki: ${visible}.`;
+    });
+  }
+</script>

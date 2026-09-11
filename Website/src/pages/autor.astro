@@ -1,0 +1,75 @@
+---
+import OptimizedImage from "../components/OptimizedImage.astro";
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Autor / IT Security"
+  description="Grzegorz Napieraj — autor Czerwonej Teczki i kontakt w sprawie IT Security oraz warsztatów."
+>
+  <section class="shell section">
+    <div class="split">
+      <div>
+        <p class="eyebrow">POZA FABUŁĄ</p>
+        <h1>{site.author}</h1>
+        <p class="lead">
+          Autor Czerwonej Teczki. Łączę pracę z bezpieczeństwem IT z projektowaniem
+          ćwiczeń, które pozwalają zobaczyć decyzję przed incydentem.
+        </p>
+        <p class="muted">
+          Colgante nie jest nazwą kancelarii ani podmiotem świadczącym usługi.
+          Rozmowy o bezpieczeństwie, szkoleniach i współpracy prowadzi Grzegorz
+          Napieraj pod własnym imieniem i nazwiskiem.
+        </p>
+        <div class="actions">
+          <a class="button" href={`mailto:${site.contactEmail}?subject=Rozmowa%20o%20IT%20Security`}>
+            Porozmawiaj o bezpieczeństwie →
+          </a>
+          <a class="button button-secondary" href="/newsletter">Newsletter</a>
+        </div>
+        <p class="fine-print">
+          {site.authorFirm}, NIP {site.administrator.nipDisplay}, {site.administrator.street},
+          {site.administrator.postalCode} {site.administrator.city}.
+        </p>
+      </div>
+      <OptimizedImage
+        class="portrait"
+        name="AutorPortrait"
+        alt="Grzegorz Napieraj, czarno-biały portret w świetle żaluzji"
+        width={864}
+        height={1152}
+        sizes="(max-width: 820px) 92vw, 420px"
+      />
+    </div>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">WSPÓŁPRACA</p>
+        <h2>Od teczki do odporności</h2>
+      </div>
+      <p class="muted">
+        Zakres zawsze wymaga krótkiego rozpoznania realnych potrzeb i środowiska.
+      </p>
+    </div>
+    <div class="card-grid">
+      <article class="ink-card">
+        <p class="eyebrow">WARSZTATY</p>
+        <h3>Scenariusze decyzyjne</h3>
+        <p class="muted">Ćwiczenia dla prawników i zespołów wspierających, oparte na sytuacjach z codziennej pracy.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">PRZEGLĄD</p>
+        <h3>Kontrole i procedury</h3>
+        <p class="muted">Rozmowa o drugim kanale, obiegu dokumentów, narzędziach AI i ścieżkach eskalacji.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">AWARENESS</p>
+        <h3>Materiały dla zespołu</h3>
+        <p class="muted">Krótkie formaty, które uczą zauważać sygnały i wykonywać następny bezpieczny ruch.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

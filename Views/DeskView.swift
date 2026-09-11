@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DeskView: View {
     @EnvironmentObject private var store: GameStore
+    @EnvironmentObject private var soundtrack: Soundtrack
     var body: some View {
         ZStack(alignment: .topTrailing) {
             StageBackground(image: "DeskFolders", dim: 0.82)
@@ -39,6 +40,7 @@ struct DeskView: View {
                                         pl: "Obsada — biblia wizualna",
                                         en: "Cast — visual bible"
                                     ))
+                                    .fixedSize(horizontal: false, vertical: true)
                                     Text(Copy.s(
                                         store.language,
                                         pl: "Iglica, Chropot, Irena — zanim otworzysz teczkę",
@@ -46,6 +48,7 @@ struct DeskView: View {
                                     ))
                                     .font(Typeface.body(13))
                                     .foregroundStyle(Noir.paperDim)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 }
                                 Spacer(minLength: 0)
                                 Image(systemName: "chevron.right")
@@ -72,6 +75,21 @@ struct DeskView: View {
                     .frame(maxWidth: .infinity)
             }
             HStack(spacing: 2) {
+                Button {
+                    soundtrack.toggleMuted()
+                } label: {
+                    Image(systemName: soundtrack.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                        .font(.body)
+                        .foregroundStyle(soundtrack.isMuted ? Noir.blood : Noir.paper)
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(Copy.s(
+                    store.language,
+                    pl: soundtrack.isMuted ? "Włącz muzykę" : "Wycisz muzykę",
+                    en: soundtrack.isMuted ? "Unmute music" : "Mute music"
+                ))
                 Button {
                     store.openBible()
                 } label: {
@@ -106,6 +124,8 @@ struct DeskView: View {
             .padding(.trailing, 8)
             .padding(.top, 2)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clipped()
     }
 
     private var deskHero: some View {
@@ -121,11 +141,8 @@ struct FolderCard: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             ZStack {
-                Image(lesson.hero)
-                    .resizable()
-                    .scaledToFill()
+                CroppedImage(name: lesson.hero)
                     .frame(width: 72, height: 96)
-                    .clipped()
                 if let mark = store.stamp(for: lesson) {
                     WaxStamp(verdict: mark.verdict, language: store.language)
                         .scaleEffect(0.72)
@@ -158,19 +175,24 @@ struct FolderCard: View {
                     }
                 }
                 Text(lesson.title.t(store.language))
-                    .font(Typeface.display(22))
+                    .font(Typeface.display(20))
                     .foregroundStyle(.white)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(lesson.subtitle.t(store.language))
                     .font(Typeface.mono(12))
                     .foregroundStyle(Noir.paper)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.75)
                 Text(lesson.deadline.t(store.language))
                     .font(Typeface.body(13))
                     .foregroundStyle(Noir.blood)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
             .onTapGesture { store.open(lesson) }
-            Spacer(minLength: 0)
             VStack(spacing: 12) {
                 Button {
                     store.openAwareness(lesson)

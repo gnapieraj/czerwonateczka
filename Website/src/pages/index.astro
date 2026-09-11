@@ -1,0 +1,92 @@
+---
+import DocketCard from "../components/DocketCard.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import OptimizedImage from "../components/OptimizedImage.astro";
+import { lessons } from "../data/content";
+import { materials, site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout preloadImage="OfficeNight">
+  <section class="hero">
+    <OptimizedImage
+      class="hero-media"
+      name="OfficeNight"
+      alt="Fikcyjna warszawska kancelaria nocą, za żaluzjami widać Pałac Kultury"
+      width={1400}
+      height={933}
+      sizes="100vw"
+      eager
+    />
+    <div class="shell hero-content">
+      <p class="eyebrow">INTERAKTYWNA WOKANDA / IT SECURITY DLA PRAWNIKÓW</p>
+      <h1>{site.tagline}</h1>
+      <p class="lead">
+        Osiem teczek. Każda zaczyna się od presji, niepełnej informacji i decyzji,
+        którą ktoś chce podjąć za szybko.
+      </p>
+      <div class="actions">
+        <a class="button" href="/wokanda">Otwórz wokandę →</a>
+        <a class="button button-secondary" href="/o-projekcie">Poznaj grę</a>
+      </div>
+      <p class="fine-print">
+        {site.firm} to fikcja. Treści edukacyjne i usługi IT Security prowadzi {site.author}.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell section" aria-labelledby="docket-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">NA BIURKU</p>
+        <h2 id="docket-title">Dzisiejsza wokanda</h2>
+      </div>
+      <p class="muted">
+        Wejdź w sprawę bez spoilera. Zobacz czerwone flagi, praktyczny refleks i
+        źródła dopiero wtedy, gdy chcesz otworzyć akta.
+      </p>
+    </div>
+    <div class="docket-grid">
+      {lessons.slice(0, 4).map((lesson) => <DocketCard lesson={lesson} />)}
+    </div>
+    <div class="actions">
+      <a class="button button-secondary" href="/wokanda">Wszystkie 8 teczek →</a>
+    </div>
+  </section>
+
+  <section class="section paper-band">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AKTA UZUPEŁNIAJĄCE</p>
+          <h2>Weź procedurę na jutro.</h2>
+        </div>
+        <p>
+          Trzy krótkie karty do wydruku: drugi kanał przy BEC, trwała redakcja PDF
+          i dopuszczenie narzędzia AI.
+        </p>
+      </div>
+      <div class="card-grid">
+        {materials.map((material) => (
+          <article class="ink-card">
+            <p class="eyebrow">{material.number}</p>
+            <h3>
+              <a class="card-link" href={`/materialy/${material.slug}`}>{material.title}</a>
+            </h3>
+            <p class="muted">{material.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="reading section" aria-labelledby="newsletter-title">
+    <p class="eyebrow">NEWSLETTER GRZEGORZA NAPIERAJA</p>
+    <h2 id="newsletter-title">Czerwona lampka</h2>
+    <p class="lead">
+      Jeden prawdziwy incydent, trzy sygnały ostrzegawcze i jeden odruch, który
+      warto zabrać do pracy. Krótko i bez straszenia.
+    </p>
+    <NewsletterForm />
+  </section>
+</BaseLayout>

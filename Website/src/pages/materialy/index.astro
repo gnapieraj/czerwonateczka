@@ -1,0 +1,34 @@
+---
+import { materials } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Materiały"
+  description="Praktyczne karty Czerwonej Teczki: BEC, trwała redakcja PDF i dopuszczenie narzędzia AI."
+>
+  <section class="shell section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">AKTA UZUPEŁNIAJĄCE</p>
+        <h1>Materiały</h1>
+      </div>
+      <p class="lead">
+        Krótkie karty kontrolne do wydruku. Nie zastępują procedury dopasowanej do
+        organizacji ani oceny prawnej konkretnego zdarzenia.
+      </p>
+    </div>
+    <div class="card-grid">
+      {materials.map((material) => (
+        <article class="ink-card">
+          <p><span class="tag">{material.number}</span></p>
+          <p class="eyebrow">{material.eyebrow}</p>
+          <h2 style="font-size: 2rem">
+            <a class="card-link" href={`/materialy/${material.slug}`}>{material.title}</a>
+          </h2>
+          <p class="muted">{material.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

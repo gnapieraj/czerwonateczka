@@ -1,0 +1,30 @@
+{
+  "name": "colgante-pl",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-content.mjs",
+    "dev": "npm run sync && ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "npm run sync && ASTRO_TELEMETRY_DISABLED=1 astro check && ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "astro preview",
+    "check": "npm run sync && ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "test": "npm run sync && node --test tests/*.test.mjs",
+    "audit": "node scripts/audit-dist.mjs",
+    "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
+    "deploy:ovh": "python3 scripts/deploy-ovh.py",
+    "verify": "npm run build && npm test && npm run audit"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.2",
+    "sharp": "^0.35.4",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.3",
+    "lighthouse": "^13.4.1",
+    "playwright": "^1.55.0"
+  }
+}

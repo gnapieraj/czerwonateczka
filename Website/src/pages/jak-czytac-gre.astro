@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const stages = [
+  ["Wokanda", "Lista ośmiu spraw. Stempel na karcie pokazuje wynik ostatniej decyzji."],
+  ["Biblia wizualna", "Obsada i stały wygląd bohaterów. To orientacja w fabule, nie materiał prawny."],
+  ["Komiks", "Cztery kadry budujące sytuację i presję. Nie ujawnia rozwiązania."],
+  ["Teczka", "Kontekst, dowód, głos wewnętrzny i trzy możliwe decyzje."],
+  ["Ratio", "Uzasadnienie wybranego ruchu: przepis, skutek, refleks i wzorzec publiczny."],
+  ["Briefing", "Profilaktyka: zagrożenie, sygnały ostrzegawcze, minimalizacja i praktyka kancelarii."],
+  ["Źródła", "Pełne teksty aktów, orzeczeń i wytycznych powiązanych z daną teczką."],
+];
+
+const ratio = [
+  ["Przepis", "Na jakiej normie lub regule stoi ocena."],
+  ["Skutek", "Co może wyniknąć z wybranego ruchu; nie jest automatyczną prognozą odpowiedzialności."],
+  ["Refleks", "Praktyczny nawyk do zastosowania następnym razem."],
+  ["Wzorzec publiczny", "Prawdziwa sprawa albo decyzja jako ilustracja. Zagraniczny przykład nie jest polskim precedensem."],
+  ["Czerwona lampka", "Fakt, przy którym należało zatrzymać automatyzm i zweryfikować sytuację."],
+];
+---
+
+<BaseLayout title="Jak czytać grę">
+  <section class="reading section">
+    <p class="eyebrow">SŁOWNIK EKRANÓW</p>
+    <h1>Jak czytać grę</h1>
+    <p class="lead">
+      Mapa pól Czerwonej Teczki — żeby fabuła, mechanika i warstwa edukacyjna nie
+      zlewały się w jedno.
+    </p>
+    <ol class="check-list">
+      {stages.map(([name, description]) => (
+        <li><strong>{name}:</strong> {description}</li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">CZTERY LICZNIKI</p>
+        <h2>Symulacja, nie ocena prawna</h2>
+      </div>
+      <p class="muted">Każda teczka startuje od 100, chyba że włączysz liczniki kampanii.</p>
+    </div>
+    <div class="card-grid">
+      <article class="ink-card"><h3>Tajemnica</h3><p class="muted">Ochrona informacji, danych i tajemnicy zawodowej.</p></article>
+      <article class="ink-card"><h3>Sąd</h3><p class="muted">Rzetelność dokumentów i działań wobec sądu.</p></article>
+      <article class="ink-card"><h3>Klient</h3><p class="muted">Relacja, zaufanie i wpływ ruchu na interes klienta.</p></article>
+      <article class="ink-card"><h3>Rozliczalność</h3><p class="muted">Ślad decyzji, role, procedura i możliwość wykazania staranności.</p></article>
+    </div>
+  </section>
+
+  <section class="reading section">
+    <p class="eyebrow">RATIO</p>
+    <h2>Pięć pól po decyzji</h2>
+    <ul class="flag-list">
+      {ratio.map(([name, description]) => (
+        <li><strong>{name}:</strong> {description}</li>
+      ))}
+    </ul>
+    <div class="paper-card">
+      <p><strong>Najczęstsze pomyłki:</strong></p>
+      <p>
+        Głos wewnętrzny jest pytaniem <em>przed</em> wyborem, a refleks — nawykiem
+        <em>po</em> wyborze. Briefing służy profilaktyce, a Ratio ocenia konkretny
+        ruch. Licznik jest liczbą w symulacji, a skutek — opisem możliwej konsekwencji.
+      </p>
+    </div>
+    <p class="fine-print">
+      Pełny słownik projektowy jest utrzymywany wraz z kodem gry w pliku
+      World/SlownikPolGry.md.
+    </p>
+  </section>
+</BaseLayout>
