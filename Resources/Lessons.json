@@ -2,6 +2,11 @@
   {
     "id": "01-kod",
     "order": 1,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": true,
     "storyMode": true,
     "exhibit": "phone",
@@ -201,6 +206,11 @@
   {
     "id": "02-list",
     "order": 2,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": true,
     "storyMode": true,
     "exhibit": "email",
@@ -400,6 +410,11 @@
   {
     "id": "03-prompt",
     "order": 3,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": true,
     "storyMode": true,
     "exhibit": "prompt",
@@ -599,6 +614,11 @@
   {
     "id": "04-haslo",
     "order": 4,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "memo",
@@ -798,6 +818,11 @@
   {
     "id": "05-arkusz",
     "order": 5,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "memo",
@@ -997,6 +1022,11 @@
   {
     "id": "06-pomoc",
     "order": 6,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "phone",
@@ -1196,6 +1226,11 @@
   {
     "id": "07-sms",
     "order": 7,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "phone",
@@ -1395,6 +1430,11 @@
   {
     "id": "08-qr",
     "order": 8,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "memo",
@@ -1594,6 +1634,11 @@
   {
     "id": "09-glos",
     "order": 9,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "phone",
@@ -1793,6 +1838,11 @@
   {
     "id": "10-okno",
     "order": 10,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "pdf",
@@ -1992,6 +2042,11 @@
   {
     "id": "11-konta",
     "order": 11,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "hr",
@@ -2191,6 +2246,11 @@
   {
     "id": "12-okup",
     "order": 12,
+    "seasonId": "0",
+    "seasonTitle": {
+      "pl": "Wstęp · 12 nocy",
+      "en": "Prologue · 12 nights"
+    },
     "demo": false,
     "storyMode": true,
     "exhibit": "pdf",

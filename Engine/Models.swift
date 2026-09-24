@@ -163,6 +163,8 @@ struct ComicBeat: Codable, Equatable, Identifiable {
 struct Lesson: Codable, Equatable, Identifiable {
     var id: String
     var order: Int
+    var seasonId: String
+    var seasonTitle: Loc
     var demo: Bool
     var exhibit: ExhibitKind
     var hero: String
@@ -185,15 +187,20 @@ struct Lesson: Codable, Equatable, Identifiable {
     var storyMode: Bool
 
     enum CodingKeys: String, CodingKey {
-        case id, order, demo, exhibit, hero, tone, title, subtitle, deadline, context
+        case id, order, seasonId, seasonTitle, demo, exhibit, hero, tone, title, subtitle, deadline, context
         case beats, exhibitLabel, exhibitText, innerVoice, redFlags, choices, awareness, sourceIds
         case introVideo, storyMode
     }
+
+    static let prologueSeasonId = "0"
+    static let prologueSeasonTitle = Loc(pl: "Wstęp · 12 nocy", en: "Prologue · 12 nights")
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         id = try c.decode(String.self, forKey: .id)
         order = try c.decode(Int.self, forKey: .order)
+        seasonId = try c.decodeIfPresent(String.self, forKey: .seasonId) ?? Self.prologueSeasonId
+        seasonTitle = try c.decodeIfPresent(Loc.self, forKey: .seasonTitle) ?? Self.prologueSeasonTitle
         demo = try c.decode(Bool.self, forKey: .demo)
         exhibit = try c.decode(ExhibitKind.self, forKey: .exhibit)
         hero = try c.decode(String.self, forKey: .hero)
@@ -218,6 +225,8 @@ struct Lesson: Codable, Equatable, Identifiable {
         var c = encoder.container(keyedBy: CodingKeys.self)
         try c.encode(id, forKey: .id)
         try c.encode(order, forKey: .order)
+        try c.encode(seasonId, forKey: .seasonId)
+        try c.encode(seasonTitle, forKey: .seasonTitle)
         try c.encode(demo, forKey: .demo)
         try c.encode(exhibit, forKey: .exhibit)
         try c.encode(hero, forKey: .hero)

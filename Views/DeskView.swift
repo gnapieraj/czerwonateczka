@@ -25,12 +25,21 @@ struct DeskView: View {
                             .padding(.horizontal, 16)
                             .padding(.top, 4)
 
-                        VStack(spacing: 10) {
-                            ForEach(store.allLessons) { lesson in
-                                FolderCard(lesson: lesson)
+                        ForEach(store.seasonSections, id: \.id) { section in
+                            Text(section.title.t(store.language).uppercased())
+                                .font(Typeface.mono(14))
+                                .tracking(1.5)
+                                .foregroundStyle(Noir.blood)
+                                .padding(.horizontal, 16)
+                                .padding(.top, 8)
+
+                            VStack(spacing: 10) {
+                                ForEach(section.lessons) { lesson in
+                                    FolderCard(lesson: lesson)
+                                }
                             }
+                            .padding(.horizontal, 16)
                         }
-                        .padding(.horizontal, 16)
                         .padding(.bottom, 40)
                     }
                     .frame(maxWidth: 840)

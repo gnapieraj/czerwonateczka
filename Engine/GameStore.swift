@@ -74,6 +74,19 @@ final class GameStore: ObservableObject {
     var allLessons: [Lesson] { lessons }
     var stackHasPrior: Bool { !stack.isEmpty }
 
+    /// Seasons in first-seen order (continuous night numbering under each header).
+    var seasonSections: [(id: String, title: Loc, lessons: [Lesson])] {
+        var sections: [(id: String, title: Loc, lessons: [Lesson])] = []
+        for lesson in lessons {
+            if let index = sections.firstIndex(where: { $0.id == lesson.seasonId }) {
+                sections[index].lessons.append(lesson)
+            } else {
+                sections.append((id: lesson.seasonId, title: lesson.seasonTitle, lessons: [lesson]))
+            }
+        }
+        return sections
+    }
+
     var nextNight: Lesson? {
         lessons.first { stamps[$0.id] == nil }
     }

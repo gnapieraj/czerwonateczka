@@ -9,8 +9,8 @@ struct HowToPlayView: View {
                 Copy.s(store.language, pl: "Wokanda", en: "Docket"),
                 Copy.s(
                     store.language,
-                    pl: "Lista dwunastu nocy. Kolejna otwiera się dopiero po stemplu poprzedniej.",
-                    en: "Twelve nights. The next one opens only after the previous stamp."
+                    pl: "Noce w sezonach. Kolejna otwiera się dopiero po stemplu poprzedniej — numeracja jest ciągła.",
+                    en: "Nights in seasons. The next one opens only after the previous stamp — numbering stays continuous."
                 )
             ),
             (
@@ -65,8 +65,8 @@ struct HowToPlayView: View {
                 Copy.s(store.language, pl: "Źródła", en: "Sources"),
                 Copy.s(
                     store.language,
-                    pl: "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją.",
-                    en: "Night topics come from the SANS OUCH newsletter; scenes and Colgante are fiction."
+                    pl: "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją. Kadry komiksu powstają z pomocą AI (lokalna generacja) — to ilustracje, nie dokumentacja z kancelarii.",
+                    en: "Night topics come from the SANS OUCH newsletter; scenes and Colgante are fiction. Comic panels are AI-assisted illustrations (local generation) — not law-firm documentation."
                 )
             ),
         ]

@@ -90,6 +90,19 @@ struct SettingsView: View {
                     }
                     .padding(.horizontal, 16)
 
+                    InkPlate {
+                        Text(Copy.s(
+                            store.language,
+                            pl: "Ilustracje komiksu powstają z pomocą AI. Postaci i kancelaria Colgante są fikcyjne. Gra nie jest poradą prawną.",
+                            en: "Comic art is AI-assisted. Characters and Colgante are fiction. This game is not legal advice."
+                        ))
+                        .font(Typeface.body(18))
+                        .foregroundStyle(Noir.paperDim)
+                        .lineSpacing(4)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.horizontal, 16)
+
                     Link(destination: URL(string: "https://\(Canon.domainReal)")!) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(Canon.domainReal)

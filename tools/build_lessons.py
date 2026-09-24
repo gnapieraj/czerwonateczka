@@ -61,10 +61,14 @@ def _rotated(order, trap, decoy_a, decoy_b):
 def night(
     nid, order, exhibit, hero, title, subtitle, deadline, context, voice,
     panels, trap, decoy_a, decoy_b, minimize, practice, watch, red,
+    season_id="0",
+    season_title=("Wstęp · 12 nocy", "Prologue · 12 nights"),
 ):
     return {
         "id": nid,
         "order": order,
+        "seasonId": season_id,
+        "seasonTitle": loc(*season_title),
         "demo": order <= 3,
         "storyMode": True,
         "exhibit": exhibit,
@@ -581,6 +585,7 @@ assert all(x["awareness"]["threat"]["pl"] != x["context"]["pl"] for x in lessons
 assert all(len(x["awareness"]["threat"]["pl"]) >= 120 for x in lessons)
 assert all("aplikantk" not in json.dumps(x, ensure_ascii=False).lower() for x in lessons)
 assert all(x["storyMode"] is True for x in lessons)
+assert all(x.get("seasonId") == "0" for x in lessons)
 assert all("introVideo" not in x for x in lessons)
 for lesson in lessons:
     for beat in lesson["beats"]:
