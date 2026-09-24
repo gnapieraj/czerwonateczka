@@ -1,0 +1,44 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  device: "iphone" | "ipad";
+  orientation?: "portrait" | "landscape";
+  caption?: string;
+}
+
+const { src, alt, device, caption } = Astro.props;
+const orientation = Astro.props.orientation ?? "portrait";
+const isLandscape = orientation === "landscape";
+const width = device === "iphone" ? 390 : isLandscape ? 1180 : 820;
+const height = device === "iphone" ? 844 : isLandscape ? 820 : 1180;
+---
+
+<figure
+  class:list={[
+    "device-shot",
+    `device-shot--${device}`,
+    isLandscape && "device-shot--landscape",
+  ]}
+>
+  <div
+    class:list={[
+      "device-frame",
+      `device-frame--${device}`,
+      isLandscape && "device-frame--landscape",
+    ]}
+  >
+    <div class="device-frame__bezel">
+      {device === "iphone" ? (
+        <span class="device-frame__island" aria-hidden="true"></span>
+      ) : (
+        <span class="device-frame__camera" aria-hidden="true"></span>
+      )}
+      <div class="device-frame__screen">
+        <img src={src} alt={alt} loading="lazy" width={width} height={height} />
+      </div>
+      {device === "iphone" && <span class="device-frame__home" aria-hidden="true"></span>}
+    </div>
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

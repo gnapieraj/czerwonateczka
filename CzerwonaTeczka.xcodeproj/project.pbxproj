@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01DD46190E965D7EB51FB19B /* RatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB6B1FCC445FD89229465A /* RatioView.swift */; };
+		06EDAD42824A54429820574C /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2793289175D4C87352463 /* Copy.swift */; };
+		0FB1F05F15F65B8FA8085B53 /* ComicStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507A1DFC30E5FC0A2EE6D26 /* ComicStage.swift */; };
+		1A287C3963335194830F6314 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9633DA9E56B50DAAA64C2E0 /* GameStore.swift */; };
+		21892BF46C895DC3B889EFE8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A153A0DB57BA5385A8781102 /* SplashView.swift */; };
+		2CFFA7C51A4854DA866B0299 /* LessonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB4334627D59FA880F9C9D /* LessonLoader.swift */; };
+		518C7FC0AD4352F889C1DE53 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B81E66944503C979F27D0 /* Models.swift */; };
+		54FD5B211B09507097D80F6E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C21360EAEC56D48DC0B146 /* RootView.swift */; };
+		5825F306ED955A4EA033540B /* CzerwonaTeczkaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E53F12FFAC59BBA215C287 /* CzerwonaTeczkaApp.swift */; };
+		6963D9D7DD105A668EE9A321 /* DeskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C7836DE985A33B1294B48 /* DeskView.swift */; };
+		70C766072F155575B502E33C /* CasePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01881E4B355BDF9DF73E70 /* CasePlayView.swift */; };
+		8E00521A92B65EA5875DE302 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1930187AB7D45FD69572AEDD /* SettingsView.swift */; };
+		A13A83C6B7D25B6883857261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70ECF112E7258F797A3A510 /* Assets.xcassets */; };
+		ADB59A45ADDD5BC4957F0DAC /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB8CC3B22B509C9EDAF10D /* Components.swift */; };
+		B4408679666E58E687176255 /* Lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 8121A333A7E756B59E8E362D /* Lessons.json */; };
+		BCD78093871F55F2AF685FC4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 437F0B1E4A0156E7AE63CEED /* PrivacyInfo.xcprivacy */; };
+		C01C1A17B0E14D8A9C3E1B21 /* ComicIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01C1A17B0E14D8A9C3E1B20 /* ComicIntroView.swift */; };
+		C8A0D105E000000000000002 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000001 /* Soundtrack.swift */; };
+		C8A0D105E000000000000004 /* Audio/NightDocket.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000003 /* Audio/NightDocket.m4a */; };
+		C8A0D105E000000000000008 /* CutsceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000007 /* CutsceneView.swift */; };
+		C8A0D105E00000000000000A /* VerdictSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0D105E000000000000009 /* VerdictSplashView.swift */; };
+		C8A0D105E00000000000000C /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0D105E00000000000000B /* HowToPlayView.swift */; };
+		D2A8A909660552B9BD8D1AF6 /* LessonPackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEEC05FFD558CC835E99B1 /* LessonPackTests.swift */; };
+		D3F087537AEA5B25A5E19E02 /* Lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 8121A333A7E756B59E8E362D /* Lessons.json */; };
+		E4A7C01C1A17B0E14D8A9C31 /* AwarenessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */; };
+		F07BCA95C0A1C5E1A7B00002 /* Fonts/GoboCaps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00001 /* Fonts/GoboCaps-Regular.otf */; };
+		F07BCA95C0A1C5E1A7B00004 /* Fonts/GoboCaps-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00003 /* Fonts/GoboCaps-Italic.otf */; };
+		F07BCA95C0A1C5E1A7B00006 /* Fonts/OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F07BCA95C0A1C5E1A7B00005 /* Fonts/OFL.txt */; };
+		F3A2029F0EB25A5A801FE645 /* Canon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F0A5C284F05F92ABE5AC81 /* Canon.swift */; };
+		F7CC169E7D645CF3BB0D05B5 /* SourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95E3FF4D3A5AB38852DAC4 /* SourcesView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		583EDD04756F591CAF10D47C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AD77E99F7535221B6F8641F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C183887DB79594CA46C64EF;
+			remoteInfo = CzerwonaTeczka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BDB8CC3B22B509C9EDAF10D /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		17C21360EAEC56D48DC0B146 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		189B81E66944503C979F27D0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1930187AB7D45FD69572AEDD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3B95E3FF4D3A5AB38852DAC4 /* SourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesView.swift; sourceTree = "<group>"; };
+		3D9C7836DE985A33B1294B48 /* DeskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskView.swift; sourceTree = "<group>"; };
+		437F0B1E4A0156E7AE63CEED /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		43DB6B1FCC445FD89229465A /* RatioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioView.swift; sourceTree = "<group>"; };
+		47AB4334627D59FA880F9C9D /* LessonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonLoader.swift; sourceTree = "<group>"; };
+		5507A1DFC30E5FC0A2EE6D26 /* ComicStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicStage.swift; sourceTree = "<group>"; };
+		8121A333A7E756B59E8E362D /* Lessons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Lessons.json; sourceTree = "<group>"; };
+		8B01881E4B355BDF9DF73E70 /* CasePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasePlayView.swift; sourceTree = "<group>"; };
+		9E7FF662BCC55F1489683B05 /* CzerwonaTeczka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CzerwonaTeczka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A153A0DB57BA5385A8781102 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		A9CEEC05FFD558CC835E99B1 /* LessonPackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPackTests.swift; sourceTree = "<group>"; };
+		B3E53F12FFAC59BBA215C287 /* CzerwonaTeczkaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CzerwonaTeczkaApp.swift; sourceTree = "<group>"; };
+		C01C1A17B0E14D8A9C3E1B20 /* ComicIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicIntroView.swift; sourceTree = "<group>"; };
+		C8A0D105E000000000000001 /* Soundtrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundtrack.swift; sourceTree = "<group>"; };
+		C8A0D105E000000000000003 /* Audio/NightDocket.m4a */ = {isa = PBXFileReference; lastKnownFileType = audio.m4a; path = Audio/NightDocket.m4a; sourceTree = "<group>"; };
+		C8A0D105E000000000000007 /* CutsceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsceneView.swift; sourceTree = "<group>"; };
+		C8A0D105E000000000000009 /* VerdictSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerdictSplashView.swift; sourceTree = "<group>"; };
+		C8A0D105E00000000000000B /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
+		D9633DA9E56B50DAAA64C2E0 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		DFB0EF8870E75441937DE763 /* CzerwonaTeczkaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CzerwonaTeczkaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D2793289175D4C87352463 /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwarenessView.swift; sourceTree = "<group>"; };
+		F07BCA95C0A1C5E1A7B00001 /* Fonts/GoboCaps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file.otf; path = "Fonts/GoboCaps-Regular.otf"; sourceTree = "<group>"; };
+		F07BCA95C0A1C5E1A7B00003 /* Fonts/GoboCaps-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file.otf; path = "Fonts/GoboCaps-Italic.otf"; sourceTree = "<group>"; };
+		F07BCA95C0A1C5E1A7B00005 /* Fonts/OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fonts/OFL.txt; sourceTree = "<group>"; };
+		F07BCA95C0A1C5E1A7B00007 /* AppInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		F70ECF112E7258F797A3A510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9F0A5C284F05F92ABE5AC81 /* Canon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canon.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04CFDD7A6FD252C9B58AA256 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9932D0359355A2088C3D6FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		508276F0542158CEB2C672D8 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				F9F0A5C284F05F92ABE5AC81 /* Canon.swift */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		61BCED4BFAD058C18770FFBC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B3E53F12FFAC59BBA215C287 /* CzerwonaTeczkaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		69D10DD385A550F2B9605FBF /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				189B81E66944503C979F27D0 /* Models.swift */,
+				E1D2793289175D4C87352463 /* Copy.swift */,
+				47AB4334627D59FA880F9C9D /* LessonLoader.swift */,
+				D9633DA9E56B50DAAA64C2E0 /* GameStore.swift */,
+				C8A0D105E000000000000001 /* Soundtrack.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		820EEF7BA3765FC19049665D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17C21360EAEC56D48DC0B146 /* RootView.swift */,
+				A153A0DB57BA5385A8781102 /* SplashView.swift */,
+				5507A1DFC30E5FC0A2EE6D26 /* ComicStage.swift */,
+				C01C1A17B0E14D8A9C3E1B20 /* ComicIntroView.swift */,
+				0BDB8CC3B22B509C9EDAF10D /* Components.swift */,
+				3D9C7836DE985A33B1294B48 /* DeskView.swift */,
+				C8A0D105E00000000000000B /* HowToPlayView.swift */,
+				8B01881E4B355BDF9DF73E70 /* CasePlayView.swift */,
+				C8A0D105E000000000000007 /* CutsceneView.swift */,
+				C8A0D105E000000000000009 /* VerdictSplashView.swift */,
+				E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */,
+				43DB6B1FCC445FD89229465A /* RatioView.swift */,
+				3B95E3FF4D3A5AB38852DAC4 /* SourcesView.swift */,
+				1930187AB7D45FD69572AEDD /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8329D8FC2A415C1DA2BFB51D /* CzerwonaTeczka */ = {
+			isa = PBXGroup;
+			children = (
+				61BCED4BFAD058C18770FFBC /* App */,
+				69D10DD385A550F2B9605FBF /* Engine */,
+				820EEF7BA3765FC19049665D /* Views */,
+				508276F0542158CEB2C672D8 /* World */,
+				AF484CE1B83F5B5F90DBFE37 /* Resources */,
+				9C77E5F419AF5A05AB22AE2C /* CzerwonaTeczkaTests */,
+				96223427A0075CC39CB099B0 /* Products */,
+			);
+			name = CzerwonaTeczka;
+			sourceTree = "<group>";
+		};
+		96223427A0075CC39CB099B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FF662BCC55F1489683B05 /* CzerwonaTeczka.app */,
+				DFB0EF8870E75441937DE763 /* CzerwonaTeczkaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C77E5F419AF5A05AB22AE2C /* CzerwonaTeczkaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9CEEC05FFD558CC835E99B1 /* LessonPackTests.swift */,
+			);
+			path = CzerwonaTeczkaTests;
+			sourceTree = "<group>";
+		};
+		AF484CE1B83F5B5F90DBFE37 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8121A333A7E756B59E8E362D /* Lessons.json */,
+				437F0B1E4A0156E7AE63CEED /* PrivacyInfo.xcprivacy */,
+				F70ECF112E7258F797A3A510 /* Assets.xcassets */,
+				F07BCA95C0A1C5E1A7B00001 /* Fonts/GoboCaps-Regular.otf */,
+				F07BCA95C0A1C5E1A7B00003 /* Fonts/GoboCaps-Italic.otf */,
+				F07BCA95C0A1C5E1A7B00005 /* Fonts/OFL.txt */,
+				F07BCA95C0A1C5E1A7B00007 /* AppInfo.plist */,
+				C8A0D105E000000000000003 /* Audio/NightDocket.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0C183887DB79594CA46C64EF /* CzerwonaTeczka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE01E719C650580E90106567 /* Build configuration list for PBXNativeTarget "CzerwonaTeczka" */;
+			buildPhases = (
+				B6F31D19609F55B589C30BF3 /* Sources */,
+				D9932D0359355A2088C3D6FA /* Frameworks */,
+				D339D07074E75C309B495A34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CzerwonaTeczka;
+			productName = CzerwonaTeczka;
+			productReference = 9E7FF662BCC55F1489683B05 /* CzerwonaTeczka.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D12D699EFD3B5406995FDF94 /* CzerwonaTeczkaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D25BC8979FB4577498522FC9 /* Build configuration list for PBXNativeTarget "CzerwonaTeczkaTests" */;
+			buildPhases = (
+				3A2B2AE5EE9A56089E0E4838 /* Sources */,
+				04CFDD7A6FD252C9B58AA256 /* Frameworks */,
+				9649B51C3F0B5672BC22059A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				873A027A6D8B5D498E2E3479 /* PBXTargetDependency */,
+			);
+			name = CzerwonaTeczkaTests;
+			productName = CzerwonaTeczkaTests;
+			productReference = DFB0EF8870E75441937DE763 /* CzerwonaTeczkaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AD77E99F7535221B6F8641F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentProductsByDefault = 1;
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					0C183887DB79594CA46C64EF = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					D12D699EFD3B5406995FDF94 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 0C183887DB79594CA46C64EF;
+					};
+				};
+			};
+			buildConfigurationList = D3BE34AFC43457AF8EE0D8C8 /* Build configuration list for PBXProject "CzerwonaTeczka" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = pl;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				pl,
+				Base,
+			);
+			mainGroup = 8329D8FC2A415C1DA2BFB51D /* CzerwonaTeczka */;
+			productRefGroup = 96223427A0075CC39CB099B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C183887DB79594CA46C64EF /* CzerwonaTeczka */,
+				D12D699EFD3B5406995FDF94 /* CzerwonaTeczkaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9649B51C3F0B5672BC22059A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4408679666E58E687176255 /* Lessons.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D339D07074E75C309B495A34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F087537AEA5B25A5E19E02 /* Lessons.json in Resources */,
+				BCD78093871F55F2AF685FC4 /* PrivacyInfo.xcprivacy in Resources */,
+				A13A83C6B7D25B6883857261 /* Assets.xcassets in Resources */,
+				F07BCA95C0A1C5E1A7B00002 /* Fonts/GoboCaps-Regular.otf in Resources */,
+				F07BCA95C0A1C5E1A7B00004 /* Fonts/GoboCaps-Italic.otf in Resources */,
+				F07BCA95C0A1C5E1A7B00006 /* Fonts/OFL.txt in Resources */,
+				C8A0D105E000000000000004 /* Audio/NightDocket.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A2B2AE5EE9A56089E0E4838 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A8A909660552B9BD8D1AF6 /* LessonPackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6F31D19609F55B589C30BF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5825F306ED955A4EA033540B /* CzerwonaTeczkaApp.swift in Sources */,
+				518C7FC0AD4352F889C1DE53 /* Models.swift in Sources */,
+				06EDAD42824A54429820574C /* Copy.swift in Sources */,
+				2CFFA7C51A4854DA866B0299 /* LessonLoader.swift in Sources */,
+				1A287C3963335194830F6314 /* GameStore.swift in Sources */,
+				C8A0D105E000000000000002 /* Soundtrack.swift in Sources */,
+				F3A2029F0EB25A5A801FE645 /* Canon.swift in Sources */,
+				54FD5B211B09507097D80F6E /* RootView.swift in Sources */,
+				21892BF46C895DC3B889EFE8 /* SplashView.swift in Sources */,
+				0FB1F05F15F65B8FA8085B53 /* ComicStage.swift in Sources */,
+				C01C1A17B0E14D8A9C3E1B21 /* ComicIntroView.swift in Sources */,
+				ADB59A45ADDD5BC4957F0DAC /* Components.swift in Sources */,
+				6963D9D7DD105A668EE9A321 /* DeskView.swift in Sources */,
+				70C766072F155575B502E33C /* CasePlayView.swift in Sources */,
+				C8A0D105E000000000000008 /* CutsceneView.swift in Sources */,
+				C8A0D105E00000000000000A /* VerdictSplashView.swift in Sources */,
+				C8A0D105E00000000000000C /* HowToPlayView.swift in Sources */,
+				E4A7C01C1A17B0E14D8A9C31 /* AwarenessView.swift in Sources */,
+				01DD46190E965D7EB51FB19B /* RatioView.swift in Sources */,
+				F7CC169E7D645CF3BB0D05B5 /* SourcesView.swift in Sources */,
+				8E00521A92B65EA5875DE302 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		873A027A6D8B5D498E2E3479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C183887DB79594CA46C64EF /* CzerwonaTeczka */;
+			targetProxy = 583EDD04756F591CAF10D47C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1BC797A862B35705A4A2103A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FK9765G7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.czerwonateczka.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CzerwonaTeczka.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CzerwonaTeczka";
+			};
+			name = Debug;
+		};
+		2B785F312DBC5FE199A123A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6F43B8C012BD5B358171D5EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FK9765G7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Resources/AppInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Czerwona Teczka";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.czerwonateczka.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8259B02F9EE753CE849129D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FK9765G7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.czerwonateczka.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CzerwonaTeczka.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CzerwonaTeczka";
+			};
+			name = Release;
+		};
+		B7381004EF2A5C28B78E563C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FK9765G7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Resources/AppInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Czerwona Teczka";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.czerwonateczka.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC8E90BABF32557CAC554703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE01E719C650580E90106567 /* Build configuration list for PBXNativeTarget "CzerwonaTeczka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7381004EF2A5C28B78E563C /* Debug */,
+				6F43B8C012BD5B358171D5EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D25BC8979FB4577498522FC9 /* Build configuration list for PBXNativeTarget "CzerwonaTeczkaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BC797A862B35705A4A2103A /* Debug */,
+				8259B02F9EE753CE849129D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3BE34AFC43457AF8EE0D8C8 /* Build configuration list for PBXProject "CzerwonaTeczka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B785F312DBC5FE199A123A7 /* Debug */,
+				EC8E90BABF32557CAC554703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AD77E99F7535221B6F8641F /* Project object */;
+}

@@ -1,0 +1,121 @@
+---
+import "../styles/global.css";
+import { navigation, site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  preloadImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  image = "/assets/OfficeNight.webp",
+  preloadImage,
+  noindex = false,
+} = Astro.props;
+const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const activePath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#09090a" />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.author} />
+    <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {preloadImage && (
+      <link
+        rel="preload"
+        as="image"
+        href={`/assets/${preloadImage}-720.webp`}
+        imagesrcset={`/assets/${preloadImage}-720.webp 720w, /assets/${preloadImage}-1000.webp 1000w, /assets/${preloadImage}.webp 1400w`}
+        imagesizes="100vw"
+        fetchpriority="high"
+      />
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{pageTitle}</title>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: site.name,
+        url: Astro.site,
+        description,
+        creator: {
+          "@type": "Person",
+          name: site.author,
+        },
+      })}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Przejdź do treści</a>
+    <div class="fiction-bar">
+      <span aria-hidden="true">●</span>
+      <strong>{site.firm}</strong> jest fikcyjna. Serwis edukacyjny prowadzi {site.author}.
+    </div>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <span class="brand-kicker">COLGANTE.PL</span>
+        <span class="brand-name">Czerwona Teczka</span>
+      </a>
+      <nav aria-label="Główna nawigacja">
+        {navigation.map((item) => (
+          <a
+            href={item.href}
+            aria-current={activePath.startsWith(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div>
+        <span class="eyebrow">FIKCJA / EDUKACJA</span>
+        <p>
+          {site.firm}, jej adres i osoby są fikcyjne. Materiały nie są poradą prawną ani
+          procedurą bezpieczeństwa dla konkretnej organizacji.
+        </p>
+      </div>
+      <div>
+        <span class="eyebrow">REALNY AUTOR</span>
+        <p>
+          <strong>{site.author}</strong> · {site.authorRole}<br />
+          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="/o-projekcie">O projekcie</a>
+        <a href="/zrodla">Źródła</a>
+        <a href="/prywatnosc">Prywatność</a>
+        <a href="/newsletter">Newsletter</a>
+      </div>
+      <p class="copyright">© {new Date().getFullYear()} {site.author}. Stan materiałów prawnych: {site.legalState}.</p>
+    </footer>
+  </body>
+</html>

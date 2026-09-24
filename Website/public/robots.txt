@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://colgante.pl/sitemap-index.xml

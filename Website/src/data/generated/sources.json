@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sans-ouch",
+    "category": {
+      "pl": "Świadomość bezpieczeństwa",
+      "en": "Security awareness"
+    },
+    "title": {
+      "pl": "SANS OUCH! — newsletter świadomości bezpieczeństwa",
+      "en": "SANS OUCH! — security-awareness newsletter"
+    },
+    "note": {
+      "pl": "Dwanaście nocy bierze tematy z newslettera SANS OUCH. Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
+      "en": "The twelve nights take their topics from the SANS OUCH newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter."
+    },
+    "url": "https://www.sans.org/newsletters/ouch"
+  }
+]

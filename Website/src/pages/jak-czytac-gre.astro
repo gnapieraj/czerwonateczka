@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const stages = [
+  ["Wokanda", "Lista dwunastu nocy. Kolejna otwiera się dopiero po stemplu poprzedniej."],
+  ["Biblia wizualna", "Obsada i stały wygląd bohaterów. To orientacja w fabule, nie materiał prawny."],
+  ["Komiks", "Dwa kadry budujące sytuację i presję. Nie ujawnia rozwiązania."],
+  ["Teczka", "Kontekst, głos biurka i trzy możliwe decyzje."],
+  ["Werdykt", "Krótki stempel: TRAFNE, BŁĘDNE albo NIEPEŁNE — z możliwością stuknięcia dalej."],
+  ["Ratio", "Uzasadnienie wybranego ruchu: refleks i, poza trybem fabularnym, przepis oraz wzorzec."],
+  ["Briefing", "Obowiązkowy po Ratio: jak to działa, sygnały, minimalizacja i praktyka — zanim wrócisz na wokandę."],
+  ["Źródła", "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją."],
+];
+
+const ratio = [
+  ["Werdykt", "TRAFNE / BŁĘDNE / NIEPEŁNE — ocena ruchu w scenariuszu, nie wyrok w sprawie klienta."],
+  ["Refleks", "Praktyczny nawyk do zastosowania następnym razem."],
+  ["Briefing", "Co chronić, na co uważać, jak minimalizować i jak wygląda to w kancelarii."],
+  ["Czerwona lampka", "Fakt, przy którym należało zatrzymać automatyzm i zweryfikować sytuację."],
+];
+---
+
+<BaseLayout title="Jak czytać grę">
+  <section class="reading section">
+    <p class="eyebrow">SŁOWNIK EKRANÓW</p>
+    <h1>Jak czytać grę</h1>
+    <p class="lead">
+      Mapa pól Czerwonej Teczki — żeby fabuła, mechanika i warstwa edukacyjna nie
+      zlewały się w jedno.
+    </p>
+    <ol class="check-list">
+      {stages.map(([name, description]) => (
+        <li><strong>{name}:</strong> {description}</li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">CZTERY LICZNIKI</p>
+        <h2>Symulacja, nie ocena prawna</h2>
+      </div>
+      <p class="muted">
+        W trybie fabularnym noc koncentruje się na werdykcie i refleksie. Liczniki
+        zostają w silniku jako symulacja skutków — nie są oceną prawną.
+      </p>
+    </div>
+    <div class="card-grid">
+      <article class="ink-card"><h3>Tajemnica</h3><p class="muted">Ochrona informacji, danych i tajemnicy zawodowej.</p></article>
+      <article class="ink-card"><h3>Sąd</h3><p class="muted">Rzetelność dokumentów i działań wobec sądu.</p></article>
+      <article class="ink-card"><h3>Klient</h3><p class="muted">Relacja, zaufanie i wpływ ruchu na interes klienta.</p></article>
+      <article class="ink-card"><h3>Rozliczalność</h3><p class="muted">Ślad decyzji, role, procedura i możliwość wykazania staranności.</p></article>
+    </div>
+  </section>
+
+  <section class="reading section">
+    <p class="eyebrow">PO DECYZJI</p>
+    <h2>Co zostaje z nocy</h2>
+    <ul class="flag-list">
+      {ratio.map(([name, description]) => (
+        <li><strong>{name}:</strong> {description}</li>
+      ))}
+    </ul>
+    <div class="paper-card">
+      <p><strong>Najczęstsze pomyłki:</strong></p>
+      <p>
+        Głos wewnętrzny jest pytaniem <em>przed</em> wyborem, a refleks — nawykiem
+        <em>po</em> wyborze. Briefing służy profilaktyce, a Ratio ocenia konkretny
+        ruch. Stempel na wokandzie zapisuje wynik nocy; kolejna tecka otwiera się
+        dopiero potem.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

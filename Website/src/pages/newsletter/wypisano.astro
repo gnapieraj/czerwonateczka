@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Wypisano — Czerwona lampka"
+  description="Potwierdzenie wypisu z newslettera Czerwona lampka. Nadawcą był Grzegorz Napieraj."
+  noindex={true}
+>
+  <section class="reading section">
+    <div class="paper-card newsletter-confirmed" role="status">
+      <p class="eyebrow">WYPISANO</p>
+      <h1>Nie dostaniesz już maili z „Czerwonej lampki”.</h1>
+      <p>
+        Adres został usunięty z listy. Nadawcą był Grzegorz Napieraj (IT Security),
+        nie fikcyjna kancelaria Colgante. Jeśli to pomyłka — możesz zapisać się
+        ponownie.
+      </p>
+      <div class="actions">
+        <a class="button" href="/newsletter">Wróć do Czerwonej lampki →</a>
+        <a class="button button-secondary" href="/">Strona główna</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

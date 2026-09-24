@@ -1,0 +1,159 @@
+---
+import DeviceShot from "../components/DeviceShot.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const appStoreUrl = site.appStore.url;
+---
+
+<BaseLayout title="O projekcie">
+  <section class="reading section">
+    <p class="eyebrow">THE RED FILE / CZERWONA TECZKA</p>
+    <h1>Decyzja pod presją</h1>
+    <p class="lead">
+      Czerwona Teczka to edukacyjna gra na iPhone’a i iPada dla prawników,
+      aplikantów i osób pracujących przy bezpieczeństwie informacji.
+    </p>
+    <p>
+      Akcja dzieje się na piątym piętrze fikcyjnej Kancelarii Colgante i
+      Wspólnicy. Przez dwanaście nocy na biurku lądują drugie zatwierdzenie MFA,
+      doklejony PDF, ugoda w asystencie AI, hasło pod linkiem, SMS z „drugą ratą”,
+      IBAN z kodu QR, głos partnera z nowym rachunkiem, makra w pozwie, skrzynka
+      po odejściu i żądanie bitcoinów przed rozprawą.
+    </p>
+    <div class="callout">
+      <p class="eyebrow">GRANICA FIKCJI</p>
+      <h2>{site.firm} nie istnieje.</h2>
+      <p>
+        Nazwa, adres i bohaterowie są fikcyjni. Nie reprezentują prawdziwej
+        kancelarii, nie przyjmują klientów i nie udzielają porad. Realnym autorem
+        serwisu jest {site.author}.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell section-sm" aria-labelledby="look-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">WYGLĄD GRY</p>
+        <h2 id="look-title">Dwanaście nocy na biurku</h2>
+      </div>
+      <p class="muted">
+        Zrzuty z iPhone’a&nbsp;17 i iPada Air&nbsp;11″ (M4). Wokanda wskazuje noc,
+        komiks buduje presję, teczka wymaga decyzji.
+      </p>
+    </div>
+
+    <div class="device-gallery device-gallery--phones">
+      <DeviceShot
+        device="iphone"
+        src="/assets/screens/iphone-wokanda.jpg"
+        alt="Wokanda Czerwonej Teczki na iPhonie: TEJ NOCY i lista dwunastu teczek"
+        caption="iPhone · wokanda"
+      />
+      <DeviceShot
+        device="iphone"
+        src="/assets/screens/iphone-komiks.jpg"
+        alt="Komiks nocny na iPhonie: dwa kadry przed decyzją"
+        caption="iPhone · komiks"
+      />
+      <DeviceShot
+        device="iphone"
+        src="/assets/screens/iphone-teczka.jpg"
+        alt="Ekran decyzji w teczce: trzy możliwe ruchy pod presją terminu"
+        caption="iPhone · teczka"
+      />
+    </div>
+
+    <div class="device-gallery device-gallery--ipads">
+      <DeviceShot
+        device="ipad"
+        src="/assets/screens/ipad-wokanda.jpg"
+        alt="Wokanda Czerwonej Teczki na iPadzie w pionie"
+        caption="iPad · wokanda · pion"
+      />
+      <DeviceShot
+        device="ipad"
+        orientation="landscape"
+        src="/assets/screens/ipad-wokanda-landscape.jpg"
+        alt="Wokanda Czerwonej Teczki na iPadzie w poziomie"
+        caption="iPad · wokanda · poziom"
+      />
+    </div>
+  </section>
+
+  <section class="shell section-sm">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">MECHANIKA</p>
+        <h2>Trzy ruchy. Trzy werdykty.</h2>
+      </div>
+      <p class="muted">
+        Każda noc ma trzy wiarygodne odpowiedzi. Tylko jedna jest trafna —
+        pozostałe brzmią jak rozsądny kompromis pod presją.
+      </p>
+    </div>
+    <div class="card-grid">
+      <article class="ink-card">
+        <p class="eyebrow">TRAFNE</p>
+        <h3>Właściwy odruch</h3>
+        <p class="muted">Zatrzymujesz automatyzm, sprawdzasz fakt poza komunikatem i chronisz sprawę.</p>
+      </article>
+      <article class="paper-card">
+        <p class="eyebrow">BŁĘDNE</p>
+        <h3>Pułapka pod presją</h3>
+        <p>Akceptujesz prośbę partnera, SMS-a albo „znajomy” głos, bo termin goni.</p>
+      </article>
+      <article class="ink-card">
+        <p class="eyebrow">NIEPEŁNE</p>
+        <h3>Półśrodek</h3>
+        <p class="muted">Robisz coś „na próbę” albo „potem potwierdzisz” — i zostawiasz lukę.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="reading section" aria-labelledby="premiere-title">
+    <p class="eyebrow">APP STORE / PREMIERA</p>
+    <h2 id="premiere-title">Pobierz, gdy wypuścimy</h2>
+    <p>
+      Gra działa offline, bez konta i bez analityki. Dwanaście nocy po polsku i
+      angielsku — na iPhonie i iPadzie.
+    </p>
+    <p class="muted">{site.appStore.status}</p>
+
+    <div class="actions app-store-actions">
+      {
+        appStoreUrl ? (
+          <a class="button button-appstore" href={appStoreUrl} rel="noopener noreferrer">
+            {site.appStore.label}
+          </a>
+        ) : (
+          <span class="button button-appstore button-appstore--soon" aria-disabled="true">
+            {site.appStore.label}
+            <small>Wkrótce</small>
+          </span>
+        )
+      }
+      <a class="button button-secondary" href="#premiera-newsletter">Powiadom o premierze →</a>
+    </div>
+    <p class="fine-print">
+      Przycisk App Store aktywujemy w dniu publicznej publikacji. Do tego czasu
+      lista oczekujących to newsletter „Czerwona lampka”.
+    </p>
+  </section>
+
+  <section class="reading section" id="premiera-newsletter" aria-labelledby="waitlist-title">
+    <p class="eyebrow">LISTA OCZEKUJĄCA</p>
+    <h2 id="waitlist-title">Sygnał o premierze na mail</h2>
+    <p class="muted">
+      Zapisz się, jeśli chcesz wiedzieć, kiedy Czerwona Teczka pojawi się w App
+      Store. Nadawcą jest {site.author} — nie fikcyjna kancelaria.
+    </p>
+    <NewsletterForm />
+    <div class="actions">
+      <a class="button button-secondary" href="/wokanda">Otwórz wokandę online →</a>
+      <a class="button button-quiet" href="/jak-czytac-gre">Jak czytać grę</a>
+    </div>
+  </section>
+</BaseLayout>

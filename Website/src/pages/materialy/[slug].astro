@@ -1,0 +1,64 @@
+---
+import { materials, site } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return materials.map((material) => ({
+    params: { slug: material.slug },
+    props: { material },
+  }));
+}
+
+const { material } = Astro.props;
+---
+
+<BaseLayout title={material.title} description={material.summary}>
+  <div class="reading">
+    <nav class="breadcrumbs no-print" aria-label="Okruszki">
+      <a href="/">Start</a><span aria-hidden="true">/</span>
+      <a href="/materialy">Materiały</a><span aria-hidden="true">/</span>
+      <span>{material.number}</span>
+    </nav>
+  </div>
+
+  <article class="reading section-sm">
+    <p class="print-only">CZERWONA TECZKA · COLGANTE.PL · {material.number}</p>
+    <p class="eyebrow">{material.eyebrow}</p>
+    <h1>{material.title}</h1>
+    <p class="lead">{material.summary}</p>
+    <div class="actions no-print">
+      <button class="button" type="button" onclick="window.print()">Drukuj / zapisz PDF</button>
+      <a class="button button-secondary" href="/materialy">Wszystkie materiały</a>
+    </div>
+
+    <section class="callout section-sm">
+      <p class="eyebrow">KIEDY UŻYĆ</p>
+      <p>{material.useWhen}</p>
+      <hr class="red-rule" />
+      <p class="eyebrow">CZERWONA LAMPKA</p>
+      <p>{material.warning}</p>
+    </section>
+
+    {material.sections.map((section, index) => (
+      <section class="section-sm">
+        <p class="eyebrow">KROK {String(index + 1).padStart(2, "0")}</p>
+        <h2>{section.title}</h2>
+        {section.intro && <p>{section.intro}</p>}
+        <ul class="check-list">
+          {section.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    ))}
+
+    <aside class="paper-card">
+      <p class="eyebrow">WAŻNE</p>
+      <p>
+        Materiał edukacyjny, nie porada prawna ani gotowa procedura dla konkretnej
+        organizacji. Przed wdrożeniem dopasuj role, systemy i ścieżkę eskalacji.
+      </p>
+      <p class="fine-print">
+        Autor: {site.author}, {site.authorRole} · stan materiału: 11.09.2026 · colgante.pl
+      </p>
+    </aside>
+  </article>
+</BaseLayout>

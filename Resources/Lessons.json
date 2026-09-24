@@ -1,0 +1,2390 @@
+[
+  {
+    "id": "01-kod",
+    "order": 1,
+    "demo": true,
+    "storyMode": true,
+    "exhibit": "phone",
+    "hero": "Night01a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Drugie zatwierdzenie",
+      "en": "The second approval"
+    },
+    "subtitle": {
+      "pl": "Logowanie do portalu",
+      "en": "Portal sign-in"
+    },
+    "deadline": {
+      "pl": "Rozprawa za cztery minuty",
+      "en": "Hearing in four minutes"
+    },
+    "context": {
+      "pl": "Wchodzisz do portalu sądu ze swojego telefonu i wpisujesz hasło. Telefon pyta: „Czy zatwierdzić logowanie?”. Zatwierdzasz. Minutę później przychodzi drugie, takie samo pytanie. Iglica mówi, że to Chropot z sali rozpraw: nie może się zalogować i prosi, żebyś zatwierdził też to drugie.",
+      "en": "You sign in to the court portal from your own phone and type the password. The phone asks: “Approve this sign-in?”. You approve it. A minute later a second, identical question arrives. Iglica says it is Chropot in the courtroom: he cannot sign in and wants you to approve that one too."
+    },
+    "beats": [
+      {
+        "asset": "Night01a",
+        "caption": {
+          "pl": "Hasło wpisane. Na telefonie dwa pytania: „Czy zatwierdzić logowanie?”.",
+          "en": "Password entered. Two questions on the phone: “Approve this sign-in?”."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night01b",
+        "caption": {
+          "pl": "Iglica: „Drugie pytanie to Chropot z sali. Bez niego spadamy z wokandy.”",
+          "en": "Iglica: “The second question is Chropot in court. Without it we fall off the list.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Wchodzisz do portalu sądu ze swojego telefonu i wpisujesz hasło. Telefon pyta: „Czy zatwierdzić logowanie?”. Zatwierdzasz. Minutę później przychodzi drugie, takie samo pytanie. Iglica mówi, że to Chropot z sali rozpraw: nie może się zalogować i prosi, żebyś zatwierdził też to drugie.",
+      "en": "You sign in to the court portal from your own phone and type the password. The phone asks: “Approve this sign-in?”. You approve it. A minute later a second, identical question arrives. Iglica says it is Chropot in the courtroom: he cannot sign in and wants you to approve that one too."
+    },
+    "innerVoice": {
+      "pl": "Które pytanie na telefonie jest twoim logowaniem?",
+      "en": "Which question on the phone is your own sign-in?"
+    },
+    "redFlags": [
+      {
+        "pl": "Dwa pytania na telefonie. Hasło wpisałeś raz.",
+        "en": "Two questions on the phone. You typed the password once."
+      }
+    ],
+    "choices": [
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Zatwierdzam tylko pierwsze pytanie, to zaraz po moim haśle. Drugie odrzucam i dzwonię do Chropota na numer z książki telefonicznej kancelarii.",
+          "en": "I approve only the first question, the one right after my password. I reject the second and call Chropot on the number in the firm phone book."
+        },
+        "subtitle": {
+          "pl": "Drugie pytanie to czyjeś inne logowanie, nawet gdy Iglica mówi, że słyszy partnera.",
+          "en": "The second question is someone else’s sign-in, even if Iglica says he hears the partner."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Drugie pytanie to czyjeś inne logowanie, nawet gdy Iglica mówi, że słyszy partnera.",
+            "en": "The second question is someone else’s sign-in, even if Iglica says he hears the partner."
+          },
+          "consequence": {
+            "pl": "Drugie pytanie to czyjeś inne logowanie, nawet gdy Iglica mówi, że słyszy partnera.",
+            "en": "The second question is someone else’s sign-in, even if Iglica says he hears the partner."
+          },
+          "reflex": {
+            "pl": "Drugie pytanie to czyjeś inne logowanie, nawet gdy Iglica mówi, że słyszy partnera.",
+            "en": "The second question is someone else’s sign-in, even if Iglica says he hears the partner."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Zatwierdzam oba pytania. Iglica stoi obok i mówi, że drugie to laptop Chropota na sali.",
+          "en": "I approve both questions. Iglica is right here and says the second one is Chropot’s laptop in court."
+        },
+        "subtitle": {
+          "pl": "Pośpiech i zdanie aplikanta nie mówią, czyje to logowanie.",
+          "en": "Hurry and the trainee’s sentence do not say whose sign-in it is."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Pośpiech i zdanie aplikanta nie mówią, czyje to logowanie.",
+            "en": "Hurry and the trainee’s sentence do not say whose sign-in it is."
+          },
+          "consequence": {
+            "pl": "Pośpiech i zdanie aplikanta nie mówią, czyje to logowanie.",
+            "en": "Hurry and the trainee’s sentence do not say whose sign-in it is."
+          },
+          "reflex": {
+            "pl": "Pośpiech i zdanie aplikanta nie mówią, czyje to logowanie.",
+            "en": "Hurry and the trainee’s sentence do not say whose sign-in it is."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Nie zatwierdzam żadnego pytania. W dniu rozprawy wolałbym w ogóle nie ruszać telefonu.",
+          "en": "I approve neither question. On a hearing day I would rather not touch the phone at all."
+        },
+        "subtitle": {
+          "pl": "Pierwsze pytanie trzeba zatwierdzić, bo to twoje logowanie. Drugie sprawdzasz telefonem do partnera, nie odmową wszystkiego.",
+          "en": "The first question has to be approved, because it is your sign-in. You check the second by calling the partner, not by refusing everything."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Pierwsze pytanie trzeba zatwierdzić, bo to twoje logowanie. Drugie sprawdzasz telefonem do partnera, nie odmową wszystkiego.",
+            "en": "The first question has to be approved, because it is your sign-in. You check the second by calling the partner, not by refusing everything."
+          },
+          "consequence": {
+            "pl": "Pierwsze pytanie trzeba zatwierdzić, bo to twoje logowanie. Drugie sprawdzasz telefonem do partnera, nie odmową wszystkiego.",
+            "en": "The first question has to be approved, because it is your sign-in. You check the second by calling the partner, not by refusing everything."
+          },
+          "reflex": {
+            "pl": "Pierwsze pytanie trzeba zatwierdzić, bo to twoje logowanie. Drugie sprawdzasz telefonem do partnera, nie odmową wszystkiego.",
+            "en": "The first question has to be approved, because it is your sign-in. You check the second by calling the partner, not by refusing everything."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Drugie pytanie „Czy zatwierdzić?” nie należy do twojego logowania. Hasło wpisałeś raz — pierwsze pytanie to ty. Drugie może być czyimś wejściem do portalu (kradzież sesji albo podszywanie się). Zatwierdzając je, otwierasz drzwi obcej osobie, nawet gdy Iglica mówi, że to Chropot z sali.",
+        "en": "The second “Approve this sign-in?” is not your login. You typed the password once — the first prompt is you. The second may be someone else’s portal sign-in (session theft or impersonation). Approving it opens the door for a stranger, even if Iglica says it is Chropot in court."
+      },
+      "minimize": {
+        "pl": "Drugie pytanie odrzucasz. Pierwsze zostawiasz, bo sam je wywołałeś hasłem. Potem dzwonisz do Chropota na numer z książki telefonicznej.",
+        "en": "You reject the second question. You keep the first, because your password triggered it. Then you call Chropot on the number in the phone book."
+      },
+      "practice": {
+        "pl": "Pytanie „Czy zatwierdzić logowanie?” zatwierdzasz tylko wtedy, gdy sam przed chwilą wpisałeś hasło. Drugie sprawdzasz z partnerem, nie z aplikantem.",
+        "en": "You approve “Approve this sign-in?” only when you just typed the password. You check the second question with the partner, not the trainee."
+      },
+      "watchFor": [
+        {
+          "pl": "Drugie pytanie, którego nie wywołałeś swoim hasłem.",
+          "en": "A second question your password did not trigger."
+        },
+        {
+          "pl": "Odmowa także własnego logowania, bez telefonu do partnera.",
+          "en": "A refusal of your own sign-in too, with no call to the partner."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "02-list",
+    "order": 2,
+    "demo": true,
+    "storyMode": true,
+    "exhibit": "email",
+    "hero": "Night02a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Doklejone pismo",
+      "en": "The extra filing"
+    },
+    "subtitle": {
+      "pl": "Poczta · portal",
+      "en": "Mail · portal"
+    },
+    "deadline": {
+      "pl": "Termin doręczenia dziś",
+      "en": "Service deadline today"
+    },
+    "context": {
+      "pl": "Chropot przesyła dalej mail od sądu w twojej sprawie. Do tej wiadomości sam dołączył drugi plik PDF o nazwie „uzupełnienie opłaty”. Mówi, że dopisał go ręcznie, bo portal sądu działa wolno, i że masz otworzyć oba pliki, bo sygnatura się zgadza.",
+      "en": "Chropot forwards a court email in your matter. He himself attached a second PDF named “fee supplement”. He says he added it by hand because the court portal is slow, and that you should open both files because the case number matches."
+    },
+    "beats": [
+      {
+        "asset": "Night02a",
+        "caption": {
+          "pl": "Mail od Chropota: pismo sądu i drugi PDF, „uzupełnienie opłaty”.",
+          "en": "Mail from Chropot: the court’s paper and a second PDF, “fee supplement”."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night02b",
+        "caption": {
+          "pl": "Chropot: „Otwórz oba. Sygnatura się zgadza, portal działa wolno.”",
+          "en": "Chropot: “Open both. The case number matches. The portal is slow.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Chropot przesyła dalej mail od sądu w twojej sprawie. Do tej wiadomości sam dołączył drugi plik PDF o nazwie „uzupełnienie opłaty”. Mówi, że dopisał go ręcznie, bo portal sądu działa wolno, i że masz otworzyć oba pliki, bo sygnatura się zgadza.",
+      "en": "Chropot forwards a court email in your matter. He himself attached a second PDF named “fee supplement”. He says he added it by hand because the court portal is slow, and that you should open both files because the case number matches."
+    },
+    "innerVoice": {
+      "pl": "Który plik otwierasz?",
+      "en": "Which file do you open?"
+    },
+    "redFlags": [
+      {
+        "pl": "Dwa pliki w mailu. Sąd wysłał jeden.",
+        "en": "Two files in the email. The court sent one."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Otwieram oba pliki. To ten sam mail, ten sam partner i ta sama sygnatura.",
+          "en": "I open both files. It is the same email, the same partner, and the same case number."
+        },
+        "subtitle": {
+          "pl": "Partner w dobrej wierze dołącza plik, którego sąd nie wysłał.",
+          "en": "A partner in good faith attaches a file the court never sent."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Partner w dobrej wierze dołącza plik, którego sąd nie wysłał.",
+            "en": "A partner in good faith attaches a file the court never sent."
+          },
+          "consequence": {
+            "pl": "Partner w dobrej wierze dołącza plik, którego sąd nie wysłał.",
+            "en": "A partner in good faith attaches a file the court never sent."
+          },
+          "reflex": {
+            "pl": "Partner w dobrej wierze dołącza plik, którego sąd nie wysłał.",
+            "en": "A partner in good faith attaches a file the court never sent."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Nie otwieram żadnego pliku. Odpisuję na ten mail i proszę, żeby sąd przysłał pismo jeszcze raz.",
+          "en": "I open no file. I reply to this email and ask the court to send the paper again."
+        },
+        "subtitle": {
+          "pl": "Odpowiedź na ten mail nie potwierdza pisma i potrafi zgubić termin.",
+          "en": "A reply to this email does not confirm the paper, and it can lose the deadline."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Odpowiedź na ten mail nie potwierdza pisma i potrafi zgubić termin.",
+            "en": "A reply to this email does not confirm the paper, and it can lose the deadline."
+          },
+          "consequence": {
+            "pl": "Odpowiedź na ten mail nie potwierdza pisma i potrafi zgubić termin.",
+            "en": "A reply to this email does not confirm the paper, and it can lose the deadline."
+          },
+          "reflex": {
+            "pl": "Odpowiedź na ten mail nie potwierdza pisma i potrafi zgubić termin.",
+            "en": "A reply to this email does not confirm the paper, and it can lose the deadline."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Drugiego PDF-a nie otwieram. Wchodzę do portalu sądu przez adres, który mam zapisany, i sprawdzam, czy „uzupełnienie opłaty” tam jest.",
+          "en": "I do not open the second PDF. I open the court portal from the address I have saved and check whether “fee supplement” is there."
+        },
+        "subtitle": {
+          "pl": "Plik dołączony przez partnera nie jest pismem sądu, dopóki nie ma go w portalu, z którego bierzesz doręczenia.",
+          "en": "A file the partner attached is not the court’s paper until it is in the portal you take service from."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Plik dołączony przez partnera nie jest pismem sądu, dopóki nie ma go w portalu, z którego bierzesz doręczenia.",
+            "en": "A file the partner attached is not the court’s paper until it is in the portal you take service from."
+          },
+          "consequence": {
+            "pl": "Plik dołączony przez partnera nie jest pismem sądu, dopóki nie ma go w portalu, z którego bierzesz doręczenia.",
+            "en": "A file the partner attached is not the court’s paper until it is in the portal you take service from."
+          },
+          "reflex": {
+            "pl": "Plik dołączony przez partnera nie jest pismem sądu, dopóki nie ma go w portalu, z którego bierzesz doręczenia.",
+            "en": "A file the partner attached is not the court’s paper until it is in the portal you take service from."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Sąd doręcza przez portal albo własnym kanałem — nie przez PDF, który partner dokleił „dla wygody”. Taki plik może być szkodliwy albo fałszywy, nawet przy zgodnej sygnaturze. Presja terminu ma sprawić, że otworzysz załącznik zamiast wejść pod zapisany adres portalu.",
+        "en": "The court serves through the portal or its own channel — not through a PDF a partner attached “for convenience”. That file may be malicious or fake even when the case number matches. Deadline pressure is meant to make you open the attachment instead of opening the portal at the address you saved."
+      },
+      "minimize": {
+        "pl": "Drugiego PDF-a nie otwierasz i nie odpisujesz na ten mail. Termin sprawdzasz w portalu sądu, pod adresem, który masz zapisany.",
+        "en": "You do not open the second PDF and you do not reply to this email. You check the deadline in the court portal, at the address you have saved."
+      },
+      "practice": {
+        "pl": "Pismo bierzesz z portalu sądu, do którego sam wchodzisz. Plik dołączony do przesłanego maila sprawdzasz tam, zanim go otworzysz.",
+        "en": "You take the paper from the court portal you open yourself. You check a file attached to a forwarded email there before you open it."
+      },
+      "watchFor": [
+        {
+          "pl": "PDF dołączony przez partnera do maila od sądu.",
+          "en": "A PDF the partner attached to a court email."
+        },
+        {
+          "pl": "Prośba, żeby nie wchodzić do portalu, bo działa wolno.",
+          "en": "A request to skip the portal because it is slow."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "03-prompt",
+    "order": 3,
+    "demo": true,
+    "storyMode": true,
+    "exhibit": "prompt",
+    "hero": "Night03a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Ugoda w asystencie",
+      "en": "The settlement in the assistant"
+    },
+    "subtitle": {
+      "pl": "Firmowy asystent",
+      "en": "The firm assistant"
+    },
+    "deadline": {
+      "pl": "Ugoda przed północą",
+      "en": "Settlement before midnight"
+    },
+    "context": {
+      "pl": "Kancelaria ma firmowego asystenta do pisania pism. Jest umowa z dostawcą, a IT mówi, że program nie uczy się na waszych tekstach. W schowku kopiuj-wklej leży projekt ugody, której klient jeszcze nie widział: nazwy stron, kwota i sygnatura sprawy.",
+      "en": "The firm has an assistant for drafting. There is a vendor contract, and IT says the program does not learn from your texts. The copy-paste clipboard holds a draft settlement the client has not seen: party names, the figure, and the case number."
+    },
+    "beats": [
+      {
+        "asset": "Night03a",
+        "caption": {
+          "pl": "Projekt ugody jest jeszcze niejawny. Rada klienta czyta go rano.",
+          "en": "The draft settlement is still unreleased. The client’s board reads it in the morning."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night03b",
+        "caption": {
+          "pl": "Iglica: „IT mówi, że program się nie uczy. Wklej projekt, zdążymy.”",
+          "en": "Iglica: “IT says the program does not learn. Paste the draft. We’ll make it.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Kancelaria ma firmowego asystenta do pisania pism. Jest umowa z dostawcą, a IT mówi, że program nie uczy się na waszych tekstach. W schowku kopiuj-wklej leży projekt ugody, której klient jeszcze nie widział: nazwy stron, kwota i sygnatura sprawy.",
+      "en": "The firm has an assistant for drafting. There is a vendor contract, and IT says the program does not learn from your texts. The copy-paste clipboard holds a draft settlement the client has not seen: party names, the figure, and the case number."
+    },
+    "innerVoice": {
+      "pl": "Co z tej ugody wklejasz do asystenta?",
+      "en": "What from this settlement do you paste into the assistant?"
+    },
+    "redFlags": [
+      {
+        "pl": "Asystent jest firmowy. Ugoda jeszcze nie wyszła do klienta.",
+        "en": "The assistant is the firm’s. The settlement has not gone to the client yet."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Wycinam nazwy stron. Zostawiam kwotę i sygnaturę, bo bez nich układ klauzul jest bezużyteczny.",
+          "en": "I cut the party names. I leave the figure and the case number, because without them the clause structure is useless."
+        },
+        "subtitle": {
+          "pl": "Kwota i sygnatura wskazują sprawę tak samo jak nazwa strony.",
+          "en": "The figure and the case number point to the matter as surely as a party’s name."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Kwota i sygnatura wskazują sprawę tak samo jak nazwa strony.",
+            "en": "The figure and the case number point to the matter as surely as a party’s name."
+          },
+          "consequence": {
+            "pl": "Kwota i sygnatura wskazują sprawę tak samo jak nazwa strony.",
+            "en": "The figure and the case number point to the matter as surely as a party’s name."
+          },
+          "reflex": {
+            "pl": "Kwota i sygnatura wskazują sprawę tak samo jak nazwa strony.",
+            "en": "The figure and the case number point to the matter as surely as a party’s name."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Proszę tylko o układ klauzul, na zmyślonym przykładzie. Bez nazw stron, bez kwoty i bez sygnatury z tej sprawy.",
+          "en": "I ask only for a clause structure, on a made-up example. No party names, no figure, and no case number from this matter."
+        },
+        "subtitle": {
+          "pl": "To, że program nie uczy się na tekstach, nie robi z projektu ugody czegoś, co wolno wkleić.",
+          "en": "The program not learning from texts does not make the draft settlement something you may paste."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "To, że program nie uczy się na tekstach, nie robi z projektu ugody czegoś, co wolno wkleić.",
+            "en": "The program not learning from texts does not make the draft settlement something you may paste."
+          },
+          "consequence": {
+            "pl": "To, że program nie uczy się na tekstach, nie robi z projektu ugody czegoś, co wolno wkleić.",
+            "en": "The program not learning from texts does not make the draft settlement something you may paste."
+          },
+          "reflex": {
+            "pl": "To, że program nie uczy się na tekstach, nie robi z projektu ugody czegoś, co wolno wkleić.",
+            "en": "The program not learning from texts does not make the draft settlement something you may paste."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Wklejam cały projekt ugody. Mamy umowę z dostawcą, a IT mówi, że program się nie uczy.",
+          "en": "I paste the whole draft settlement. We have a vendor contract, and IT says the program does not learn."
+        },
+        "subtitle": {
+          "pl": "Umowa z dostawcą nie zatrzymuje kwoty ugody w pokoju.",
+          "en": "A vendor contract does not keep the settlement figure in the room."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Umowa z dostawcą nie zatrzymuje kwoty ugody w pokoju.",
+            "en": "A vendor contract does not keep the settlement figure in the room."
+          },
+          "consequence": {
+            "pl": "Umowa z dostawcą nie zatrzymuje kwoty ugody w pokoju.",
+            "en": "A vendor contract does not keep the settlement figure in the room."
+          },
+          "reflex": {
+            "pl": "Umowa z dostawcą nie zatrzymuje kwoty ugody w pokoju.",
+            "en": "A vendor contract does not keep the settlement figure in the room."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Tekst wklejony do asystenta opuszcza pokój: trafia do dostawcy, logów, czasem ludzi po drugiej stronie. Umowa i zdanie IT, że model „się nie uczy”, nie cofają wycieku nazw, kwoty i sygnatury. Wystarczy układ klauzul na zmyślonym przykładzie.",
+        "en": "Text pasted into an assistant leaves the room: it goes to the vendor, to logs, sometimes to people on the other side. A contract and IT’s line that the model “does not learn” do not undo a leak of names, figures and case numbers. A clause structure on a made-up example is enough."
+      },
+      "minimize": {
+        "pl": "Projekt ugody zostaje w akcie. Do asystenta wpisujesz prośbę o układ klauzul, bez nazw, bez kwoty i bez sygnatury.",
+        "en": "The draft settlement stays in the file. You ask the assistant for a clause structure, with no names, no figure, and no case number."
+      },
+      "practice": {
+        "pl": "Umowa z dostawcą i zdanie IT, że program się nie uczy, nie są zgodą na wklejenie sprawy. Do asystenta idzie układ klauzul, nie akta.",
+        "en": "A vendor contract and IT’s line that the program does not learn are not consent to paste the matter. The assistant gets a clause structure, not the file."
+      },
+      "watchFor": [
+        {
+          "pl": "Cały projekt ugody wklejony, „bo mamy umowę”.",
+          "en": "The whole draft settlement pasted, “because we have a contract”."
+        },
+        {
+          "pl": "Wycięte nazwy stron przy zostawionej kwocie i sygnaturze.",
+          "en": "Party names cut, the figure and the case number left in."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "04-haslo",
+    "order": 4,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "memo",
+    "hero": "Night04a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Hasło przed radą",
+      "en": "The password before the board"
+    },
+    "subtitle": {
+      "pl": "Pokój danych",
+      "en": "Data room"
+    },
+    "deadline": {
+      "pl": "Rada za dwadzieścia minut",
+      "en": "Board in twenty minutes"
+    },
+    "context": {
+      "pl": "Klient ma wejść do pokoju danych, czyli na stronę, na którą wrzuca dokumenty do sprawy. Link do tej strony już wysłałeś mailem. Nowe hasło to cztery zwykłe słowa, zapisane na kartce na biurku. Klient ich nie zna. Rada siada za dwadzieścia minut i nikt nie odbiera telefonu. Chropot chce, żebyś odpisał w tym samym mailu i wpisał te cztery słowa pod linkiem.",
+      "en": "The client has to enter the data room, the site where they upload documents for the matter. You already emailed the link to that site. The new password is four ordinary words, written on a slip on the desk. The client does not know them. The board sits in twenty minutes and nobody is picking up. Chropot wants you to reply in that same email and type the four words under the link."
+    },
+    "beats": [
+      {
+        "asset": "Night04a",
+        "caption": {
+          "pl": "Mail z linkiem już poszedł. Na kartce leżą cztery słowa nowego hasła.",
+          "en": "The email with the link has gone. Four words of the new password lie on a slip."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night04b",
+        "caption": {
+          "pl": "Chropot: „Odpisz w tym mailu i wpisz te cztery słowa pod linkiem.”",
+          "en": "Chropot: “Reply in this email and type the four words under the link.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Klient ma wejść do pokoju danych, czyli na stronę, na którą wrzuca dokumenty do sprawy. Link do tej strony już wysłałeś mailem. Nowe hasło to cztery zwykłe słowa, zapisane na kartce na biurku. Klient ich nie zna. Rada siada za dwadzieścia minut i nikt nie odbiera telefonu. Chropot chce, żebyś odpisał w tym samym mailu i wpisał te cztery słowa pod linkiem.",
+      "en": "The client has to enter the data room, the site where they upload documents for the matter. You already emailed the link to that site. The new password is four ordinary words, written on a slip on the desk. The client does not know them. The board sits in twenty minutes and nobody is picking up. Chropot wants you to reply in that same email and type the four words under the link."
+    },
+    "innerVoice": {
+      "pl": "Jak przekazać klientowi te cztery słowa?",
+      "en": "How do you give the client these four words?"
+    },
+    "redFlags": [
+      {
+        "pl": "Hasło leży na kartce. Mail z linkiem już poszedł.",
+        "en": "The password is on the slip. The email with the link has gone."
+      }
+    ],
+    "choices": [
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Zostawiam te cztery słowa w programie kancelarii do haseł. Czytam je klientowi na głos w osobnej rozmowie telefonicznej. W mailu z linkiem hasła nie wpisuję.",
+          "en": "I keep the four words in the firm’s password program. I read them aloud to the client in a separate phone call. I do not type the password in the email that has the link."
+        },
+        "subtitle": {
+          "pl": "Link i hasło w jednym mailu otwierają pokój każdemu, kto ten mail przeczyta.",
+          "en": "The link and the password in one email open the room to anyone who reads that email."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Link i hasło w jednym mailu otwierają pokój każdemu, kto ten mail przeczyta.",
+            "en": "The link and the password in one email open the room to anyone who reads that email."
+          },
+          "consequence": {
+            "pl": "Link i hasło w jednym mailu otwierają pokój każdemu, kto ten mail przeczyta.",
+            "en": "The link and the password in one email open the room to anyone who reads that email."
+          },
+          "reflex": {
+            "pl": "Link i hasło w jednym mailu otwierają pokój każdemu, kto ten mail przeczyta.",
+            "en": "The link and the password in one email open the room to anyone who reads that email."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Odpisuję w tym samym mailu, tuż pod linkiem, i wpisuję te cztery słowa. Rada nie będzie czekać, aż ktoś odbierze.",
+          "en": "I reply in the same email, just under the link, and type the four words. The board will not wait for someone to pick up."
+        },
+        "subtitle": {
+          "pl": "Mail, w którym już jest link, nie jest miejscem na hasło.",
+          "en": "The email that already carries the link is not a place for the password."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Mail, w którym już jest link, nie jest miejscem na hasło.",
+            "en": "The email that already carries the link is not a place for the password."
+          },
+          "consequence": {
+            "pl": "Mail, w którym już jest link, nie jest miejscem na hasło.",
+            "en": "The email that already carries the link is not a place for the password."
+          },
+          "reflex": {
+            "pl": "Mail, w którym już jest link, nie jest miejscem na hasło.",
+            "en": "The email that already carries the link is not a place for the password."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Nie podaję nowego hasła. Zostawiam to z zeszłego miesiąca, które klient już dostał mailem. Sam prosił, żeby przed radą nie zmieniać hasła.",
+          "en": "I do not give the new password. I keep last month’s, which the client already got by email. He asked us not to change the password before the board."
+        },
+        "subtitle": {
+          "pl": "Hasło, które już poszło mailem, nie jest sekretem tej rady. Jest zużytym hasłem.",
+          "en": "A password that already went by email is not this board’s secret. It is a spent password."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Hasło, które już poszło mailem, nie jest sekretem tej rady. Jest zużytym hasłem.",
+            "en": "A password that already went by email is not this board’s secret. It is a spent password."
+          },
+          "consequence": {
+            "pl": "Hasło, które już poszło mailem, nie jest sekretem tej rady. Jest zużytym hasłem.",
+            "en": "A password that already went by email is not this board’s secret. It is a spent password."
+          },
+          "reflex": {
+            "pl": "Hasło, które już poszło mailem, nie jest sekretem tej rady. Jest zużytym hasłem.",
+            "en": "A password that already went by email is not this board’s secret. It is a spent password."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Link i hasło w jednym mailu dają pełny dostęp każdemu, kto ten mail przechwyci albo odziedziczy w wątku. Osobny kanał (rozmowa, menedżer haseł) rozdziela „gdzie” od „jak wejść”. Stare hasło z poprzedniego maila jest już zużyte — nie chroni rady.",
+        "en": "A link and a password in one email give full access to anyone who intercepts that mail or inherits the thread. A separate channel (a call, a password manager) splits “where” from “how to enter”. Last month’s password from an earlier email is already spent — it does not protect the board."
+      },
+      "minimize": {
+        "pl": "Tych czterech słów nie wpisujesz w mailu z linkiem. Czytasz je klientowi na głos w osobnej rozmowie, nawet jeśli rada chwilę poczeka.",
+        "en": "You do not type these four words in the email with the link. You read them aloud to the client in a separate call, even if the board waits a moment."
+      },
+      "practice": {
+        "pl": "Link do pokoju i hasło nie jadą w jednym mailu. Starego hasła, które już poszło pocztą, nie zostawiasz tylko dlatego, że rada się spieszy.",
+        "en": "The room link and the password do not travel in one email. You do not keep an old password that already went by email just because the board is in a hurry."
+      },
+      "watchFor": [
+        {
+          "pl": "Hasło wpisane w odpowiedzi, pod linkiem do pokoju.",
+          "en": "The password typed in the reply, under the link to the room."
+        },
+        {
+          "pl": "Zostawione hasło z zeszłego miesiąca, które klient dostał mailem.",
+          "en": "Last month’s password kept, the one the client got by email."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "05-arkusz",
+    "order": 5,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "memo",
+    "hero": "Night05a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Hasło klienta",
+      "en": "The client’s password"
+    },
+    "subtitle": {
+      "pl": "System klienta",
+      "en": "The client’s system"
+    },
+    "deadline": {
+      "pl": "Kontrola jutro rano",
+      "en": "Review tomorrow morning"
+    },
+    "context": {
+      "pl": "We dwóch wchodzicie do starego systemu klienta, tego, w którym trzymają swoje dokumenty. Hasło jest napisane mazakiem na tablicy w ich sali konferencyjnej. Jutro kontroler czyta chronologię sprawy w aktach kancelarii. Irena chce, żebyś wpisał to hasło do chronologii, „żeby akta były kompletne”.",
+      "en": "The two of you sign in to the client’s old system, the one where they keep their documents. The password is written in marker on the whiteboard in their conference room. Tomorrow a reviewer reads the matter chronology in the firm’s file. Irena wants you to type that password into the chronology, “so the file is complete”."
+    },
+    "beats": [
+      {
+        "asset": "Night05a",
+        "caption": {
+          "pl": "Tablica w sali klienta. Mazakiem napisane hasło do ich systemu.",
+          "en": "The whiteboard in the client’s room. Their system password written in marker."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night05b",
+        "caption": {
+          "pl": "Irena: „Wpisz hasło do chronologii. Kontroler ma widzieć komplet.”",
+          "en": "Irena: “Type the password into the chronology. The reviewer must see a complete file.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "We dwóch wchodzicie do starego systemu klienta, tego, w którym trzymają swoje dokumenty. Hasło jest napisane mazakiem na tablicy w ich sali konferencyjnej. Jutro kontroler czyta chronologię sprawy w aktach kancelarii. Irena chce, żebyś wpisał to hasło do chronologii, „żeby akta były kompletne”.",
+      "en": "The two of you sign in to the client’s old system, the one where they keep their documents. The password is written in marker on the whiteboard in their conference room. Tomorrow a reviewer reads the matter chronology in the firm’s file. Irena wants you to type that password into the chronology, “so the file is complete”."
+    },
+    "innerVoice": {
+      "pl": "Gdzie zapisujesz to hasło na noc?",
+      "en": "Where do you write this password down for the night?"
+    },
+    "redFlags": [
+      {
+        "pl": "Kontroler czyta akta. Hasła tam nie ma.",
+        "en": "The reviewer reads the file. The password is not in it."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Wpisuję hasło do chronologii w aktach. Bez tego kontroler jutro zobaczy niekompletne akta.",
+          "en": "I type the password into the chronology in the file. Without it the reviewer will see an incomplete file tomorrow."
+        },
+        "subtitle": {
+          "pl": "Chronologię czytają ludzie, którzy nie logują się do systemu klienta.",
+          "en": "People who do not sign in to the client’s system read the chronology."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Chronologię czytają ludzie, którzy nie logują się do systemu klienta.",
+            "en": "People who do not sign in to the client’s system read the chronology."
+          },
+          "consequence": {
+            "pl": "Chronologię czytają ludzie, którzy nie logują się do systemu klienta.",
+            "en": "People who do not sign in to the client’s system read the chronology."
+          },
+          "reflex": {
+            "pl": "Chronologię czytają ludzie, którzy nie logują się do systemu klienta.",
+            "en": "People who do not sign in to the client’s system read the chronology."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Robię zdjęcie tablicy i wrzucam je do zdjęć sprawy. Klient sam napisał hasło na tablicy.",
+          "en": "I photograph the board and put it in the matter photos. The client wrote the password on the board."
+        },
+        "subtitle": {
+          "pl": "Zdjęcie w aktach zostaje dłużej niż napis na tablicy, którą rano zetrą.",
+          "en": "A photo in the file outlasts the writing on the board they will wipe in the morning."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Zdjęcie w aktach zostaje dłużej niż napis na tablicy, którą rano zetrą.",
+            "en": "A photo in the file outlasts the writing on the board they will wipe in the morning."
+          },
+          "consequence": {
+            "pl": "Zdjęcie w aktach zostaje dłużej niż napis na tablicy, którą rano zetrą.",
+            "en": "A photo in the file outlasts the writing on the board they will wipe in the morning."
+          },
+          "reflex": {
+            "pl": "Zdjęcie w aktach zostaje dłużej niż napis na tablicy, którą rano zetrą.",
+            "en": "A photo in the file outlasts the writing on the board they will wipe in the morning."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Wpisuję hasło do programu kancelarii do haseł, tylko dla dwóch osób z tej sprawy. Tablicy nie fotografuję.",
+          "en": "I put the password in the firm’s password program, only for the two people on this matter. I do not photograph the board."
+        },
+        "subtitle": {
+          "pl": "Hasło do systemu klienta zostaje u osób, które mają się tam zalogować, nie w aktach.",
+          "en": "The password to the client’s system stays with the people who must sign in there, not in the file."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Hasło do systemu klienta zostaje u osób, które mają się tam zalogować, nie w aktach.",
+            "en": "The password to the client’s system stays with the people who must sign in there, not in the file."
+          },
+          "consequence": {
+            "pl": "Hasło do systemu klienta zostaje u osób, które mają się tam zalogować, nie w aktach.",
+            "en": "The password to the client’s system stays with the people who must sign in there, not in the file."
+          },
+          "reflex": {
+            "pl": "Hasło do systemu klienta zostaje u osób, które mają się tam zalogować, nie w aktach.",
+            "en": "The password to the client’s system stays with the people who must sign in there, not in the file."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Hasło w chronologii albo na zdjęciu w aktach zostaje u ludzi, którzy nigdy nie logują się do systemu klienta: kontroler, sekretariat, kolejni pełnomocnicy. To nie jest „komplet akt” — to kopia klucza w szufladzie, którą ktoś inny może otworzyć później.",
+        "en": "A password in the chronology or in a matter photo stays with people who never sign in to the client’s system: the reviewer, the secretariat, later counsel. That is not a “complete file” — it is a spare key in a drawer someone else can open later."
+      },
+      "minimize": {
+        "pl": "Tablicy nie fotografujesz i nie przepisujesz hasła do chronologii. Zapisujesz je w programie do haseł, tylko dla dwóch osób ze sprawy.",
+        "en": "You do not photograph the board and you do not copy the password into the chronology. You store it in the password program, only for the two people on the matter."
+      },
+      "practice": {
+        "pl": "Hasło do systemu klienta nie jest częścią akt. Kontroler czyta chronologię bez hasła, którym wchodzicie do systemu.",
+        "en": "The password to the client’s system is not part of the file. The reviewer reads the chronology without the password you use to sign in."
+      },
+      "watchFor": [
+        {
+          "pl": "Hasło wpisane do chronologii „dla kompletności akt”.",
+          "en": "A password typed into the chronology “for a complete file”."
+        },
+        {
+          "pl": "Zdjęcie tablicy z hasłem w zdjęciach sprawy.",
+          "en": "A photo of the whiteboard password in the matter photos."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "06-pomoc",
+    "order": 6,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "phone",
+    "hero": "Night06a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Program w trakcie awarii",
+      "en": "A program during the outage"
+    },
+    "subtitle": {
+      "pl": "Zgłoszenie",
+      "en": "The ticket"
+    },
+    "deadline": {
+      "pl": "Wokanda za dziesięć minut",
+      "en": "List in ten minutes"
+    },
+    "context": {
+      "pl": "Poczta nie działa. W zgłoszeniu, które sam założyłeś u informatyków kancelarii, jest napisane: awaria jest na serwerze poczty, laptopy są sprawne, nic nie instalować. Osobno pisze administrator, którego znasz, z numeru, którego nie masz w telefonie. Pisze, że zgubił służbowy telefon i przysyła program do zdalnej naprawy, ten sam co w marcu.",
+      "en": "Mail is down. The ticket you opened with the firm’s IT says: the outage is on the mail server, the laptops are fine, install nothing. Separately, an administrator you know writes from a number you do not have in your phone. He says he lost his work phone and sends a remote-repair program, the same one as in March."
+    },
+    "beats": [
+      {
+        "asset": "Night06a",
+        "caption": {
+          "pl": "Zgłoszenie: nic nie instalować. Na telefonie plik z nieznanego numeru.",
+          "en": "The ticket: install nothing. On the phone, a file from an unknown number."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night06b",
+        "caption": {
+          "pl": "Chropot: „W marcu ten program nas podniósł. Instaluj, sala czeka.”",
+          "en": "Chropot: “In March that program brought us back. Install it. The court is waiting.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Poczta nie działa. W zgłoszeniu, które sam założyłeś u informatyków kancelarii, jest napisane: awaria jest na serwerze poczty, laptopy są sprawne, nic nie instalować. Osobno pisze administrator, którego znasz, z numeru, którego nie masz w telefonie. Pisze, że zgubił służbowy telefon i przysyła program do zdalnej naprawy, ten sam co w marcu.",
+      "en": "Mail is down. The ticket you opened with the firm’s IT says: the outage is on the mail server, the laptops are fine, install nothing. Separately, an administrator you know writes from a number you do not have in your phone. He says he lost his work phone and sends a remote-repair program, the same one as in March."
+    },
+    "innerVoice": {
+      "pl": "Której instrukcji słuchasz?",
+      "en": "Which instruction do you follow?"
+    },
+    "redFlags": [
+      {
+        "pl": "Awaria jest na serwerze poczty. Program przyszedł skądinąd.",
+        "en": "The outage is on the mail server. The program came from somewhere else."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Instaluję ten program tylko na laptopie Iglicy, na próbę, zanim dam go na salę.",
+          "en": "I install this program only on Iglica’s laptop, as a test, before I take it into court."
+        },
+        "subtitle": {
+          "pl": "Laptop „na próbę” jest nadal laptopem kancelarii.",
+          "en": "A “test” laptop is still a firm laptop."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Laptop „na próbę” jest nadal laptopem kancelarii.",
+            "en": "A “test” laptop is still a firm laptop."
+          },
+          "consequence": {
+            "pl": "Laptop „na próbę” jest nadal laptopem kancelarii.",
+            "en": "A “test” laptop is still a firm laptop."
+          },
+          "reflex": {
+            "pl": "Laptop „na próbę” jest nadal laptopem kancelarii.",
+            "en": "A “test” laptop is still a firm laptop."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Nie instaluję programu z wiadomości. Zostaję przy zgłoszeniu: awaria jest na serwerze poczty, laptopy są sprawne.",
+          "en": "I do not install the program from the message. I stay with the ticket: the outage is on the mail server, the laptops are fine."
+        },
+        "subtitle": {
+          "pl": "Znajomy administrator na nowym numerze nie unieważnia zgłoszenia, które sam założyłeś.",
+          "en": "A familiar administrator on a new number does not overrule the ticket you opened."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Znajomy administrator na nowym numerze nie unieważnia zgłoszenia, które sam założyłeś.",
+            "en": "A familiar administrator on a new number does not overrule the ticket you opened."
+          },
+          "consequence": {
+            "pl": "Znajomy administrator na nowym numerze nie unieważnia zgłoszenia, które sam założyłeś.",
+            "en": "A familiar administrator on a new number does not overrule the ticket you opened."
+          },
+          "reflex": {
+            "pl": "Znajomy administrator na nowym numerze nie unieważnia zgłoszenia, które sam założyłeś.",
+            "en": "A familiar administrator on a new number does not overrule the ticket you opened."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Instaluję ten program. Logo się zgadza, a w marcu taki plik naprawił nam pocztę.",
+          "en": "I install this program. The logo matches, and in March a file like that fixed our mail."
+        },
+        "subtitle": {
+          "pl": "Plik z marca i plik z nowego numeru to nie ten sam plik.",
+          "en": "The file from March and the file from a new number are not the same file."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Plik z marca i plik z nowego numeru to nie ten sam plik.",
+            "en": "The file from March and the file from a new number are not the same file."
+          },
+          "consequence": {
+            "pl": "Plik z marca i plik z nowego numeru to nie ten sam plik.",
+            "en": "The file from March and the file from a new number are not the same file."
+          },
+          "reflex": {
+            "pl": "Plik z marca i plik z nowego numeru to nie ten sam plik.",
+            "en": "The file from March and the file from a new number are not the same file."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "W awarii atakujący podszywa się pod znanego administratora i wysyła program z nowego numeru. Znajome imię i wspomnienie marca mają wyłączyć ostrożność. Twoje zgłoszenie IT („nic nie instalować”) jest jedyną instrukcją, którą sam otworzyłeś — plik z SMS-a jej nie unieważnia.",
+        "en": "In an outage an attacker impersonates a known administrator and sends a program from a new number. A familiar name and a March memory are meant to switch off caution. Your own IT ticket (“install nothing”) is the only instruction you opened — a file from an SMS does not overrule it."
+      },
+      "minimize": {
+        "pl": "Programu z nowego numeru nie instalujesz, także na próbę na laptopie Iglicy. Zostajesz przy zgłoszeniu, które sam otworzyłeś.",
+        "en": "You do not install the program from the new number, not even as a test on Iglica’s laptop. You stay with the ticket you opened."
+      },
+      "practice": {
+        "pl": "W awarii czytasz zgłoszenie, które sam otworzyłeś. Programu do naprawy nie bierzesz z numeru, którego nie masz w telefonie.",
+        "en": "In an outage you read the ticket you opened. You do not take a repair program from a number you do not have in your phone."
+      },
+      "watchFor": [
+        {
+          "pl": "Program do zdalnej naprawy z numeru spoza telefonu.",
+          "en": "A remote-repair program from a number that is not in the phone."
+        },
+        {
+          "pl": "Instalacja „na próbę” na laptopie aplikanta.",
+          "en": "An install “as a test” on the trainee’s laptop."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "07-sms",
+    "order": 7,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "phone",
+    "hero": "Night07a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Druga opłata",
+      "en": "The second fee"
+    },
+    "subtitle": {
+      "pl": "SMS · wokanda",
+      "en": "SMS · list"
+    },
+    "deadline": {
+      "pl": "Wokanda dziś",
+      "en": "The list is today"
+    },
+    "context": {
+      "pl": "Przychodzi SMS z linkiem do płatności. Podaje sygnaturę sprawy i nazwę firmy, przez którą w marcu płaciłeś opłatę sądową. Kwota jest podobna do tej z nakazu zapłaty kosztów, ale SMS dzieli ją na dwie raty. W nakazie była jedna kwota. Irena mówi, że kasa sądu mogła podzielić wpłatę. Wokanda jest dziś.",
+      "en": "An SMS arrives with a payment link. It cites the case number and the name of the firm you paid the court fee through in March. The amount is close to the costs order, but the SMS splits it into two instalments. The order had one amount. Irena says the court cashier may have split the payment. The list is today."
+    },
+    "beats": [
+      {
+        "asset": "Night07a",
+        "caption": {
+          "pl": "SMS z linkiem do płatności i sygnaturą, którą rano czytałeś w aktach.",
+          "en": "An SMS with a payment link and the case number you read in the file this morning."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night07b",
+        "caption": {
+          "pl": "Irena: „To ta sama firma co w marcu. Zapłać, bo spadniemy z listy.”",
+          "en": "Irena: “It is the same firm as in March. Pay, or we fall off the list.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Przychodzi SMS z linkiem do płatności. Podaje sygnaturę sprawy i nazwę firmy, przez którą w marcu płaciłeś opłatę sądową. Kwota jest podobna do tej z nakazu zapłaty kosztów, ale SMS dzieli ją na dwie raty. W nakazie była jedna kwota. Irena mówi, że kasa sądu mogła podzielić wpłatę. Wokanda jest dziś.",
+      "en": "An SMS arrives with a payment link. It cites the case number and the name of the firm you paid the court fee through in March. The amount is close to the costs order, but the SMS splits it into two instalments. The order had one amount. Irena says the court cashier may have split the payment. The list is today."
+    },
+    "innerVoice": {
+      "pl": "Czy płacisz tę drugą ratę?",
+      "en": "Do you pay this second instalment?"
+    },
+    "redFlags": [
+      {
+        "pl": "Sygnatura jest z akt. Rata nie jest z nakazu.",
+        "en": "The case number is from the file. The instalment is not from the order."
+      }
+    ],
+    "choices": [
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Otwieram nakaz w aktach i księgę opłat kancelarii. Dopóki tej raty nie ma w nakazie, nie płacę i nie otwieram linku z SMS-a.",
+          "en": "I open the order in the file and the firm’s fee ledger. Until this instalment is in the order, I do not pay and I do not open the link in the SMS."
+        },
+        "subtitle": {
+          "pl": "Znana sygnatura i znana firma płatnicza nie tworzą opłaty, której nie ma w nakazie.",
+          "en": "A known case number and a known payment firm do not create a fee that is not in the order."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Znana sygnatura i znana firma płatnicza nie tworzą opłaty, której nie ma w nakazie.",
+            "en": "A known case number and a known payment firm do not create a fee that is not in the order."
+          },
+          "consequence": {
+            "pl": "Znana sygnatura i znana firma płatnicza nie tworzą opłaty, której nie ma w nakazie.",
+            "en": "A known case number and a known payment firm do not create a fee that is not in the order."
+          },
+          "reflex": {
+            "pl": "Znana sygnatura i znana firma płatnicza nie tworzą opłaty, której nie ma w nakazie.",
+            "en": "A known case number and a known payment firm do not create a fee that is not in the order."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Płacę przez link z SMS-a. Firma jest ta z marca, sygnatura się zgadza, wokanda jest dziś.",
+          "en": "I pay through the link in the SMS. The firm is the one from March, the case number matches, the list is today."
+        },
+        "subtitle": {
+          "pl": "Zgodna sygnatura nie znaczy, że ta rata jest w nakazie.",
+          "en": "A matching case number does not mean this instalment is in the order."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Zgodna sygnatura nie znaczy, że ta rata jest w nakazie.",
+            "en": "A matching case number does not mean this instalment is in the order."
+          },
+          "consequence": {
+            "pl": "Zgodna sygnatura nie znaczy, że ta rata jest w nakazie.",
+            "en": "A matching case number does not mean this instalment is in the order."
+          },
+          "reflex": {
+            "pl": "Zgodna sygnatura nie znaczy, że ta rata jest w nakazie.",
+            "en": "A matching case number does not mean this instalment is in the order."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Dzwonię na numer podany w SMS-ie i pytam, czy tej raty brakuje.",
+          "en": "I call the number given in the SMS and ask whether this instalment is missing."
+        },
+        "subtitle": {
+          "pl": "Numer z SMS-a nie jest kasą sądu.",
+          "en": "The number in the SMS is not the court’s cashier."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Numer z SMS-a nie jest kasą sądu.",
+            "en": "The number in the SMS is not the court’s cashier."
+          },
+          "consequence": {
+            "pl": "Numer z SMS-a nie jest kasą sądu.",
+            "en": "The number in the SMS is not the court’s cashier."
+          },
+          "reflex": {
+            "pl": "Numer z SMS-a nie jest kasą sądu.",
+            "en": "The number in the SMS is not the court’s cashier."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "SMS z sygnaturą i nazwą znanej firmy płatniczej wygląda jak dopłata sądowa, ale tworzy ratę, której nie ma w nakazie. Link i numer z wiadomości należą do oszusta. Porównanie z nakazem i księgą opłat oddziela prawdziwą kwotę od przynęty pod wokandę.",
+        "en": "An SMS with a case number and a known payment firm looks like a court top-up, but it invents an instalment that is not in the order. The link and the number in the message belong to the scammer. Comparing with the order and the fee ledger separates the real amount from bait under list pressure."
+      },
+      "minimize": {
+        "pl": "Linku z SMS-a nie otwierasz i na numer z SMS-a nie dzwonisz. Kwotę zestawiasz z nakazem w aktach i z księgą opłat.",
+        "en": "You do not open the link in the SMS and you do not call the number in the SMS. You compare the amount with the order in the file and with the fee ledger."
+      },
+      "practice": {
+        "pl": "Opłatę porównujesz z nakazem i z księgą opłat. Linku i numeru z SMS-a nie używasz do dopłaty.",
+        "en": "You compare the fee with the order and the fee ledger. You do not use the link or the number in the SMS to pay a top-up."
+      },
+      "watchFor": [
+        {
+          "pl": "Rata, której nie ma w nakazie zapłaty kosztów.",
+          "en": "An instalment that is not in the costs order."
+        },
+        {
+          "pl": "Telefon na numer podany w SMS-ie.",
+          "en": "A call to the number given in the SMS."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "08-qr",
+    "order": 8,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "memo",
+    "hero": "Night08a",
+    "tone": "shadow",
+    "title": {
+      "pl": "IBAN po wyroku",
+      "en": "The IBAN after judgment"
+    },
+    "subtitle": {
+      "pl": "Koszty",
+      "en": "Costs"
+    },
+    "deadline": {
+      "pl": "Przelew dziś",
+      "en": "Transfer today"
+    },
+    "context": {
+      "pl": "W wyroku jest wpisany numer rachunku do zapłaty kosztów. Godzinę później przychodzi PDF. Ma stopkę kancelarii, z którą latami korespondujesz, ale nadawca to adres Gmail, nie ich domena. W PDF jest kwadratowy kod do zeskanowania telefonem, podpisany „nowy numer rachunku”. Chropot chce, żebyś zeskanował kod, zamiast przepisywać numer z wyroku.",
+      "en": "The judgment states the account number for the costs. An hour later a PDF arrives. It has the letterhead of a firm you have dealt with for years, but the sender is a Gmail address, not their domain. The PDF has a square code to scan with a phone, labeled “new account number”. Chropot wants you to scan the code instead of retyping the number from the judgment."
+    },
+    "beats": [
+      {
+        "asset": "Night08a",
+        "caption": {
+          "pl": "Wyrok leży otwarty. Obok PDF z kodem do zeskanowania telefonem.",
+          "en": "The judgment lies open. Beside it, a PDF with a code to scan with a phone."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night08b",
+        "caption": {
+          "pl": "Chropot: „Znam tę stopkę. Zeskanuj kod, nie przepisuj numeru z wyroku.”",
+          "en": "Chropot: “I know that letterhead. Scan the code. Don’t retype the number from the judgment.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "W wyroku jest wpisany numer rachunku do zapłaty kosztów. Godzinę później przychodzi PDF. Ma stopkę kancelarii, z którą latami korespondujesz, ale nadawca to adres Gmail, nie ich domena. W PDF jest kwadratowy kod do zeskanowania telefonem, podpisany „nowy numer rachunku”. Chropot chce, żebyś zeskanował kod, zamiast przepisywać numer z wyroku.",
+      "en": "The judgment states the account number for the costs. An hour later a PDF arrives. It has the letterhead of a firm you have dealt with for years, but the sender is a Gmail address, not their domain. The PDF has a square code to scan with a phone, labeled “new account number”. Chropot wants you to scan the code instead of retyping the number from the judgment."
+    },
+    "innerVoice": {
+      "pl": "Na który numer rachunku idą koszty?",
+      "en": "Which account number receives the costs?"
+    },
+    "redFlags": [
+      {
+        "pl": "Wyrok ma numer rachunku. PDF ma inny.",
+        "en": "The judgment has an account number. The PDF has another."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Skanuję kod telefonem i płacę na numer z PDF-a. Stopka się zgadza, a z tą kancelarią korespondujemy od lat.",
+          "en": "I scan the code with the phone and pay the number from the PDF. The letterhead matches, and we have corresponded with that firm for years."
+        },
+        "subtitle": {
+          "pl": "Znana stopka na pliku z Gmaila nie zmienia numeru rachunku z wyroku.",
+          "en": "A familiar letterhead on a Gmail file does not change the account number in the judgment."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Znana stopka na pliku z Gmaila nie zmienia numeru rachunku z wyroku.",
+            "en": "A familiar letterhead on a Gmail file does not change the account number in the judgment."
+          },
+          "consequence": {
+            "pl": "Znana stopka na pliku z Gmaila nie zmienia numeru rachunku z wyroku.",
+            "en": "A familiar letterhead on a Gmail file does not change the account number in the judgment."
+          },
+          "reflex": {
+            "pl": "Znana stopka na pliku z Gmaila nie zmienia numeru rachunku z wyroku.",
+            "en": "A familiar letterhead on a Gmail file does not change the account number in the judgment."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Płacę na numer z PDF-a, ale potem wysyłam potwierdzenie przelewu na adres z pism w sprawie.",
+          "en": "I pay the number from the PDF, but then I send the transfer confirmation to the address on the pleadings."
+        },
+        "subtitle": {
+          "pl": "Potwierdzenie po przelewie nie cofa pieniędzy.",
+          "en": "A confirmation after the transfer does not bring the money back."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Potwierdzenie po przelewie nie cofa pieniędzy.",
+            "en": "A confirmation after the transfer does not bring the money back."
+          },
+          "consequence": {
+            "pl": "Potwierdzenie po przelewie nie cofa pieniędzy.",
+            "en": "A confirmation after the transfer does not bring the money back."
+          },
+          "reflex": {
+            "pl": "Potwierdzenie po przelewie nie cofa pieniędzy.",
+            "en": "A confirmation after the transfer does not bring the money back."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Płacę na numer rachunku wpisany w wyroku. Kodu z PDF-a nie skanuję.",
+          "en": "I pay the account number written in the judgment. I do not scan the code in the PDF."
+        },
+        "subtitle": {
+          "pl": "Numer do kosztów jest w wyroku, nie w pliku, który przyszedł godzinę później.",
+          "en": "The costs number is in the judgment, not in a file that arrived an hour later."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Numer do kosztów jest w wyroku, nie w pliku, który przyszedł godzinę później.",
+            "en": "The costs number is in the judgment, not in a file that arrived an hour later."
+          },
+          "consequence": {
+            "pl": "Numer do kosztów jest w wyroku, nie w pliku, który przyszedł godzinę później.",
+            "en": "The costs number is in the judgment, not in a file that arrived an hour later."
+          },
+          "reflex": {
+            "pl": "Numer do kosztów jest w wyroku, nie w pliku, który przyszedł godzinę później.",
+            "en": "The costs number is in the judgment, not in a file that arrived an hour later."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "To klasyczny BEC na kosztach: znana stopka, ale nadawca spoza domeny kancelarii, i kod QR prowadzący na inny rachunek. Wyrok jest źródłem numeru. Plik sprzed godziny ma sprawić, że skanujesz telefonem zamiast przepisać IBAN z orzeczenia.",
+        "en": "This is classic BEC on costs: familiar letterhead, but a sender outside the firm’s domain, and a QR code that leads to another account. The judgment is the source of the number. A file from an hour ago is meant to make you scan with the phone instead of retyping the IBAN from the ruling."
+      },
+      "minimize": {
+        "pl": "Kodu z PDF-a nie skanujesz i nie płacisz numeru, który przyszedł godzinę później. Przepisujesz numer rachunku z wyroku.",
+        "en": "You do not scan the code in the PDF and you do not pay the number that arrived an hour later. You retype the account number from the judgment."
+      },
+      "practice": {
+        "pl": "Koszty płacisz na numer z wyroku. „Nowego numeru” z pliku, który przyszedł później, nie skanujesz telefonem.",
+        "en": "You pay costs to the number in the judgment. You do not scan a “new number” from a file that arrived later."
+      },
+      "watchFor": [
+        {
+          "pl": "Kod do zeskanowania w PDF-ie sprzed godziny.",
+          "en": "A code to scan in a PDF from an hour ago."
+        },
+        {
+          "pl": "Adres Gmail pod stopką znanej kancelarii.",
+          "en": "A Gmail address under a known firm’s letterhead."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "09-glos",
+    "order": 9,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "phone",
+    "hero": "Night09a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Numer z pisma",
+      "en": "The number on the letter"
+    },
+    "subtitle": {
+      "pl": "Zwrot zaliczki",
+      "en": "Returning the retainer"
+    },
+    "deadline": {
+      "pl": "Lista przelewów o 16:00",
+      "en": "The payment list at 16:00"
+    },
+    "context": {
+      "pl": "Dzwoni numer, który masz zapisany jako komórkę Chropota. Rozmówca zna kwotę zaliczki co do złotówki i dyktuje nowy numer rachunku klienta, na który trzeba zwrócić zaliczkę. Lista przelewów, którą księgowość wysyła, zamyka się o szesnastej. Numer Chropota, zapisany przy przyjęciu sprawy, leży w piśmie w aktach.",
+      "en": "A call comes from the number you have saved as Chropot’s mobile. The caller knows the retainer to the zloty and dictates a new client account number for the return of the retainer. The payment list the accounts team sends closes at four. Chropot’s number, written down when the matter was opened, is in a letter in the file."
+    },
+    "beats": [
+      {
+        "asset": "Night09a",
+        "caption": {
+          "pl": "Słuchawka. Głos jest jego, kwota zaliczki też. Numer rachunku słyszysz pierwszy raz.",
+          "en": "The receiver. The voice is his, and so is the retainer. You are hearing the account number for the first time."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night09b",
+        "caption": {
+          "pl": "Iglica: „To jego numer. Jak nie zmienisz rachunku, przelew wyjdzie na stary.”",
+          "en": "Iglica: “It is his number. If you don’t change the account, the transfer goes to the old one.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Dzwoni numer, który masz zapisany jako komórkę Chropota. Rozmówca zna kwotę zaliczki co do złotówki i dyktuje nowy numer rachunku klienta, na który trzeba zwrócić zaliczkę. Lista przelewów, którą księgowość wysyła, zamyka się o szesnastej. Numer Chropota, zapisany przy przyjęciu sprawy, leży w piśmie w aktach.",
+      "en": "A call comes from the number you have saved as Chropot’s mobile. The caller knows the retainer to the zloty and dictates a new client account number for the return of the retainer. The payment list the accounts team sends closes at four. Chropot’s number, written down when the matter was opened, is in a letter in the file."
+    },
+    "innerVoice": {
+      "pl": "Skąd bierzesz numer rachunku do zwrotu?",
+      "en": "Where do you take the account number for the return?"
+    },
+    "redFlags": [
+      {
+        "pl": "Głos zna kwotę zaliczki. Numer rachunku bierzesz z akt.",
+        "en": "The voice knows the retainer. You take the account number from the file."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Potwierdzam numer rachunku na WhatsAppie, na tym samym telefonie, z którego właśnie odebrałem tę rozmowę.",
+          "en": "I confirm the account number on WhatsApp, on the same phone on which I just took this call."
+        },
+        "subtitle": {
+          "pl": "Druga aplikacja na tym samym telefonie nie jest osobną rozmową z partnerem.",
+          "en": "A second app on the same phone is not a separate conversation with the partner."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Druga aplikacja na tym samym telefonie nie jest osobną rozmową z partnerem.",
+            "en": "A second app on the same phone is not a separate conversation with the partner."
+          },
+          "consequence": {
+            "pl": "Druga aplikacja na tym samym telefonie nie jest osobną rozmową z partnerem.",
+            "en": "A second app on the same phone is not a separate conversation with the partner."
+          },
+          "reflex": {
+            "pl": "Druga aplikacja na tym samym telefonie nie jest osobną rozmową z partnerem.",
+            "en": "A second app on the same phone is not a separate conversation with the partner."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Nie zmieniam listy przelewów. Oddzwaniam na numer Chropota z pisma w aktach, nawet jeśli zwrot wyjdzie jutro.",
+          "en": "I do not change the payment list. I call back Chropot’s number from the letter in the file, even if the return goes tomorrow."
+        },
+        "subtitle": {
+          "pl": "Numer na wyświetlaczu i znajomość kwoty to nadal jedna rozmowa, ta która sama przyszła.",
+          "en": "The number on the display and knowledge of the amount are still one call, the one that came to you."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Numer na wyświetlaczu i znajomość kwoty to nadal jedna rozmowa, ta która sama przyszła.",
+            "en": "The number on the display and knowledge of the amount are still one call, the one that came to you."
+          },
+          "consequence": {
+            "pl": "Numer na wyświetlaczu i znajomość kwoty to nadal jedna rozmowa, ta która sama przyszła.",
+            "en": "The number on the display and knowledge of the amount are still one call, the one that came to you."
+          },
+          "reflex": {
+            "pl": "Numer na wyświetlaczu i znajomość kwoty to nadal jedna rozmowa, ta która sama przyszła.",
+            "en": "The number on the display and knowledge of the amount are still one call, the one that came to you."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Zmieniam numer rachunku na liście. Wyświetlacz to jego komórka, a zaliczkę zna co do złotówki.",
+          "en": "I change the account number on the list. The display is his mobile, and he knows the retainer to the zloty."
+        },
+        "subtitle": {
+          "pl": "Wyświetlacz da się podstawić. Kwotę zaliczki z akt też już ktoś może znać.",
+          "en": "A caller display can be faked. Someone else may already know the retainer from the file."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Wyświetlacz da się podstawić. Kwotę zaliczki z akt też już ktoś może znać.",
+            "en": "A caller display can be faked. Someone else may already know the retainer from the file."
+          },
+          "consequence": {
+            "pl": "Wyświetlacz da się podstawić. Kwotę zaliczki z akt też już ktoś może znać.",
+            "en": "A caller display can be faked. Someone else may already know the retainer from the file."
+          },
+          "reflex": {
+            "pl": "Wyświetlacz da się podstawić. Kwotę zaliczki z akt też już ktoś może znać.",
+            "en": "A caller display can be faked. Someone else may already know the retainer from the file."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Numer na wyświetlaczu da się podstawić (spoofing): telefon pokazuje „Chropot”, bo atakujący udaje zapisany numer, nie dlatego, że dzwoni jego komórka. Głos i znajomość zaliczki budują zaufanie; nowy rachunek ma wyjść przed listą o 16:00. Prawdziwy numer partnera leży w piśmie w aktach — oddzwaniasz tam, zamiast ufać rozmowie, która sama przyszła.",
+        "en": "A caller display can be faked (spoofing): the phone shows “Chropot” because the attacker mimics the saved number, not because his mobile is calling. Voice and knowledge of the retainer build trust; the new account is meant to go out before the 16:00 list. The partner’s real number is in the letter in the file — you call that back instead of trusting a call that came to you."
+      },
+      "minimize": {
+        "pl": "Listy przelewów o szesnastej nie zmieniasz. Nowy numer rachunku bierzesz z oddzwonienia na numer z pisma w aktach, nie z tej rozmowy i nie z WhatsAppa na tym samym telefonie.",
+        "en": "You do not change the four o’clock payment list. You take the new account number from a callback to the number in the letter in the file, not from this call and not from WhatsApp on the same phone."
+      },
+      "practice": {
+        "pl": "Numer rachunku do zwrotu bierzesz z oddzwonienia na numer zapisany w aktach przy przyjęciu sprawy. Nie z rozmowy, która sama przyszła.",
+        "en": "You take the return account number from a callback to the number recorded in the file when the matter was opened. Not from a call that came to you."
+      },
+      "watchFor": [
+        {
+          "pl": "Nowy numer rachunku podyktowany w rozmowie, która sama przyszła.",
+          "en": "A new account number dictated on a call that came to you."
+        },
+        {
+          "pl": "Potwierdzenie na WhatsAppie na tym samym telefonie.",
+          "en": "A confirmation on WhatsApp on the same phone."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "10-okno",
+    "order": 10,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "pdf",
+    "hero": "Night10a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Makra w pozwie",
+      "en": "Macros in the pleading"
+    },
+    "subtitle": {
+      "pl": "Portal · Word",
+      "en": "Portal · Word"
+    },
+    "deadline": {
+      "pl": "Pozew na jutro",
+      "en": "Pleading due tomorrow"
+    },
+    "context": {
+      "pl": "Pozew ściągnąłeś z portalu sądu, z którego korzystasz na co dzień. Word pokazuje żółty pasek: tekstu nie widać, dopóki nie klikniesz „Włącz treść”. Ten przycisk uruchamia makra, czyli program zaszyty w pliku, nie sam tekst pozwu. W stopce pliku jest numer telefonu podpisany „informatyk sądu”.",
+      "en": "You downloaded the pleading from the court portal you use every day. Word shows a yellow bar: the text stays hidden until you click “Enable content”. That button runs macros, a program embedded in the file, not the text of the pleading itself. The file footer has a phone number labeled “court IT”."
+    },
+    "beats": [
+      {
+        "asset": "Night10a",
+        "caption": {
+          "pl": "Plik z portalu. Word czeka, aż klikniesz „Włącz treść”.",
+          "en": "A file from the portal. Word is waiting for you to click “Enable content”."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night10b",
+        "caption": {
+          "pl": "Iglica: „To portal. Włącz treść, inaczej nie złożymy pozwu.”",
+          "en": "Iglica: “It is the portal. Enable content, or we do not file the pleading.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Pozew ściągnąłeś z portalu sądu, z którego korzystasz na co dzień. Word pokazuje żółty pasek: tekstu nie widać, dopóki nie klikniesz „Włącz treść”. Ten przycisk uruchamia makra, czyli program zaszyty w pliku, nie sam tekst pozwu. W stopce pliku jest numer telefonu podpisany „informatyk sądu”.",
+      "en": "You downloaded the pleading from the court portal you use every day. Word shows a yellow bar: the text stays hidden until you click “Enable content”. That button runs macros, a program embedded in the file, not the text of the pleading itself. The file footer has a phone number labeled “court IT”."
+    },
+    "innerVoice": {
+      "pl": "Jak czytasz ten pozew?",
+      "en": "How do you read this pleading?"
+    },
+    "redFlags": [
+      {
+        "pl": "Plik jest z portalu. Przycisk „Włącz treść” nie musi być.",
+        "en": "The file is from the portal. The “Enable content” button does not have to be."
+      }
+    ],
+    "choices": [
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Nie klikam „Włącz treść”. Zostawiam żółty pasek i proszę przez portal o ten sam pozew w PDF.",
+          "en": "I do not click “Enable content”. I leave the yellow bar and ask through the portal for the same pleading as a PDF."
+        },
+        "subtitle": {
+          "pl": "Portal, z którego ściągasz plik, nie znaczy, że program zaszyty w Wordzie jest z sądu.",
+          "en": "The portal you download from does not mean the program embedded in Word is from the court."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Portal, z którego ściągasz plik, nie znaczy, że program zaszyty w Wordzie jest z sądu.",
+            "en": "The portal you download from does not mean the program embedded in Word is from the court."
+          },
+          "consequence": {
+            "pl": "Portal, z którego ściągasz plik, nie znaczy, że program zaszyty w Wordzie jest z sądu.",
+            "en": "The portal you download from does not mean the program embedded in Word is from the court."
+          },
+          "reflex": {
+            "pl": "Portal, z którego ściągasz plik, nie znaczy, że program zaszyty w Wordzie jest z sądu.",
+            "en": "The portal you download from does not mean the program embedded in Word is from the court."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Klikam „Włącz treść”. Plik przyszedł z portalu, a bez tego Word nie pokazuje pozwu.",
+          "en": "I click “Enable content”. The file came from the portal, and without that Word does not show the pleading."
+        },
+        "subtitle": {
+          "pl": "Kliknięcie „Włącz treść” uruchamia program w pliku, nie tylko pokazuje tekst.",
+          "en": "Clicking “Enable content” runs the program in the file, it does not only show the text."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Kliknięcie „Włącz treść” uruchamia program w pliku, nie tylko pokazuje tekst.",
+            "en": "Clicking “Enable content” runs the program in the file, it does not only show the text."
+          },
+          "consequence": {
+            "pl": "Kliknięcie „Włącz treść” uruchamia program w pliku, nie tylko pokazuje tekst.",
+            "en": "Clicking “Enable content” runs the program in the file, it does not only show the text."
+          },
+          "reflex": {
+            "pl": "Kliknięcie „Włącz treść” uruchamia program w pliku, nie tylko pokazuje tekst.",
+            "en": "Clicking “Enable content” runs the program in the file, it does not only show the text."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Dzwonię na numer ze stopki pliku i pytam, czy ten przycisk jest ich.",
+          "en": "I call the number in the file footer and ask whether that button is theirs."
+        },
+        "subtitle": {
+          "pl": "Numer wydrukowany w pliku nie jest telefonem do sądu.",
+          "en": "A number printed in the file is not the court’s phone."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Numer wydrukowany w pliku nie jest telefonem do sądu.",
+            "en": "A number printed in the file is not the court’s phone."
+          },
+          "consequence": {
+            "pl": "Numer wydrukowany w pliku nie jest telefonem do sądu.",
+            "en": "A number printed in the file is not the court’s phone."
+          },
+          "reflex": {
+            "pl": "Numer wydrukowany w pliku nie jest telefonem do sądu.",
+            "en": "A number printed in the file is not the court’s phone."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "„Włącz treść” uruchamia makra — program w pliku Word, nie sam tekst pozwu. Plik może przyjść z portalu i nadal być złośliwy albo podmieniony. Numer „informatyka sądu” w stopce jest częścią przynęty. Bezpieczny odczyt to PDF bez makr, zamówiony przez portal.",
+        "en": "“Enable content” runs macros — a program inside the Word file, not the pleading text itself. A file can come from the portal and still be malicious or swapped. A “court IT” number in the footer is part of the bait. Safe reading is a macro-free PDF requested through the portal."
+      },
+      "minimize": {
+        "pl": "Nie klikasz „Włącz treść” i nie dzwonisz na numer ze stopki pliku. Tekst bierzesz z PDF-a, o który prosisz przez portal.",
+        "en": "You do not click “Enable content” and you do not call the number in the file footer. You take the text from a PDF you request through the portal."
+      },
+      "practice": {
+        "pl": "Plik z portalu czytasz bez klikania „Włącz treść”, albo bierzesz PDF. Telefon wydrukowany w dokumencie nie jest sądem.",
+        "en": "You read a file from the portal without clicking “Enable content”, or you take a PDF. A phone number printed in the document is not the court."
+      },
+      "watchFor": [
+        {
+          "pl": "Żółty pasek Worda z przyciskiem „Włącz treść”.",
+          "en": "Word’s yellow bar with an “Enable content” button."
+        },
+        {
+          "pl": "Numer telefonu wydrukowany w stopce pliku.",
+          "en": "A phone number printed in the file footer."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "11-konta",
+    "order": 11,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "hr",
+    "hero": "Night11a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Skrzynka po odejściu",
+      "en": "The mailbox after they leave"
+    },
+    "subtitle": {
+      "pl": "Odejście",
+      "en": "A departure"
+    },
+    "deadline": {
+      "pl": "Zestaw pism na jutro",
+      "en": "The bundle for tomorrow"
+    },
+    "context": {
+      "pl": "Aplikant, którego szanujesz, odszedł dziś. Jego skrzynka wciąż dostaje pocztę klienta. Zestaw pism na jutrzejszą rozprawę leży w niedokończonym mailu, w kopiach roboczych. Przy każdym logowaniu jego prywatny telefon pyta „Czy zatwierdzić?”. Ten telefon został u niego.",
+      "en": "An associate you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
+    },
+    "beats": [
+      {
+        "asset": "Night11a",
+        "caption": {
+          "pl": "Irena: „Zostaw skrzynkę. Jutro bez tych pism nie wchodzimy.”",
+          "en": "Irena: “Leave the mailbox. Without those papers we do not walk in tomorrow.”"
+        },
+        "voice": "balloon"
+      },
+      {
+        "asset": "Night11b",
+        "caption": {
+          "pl": "Chropot: „To porządny człowiek. Ciągłość sprawy jest ważniejsza.”",
+          "en": "Chropot: “They are a decent person. Continuity of the matter matters more.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Aplikant, którego szanujesz, odszedł dziś. Jego skrzynka wciąż dostaje pocztę klienta. Zestaw pism na jutrzejszą rozprawę leży w niedokończonym mailu, w kopiach roboczych. Przy każdym logowaniu jego prywatny telefon pyta „Czy zatwierdzić?”. Ten telefon został u niego.",
+      "en": "An associate you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
+    },
+    "innerVoice": {
+      "pl": "Co robisz z tym logowaniem przed nocą?",
+      "en": "What do you do with this login before night?"
+    },
+    "redFlags": [
+      {
+        "pl": "Człowiek odszedł. Telefon do zatwierdzania logowania też.",
+        "en": "The person left. The phone that approves the login goes too."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Zostawiam logowanie. Pisma są w niedokończonym mailu, a człowiek jest nasz.",
+          "en": "I leave the login. The papers are in the unfinished email, and the person is ours."
+        },
+        "subtitle": {
+          "pl": "Odejście zamyka logowanie tego samego dnia, także przy dobrym człowieku.",
+          "en": "A departure closes the login the same day, including for a good person."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Odejście zamyka logowanie tego samego dnia, także przy dobrym człowieku.",
+            "en": "A departure closes the login the same day, including for a good person."
+          },
+          "consequence": {
+            "pl": "Odejście zamyka logowanie tego samego dnia, także przy dobrym człowieku.",
+            "en": "A departure closes the login the same day, including for a good person."
+          },
+          "reflex": {
+            "pl": "Odejście zamyka logowanie tego samego dnia, także przy dobrym człowieku.",
+            "en": "A departure closes the login the same day, including for a good person."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Zmieniam hasło, ale zostawiam jego telefon przy pytaniu „Czy zatwierdzić?”. Niech w nocy wyśle te pisma.",
+          "en": "I change the password, but I leave their phone on the “Approve?” question. Let them send the papers tonight."
+        },
+        "subtitle": {
+          "pl": "Nowe hasło bez odebrania telefonu nadal jest ich logowaniem.",
+          "en": "A new password without the phone is still their login."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Nowe hasło bez odebrania telefonu nadal jest ich logowaniem.",
+            "en": "A new password without the phone is still their login."
+          },
+          "consequence": {
+            "pl": "Nowe hasło bez odebrania telefonu nadal jest ich logowaniem.",
+            "en": "A new password without the phone is still their login."
+          },
+          "reflex": {
+            "pl": "Nowe hasło bez odebrania telefonu nadal jest ich logowaniem.",
+            "en": "A new password without the phone is still their login."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Wyłączam logowanie dziś. Skrzynkę kieruję do partnera sprawy. Telefon odbieramy albo czyścimy, zanim wyjdą pisma.",
+          "en": "I disable sign-in today. I forward the mailbox to the matter partner. We take the phone back or wipe it before the papers go out."
+        },
+        "subtitle": {
+          "pl": "Zaufanie do człowieka nie zostawia jego telefonu jako klucza do skrzynki.",
+          "en": "Trust in the person does not leave their phone as the key to the mailbox."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Zaufanie do człowieka nie zostawia jego telefonu jako klucza do skrzynki.",
+            "en": "Trust in the person does not leave their phone as the key to the mailbox."
+          },
+          "consequence": {
+            "pl": "Zaufanie do człowieka nie zostawia jego telefonu jako klucza do skrzynki.",
+            "en": "Trust in the person does not leave their phone as the key to the mailbox."
+          },
+          "reflex": {
+            "pl": "Zaufanie do człowieka nie zostawia jego telefonu jako klucza do skrzynki.",
+            "en": "Trust in the person does not leave their phone as the key to the mailbox."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Dopóki prywatny telefon byłego aplikanta zatwierdza logowanie, skrzynka klienta jest nadal jego kluczem — także po zmianie hasła. Presja jutrzejszych pism ma odroczyć wyłączenie dostępu. Odejście zamyka konto tego samego dnia; ciągłość sprawy robi się przejęciem skrzynki, nie zostawieniem MFA u kogoś spoza firmy.",
+        "en": "As long as a former associate’s personal phone approves sign-in, the client mailbox is still their key — even after a password change. Tomorrow’s papers are meant to delay cutting access. A departure closes the account the same day; continuity is a mailbox hand-over, not leaving MFA with someone outside the firm."
+      },
+      "minimize": {
+        "pl": "Logowanie wyłączasz dziś, zanim wyjdą pisma. Niedokończony mail przejmuje partner sprawy. Telefon z pytaniem „Czy zatwierdzić?” wraca albo jest czyszczony.",
+        "en": "You disable sign-in today, before the papers go out. The matter partner takes the unfinished email. The phone with the “Approve?” question comes back or is wiped."
+      },
+      "practice": {
+        "pl": "Odejście zamyka logowanie tego samego dnia, także gdy człowiek jest porządny i pisma leżą w niedokończonym mailu. Nowe hasło bez odebrania telefonu nadal jest jego kluczem.",
+        "en": "A departure closes the login the same day, even when the person is decent and the papers sit in an unfinished email. A new password without the phone is still their key."
+      },
+      "watchFor": [
+        {
+          "pl": "Logowanie zostawione, „bo pisma są w skrzynce”.",
+          "en": "A login left, “because the papers are in the mailbox”."
+        },
+        {
+          "pl": "Nowe hasło przy telefonie, który został u aplikanta.",
+          "en": "A new password while the phone stayed with the associate."
+        }
+      ]
+    },
+    "sourceIds": []
+  },
+  {
+    "id": "12-okup",
+    "order": 12,
+    "demo": false,
+    "storyMode": true,
+    "exhibit": "pdf",
+    "hero": "Night12a",
+    "tone": "shadow",
+    "title": {
+      "pl": "Bitcoin przed rozprawą",
+      "en": "Bitcoin before the hearing"
+    },
+    "subtitle": {
+      "pl": "Incydent",
+      "en": "Incident"
+    },
+    "deadline": {
+      "pl": "Rozprawa jutro o 9:00",
+      "en": "Hearing tomorrow at 9:00"
+    },
+    "context": {
+      "pl": "Na ekranie laptopa jest żądanie: zapłać w bitcoinach, oddamy pliki, nie mów klientowi ani ubezpieczycielowi. Zestaw pism na jutrzejszą rozprawę jest na tym laptopie. Chropot chce zapłacić albo z rachunku klienta, albo po cichu z konta kancelarii, i napisać notatkę tak, żeby rozprawa się odbyła.",
+      "en": "The laptop screen demands: pay in bitcoin, we will return the files, do not tell the client or the insurer. Tomorrow’s hearing papers are on this laptop. Chropot wants to pay either from the client account or quietly from the firm account, and to write a note so the hearing still happens."
+    },
+    "beats": [
+      {
+        "asset": "Night12a",
+        "caption": {
+          "pl": "Laptop na biurku. Na całym ekranie żądanie zapłaty w bitcoinach.",
+          "en": "The laptop on the desk. A demand to pay in bitcoin fills the screen."
+        },
+        "voice": "caption"
+      },
+      {
+        "asset": "Night12b",
+        "caption": {
+          "pl": "Chropot: „Z konta kancelarii, po cichu. Notatkę napiszemy pod rozprawę.”",
+          "en": "Chropot: “From the firm account, quietly. We’ll write the note for the hearing.”"
+        },
+        "voice": "balloon"
+      }
+    ],
+    "exhibitLabel": {
+      "pl": "NA BIURKU",
+      "en": "ON THE DESK"
+    },
+    "exhibitText": {
+      "pl": "Na ekranie laptopa jest żądanie: zapłać w bitcoinach, oddamy pliki, nie mów klientowi ani ubezpieczycielowi. Zestaw pism na jutrzejszą rozprawę jest na tym laptopie. Chropot chce zapłacić albo z rachunku klienta, albo po cichu z konta kancelarii, i napisać notatkę tak, żeby rozprawa się odbyła.",
+      "en": "The laptop screen demands: pay in bitcoin, we will return the files, do not tell the client or the insurer. Tomorrow’s hearing papers are on this laptop. Chropot wants to pay either from the client account or quietly from the firm account, and to write a note so the hearing still happens."
+    },
+    "innerVoice": {
+      "pl": "Czy płacisz, i z czyjego rachunku?",
+      "en": "Do you pay, and from whose account?"
+    },
+    "redFlags": [
+      {
+        "pl": "Ekran żąda bitcoinów i milczenia.",
+        "en": "The screen demands bitcoin and silence."
+      }
+    ],
+    "choices": [
+      {
+        "id": "decoy-b",
+        "kind": "reject",
+        "verdict": "incomplete",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": -6,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Płacę z konta kancelarii i piszę notatkę, że to dla zachowania terminu. Nikomu nie mówię.",
+          "en": "I pay from the firm account and write a note that it was to preserve the hearing. I tell no one."
+        },
+        "subtitle": {
+          "pl": "Cicha zapłata i notatka pod termin ukrywają to, co jest na ekranie.",
+          "en": "A quiet payment and a note about the deadline conceal what is on the screen."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Cicha zapłata i notatka pod termin ukrywają to, co jest na ekranie.",
+            "en": "A quiet payment and a note about the deadline conceal what is on the screen."
+          },
+          "consequence": {
+            "pl": "Cicha zapłata i notatka pod termin ukrywają to, co jest na ekranie.",
+            "en": "A quiet payment and a note about the deadline conceal what is on the screen."
+          },
+          "reflex": {
+            "pl": "Cicha zapłata i notatka pod termin ukrywają to, co jest na ekranie.",
+            "en": "A quiet payment and a note about the deadline conceal what is on the screen."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "trap",
+        "kind": "verify",
+        "verdict": "sound",
+        "delta": {
+          "tajemnica": 0,
+          "sad": 0,
+          "klient": 0,
+          "rozliczalnosc": 8
+        },
+        "title": {
+          "pl": "Odłączam laptop od sieci. Dzwonię do osoby z listy awaryjnej kancelarii. Klientowi mówię, że nie mamy dostępu do pism, bez domysłów i bez przelewu.",
+          "en": "I disconnect the laptop from the network. I call the person on the firm’s emergency list. I tell the client we have no access to the papers, with no speculation and no transfer."
+        },
+        "subtitle": {
+          "pl": "Okup nie jest kosztem rozprawy. Milczenie wobec klienta i ubezpieczyciela też nie.",
+          "en": "The ransom is not a cost of the hearing. Silence toward the client and the insurer is not either."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Okup nie jest kosztem rozprawy. Milczenie wobec klienta i ubezpieczyciela też nie.",
+            "en": "The ransom is not a cost of the hearing. Silence toward the client and the insurer is not either."
+          },
+          "consequence": {
+            "pl": "Okup nie jest kosztem rozprawy. Milczenie wobec klienta i ubezpieczyciela też nie.",
+            "en": "The ransom is not a cost of the hearing. Silence toward the client and the insurer is not either."
+          },
+          "reflex": {
+            "pl": "Okup nie jest kosztem rozprawy. Milczenie wobec klienta i ubezpieczyciela też nie.",
+            "en": "The ransom is not a cost of the hearing. Silence toward the client and the insurer is not either."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      },
+      {
+        "id": "decoy-a",
+        "kind": "stamp",
+        "verdict": "unsound",
+        "delta": {
+          "tajemnica": -12,
+          "sad": -8,
+          "klient": 0,
+          "rozliczalnosc": 0
+        },
+        "title": {
+          "pl": "Płacę z rachunku klienta. To ich pisma i ich rozprawa.",
+          "en": "I pay from the client account. It is their papers and their hearing."
+        },
+        "subtitle": {
+          "pl": "Rachunek klienta nie służy do okupu.",
+          "en": "The client account is not for a ransom."
+        },
+        "ratio": {
+          "statute": {
+            "pl": "Rachunek klienta nie służy do okupu.",
+            "en": "The client account is not for a ransom."
+          },
+          "consequence": {
+            "pl": "Rachunek klienta nie służy do okupu.",
+            "en": "The client account is not for a ransom."
+          },
+          "reflex": {
+            "pl": "Rachunek klienta nie służy do okupu.",
+            "en": "The client account is not for a ransom."
+          },
+          "pattern": {
+            "pl": "Nawyk, nie paragraf.",
+            "en": "A habit, not a statute."
+          }
+        }
+      }
+    ],
+    "awareness": {
+      "threat": {
+        "pl": "Ransomware żąda okupu i milczenia, żebyś zapłacił zanim ktoś z listy awaryjnej zobaczy ekran. Płatność z konta klienta albo „po cichu” z kancelarii nie przywraca pewnych plików i ukrywa incydent. Pierwszy ruch to odłączenie od sieci i telefon na listę awaryjną — potem jasna informacja dla klienta, bez bitcoinów.",
+        "en": "Ransomware demands payment and silence so you pay before anyone on the emergency list sees the screen. Paying from the client account or “quietly” from the firm does not restore trustworthy files and hides the incident. The first move is disconnecting from the network and calling the emergency list — then a clear notice to the client, with no bitcoin."
+      },
+      "minimize": {
+        "pl": "Laptopa odłączasz od sieci, zanim ktokolwiek zrobi przelew. Dzwonisz do osoby z listy awaryjnej. Klient słyszy, że dostępu do pism nie ma. Bitcoin nie idzie ani z konta kancelarii, ani z rachunku klienta.",
+        "en": "You disconnect the laptop from the network before anyone makes a transfer. You call the person on the emergency list. The client hears that there is no access to the papers. Bitcoin goes neither from the firm account nor from the client account."
+      },
+      "practice": {
+        "pl": "Laptop odłączasz od sieci i dzwonisz do osoby z listy awaryjnej. Klientowi mówisz, że dostępu nie ma. Nie płacisz i nie ukrywasz tego w notatce.",
+        "en": "You disconnect the laptop and call the person on the emergency list. You tell the client there is no access. You do not pay, and you do not hide it in a note."
+      },
+      "watchFor": [
+        {
+          "pl": "Okup z rachunku klienta.",
+          "en": "A ransom from the client account."
+        },
+        {
+          "pl": "Cicha zapłata z konta kancelarii i notatka pod rozprawę.",
+          "en": "A quiet payment from the firm account and a note for the hearing."
+        }
+      ]
+    },
+    "sourceIds": []
+  }
+]

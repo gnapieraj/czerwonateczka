@@ -1,0 +1,164 @@
+---
+const action = import.meta.env.PUBLIC_NEWSLETTER_FORM_ACTION?.trim();
+const emailField = import.meta.env.PUBLIC_NEWSLETTER_EMAIL_FIELD || "EMAIL";
+const nameField = import.meta.env.PUBLIC_NEWSLETTER_NAME_FIELD || "FIRSTNAME";
+const locale = import.meta.env.PUBLIC_NEWSLETTER_LOCALE || "pl";
+---
+
+{
+  action ? (
+    <form
+      class="newsletter-form"
+      action={action}
+      method="post"
+      data-newsletter-form
+      data-type="subscription"
+      novalidate
+    >
+      <label>
+        Imię (opcjonalnie)
+        <input name={nameField} autocomplete="given-name" maxlength="80" />
+      </label>
+      <label>
+        Adres e-mail
+        <input
+          name={emailField}
+          type="email"
+          autocomplete="email"
+          required
+          maxlength="254"
+          data-msg-required="Podaj adres e-mail."
+          data-msg-type="Podaj poprawny adres e-mail."
+        />
+      </label>
+      {/* Pułapka Brevo — musi zostać pusta */}
+      <div class="hp" aria-hidden="true">
+        <label>
+          Firma
+          <input name="email_address_check" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
+      <label class="consent">
+        <input
+          name="OPT_IN"
+          type="checkbox"
+          value="1"
+          required
+          data-msg-required="Zaznacz zgodę, jeśli chcesz kontynuować."
+        />
+        <span>
+          Zgadzam się na newsletter „Czerwona lampka” od Grzegorza Napieraja.
+          Wypis jest w każdej wiadomości.
+        </span>
+      </label>
+      <p class="fine-print">
+        Szczegóły: <a href="/prywatnosc">informacja o prywatności</a>.
+        Korzystamy z platformy Brevo — przesyłając formularz, zgadzasz się na
+        przekazanie danych do Brevo zgodnie z ich{" "}
+        <a href="https://www.brevo.com/legal/privacypolicy/" rel="noopener noreferrer">
+          polityką prywatności
+        </a>.
+      </p>
+      <input name="locale" type="hidden" value={locale} />
+      <input name="source" type="hidden" value="colgante.pl" />
+      <button class="button" type="submit">Wyślij potwierdzenie →</button>
+      <p class="form-status" data-form-status aria-live="polite">
+        Po wysłaniu sprawdź skrzynkę — wyślemy mail z linkiem potwierdzającym
+        (double opt-in).
+      </p>
+    </form>
+  ) : (
+    <div class="callout">
+      <p class="eyebrow">LISTA OCZEKUJĄCA</p>
+      <h3>Zapisy ruszą po uruchomieniu pierwszego wydania.</h3>
+      <p class="muted">
+        Formularz nie zbiera jeszcze adresów. Możesz napisać do autora i poprosić o
+        informację o starcie.
+      </p>
+      <a class="button button-secondary" href="mailto:kontakt@grzegorznapieraj.pl?subject=Czerwona%20lampka%20%E2%80%94%20informacja%20o%20starcie">
+        Powiadom mnie o starcie
+      </a>
+    </div>
+  )
+}
+
+{
+  action && (
+    <script is:inline>
+      (() => {
+        const form = document.querySelector("[data-newsletter-form]");
+        const status = form && form.querySelector("[data-form-status]");
+        if (!form || !status) return;
+
+        const setStatus = (text, kind) => {
+          status.textContent = text;
+          status.dataset.kind = kind || "";
+        };
+
+        const polishValidity = (field) => {
+          field.setCustomValidity("");
+          if (field.validity.valueMissing) {
+            field.setCustomValidity(field.dataset.msgRequired || "To pole jest wymagane.");
+          } else if (field.validity.typeMismatch || field.validity.badInput) {
+            field.setCustomValidity(field.dataset.msgType || "Nieprawidłowa wartość.");
+          }
+        };
+
+        form.querySelectorAll("input[required]").forEach((field) => {
+          field.addEventListener("input", () => field.setCustomValidity(""));
+          field.addEventListener("change", () => field.setCustomValidity(""));
+          field.addEventListener("invalid", () => polishValidity(field));
+        });
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          form.querySelectorAll("input[required]").forEach(polishValidity);
+          if (!form.reportValidity()) return;
+
+          const trap = form.querySelector('input[name="email_address_check"]');
+          if (trap && trap.value.trim()) {
+            setStatus("Sprawdź skrzynkę — wysłaliśmy link potwierdzający zapis.", "ok");
+            form.reset();
+            return;
+          }
+
+          const button = form.querySelector('button[type="submit"]');
+          if (button) button.disabled = true;
+          setStatus("Wysyłamy potwierdzenie…");
+
+          try {
+            const body = new URLSearchParams();
+            for (const [key, value] of new FormData(form).entries()) {
+              if (typeof value === "string") body.append(key, value);
+            }
+            const response = await fetch(form.action, {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+              },
+              body,
+            });
+            const payload = await response.json().catch(() => null);
+            if (!response.ok || !payload || !payload.success) {
+              throw new Error("brevo-reject");
+            }
+            setStatus(
+              "Prawie gotowe: sprawdź skrzynkę i kliknij link potwierdzający. Dopiero potem trafisz na listę.",
+              "ok",
+            );
+            form.reset();
+          } catch (err) {
+            setStatus(
+              "Nie udało się wysłać zapisu. Sprawdź adres e-mail i spróbuj ponownie za chwilę.",
+              "err",
+            );
+          } finally {
+            if (button) button.disabled = false;
+          }
+        });
+      })();
+    </script>
+  )
+}

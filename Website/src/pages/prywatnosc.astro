@@ -1,0 +1,102 @@
+---
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { administrator } = site;
+---
+
+<BaseLayout
+  title="Prywatność"
+  description="Informacja o przetwarzaniu danych na colgante.pl: administrator, kontakt, logi hostingu, newsletter i prawa osób, których dane dotyczą."
+>
+  <article class="reading section">
+    <p class="eyebrow">INFORMACJA O PRYWATNOŚCI</p>
+    <h1>Prywatność</h1>
+    <p class="lead">
+      {site.firm} jest fikcją i nie jest administratorem danych. Administratorem jest {site.author}.
+    </p>
+
+    <section class="section-sm">
+      <h2>1. Administrator</h2>
+      <p>
+        <strong>{site.author}</strong>, {site.authorFirm}<br />
+        {administrator.street}, {administrator.postalCode} {administrator.city}<br />
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>2. Jakie dane i na jakiej podstawie</h2>
+      <p>
+        Witryna jest statyczna: bez konta i bez trackerów reklamowych. Przetwarzamy:
+      </p>
+      <ul class="flag-list">
+        <li>
+          logi techniczne hostingu (adres IP, czas, żądany adres, przeglądarka) —
+          bezpieczeństwo i ciągłość usługi, art. 6 ust. 1 lit. f RODO;
+        </li>
+        <li>
+          treść korespondencji na {site.contactEmail}, jeśli sam napiszesz — odpowiedź
+          na wiadomość, art. 6 ust. 1 lit. b albo f RODO;
+        </li>
+        <li>
+          adres e-mail oraz opcjonalne imię przy zapisie do newslettera „Czerwona
+          lampka” — wyłącznie po Twojej zgodzie (checkbox) i potwierdzeniu linkiem
+          z maila (double opt-in), art. 6 ust. 1 lit. a RODO.
+        </li>
+      </ul>
+    </section>
+
+    <section class="section-sm">
+      <h2>3. Newsletter „Czerwona lampka”</h2>
+      <p>
+        Nadawcą i administratorem listy jest {site.author}, nie fikcyjna kancelaria
+        Colgante. Zapis wymaga potwierdzenia linkiem. W każdej wiadomości jest
+        możliwość wypisania. Częstotliwość: zwykle nie więcej niż dwie wiadomości
+        w miesiącu.
+      </p>
+      <p>
+        Do obsługi zapisów i wysyłki korzystamy z platformy <strong>Brevo</strong>
+        (Sendinblue SAS, Francja / EOG) jako podmiotu przetwarzającego. Umowa
+        powierzenia (DPA) zawierana jest w panelu Brevo. Polityka prywatności
+        Brevo:{" "}
+        <a href="https://www.brevo.com/legal/privacypolicy/" rel="noopener noreferrer">
+          brevo.com/legal/privacypolicy
+        </a>.
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>4. Odbiorcy i okres</h2>
+      <p>
+        Logi przetwarza dostawca hostingu w Europejskim Obszarze Gospodarczym
+        (OVHcloud). Dane newslettera przetwarza Brevo w EOG. Nie sprzedajemy
+        danych.
+      </p>
+      <p>
+        Logi przechowujemy nie dłużej, niż wymaga tego bezpieczeństwo usługi
+        (zazwyczaj do 12 miesięcy). Korespondencję — do zakończenia sprawy, a jeśli
+        powstanie obowiązek rachunkowy, przez czas wynikający z przepisów. Dane
+        newslettera — do wypisania albo żądania usunięcia, potem zgodnie z
+        retencją Brevo (kopie zapasowe i logi techniczne).
+      </p>
+    </section>
+
+    <section class="section-sm">
+      <h2>5. Twoje prawa</h2>
+      <p>
+        Przysługuje Ci dostęp, sprostowanie, usunięcie, ograniczenie przetwarzania,
+        przeniesienie danych, cofnięcie zgody oraz sprzeciw wobec przetwarzania
+        opartego na art. 6 ust. 1 lit. f RODO. Nie stosujemy profilowania ani
+        zautomatyzowanych decyzji wywołujących skutki prawne. Nie ustawiamy
+        reklamowych ani analitycznych plików cookies na colgante.pl.
+      </p>
+      <p>
+        Skargę możesz złożyć do Prezesa Urzędu Ochrony Danych Osobowych,
+        ul. Stawki 2, 00-193 Warszawa.
+      </p>
+    </section>
+
+    <p class="fine-print">Ostatnia aktualizacja: 24.09.2026.</p>
+  </article>
+</BaseLayout>

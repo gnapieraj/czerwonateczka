@@ -1,0 +1,38 @@
+---
+import { contentMeta, sources } from "../data/content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const categories = [...new Set(sources.map((source) => source.category.pl))];
+---
+
+<BaseLayout
+  title="Źródła"
+  description="Skąd Czerwona Teczka bierze tematy nocy: SANS OUCH i granica fikcji Colgante."
+>
+  <section class="shell section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">SKĄD TEMATY / STAN {contentMeta.legalState}</p>
+        <h1>Źródła</h1>
+      </div>
+      <p class="muted">
+        Dwanaście nocy bierze tematy z newslettera świadomości bezpieczeństwa.
+        Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna
+        ani cytat z materiałów źródłowych.
+      </p>
+    </div>
+    {categories.map((category) => (
+      <section class="section-sm">
+        <h2 style="font-size: 2rem">{category}</h2>
+        <div class="source-grid">
+          {sources.filter((source) => source.category.pl === category).map((source) => (
+            <article class="source-card">
+              <a href={source.url} rel="external noopener">{source.title.pl} ↗</a>
+              <p>{source.note.pl}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </section>
+</BaseLayout>
