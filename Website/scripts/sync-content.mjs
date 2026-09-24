@@ -113,8 +113,22 @@ await Promise.all([
   copyFile(resolve(root, "Resources/Fonts/GoboCaps-Italic.otf"), resolve(publicFonts, "GoboCaps-Italic.otf")),
 ]);
 
+const screenDir = resolve(website, "src/assets/screens");
+const publicScreens = resolve(publicAssets, "screens");
+await mkdir(publicScreens, { recursive: true });
+const screenFiles = [
+  "iphone-wokanda.jpg",
+  "iphone-komiks.jpg",
+  "iphone-teczka.jpg",
+  "ipad-wokanda.jpg",
+  "ipad-wokanda-landscape.jpg",
+];
+await Promise.all(
+  screenFiles.map((name) => copyFile(resolve(screenDir, name), resolve(publicScreens, name))),
+);
+
 console.log(
-  `Zsynchronizowano ${lessons.length} teczek, ${sources.length} źródeł i ${imageNames.length + websitePortraits.length} grafik.`,
+  `Zsynchronizowano ${lessons.length} teczek, ${sources.length} źródeł, ${imageNames.length + websitePortraits.length} grafik i ${screenFiles.length} zrzutów.`,
 );
 
 function extractLegalState(input) {

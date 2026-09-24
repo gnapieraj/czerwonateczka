@@ -8,6 +8,7 @@ interface Props {
   image?: string;
   preloadImage?: string;
   noindex?: boolean;
+  redirectTo?: string;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   image = "/assets/OfficeNight.webp",
   preloadImage,
   noindex = false,
+  redirectTo,
 } = Astro.props;
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -33,6 +35,7 @@ const activePath = Astro.url.pathname;
     <meta name="author" content={site.author} />
     <meta name="generator" content={Astro.generator} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {redirectTo && <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {preloadImage && (

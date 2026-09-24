@@ -1,3 +1,26 @@
 ---
-return Astro.redirect("/newsletter/?zapis=potwierdzony", 301);
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const target = "/newsletter/?zapis=potwierdzony";
 ---
+
+<BaseLayout
+  title="Zapis potwierdzony"
+  description="Przekierowanie do potwierdzenia zapisu na listę Czerwona lampka."
+  noindex={true}
+  redirectTo={target}
+>
+  <section class="reading section">
+    <div class="paper-card newsletter-confirmed" role="status">
+      <p class="eyebrow">ZAPIS POTWIERDZONY</p>
+      <h1>Przekierowanie…</h1>
+      <p>
+        Jeśli strona nie otworzy się sama, przejdź do potwierdzenia zapisu na
+        listę „Czerwona lampka”.
+      </p>
+      <div class="actions">
+        <a class="button" href={target}>Otwórz potwierdzenie →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -80,7 +80,7 @@ test("newsletter pokazuje potwierdzenie po DOI", async () => {
   );
   assert.match(page, /newsletter-confirmed/);
   assert.match(page, /"zapis".*potwierdzony|potwierdzony/);
-  assert.match(dedicated, /Astro\.redirect|zapis=potwierdzony/);
+  assert.match(dedicated, /redirectTo|zapis=potwierdzony|BaseLayout/);
 });
 
 test("o-projekcie pokazuje zrzuty i status App Store", async () => {
