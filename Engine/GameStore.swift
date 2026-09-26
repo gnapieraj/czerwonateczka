@@ -111,7 +111,11 @@ final class GameStore: ObservableObject {
             route = .howToPlay
             return
         }
-        proceedAfterHowToPlay()
+        if !seenBible {
+            route = .bible
+            return
+        }
+        route = .desk
     }
 
     func open(_ lesson: Lesson) {
@@ -198,6 +202,18 @@ final class GameStore: ObservableObject {
         }
     }
 
+    /// Full onboarding again: clears progress and returns to splash (for multi-user testing).
+    func resetFirstLaunch() {
+        clearStamps()
+        lastOutcome = nil
+        seenBible = false
+        seenHowToPlay = false
+        UserDefaults.standard.set(false, forKey: bibleKey)
+        UserDefaults.standard.set(false, forKey: howToPlayKey)
+        stack = []
+        route = .splash
+    }
+
     private func persistStamps() {
         let payload = Array(stamps.values)
         if let data = try? JSONEncoder().encode(payload) {
@@ -213,11 +229,15 @@ final class GameStore: ObservableObject {
     }
 
     func back() {
-        if case .bible = route {
-            markBibleSeen()
-        }
         if case .howToPlay = route {
             markHowToPlaySeen()
+            if stack.isEmpty {
+                continueOnboarding()
+                return
+            }
+        }
+        if case .bible = route {
+            markBibleSeen()
         }
         if let previous = stack.popLast() {
             route = previous
@@ -237,21 +257,19 @@ final class GameStore: ObservableObject {
     }
 
     func dismissHowToPlay() {
-        let wasIntro = stack.isEmpty
         markHowToPlaySeen()
-        if wasIntro {
-            proceedAfterHowToPlay()
-        } else if let previous = stack.popLast() {
+        if let previous = stack.popLast() {
             route = previous
         } else {
-            route = .desk
+            continueOnboarding()
         }
     }
 
-    private func proceedAfterHowToPlay() {
+    /// After mandatory intro screens — never auto-open a night.
+    private func continueOnboarding() {
         stack = []
-        if let night = nextNight, stamps.isEmpty {
-            open(night)
+        if !seenBible {
+            route = .bible
         } else {
             route = .desk
         }

@@ -4,8 +4,9 @@
     "note": "Run only on that Mac. iPad 9 / iPhone SE 3 never call this."
   },
   "style_lock": "high-contrast black-and-white crime comic plate, hard black ink contours, newsprint grain, rain streaks on glass only, venetian blinds, banker's lamp chiaroscuro, ONLY blood-red as the single chromatic accent, no blue no gold no green, not photoreal, not anime, not 3D, downtown Warsaw night, Palace of Culture needle-spire in rain",
-  "lettering_lock": "mute plate: zero glyphs, zero letters, zero digits, unmarked paper, blank brass plate, wax as a plain blood-red disc, empty envelope, no stamps, no captions, no tickets with print",
-  "negative": "color photograph, glossy 3D, anime, extra colors, blue neon, gold, green, readable text, letters, words, typography, captions, Polish diacritics, English writing, misspelled gibberish, speech balloons, logos, Vogel, Kruk, Wardynski, street number, KANCELARIA, Colgante, CONFIDENTIAL, PKP, POUFNE, ADWOKAT",
+  "lettering_lock": "mute plate: zero firm logos, blank brass plate, dry scarlet wax disc, UI text abstract/illegible, no Colgante wordmark on art",
+  "prop_lock": "CONTEMPORARY: no rotary dial phones. Prefer older smartphone (email/MFA/notifications abstract UI), used laptop or old PC with CRT/LCD (video call / mail abstract). Paper folders + wax seals coexist with screens",
+  "negative": "rotary dial telephone, telegraph, typewriter as primary tool, photoreal photo, manga screentone, blood, bleeding, gore, facial wounds, Sin City pure B&W, anime, 3D CGI, readable law-firm logos, Vogel, Kruk, Wardynski, Colgante wordmark, KANCELARIA",
   "mflux": {
     "model": "dev",
     "quantize": 8,
@@ -22,7 +23,7 @@
       "height": 1024,
       "seed": 2801,
       "txt2img": true,
-      "prompt": "Wide comic panel from inside a fifth-floor law office: dark wood desk, banker's lamp pool of light, rotary phone, ashtray, one unmarked manila dossier with a plain blood-red wax disc, venetian blinds, heavy rain on the glass, Palace of Culture needle-spire wet and distant. Empty brass plate. No paper writing."
+      "prompt": "Wide comic panel fifth-floor Warsaw law office: dark wood desk, warm lamp, used laptop with abstract email/video-call UI, older smartphone with abstract MFA/mail screen, manila dossier with dry scarlet wax seal, bookshelves, rain and Palace of Culture through window."
     },
     {
       "id": "mecenas-pov",
@@ -32,7 +33,7 @@
       "height": 1024,
       "seed": 2802,
       "txt2img": true,
-      "prompt": "First-person comic panel: two lawyer hands only, fountain pen, signet ring with an eagle, cracked plain blood-red wax disc, blank manila folders, stripe shadows from blinds, rainy Warsaw and Palace of Culture through the window. No face. No writing on paper."
+      "prompt": "First-person comic panel: lawyer hands only, cracked dry scarlet wax seal on folder, older smartphone with abstract mail UI, laptop edge with video-call UI. Blinds, rainy Warsaw and Palace of Culture. No face."
     },
     {
       "id": "aplikant-iglica",
@@ -42,7 +43,7 @@
       "height": 1536,
       "seed": 2101,
       "img2img_strength": 0.34,
-      "prompt": "Tight portrait of the same young male trainee: round thin wire glasses, messy dark hair, nervous glance, rumpled white shirt, ink on knuckles, one thin blood-red streak under the left eye, blinds at left. Same face. No papers, no books, no signs."
+      "prompt": "Vertical comic portrait young trainee Filip: round wire glasses, messy dark hair, freckles, white shirt, dark tie, clean face. Older smartphone showing abstract email/MFA. Desk wax-seal folder. Rainy Warsaw / PKiN."
     },
     {
       "id": "partner-chropot",
@@ -50,9 +51,9 @@
       "bible": "World/bible/partner-chropot.png",
       "width": 1024,
       "height": 1536,
-      "seed": 2102,
-      "img2img_strength": 0.78,
-      "prompt": "Portrait of the same middle-aged male partner: receding hair, heavy overcoat, vintage telephone handset, night rain, a blank blood-red rectangle in the breast pocket with no print. Same face. No station signs."
+      "seed": 3147,
+      "txt2img": true,
+      "prompt": "Vertical comic portrait middle-aged partner Chropot: receding hairline, overcoat, white shirt, dark tie. Older smartphone to ear (voice call), used laptop with abstract video-conference behind. Wax seal on papers. Rainy window, PKiN. Not photoreal."
     },
     {
       "id": "sekretariat-irena",
@@ -62,7 +63,7 @@
       "height": 1536,
       "seed": 2103,
       "img2img_strength": 0.78,
-      "prompt": "Portrait of the same stern woman: hair in a bun, rectangular glasses, blood-red beaded chain, holding a blank cream envelope with a plain blood-red wax disc and no stamps, doorway silhouette behind. Same face. No wall signs."
+      "prompt": "Vertical comic portrait stern assistant Irena: bun, rectangular glasses, blank cream envelope with dry scarlet wax seal and older smartphone with abstract calendar/email. Doorway silhouette."
     },
     {
       "id": "desk-folders",
@@ -72,7 +73,7 @@
       "height": 1024,
       "seed": 2807,
       "txt2img": true,
-      "prompt": "Comic panel of the same desk: three unmarked manila folders, each with only a plain blood-red wax disc, no numerals, no tabs, banker's lamp, blinds, Palace of Culture in the rain. Empty blotter. No writing."
+      "prompt": "Comic desk still-life: three unmarked manila folders with dry scarlet wax seals, older smartphone with abstract notifications, closed used laptop, warm lamp, blinds, Palace of Culture in rain."
     }
   ]
 }

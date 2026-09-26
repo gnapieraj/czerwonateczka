@@ -174,6 +174,6 @@ struct HowToPlayView: View {
         if store.stackHasPrior {
             return Copy.s(store.language, pl: "Wróć do wokandy", en: "Back to the docket")
         }
-        return Copy.s(store.language, pl: "Do biurka — wokanda", en: "To the desk — the docket")
+        return Copy.s(store.language, pl: "Dalej — biblia wizualna", en: "Next — visual bible")
     }
 }

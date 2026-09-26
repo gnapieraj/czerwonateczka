@@ -146,6 +146,24 @@ struct SettingsView: View {
                     .foregroundStyle(Noir.blood)
                     .padding(.horizontal, 16)
 
+                    Button(Copy.s(store.language, pl: "Pierwsze uruchomienie", en: "First launch again")) {
+                        store.resetFirstLaunch()
+                    }
+                    .font(Typeface.mono(20))
+                    .foregroundStyle(Noir.paper)
+                    .padding(.horizontal, 16)
+
+                    Text(Copy.s(
+                        store.language,
+                        pl: "Czyści stemple i pokazuje ponownie „Jak czytać grę” oraz biblię wizualną — na testy z kolejnymi osobami.",
+                        en: "Clears stamps and shows How to play + visual bible again — for testing with the next person."
+                    ))
+                    .font(Typeface.body(16))
+                    .foregroundStyle(Noir.paperDim)
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 16)
+
                     if !store.stamps.isEmpty {
                         Button(Copy.s(store.language, pl: "Zdejmij stemple z wokandy", en: "Clear stamps from the docket")) {
                             store.clearStamps()
@@ -185,8 +203,8 @@ struct VisualBibleView: View {
                     InkPlate {
                         Text(Copy.s(
                             store.language,
-                            pl: "Zanim otworzysz teczkę — kto stoi na 5. piętrze. Te same twarze wracają w każdej sprawie.",
-                            en: "Before you open a file — who stands on the 5th floor. The same faces return in every case."
+                            pl: "Zanim otworzysz teczkę — kto stoi na piątym piętrze Colgante. Te same twarze wracają w każdej sprawie.",
+                            en: "Before you open a file — who stands on Colgante’s fifth floor. The same faces return in every matter."
                         ))
                         .font(Typeface.body(22))
                         .foregroundStyle(Noir.paper)
@@ -198,7 +216,7 @@ struct VisualBibleView: View {
                     ForEach(Cast.allCases, id: \.self) { person in
                         ComicPanel(
                             asset: person.asset,
-                            caption: person.name(store.language) + " — " + lockLine(person),
+                            caption: person.name(store.language) + " — " + person.lockLine(store.language),
                             minHeight: person == .mecenas ? 200 : 280,
                             contentMode: .fit
                         )
@@ -216,7 +234,7 @@ struct VisualBibleView: View {
                     Button {
                         store.back()
                     } label: {
-                        Text(Copy.s(store.language, pl: "Do biurka — wokanda", en: "To the desk — the docket"))
+                        Text(bibleCtaLabel)
                             .font(Typeface.mono(20))
                             .foregroundStyle(Color.white)
                             .frame(maxWidth: .infinity)
@@ -236,16 +254,10 @@ struct VisualBibleView: View {
         }
     }
 
-    private func lockLine(_ person: Cast) -> String {
-        switch person {
-        case .mecenas:
-            return Copy.s(store.language, pl: "Gracz. Nigdy pełna twarz. Sygnet, pieczęć, żaluzja.", en: "The player. Never a full face. Signet, seal, blinds.")
-        case .iglica:
-            return Copy.s(store.language, pl: "Okrągłe okulary, rozczochrane włosy, nerwowy. Apelacja, prompt, memo.", en: "Round glasses, messy hair, nervous. Appeal, prompt, memo.")
-        case .chropot:
-            return Copy.s(store.language, pl: "Pociąg PKP, płaszcz, bilet czerwony. Presja z drugiego panelu.", en: "PKP train, overcoat, red ticket. Pressure from the second panel.")
-        case .irena:
-            return Copy.s(store.language, pl: "Kok, łańcuszek okularów w czerwieni. USB, HR, sekretariat.", en: "Bun, red glasses chain. USB, HR, secretariat.")
+    private var bibleCtaLabel: String {
+        if store.stackHasPrior {
+            return Copy.s(store.language, pl: "Wróć do wokandy", en: "Back to the docket")
         }
+        return Copy.s(store.language, pl: "Do biurka — wokanda", en: "To the desk — the docket")
     }
 }

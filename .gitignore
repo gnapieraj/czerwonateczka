@@ -7,8 +7,16 @@ DerivedData/
 *.xcuserstate
 .vscode/
 tools/macos-studio/.venv/
+tools/macos-studio/.env
 tools/macos-studio/out/
 tools/macos-studio/h3/
+tools/macos-studio/smoke-*/
+tools/macos-studio/smoke-qwen/
+tools/macos-studio/smoke-flux2-klein/
+tools/macos-studio/smoke-replicate-flux2pro/
+tools/macos-studio/review-grok-probe/
+tools/macos-studio/review-grok-fresh/
+tools/macos-studio/style-lock-flux2max/
 __pycache__/
 *.pyc
 Website/node_modules/

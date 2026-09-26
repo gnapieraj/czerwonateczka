@@ -6,7 +6,7 @@ To jest **jedyne** miejsce, w którym wolno puścić model obrazów. iPad i iPho
 
 [mflux](https://github.com/filipstrand/mflux) — Flux na Apple **MLX** (Metal), nie CUDA, nie chmura. 128 GB unified memory spokojnie trzyma `flux-dev` w 8-bitach i img2img z biblii.
 
-Spójność twarzy = **img2img z `World/bible/`**, siła ~0.32, **stały seed** na postać. Nowy prompt bez mastera = nowa twarz.
+Spójność twarzy = **img2img z `World/bible/`**, siła ~0.32. Seed jest stały dla jednej płyty, nie dla całej postaci: to samo ziarno przy innym kadrze nie trzyma facjaty.
 
 ## Uruchomienie
 
@@ -16,7 +16,7 @@ W Terminalu, folder `CzerwonaTeczka`:
 python3 tools/macos-studio/generate_noir.py --smoke
 ```
 
-Smoke (`schnell`, 4 kroki) sprawdza, że MLX i waga zeszły. Potem pełny lock:
+Pełny przebieg to Flux.1 [dev], kwantyzacja 8 bitów, 28 kroków, guidance 4.0:
 
 ```bash
 python3 tools/macos-studio/generate_noir.py

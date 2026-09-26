@@ -66,6 +66,23 @@ final class LessonPackTests: XCTestCase {
         XCTAssertTrue(blob.contains("aplikant") || blob.contains("Aplikant") || blob.contains("Iglica"))
     }
 
+    func testCastBibleMatchesCurrentClimate() {
+        for language in AppLanguage.allCases {
+            for person in Cast.allCases {
+                let text = (person.name(language) + " " + person.lockLine(language)).lowercased()
+                XCTAssertFalse(text.contains("pkp"), person.rawValue)
+                XCTAssertFalse(text.contains("pociąg"), person.rawValue)
+                XCTAssertFalse(text.contains("mfa"), person.rawValue)
+                XCTAssertFalse(text.contains("prompt"), person.rawValue)
+                XCTAssertFalse(text.contains("usb"), person.rawValue)
+                XCTAssertFalse(text.contains("sms"), person.rawValue)
+                XCTAssertFalse(text.contains("wokand"), person.rawValue)
+                XCTAssertFalse(text.contains("docket"), person.rawValue)
+            }
+        }
+        XCTAssertEqual(Cast.chropot.name(.polish), "Partner Chropot")
+    }
+
     @MainActor
     func testNightGoesComicThenTrapThenStamp() throws {
         let pack = try loadPack()
@@ -94,6 +111,55 @@ final class LessonPackTests: XCTestCase {
         store.finishBriefing()
         XCTAssertEqual(store.route, .desk)
         XCTAssertEqual(store.lesson(after: lesson)?.id, "02-list")
+    }
+
+    @MainActor
+    func testFirstLaunchGoesHowToThenBibleThenDesk() throws {
+        let pack = try loadPack()
+        UserDefaults.standard.set(false, forKey: "docket.seenBible")
+        UserDefaults.standard.set(false, forKey: "docket.seenHowToPlay")
+        let store = GameStore(lessons: pack)
+        store.clearStamps()
+        store.start()
+        XCTAssertEqual(store.route, .howToPlay)
+        store.dismissHowToPlay()
+        XCTAssertEqual(store.route, .bible)
+        XCTAssertTrue(store.seenHowToPlay)
+        store.back()
+        XCTAssertEqual(store.route, .desk)
+        XCTAssertTrue(store.seenBible)
+    }
+
+    @MainActor
+    func testResetFirstLaunchReturnsToSplashOnboarding() throws {
+        let pack = try loadPack()
+        UserDefaults.standard.set(true, forKey: "docket.seenBible")
+        UserDefaults.standard.set(true, forKey: "docket.seenHowToPlay")
+        let store = GameStore(lessons: pack)
+        store.clearStamps()
+        store.start()
+        XCTAssertEqual(store.route, .desk)
+        let first = try XCTUnwrap(pack.first)
+        store.open(first)
+        XCTAssertEqual(store.route, .comic(first))
+        store.resetFirstLaunch()
+        XCTAssertEqual(store.route, .splash)
+        XCTAssertTrue(store.stamps.isEmpty)
+        XCTAssertFalse(store.seenBible)
+        XCTAssertFalse(store.seenHowToPlay)
+        store.start()
+        XCTAssertEqual(store.route, .howToPlay)
+    }
+
+    @MainActor
+    func testStartWhenOnboardingDoneGoesStraightToDesk() throws {
+        let pack = try loadPack()
+        UserDefaults.standard.set(true, forKey: "docket.seenBible")
+        UserDefaults.standard.set(true, forKey: "docket.seenHowToPlay")
+        let store = GameStore(lessons: pack)
+        store.clearStamps()
+        store.start()
+        XCTAssertEqual(store.route, .desk)
     }
 
     @MainActor

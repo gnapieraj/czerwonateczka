@@ -54,14 +54,35 @@ enum Cast: String, CaseIterable {
 
     func name(_ lang: AppLanguage) -> String {
         switch (self, lang) {
-        case (.mecenas, .polish): return "Ty — mecenas przy biurku"
-        case (.mecenas, .english): return "You — counsel at the desk"
-        case (.iglica, .polish): return "Aplikant Filip Iglica"
-        case (.iglica, .english): return "Trainee Filip Iglica"
-        case (.chropot, .polish): return "Partner Chropot (pociąg)"
-        case (.chropot, .english): return "Partner Chropot (on the train)"
-        case (.irena, .polish): return "Irena, sekretariat"
-        case (.irena, .english): return "Irena, secretariat"
+        case (.mecenas, .polish): return "Ty"
+        case (.mecenas, .english): return "You"
+        case (.iglica, .polish): return "Filip Iglica"
+        case (.iglica, .english): return "Filip Iglica"
+        case (.chropot, .polish): return "Partner Chropot"
+        case (.chropot, .english): return "Partner Chropot"
+        case (.irena, .polish): return "Irena, asystentka"
+        case (.irena, .english): return "Irena, assistant"
+        }
+    }
+
+    func lockLine(_ lang: AppLanguage) -> String {
+        switch (self, lang) {
+        case (.mecenas, .polish):
+            return "Mecenas przy biurku. Spokojny jak lampa bankierska, ostrożny jak stempel — pełnej twarzy nie widać, bo decyzje padają na ciebie."
+        case (.mecenas, .english):
+            return "Counsel at the desk. Calm as a banker’s lamp, careful as a stamp — never a full face, because the calls land on you."
+        case (.iglica, .polish):
+            return "Aplikant. Gorliwy nosiciel akt i nerwowych uśmiechów — żyje między westchnieniem a „już robię”, zanim zdąży pomyśleć."
+        case (.iglica, .english):
+            return "Trainee. Eager carrier of files and nervous smiles — lives between a sigh and “on it”, before he can think."
+        case (.chropot, .polish):
+            return "Treser deadline’ów. Żąda draftu na wczoraj, a otwiera go za dwa tygodnie — niecierpliwy, bo decyzje mają padać natychmiast."
+        case (.chropot, .english):
+            return "Deadline wrangler. Demands a draft for yesterday, opens it two weeks later — impatient, because decisions must fall at once."
+        case (.irena, .polish):
+            return "Władczyni kalendarza. Zorganizowana, stanowcza, odporna na fochy partnerów — wie, jak załatwić wszystko, zanim ktokolwiek zapyta."
+        case (.irena, .english):
+            return "Keeper of the calendar. Organised, firm, immune to partners’ moods — she knows how to fix anything before anyone asks."
         }
     }
 }
