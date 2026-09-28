@@ -9,10 +9,8 @@ struct DeskView: View {
             ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         deskTools
-                        InkPlate {
-                            MetersColumn(meters: store.meters, language: store.language)
-                        }
-                        .padding(.horizontal, 16)
+                        habitStrip
+                            .padding(.horizontal, 16)
 
                         deskHero
 
@@ -129,8 +127,44 @@ struct DeskView: View {
         .padding(.top, 4)
     }
 
+    private var habitStrip: some View {
+        let earned = DocketHabit.all.filter { habit in
+            store.lessons.first { $0.id == habit.lessonId }.flatMap { store.stamp(for: $0) } != nil
+        }.count
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(alignment: .firstTextBaseline) {
+                Text(Copy.s(store.language, pl: "NAWYKI", en: "HABITS"))
+                    .font(Typeface.mono(13))
+                    .tracking(1.4)
+                    .foregroundStyle(Noir.blood)
+                Spacer(minLength: 8)
+                Text("\(earned) / \(DocketHabit.all.count)")
+                    .font(Typeface.mono(13))
+                    .foregroundStyle(Noir.paperDim)
+            }
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible(), spacing: 4, alignment: .leading), count: 4),
+                alignment: .leading,
+                spacing: 4
+            ) {
+                ForEach(DocketHabit.all) { habit in
+                    habitMark(habit)
+                }
+            }
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Noir.ink)
+        .overlay(Rectangle().stroke(Color.white.opacity(0.28), lineWidth: 1))
+    }
+
     private var deskHero: some View {
-        ComicPanel(asset: "MecenasPOV", minHeight: 200)
+        CroppedImage(name: "MecenasPOV", contentMode: .fill)
+            .aspectRatio(16 / 9, contentMode: .fit)
+            .clipShape(Rectangle())
+            .overlay(Rectangle().stroke(Color.white.opacity(0.85), lineWidth: 2))
+            .shadow(color: Noir.blood.opacity(0.25), radius: 0, x: 3, y: 3)
             .padding(.horizontal, 16)
     }
 
@@ -167,6 +201,29 @@ struct DeskView: View {
             .buttonStyle(.plain)
             .padding(.horizontal, 16)
         }
+    }
+
+    private func habitMark(_ habit: DocketHabit) -> some View {
+        let verdict = store.lessons.first { $0.id == habit.lessonId }.flatMap { store.stamp(for: $0)?.verdict }
+        let ink: Color = switch verdict {
+        case .sound: Noir.paper
+        case .unsound: Noir.blood
+        case .incomplete: Noir.paperDim
+        case nil: Noir.mist
+        }
+        return HStack(spacing: 4) {
+            RoundedRectangle(cornerRadius: 1)
+                .fill(verdict == nil ? Color.clear : ink)
+                .overlay(RoundedRectangle(cornerRadius: 1).stroke(ink, lineWidth: 1))
+                .frame(width: 9, height: 9)
+            Text(habit.name.t(store.language).uppercased())
+                .font(Typeface.mono(11))
+                .foregroundStyle(ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.65)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(minHeight: 18)
     }
 }
 

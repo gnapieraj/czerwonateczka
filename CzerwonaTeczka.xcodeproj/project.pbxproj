@@ -18,6 +18,8 @@
 		5825F306ED955A4EA033540B /* CzerwonaTeczkaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E53F12FFAC59BBA215C287 /* CzerwonaTeczkaApp.swift */; };
 		6963D9D7DD105A668EE9A321 /* DeskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C7836DE985A33B1294B48 /* DeskView.swift */; };
 		70C766072F155575B502E33C /* CasePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01881E4B355BDF9DF73E70 /* CasePlayView.swift */; };
+		E1B17A07E5E0000000000002 /* ExhibitGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B17A07E5E0000000000001 /* ExhibitGesture.swift */; };
+		E1B17A07E5E0000000000004 /* ExhibitGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B17A07E5E0000000000003 /* ExhibitGestureView.swift */; };
 		8E00521A92B65EA5875DE302 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1930187AB7D45FD69572AEDD /* SettingsView.swift */; };
 		A13A83C6B7D25B6883857261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70ECF112E7258F797A3A510 /* Assets.xcassets */; };
 		ADB59A45ADDD5BC4957F0DAC /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB8CC3B22B509C9EDAF10D /* Components.swift */; };
@@ -73,6 +75,8 @@
 		C8A0D105E000000000000009 /* VerdictSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerdictSplashView.swift; sourceTree = "<group>"; };
 		C8A0D105E00000000000000B /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		D9633DA9E56B50DAAA64C2E0 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
+		E1B17A07E5E0000000000001 /* ExhibitGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitGesture.swift; sourceTree = "<group>"; };
+		E1B17A07E5E0000000000003 /* ExhibitGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitGestureView.swift; sourceTree = "<group>"; };
 		DFB0EF8870E75441937DE763 /* CzerwonaTeczkaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CzerwonaTeczkaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D2793289175D4C87352463 /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwarenessView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				E1D2793289175D4C87352463 /* Copy.swift */,
 				47AB4334627D59FA880F9C9D /* LessonLoader.swift */,
 				D9633DA9E56B50DAAA64C2E0 /* GameStore.swift */,
+				E1B17A07E5E0000000000001 /* ExhibitGesture.swift */,
 				C8A0D105E000000000000001 /* Soundtrack.swift */,
 			);
 			path = Engine;
@@ -141,6 +146,7 @@
 				3D9C7836DE985A33B1294B48 /* DeskView.swift */,
 				C8A0D105E00000000000000B /* HowToPlayView.swift */,
 				8B01881E4B355BDF9DF73E70 /* CasePlayView.swift */,
+				E1B17A07E5E0000000000003 /* ExhibitGestureView.swift */,
 				C8A0D105E000000000000007 /* CutsceneView.swift */,
 				C8A0D105E000000000000009 /* VerdictSplashView.swift */,
 				E4A7C01C1A17B0E14D8A9C30 /* AwarenessView.swift */,
@@ -318,6 +324,7 @@
 				06EDAD42824A54429820574C /* Copy.swift in Sources */,
 				2CFFA7C51A4854DA866B0299 /* LessonLoader.swift in Sources */,
 				1A287C3963335194830F6314 /* GameStore.swift in Sources */,
+				E1B17A07E5E0000000000002 /* ExhibitGesture.swift in Sources */,
 				C8A0D105E000000000000002 /* Soundtrack.swift in Sources */,
 				F3A2029F0EB25A5A801FE645 /* Canon.swift in Sources */,
 				54FD5B211B09507097D80F6E /* RootView.swift in Sources */,
@@ -327,6 +334,7 @@
 				ADB59A45ADDD5BC4957F0DAC /* Components.swift in Sources */,
 				6963D9D7DD105A668EE9A321 /* DeskView.swift in Sources */,
 				70C766072F155575B502E33C /* CasePlayView.swift in Sources */,
+				E1B17A07E5E0000000000004 /* ExhibitGestureView.swift in Sources */,
 				C8A0D105E000000000000008 /* CutsceneView.swift in Sources */,
 				C8A0D105E00000000000000A /* VerdictSplashView.swift in Sources */,
 				C8A0D105E00000000000000C /* HowToPlayView.swift in Sources */,

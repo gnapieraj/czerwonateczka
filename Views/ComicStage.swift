@@ -28,11 +28,62 @@ struct ComicLettering: View {
     }
 }
 
+/// A thought balloon: the situation sits in the bubble, two circles mark it as a thought.
+struct ComicThought: View {
+    let text: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(text)
+                .font(Typeface.body(18))
+                .foregroundStyle(Color.black)
+                .lineSpacing(4)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 26, style: .continuous)
+                        .stroke(Color.black, lineWidth: 2)
+                )
+            VStack(alignment: .leading, spacing: 4) {
+                Circle().fill(Color.white).frame(width: 14, height: 14)
+                    .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                Circle().fill(Color.white).frame(width: 8, height: 8)
+                    .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                    .padding(.leading, 16)
+            }
+            .padding(.leading, 18)
+        }
+    }
+}
+
 struct ComicPagePanel: View {
     let beat: ComicBeat
     let language: AppLanguage
+    /// Phone: the caption sits outside the plate so it does not cover the drawing.
+    var letteringOutside: Bool = false
+    /// Inside a fixed frame the picture takes the space left after the words.
+    var fillsFrame: Bool = false
 
     var body: some View {
+        Group {
+            if letteringOutside {
+                outside
+            } else {
+                overlaid
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: letteringOutside && !fillsFrame ? nil : .infinity)
+        .clipped()
+        .contentShape(Rectangle())
+        .overlay(Rectangle().stroke(Color.black, lineWidth: 3))
+    }
+
+    private var overlaid: some View {
         ZStack {
             Color.black
             Image(beat.asset)
@@ -41,30 +92,76 @@ struct ComicPagePanel: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             VStack {
                 if beat.voice != .balloon {
-                    ComicLettering(text: beat.caption.t(language), voice: beat.voice)
+                    lettering
                         .padding(8)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer(minLength: 0)
                 } else {
                     Spacer(minLength: 0)
-                    ComicLettering(text: beat.caption.t(language), voice: beat.voice)
+                    lettering
                         .padding(8)
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .clipped()
-        .contentShape(Rectangle())
-        .overlay(Rectangle().stroke(Color.black, lineWidth: 3))
+    }
+
+    private var outside: some View {
+        VStack(spacing: 0) {
+            if beat.voice != .balloon {
+                lettering
+                    .padding(.horizontal, 8)
+                    .padding(.top, 8)
+                    .padding(.bottom, 6)
+            }
+            Color.black
+                .overlay {
+                    Image(beat.asset)
+                        .resizable()
+                        .aspectRatio(contentMode: fillsFrame ? .fill : .fit)
+                }
+                .aspectRatio(fillsFrame ? nil : 16 / 9, contentMode: .fit)
+                .frame(maxWidth: .infinity, maxHeight: fillsFrame ? .infinity : nil)
+                .clipped()
+            if beat.voice == .balloon {
+                lettering
+                    .padding(.horizontal, 8)
+                    .padding(.top, 6)
+                    .padding(.bottom, 8)
+            }
+        }
+        .background(Color.black)
+    }
+
+    private var lettering: some View {
+        ComicLettering(text: beat.caption.t(language), voice: beat.voice)
     }
 }
 
 struct ComicBoard: View {
     let beats: [ComicBeat]
     let language: AppLanguage
+    /// Landscape iPad: two 16:9 plates stacked become a thin strip. Place them side by side.
+    var sideBySide: Bool = false
+    /// Phone: plates keep a 16:9 frame and the words sit outside them.
+    var fitsContent: Bool = false
+    /// Words sit above or below the plate, inside a frame that already has a height.
+    var letteringOutside: Bool = false
 
     var body: some View {
+        if fitsContent {
+            VStack(spacing: 8) {
+                ForEach(beats) { beat in
+                    ComicPagePanel(beat: beat, language: language, letteringOutside: true)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .top)
+        } else {
+            fitted
+        }
+    }
+
+    private var fitted: some View {
         GeometryReader { geo in
             let g: CGFloat = 8
             let w = geo.size.width
@@ -75,10 +172,22 @@ struct ComicBoard: View {
                     Color.white
                 case 1:
                     tile(beats[0], w, h)
+                case 2 where sideBySide:
+                    HStack(spacing: g) {
+                        tile(beats[0], (w - g) / 2, h)
+                        tile(beats[1], (w - g) / 2, h)
+                    }
                 case 2:
                     VStack(spacing: g) {
                         tile(beats[0], w, (h - g) / 2)
                         tile(beats[1], w, (h - g) / 2)
+                    }
+                case 3 where sideBySide:
+                    HStack(spacing: g) {
+                        let tileWidth = (w - g * 2) / 3
+                        tile(beats[0], tileWidth, h)
+                        tile(beats[1], tileWidth, h)
+                        tile(beats[2], tileWidth, h)
                     }
                 case 3:
                     VStack(spacing: g) {
@@ -104,8 +213,13 @@ struct ComicBoard: View {
     }
 
     private func tile(_ beat: ComicBeat, _ width: CGFloat, _ height: CGFloat) -> some View {
-        ComicPagePanel(beat: beat, language: language)
-            .frame(width: width, height: height)
+        ComicPagePanel(
+            beat: beat,
+            language: language,
+            letteringOutside: letteringOutside,
+            fillsFrame: letteringOutside
+        )
+        .frame(width: width, height: height)
     }
 }
 

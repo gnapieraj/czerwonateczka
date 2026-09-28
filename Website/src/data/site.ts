@@ -10,7 +10,7 @@ export const site = {
   authorFirm: "Grzegorz Napieraj IT Security",
   authorLinkedIn: "https://www.linkedin.com/in/napieraj-grzegorz/",
   contactEmail: "kontakt@grzegorznapieraj.pl",
-  legalState: "22.09.2026",
+  legalState: "28.09.2026",
   administrator: {
     nip: "8321978268",
     nipDisplay: "832-197-82-68",

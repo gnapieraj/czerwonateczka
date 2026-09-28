@@ -2,14 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const stages = [
-  ["Wokanda", "Lista dwunastu nocy. Kolejna otwiera się dopiero po stemplu poprzedniej."],
+  ["Wokanda", "Noce w sezonach. Kolejna otwiera się dopiero po stemplu poprzedniej — numeracja jest ciągła."],
   ["Biblia wizualna", "Obsada i stały wygląd bohaterów. To orientacja w fabule, nie materiał prawny."],
-  ["Komiks", "Dwa kadry budujące sytuację i presję. Nie ujawnia rozwiązania."],
-  ["Teczka", "Kontekst, głos biurka i trzy możliwe decyzje."],
+  ["Komiks", "Dwa kadry. Na iPhonie termin, kontekst i pytanie są następną stroną; na iPadzie leżą pod kadrami. Nie ujawnia rozwiązania."],
+  ["Teczka", "Ruch na przedmiocie nocy. Trzy możliwe wyniki, a sytuację czytasz wcześniej."],
   ["Werdykt", "Krótki stempel: TRAFNE, BŁĘDNE albo NIEPEŁNE — z możliwością stuknięcia dalej."],
   ["Ratio", "Uzasadnienie wybranego ruchu: refleks i, poza trybem fabularnym, przepis oraz wzorzec."],
   ["Briefing", "Obowiązkowy po Ratio: jak to działa, sygnały, minimalizacja i praktyka — zanim wrócisz na wokandę."],
-  ["Źródła", "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją."],
+  ["Źródła", "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją. Kadry komiksu są ilustracjami do tej historii, nie dokumentacją z kancelarii."],
 ];
 
 const ratio = [
@@ -38,19 +38,20 @@ const ratio = [
   <section class="shell section-sm">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">CZTERY LICZNIKI</p>
-        <h2>Symulacja, nie ocena prawna</h2>
+        <p class="eyebrow">DWANAŚCIE NAWYKÓW</p>
+        <h2>Ślad nocy, nie ocena prawna</h2>
       </div>
       <p class="muted">
-        W trybie fabularnym noc koncentruje się na werdykcie i refleksie. Liczniki
-        zostają w silniku jako symulacja skutków — nie są oceną prawną.
+        Na wokandzie każda noc zostawia nazwany nawyk. Stempel zapala nazwę.
+        To nie jest punktacja prawna. Na biurku widać też: akta, instalacja,
+        opłata, rachunek, głos, dokument, dostęp i okup.
       </p>
     </div>
     <div class="card-grid">
-      <article class="ink-card"><h3>Tajemnica</h3><p class="muted">Ochrona informacji, danych i tajemnicy zawodowej.</p></article>
-      <article class="ink-card"><h3>Sąd</h3><p class="muted">Rzetelność dokumentów i działań wobec sądu.</p></article>
-      <article class="ink-card"><h3>Klient</h3><p class="muted">Relacja, zaufanie i wpływ ruchu na interes klienta.</p></article>
-      <article class="ink-card"><h3>Rozliczalność</h3><p class="muted">Ślad decyzji, role, procedura i możliwość wykazania staranności.</p></article>
+      <article class="ink-card"><h3>Logowanie</h3><p class="muted">Drugie zatwierdzenie. Zatwierdzasz tylko własne hasło.</p></article>
+      <article class="ink-card"><h3>Pismo</h3><p class="muted">Doklejony plik. Pismo bierzesz z portalu, nie z przesłanego maila.</p></article>
+      <article class="ink-card"><h3>Asystent</h3><p class="muted">Ugoda w narzędziu. Do asystenta idzie układ, nie akta sprawy.</p></article>
+      <article class="ink-card"><h3>Kanał</h3><p class="muted">Hasło i link. Osobna rozmowa, nie ta sama odpowiedź.</p></article>
     </div>
   </section>
 

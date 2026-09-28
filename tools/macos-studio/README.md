@@ -1,6 +1,6 @@
 # Generator grafiki — Mac Studio M2 Ultra, 128 GB
 
-To jest **jedyne** miejsce, w którym wolno puścić model obrazów. iPad i iPhone tylko odtwarzają gotowe pliki z `Assets.xcassets`.
+To jest lokalny generator Flux. Nie jest źródłem kadrów obecnej gry. Te leżą w `Assets.xcassets` i są spisane w `World/AssetRegistry.md` (Midjourney). iPad i iPhone tylko odtwarzają gotowe pliki. Wag tego generatora nie wkłada się do aplikacji.
 
 ## Co stoi na Studio
 

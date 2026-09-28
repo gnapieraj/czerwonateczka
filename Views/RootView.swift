@@ -17,6 +17,7 @@ struct RootView: View {
                 CutsceneView(lesson: lesson)
             case .comic(let lesson):
                 ComicIntroView(lesson: lesson)
+                    .id(lesson.id)
             case .play(let lesson):
                 CasePlayView(lesson: lesson)
             case .verdict(let outcome):

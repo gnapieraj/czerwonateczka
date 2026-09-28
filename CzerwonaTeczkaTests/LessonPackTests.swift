@@ -114,20 +114,17 @@ final class LessonPackTests: XCTestCase {
     }
 
     @MainActor
-    func testFirstLaunchGoesHowToThenBibleThenDesk() throws {
+    func testFirstLaunchOpensTheNightBeforeTheRulebook() throws {
         let pack = try loadPack()
         UserDefaults.standard.set(false, forKey: "docket.seenBible")
         UserDefaults.standard.set(false, forKey: "docket.seenHowToPlay")
         let store = GameStore(lessons: pack)
         store.clearStamps()
         store.start()
-        XCTAssertEqual(store.route, .howToPlay)
-        store.dismissHowToPlay()
-        XCTAssertEqual(store.route, .bible)
-        XCTAssertTrue(store.seenHowToPlay)
-        store.back()
-        XCTAssertEqual(store.route, .desk)
-        XCTAssertTrue(store.seenBible)
+        let first = try XCTUnwrap(pack.first)
+        XCTAssertEqual(store.route, .comic(first))
+        XCTAssertFalse(store.seenHowToPlay)
+        XCTAssertFalse(store.seenBible)
     }
 
     @MainActor
@@ -138,8 +135,8 @@ final class LessonPackTests: XCTestCase {
         let store = GameStore(lessons: pack)
         store.clearStamps()
         store.start()
-        XCTAssertEqual(store.route, .desk)
         let first = try XCTUnwrap(pack.first)
+        XCTAssertEqual(store.route, .comic(first))
         store.open(first)
         XCTAssertEqual(store.route, .comic(first))
         store.resetFirstLaunch()
@@ -148,7 +145,7 @@ final class LessonPackTests: XCTestCase {
         XCTAssertFalse(store.seenBible)
         XCTAssertFalse(store.seenHowToPlay)
         store.start()
-        XCTAssertEqual(store.route, .howToPlay)
+        XCTAssertEqual(store.route, .comic(first))
     }
 
     @MainActor
@@ -158,8 +155,47 @@ final class LessonPackTests: XCTestCase {
         UserDefaults.standard.set(true, forKey: "docket.seenHowToPlay")
         let store = GameStore(lessons: pack)
         store.clearStamps()
+        let first = try XCTUnwrap(pack.first)
+        let trap = try XCTUnwrap(first.choices.first { $0.id == "trap" })
+        store.choose(trap, in: first)
         store.start()
         XCTAssertEqual(store.route, .desk)
+    }
+
+    func testPhoneHangUpNamesTheHabit() {
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "01-kod", flags: ["first-yes", "second-no", "called"]),
+            "trap"
+        )
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "01-kod", flags: ["first-yes", "second-no"]),
+            "decoy-b"
+        )
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "01-kod", flags: ["first-no"]),
+            "decoy-b"
+        )
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "07-sms", flags: ["order"]),
+            "trap"
+        )
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "12-okup", flags: ["unplug"]),
+            "decoy-b"
+        )
+        XCTAssertEqual(
+            ExhibitGesture.resolve(lessonId: "12-okup", flags: ["unplug", "list"]),
+            "trap"
+        )
+        XCTAssertEqual(DocketHabit.all.count, 12)
+        XCTAssertEqual(Set(DocketHabit.all.map(\.lessonId)).count, 12)
+    }
+
+    func testEveryNightHasAGesture() throws {
+        let pack = try loadPack()
+        for lesson in pack where lesson.storyMode {
+            XCTAssertNotNil(ExhibitGesture.scene(for: lesson.id), lesson.id)
+        }
     }
 
     @MainActor
@@ -187,6 +223,13 @@ final class LessonPackTests: XCTestCase {
         let legacy = Data(#"[{"lessonId":"01-kod","pass":true,"kind":"verify"},{"lessonId":"02-list","pass":false,"kind":"stamp"}]"#.utf8)
         let stamps = try JSONDecoder().decode([DocketStamp].self, from: legacy)
         XCTAssertEqual(stamps.map(\.verdict), [.sound, .unsound])
+    }
+
+    func testNextNightOpensTheComicNotTheContextPage() {
+        let flagged = ["--lesson=01-kod", "--comic-page=2"]
+        XCTAssertEqual(ComicIntroView.launchPageIndex(for: "01-kod", arguments: flagged), 1)
+        XCTAssertEqual(ComicIntroView.launchPageIndex(for: "02-list", arguments: flagged), 0)
+        XCTAssertEqual(ComicIntroView.launchPageIndex(for: "02-list", arguments: []), 0)
     }
 
     private func loadPack() throws -> [Lesson] {

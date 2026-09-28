@@ -25,16 +25,16 @@ struct HowToPlayView: View {
                 Copy.s(store.language, pl: "Komiks", en: "Comic"),
                 Copy.s(
                     store.language,
-                    pl: "Dwa kadry budujące sytuację i presję. Nie ujawnia rozwiązania.",
-                    en: "Two panels that build the situation and pressure. They do not reveal the answer."
+                    pl: "Dwa kadry. Na iPhonie termin, kontekst i pytanie są następną stroną; na iPadzie leżą pod kadrami. Nie ujawnia rozwiązania.",
+                    en: "Two panels. On iPhone the deadline, context and question are the next page; on iPad they sit under the panels. They do not reveal the answer."
                 )
             ),
             (
                 Copy.s(store.language, pl: "Teczka", en: "File"),
                 Copy.s(
                     store.language,
-                    pl: "Kontekst, głos biurka i trzy możliwe decyzje.",
-                    en: "Context, the desk voice, and three possible moves."
+                    pl: "Ruch na przedmiocie nocy. Trzy możliwe wyniki, a sytuację czytasz wcześniej.",
+                    en: "The move is on the night’s object. Three possible results, and you read the situation first."
                 )
             ),
             (
@@ -65,8 +65,8 @@ struct HowToPlayView: View {
                 Copy.s(store.language, pl: "Źródła", en: "Sources"),
                 Copy.s(
                     store.language,
-                    pl: "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją. Kadry komiksu powstają z pomocą AI (lokalna generacja) — to ilustracje, nie dokumentacja z kancelarii.",
-                    en: "Night topics come from the SANS OUCH newsletter; scenes and Colgante are fiction. Comic panels are AI-assisted illustrations (local generation) — not law-firm documentation."
+                    pl: "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją. Kadry komiksu są ilustracjami do tej historii, nie dokumentacją z kancelarii.",
+                    en: "Night topics come from the SANS OUCH newsletter; scenes and Colgante are fiction. Comic panels are illustrations for this story, not law-firm documentation."
                 )
             ),
         ]

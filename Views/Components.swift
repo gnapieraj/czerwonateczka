@@ -14,49 +14,6 @@ struct InkPlate<Content: View>: View {
     }
 }
 
-struct MeterBar: View {
-    let label: String
-    let value: Int
-
-    var body: some View {
-        HStack(spacing: 10) {
-            Text(label)
-                .font(Typeface.mono(18))
-                .foregroundStyle(Noir.paper)
-                .lineLimit(1)
-                .minimumScaleFactor(0.85)
-                .frame(minWidth: 108, maxWidth: 160, alignment: .leading)
-            GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    Rectangle().fill(Color.white.opacity(0.08))
-                    Rectangle()
-                        .fill(value < 45 ? Noir.blood : Noir.paper)
-                        .frame(width: geo.size.width * CGFloat(value) / 100)
-                }
-            }
-            .frame(height: 10)
-            Text("\(value)")
-                .font(Typeface.mono(18))
-                .foregroundStyle(.white)
-                .frame(width: 44, alignment: .trailing)
-        }
-    }
-}
-
-struct MetersColumn: View {
-    let meters: Meters
-    let language: AppLanguage
-
-    var body: some View {
-        VStack(spacing: 8) {
-            MeterBar(label: Copy.s(language, pl: "Tajemnica", en: "Secrecy"), value: meters.tajemnica)
-            MeterBar(label: Copy.s(language, pl: "Sąd", en: "Court"), value: meters.sad)
-            MeterBar(label: Copy.s(language, pl: "Klient", en: "Client"), value: meters.klient)
-            MeterBar(label: Copy.s(language, pl: "Rozliczalność", en: "Accountability"), value: meters.rozliczalnosc)
-        }
-    }
-}
-
 struct ChoiceKindLabel {
     static func title(_ kind: ChoiceKind, language: AppLanguage) -> String {
         switch kind {

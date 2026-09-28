@@ -26,33 +26,21 @@ struct RatioView: View {
                             .foregroundStyle(.white)
                             .lineSpacing(4)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text(Copy.s(store.language, pl: "TWÓJ RUCH", en: "YOUR MOVE"))
-                            .font(Typeface.mono(16))
-                            .foregroundStyle(Noir.blood)
-                            .padding(.top, 8)
-                        Text(outcome.choice.title.t(store.language))
-                            .font(Typeface.body(22))
-                            .foregroundStyle(verdictColor)
-                            .lineSpacing(8)
-                            .fixedSize(horizontal: false, vertical: true)
+                        if !storyChrome {
+                            Text(Copy.s(store.language, pl: "TWÓJ RUCH", en: "YOUR MOVE"))
+                                .font(Typeface.mono(16))
+                                .foregroundStyle(Noir.blood)
+                                .padding(.top, 8)
+                            Text(outcome.choice.title.t(store.language))
+                                .font(Typeface.body(22))
+                                .foregroundStyle(verdictColor)
+                                .lineSpacing(8)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
                     .padding(.horizontal, 16)
 
                     if !storyChrome {
-                        InkPlate {
-                            MetersColumn(meters: outcome.meters, language: store.language)
-                            Text(Copy.s(
-                                store.language,
-                                pl: "Wskaźniki są symulacją skutków scenariusza, nie oceną prawną ani prognozą odpowiedzialności.",
-                                en: "Meters simulate scenario impact; they are neither a legal assessment nor a liability forecast."
-                            ))
-                            .font(Typeface.body(20))
-                            .foregroundStyle(Noir.paper)
-                            .lineSpacing(6)
-                            .fixedSize(horizontal: false, vertical: true)
-                        }
-                        .padding(.horizontal, 16)
-
                         ratioBlock(
                             kicker: Copy.s(store.language, pl: "PRZEPIS", en: "STATUTE"),
                             text: outcome.choice.ratio.statute.t(store.language)

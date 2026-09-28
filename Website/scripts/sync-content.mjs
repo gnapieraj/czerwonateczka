@@ -65,7 +65,7 @@ await Promise.all([
   writeJson(resolve(generated, "sources.json"), sources),
   writeJson(resolve(generated, "meta.json"), {
     generatedAt: new Date().toISOString(),
-    legalState: extractLegalState(sourceSwift) || "22.09.2026",
+    legalState: extractLegalState(sourceSwift) || "28.09.2026",
     lessonCount: lessons.length,
     sourceCount: sources.length,
   }),

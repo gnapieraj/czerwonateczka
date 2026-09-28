@@ -6,7 +6,6 @@ import UIKit
 final class GameStore: ObservableObject {
     @Published var language: AppLanguage = .polish
     @Published var meters: Meters = .full
-    @Published var campaignMeters: Bool = false
     @Published var route: Route = .splash
     @Published var lastOutcome: Outcome?
     @Published var stamps: [String: DocketStamp] = [:]
@@ -67,7 +66,6 @@ final class GameStore: ObservableObject {
            let saved = try? JSONDecoder().decode(Meters.self, from: data) {
             meters = saved
         }
-        campaignMeters = true
     }
 
     var demoLessons: [Lesson] { lessons.filter(\.demo) }
@@ -107,12 +105,8 @@ final class GameStore: ObservableObject {
 
     func start() {
         stack = []
-        if !seenHowToPlay {
-            route = .howToPlay
-            return
-        }
-        if !seenBible {
-            route = .bible
+        if stamps.isEmpty, let night = lessons.first {
+            route = .comic(night)
             return
         }
         route = .desk

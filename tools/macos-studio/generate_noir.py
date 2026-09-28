@@ -90,6 +90,14 @@ def archive_previous(dest: Path) -> None:
         n += 1
 
 
+def steps_keeping_denoising(requested: int, strength: float) -> int:
+    total = requested
+    ceiling = requested * 4
+    while total - int(total * strength) < requested and total < ceiling:
+        total += 1
+    return total
+
+
 def run_job(spec: dict, job: dict, smoke: bool) -> Path:
     bible = ROOT / job["bible"]
     if not bible.exists():
@@ -100,20 +108,22 @@ def run_job(spec: dict, job: dict, smoke: bool) -> Path:
     dest = OUT / f"{job['id']}.next.png"
     mfx = spec["mflux"]
     lettering = spec.get("lettering_lock", "").strip()
-    prompt = f"{spec['style_lock']}. {lettering}. {job['prompt']}".replace("  ", " ").strip()
-    steps = 4 if smoke else int(mfx["steps"])
+    prompt = f"{spec['style_lock']}. {lettering}. {job['prompt']}. {lettering}".replace("  ", " ").strip()
     local = None if smoke else local_flux_dev()
     model = "schnell" if smoke else (str(local) if local else mfx["model"])
     strength = 0.22 if smoke else float(job.get("img2img_strength", mfx["img2img_strength"]))
     txt2img = bool(job.get("txt2img")) and not smoke
+    # FLUX.1 ignores --negative-prompt. Bans live in the positive prompt.
+    # With --image, mflux starts at int(steps * strength), so the requested
+    # count is the number of steps that actually run.
+    requested = 4 if smoke else int(mfx["steps"])
+    steps = requested if txt2img or smoke else steps_keeping_denoising(requested, strength)
     cmd = [str(venv_mflux()), "--model", model]
     if local and not smoke:
         cmd += ["--base-model", "dev"]
     cmd += [
         "--prompt",
         prompt,
-        "--negative-prompt",
-        spec["negative"],
         "--width",
         str(job["width"]),
         "--height",

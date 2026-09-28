@@ -56,27 +56,6 @@ struct SettingsView: View {
                     .background(Noir.ink)
                     .padding(.horizontal, 16)
 
-                    Toggle(isOn: $store.campaignMeters) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(Copy.s(store.language, pl: "Liczniki kampanii", en: "Campaign meters"))
-                                .font(Typeface.body(20))
-                                .foregroundStyle(.white)
-                            Text(Copy.s(
-                                store.language,
-                                pl: "Wyłączone na spotkanie: każda teczka startuje od 100. Włączone: stemple zostają na wieczór.",
-                                en: "Off for a meeting: each file resets to 100. On: stamps stay for the evening."
-                            ))
-                            .font(Typeface.body(18))
-                            .foregroundStyle(Noir.paper)
-                            .lineSpacing(4)
-                            .fixedSize(horizontal: false, vertical: true)
-                        }
-                    }
-                    .tint(Noir.blood)
-                    .padding(16)
-                    .background(Noir.ink)
-                    .padding(.horizontal, 16)
-
                     InkPlate {
                         Text(Copy.s(
                             store.language,
@@ -155,8 +134,8 @@ struct SettingsView: View {
 
                     Text(Copy.s(
                         store.language,
-                        pl: "Czyści stemple i pokazuje ponownie „Jak czytać grę” oraz biblię wizualną — na testy z kolejnymi osobami.",
-                        en: "Clears stamps and shows How to play + visual bible again — for testing with the next person."
+                        pl: "Czyści stemple i otwiera pierwszą noc. „Jak czytać grę” i biblia zostają na biurku.",
+                        en: "Clears the stamps and opens the first night. How to play and the visual bible stay on the desk."
                     ))
                     .font(Typeface.body(16))
                     .foregroundStyle(Noir.paperDim)

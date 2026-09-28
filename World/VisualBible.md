@@ -2,7 +2,7 @@
 
 Akcja: **Kancelaria Colgante i Wspólnicy** (fikcja). **5. piętro, biurowiec od Świętokrzyskiej, Śródmieście, Warszawa.** Za żaluzją: PKiN w deszczu. Nie używamy prawdziwego numeru działki ani nazw istniejących kancelarii.
 
-Styl: komiks noir. Czerń, biel, raster gazetowy. **Jedyny kolor: krew.** Kanoniczne piksele, te same co na colgante.pl: `World/reference-colgante/` i `Resources/Assets.xcassets`. Próby Grok / FLUX.2 / Schnell nie zastępują tej bazy.
+Styl: komiks noir. Czerń, biel, raster gazetowy. **Jedyny kolor w interfejsie: czerwień decyzji i terminu.** Kadry w grze są z Midjourney i leżą w `Resources/Assets.xcassets`. Rejestr: `World/AssetRegistry.md`. `World/reference-colgante/` to zamrożony zestaw Flux z v1.0, nie te same piksele.
 
 Rekwizyty: współczesne (stary smartphone, używany laptop / PC+CRT), funkcje: e-mail, MFA, wideorozmowa, media — bez telefonu tarczowego.
 
@@ -10,16 +10,13 @@ Rekwizyty: współczesne (stary smartphone, używany laptop / PC+CRT), funkcje: 
 
 Nie generuj twarzy w runtime na iPadzie 9 / iPhone SE 3.
 
-Płyty kanoniczne: **World/reference-colgante/** (kopia pikseli z colgante.pl, commit v1.0). Panele nocy (`Night01a`…`Night12b`) biorą się z tych samych plików w `Assets.xcassets`. iPad tylko odtwarza bundel.
+Płyty w grze: **`Resources/Assets.xcassets`**, spis w `World/AssetRegistry.md`. iPad i iPhone tylko odtwarzają bundel. `World/reference-colgante/` nie wraca do katalogu gry.
 
-1. Zablokuj prompt stylu (plik `prompts.json`).
-2. Img2img z masterów w `World/bible/` (ten sam PNG obsady, niska siła 0.28–0.38).
-3. Włóż wynik do `Assets.xcassets`.
-4. W kodzie odwołuj się do **nazwy imagesetu**, nie do promptu.
+W kodzie odwołuj się do **nazwy imagesetu**, nie do promptu. Nowej płyty nie wkłada się do katalogu, dopóki nie jest w `World/AssetRegistry.md`.
 
 ## Napisy
 
-Lokalny Flux **nie maluje liter** — zwłaszcza polskich (ą ę ł ń ó ś ź ż). Na płytach zostaje sałatka (`POLIYIEE`, `ON:OURIER`). Szyld, adres, Colgante, numery teczek i stemple to **SwiftUI**; `LetteringScrim` przykrywa glyph-salad.
+Kadry nie zawierają liter. Szyld, adres, Colgante, numery teczek i stemple to **SwiftUI**.
 
 W `prompts.json` stoi `lettering_lock`: puste tablice, pieczęcie jako suche szkarłatne dyski, UI abstrakcyjny; Colgante / numery w SwiftUI.
 

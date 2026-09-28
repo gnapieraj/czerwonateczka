@@ -2,15 +2,26 @@ import SwiftUI
 
 struct ComicIntroView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var sizeClass
     let lesson: Lesson
     @State private var pageIndex: Int
 
     init(lesson: Lesson) {
         self.lesson = lesson
-        let requestedPage = ProcessInfo.processInfo.arguments
+        _pageIndex = State(initialValue: Self.launchPageIndex(for: lesson.id))
+    }
+
+    /// `--comic-page=2` opens the second page only for the lesson named in `--lesson=`.
+    /// Later nights, including „Następna noc”, always start on the comic.
+    static func launchPageIndex(for lessonID: String, arguments: [String] = ProcessInfo.processInfo.arguments) -> Int {
+        let launchedLesson = arguments
+            .first(where: { $0.hasPrefix("--lesson=") })
+            .map { String($0.dropFirst("--lesson=".count)) }
+        guard launchedLesson == lessonID else { return 0 }
+        let requested = arguments
             .first(where: { $0.hasPrefix("--comic-page=") })
             .flatMap { Int($0.dropFirst("--comic-page=".count)) } ?? 1
-        _pageIndex = State(initialValue: requestedPage == 2 ? 1 : 0)
+        return requested == 2 ? 1 : 0
     }
 
     private var beats: [ComicBeat] { lesson.beats }
@@ -22,20 +33,47 @@ struct ComicIntroView: View {
     }
 
     var body: some View {
-        ZStack {
-            Color.white.ignoresSafeArea()
-            VStack(spacing: 0) {
-                header
-                    .zIndex(2)
-                if beats.isEmpty {
-                    emptyFallback
-                } else {
-                    comicPager
-                    pageNumber
+        GeometryReader { geo in
+            let wide = geo.size.width > geo.size.height
+            ZStack {
+                Color.white.ignoresSafeArea()
+                VStack(spacing: 0) {
+                    header
+                        .zIndex(2)
+                    if beats.isEmpty {
+                        emptyFallback
+                    } else if sizeClass == .compact {
+                        phonePager()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        pageNumber
+                    } else {
+                        comicPager(sideBySide: wide)
+                            .frame(maxHeight: .infinity)
+                            .layoutPriority(wide || !isClosingPage ? 1 : 0)
+                        if isClosingPage {
+                            Group {
+                                if wide {
+                                    plotText
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .frame(maxWidth: .infinity, maxHeight: 168, alignment: .topLeading)
+                                        .clipped()
+                                } else {
+                                    plot(compact: false)
+                                }
+                            }
+                            .layoutPriority(wide ? 2 : 1)
+                            .padding(.horizontal, 14)
+                            .padding(.top, 4)
+                        }
+                        pageNumber
+                            .layoutPriority(2)
+                    }
+                    footer
+                        .layoutPriority(2)
+                        .zIndex(2)
                 }
-                footer
-                    .zIndex(2)
             }
+            .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
         }
         .onAppear {
             if beats.isEmpty {
@@ -96,8 +134,60 @@ struct ComicIntroView: View {
         .contentShape(Rectangle())
     }
 
+    private var isPhone: Bool { sizeClass == .compact }
+
+    /// On the phone the situation is its own page after the panels.
+    private var contextPageIndex: Int { pages.count }
+
+    private var showingContext: Bool {
+        isPhone && !pages.isEmpty && pageIndex >= contextPageIndex
+    }
+
+    private var lastPageIndex: Int {
+        if isPhone, !pages.isEmpty { return contextPageIndex }
+        return max(pages.count - 1, 0)
+    }
+
+    private var isClosingPage: Bool {
+        !pages.isEmpty && pageIndex >= pages.count - 1 && !showingContext
+    }
+
+    /// Situation the player needs before the choice. Lives with the strip, not on the decision board.
+    /// In landscape the plates take the spare height; the text stays a short band and scrolls if it does not fit.
+    private func plot(compact: Bool) -> some View {
+        ViewThatFits(in: .vertical) {
+            plotText
+            ScrollView {
+                plotText
+            }
+        }
+        .frame(maxHeight: compact ? 132 : 250, alignment: .top)
+    }
+
+    private var plotText: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(lesson.deadline.t(store.language))
+                .font(Typeface.mono(15))
+                .foregroundStyle(Noir.blood)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(lesson.context.t(store.language))
+                .font(Typeface.body(17))
+                .foregroundStyle(Color.black)
+                .lineSpacing(3)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(lesson.innerVoice.t(store.language))
+                .font(Typeface.body(17))
+                .foregroundStyle(Color.black)
+                .lineSpacing(3)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     private var pageNumber: some View {
-        Text("— \(String(format: "%02d", lesson.order)) · \(pageIndex + 1)/\(max(pages.count, 1)) —")
+        let count = isPhone ? pages.count + 1 : max(pages.count, 1)
+        let current = min(pageIndex, max(count - 1, 0)) + 1
+        return Text("— \(String(format: "%02d", lesson.order)) · \(current)/\(max(count, 1)) —")
             .font(Typeface.mono(16))
             .foregroundStyle(Color.black)
             .frame(maxWidth: .infinity)
@@ -106,36 +196,50 @@ struct ComicIntroView: View {
 
     private var footer: some View {
         HStack(spacing: 10) {
-            if pageIndex > 0 {
+            if isPhone, showingContext {
+                pageButton(
+                    Copy.s(store.language, pl: "Komiks", en: "Comic"),
+                    systemImage: "chevron.left"
+                ) {
+                    goToPage(pages.count - 1)
+                }
+                decisionButton
+            } else if isPhone, pageIndex > 0, pageIndex < pages.count - 1 {
                 pageButton(
                     Copy.s(store.language, pl: "Poprzednia", en: "Previous"),
                     systemImage: "chevron.left"
                 ) {
                     goToPage(pageIndex - 1)
                 }
-            }
-
-            if pageIndex < pages.count - 1 {
+                nextComicButton
+            } else if isPhone, pageIndex > 0 {
                 pageButton(
-                    Copy.s(store.language, pl: "Dalej", en: "Next"),
-                    systemImage: "chevron.right",
-                    imageOnRight: true
+                    Copy.s(store.language, pl: "Poprzednia", en: "Previous"),
+                    systemImage: "chevron.left"
                 ) {
-                    goToPage(pageIndex + 1)
+                    goToPage(pageIndex - 1)
                 }
+                contextButton
+            } else if isPhone, pageIndex < pages.count - 1 {
+                nextComicButton
+            } else if isPhone {
+                contextButton
+            } else if pageIndex > 0 {
+                pageButton(
+                    Copy.s(store.language, pl: "Poprzednia", en: "Previous"),
+                    systemImage: "chevron.left"
+                ) {
+                    goToPage(pageIndex - 1)
+                }
+                if pageIndex < pages.count - 1 {
+                    nextComicButton
+                } else {
+                    decisionButton
+                }
+            } else if pageIndex < pages.count - 1 {
+                nextComicButton
             } else {
-                Button {
-                    store.openDossier(lesson)
-                } label: {
-                    Text(Copy.s(store.language, pl: "Decyzja", en: "Decide"))
-                        .font(Typeface.mono(20))
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 18)
-                        .padding(.horizontal, 16)
-                        .background(Noir.blood)
-                }
-                .buttonStyle(.plain)
+                decisionButton
             }
         }
         .padding(.horizontal, 14)
@@ -143,9 +247,44 @@ struct ComicIntroView: View {
         .background(Color.white)
     }
 
-    private var comicPager: some View {
+    private var contextButton: some View {
+        pageButton(
+            Copy.s(store.language, pl: "Kontekst", en: "Context"),
+            systemImage: "chevron.right",
+            imageOnRight: true
+        ) {
+            goToPage(contextPageIndex)
+        }
+    }
+
+    private var nextComicButton: some View {
+        pageButton(
+            Copy.s(store.language, pl: "Dalej", en: "Next"),
+            systemImage: "chevron.right",
+            imageOnRight: true
+        ) {
+            goToPage(pageIndex + 1)
+        }
+    }
+
+    private var decisionButton: some View {
+        Button {
+            store.openDossier(lesson)
+        } label: {
+            Text(Copy.s(store.language, pl: "Decyzja", en: "Decide"))
+                .font(Typeface.mono(20))
+                .foregroundStyle(Color.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 18)
+                .padding(.horizontal, 16)
+                .background(Noir.blood)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func comicPager(sideBySide: Bool) -> some View {
         HorizontalPager(pageCount: pages.count, selection: $pageIndex) { index in
-            ComicBoard(beats: pages[index], language: store.language)
+            ComicBoard(beats: pages[index], language: store.language, sideBySide: sideBySide)
                 .padding(10)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .contentShape(Rectangle())
@@ -164,8 +303,61 @@ struct ComicIntroView: View {
         }
     }
 
+    private func phonePager() -> some View {
+        HorizontalPager(pageCount: pages.count + 1, selection: $pageIndex) { index in
+            Group {
+                if index < pages.count {
+                    ComicBoard(
+                        beats: pages[index],
+                        language: store.language,
+                        letteringOutside: true
+                    )
+                    .padding(8)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    contextPage
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityElement(children: .contain)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                goToPage(pageIndex + 1)
+            case .decrement:
+                goToPage(pageIndex - 1)
+            default:
+                break
+            }
+        }
+    }
+
+    private var contextPage: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                Text(lesson.deadline.t(store.language))
+                    .font(Typeface.mono(15))
+                    .foregroundStyle(Noir.blood)
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.white)
+                    .overlay(Rectangle().stroke(Color.black, lineWidth: 1.6))
+                ComicThought(text: lesson.context.t(store.language))
+                ComicThought(text: lesson.innerVoice.t(store.language))
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+    }
+
     private func goToPage(_ index: Int) {
-        let clamped = min(max(index, 0), max(pages.count - 1, 0))
+        let clamped = min(max(index, 0), lastPageIndex)
         guard clamped != pageIndex else { return }
         pageIndex = clamped
     }

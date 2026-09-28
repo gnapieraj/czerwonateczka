@@ -6,4 +6,4 @@ Powstały lokalnie na Mac Studio: mflux, Flux.1 [dev], 8-bit, 28 kroków, guidan
 
 Późniejsze przebiegi (FLUX.1 schnell, 4 kroki; Grok Imagine; FLUX.2) rysowały od nowa innym stylem i nie zastępują tych plików.
 
-Nie nadpisuj tego katalogu wynikami prób. Do gry wraca tylko kopia stąd albo z gita.
+Nie nadpisuj tego katalogu. Nie kopiuj go z powrotem do `Assets.xcassets`. Kadry obecnej gry są z Midjourney; spis jest w `World/AssetRegistry.md`.
