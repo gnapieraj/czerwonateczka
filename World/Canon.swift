@@ -45,10 +45,10 @@ enum Cast: String, CaseIterable {
 
     var asset: String {
         switch self {
-        case .mecenas: return "MecenasPOV"
-        case .iglica: return "AplikantIglica"
-        case .chropot: return "PartnerChropot"
-        case .irena: return "SekretariatIrena"
+        case .mecenas: return "SezonMecenas"
+        case .iglica: return "SezonAplikant"
+        case .chropot: return "Night04b"
+        case .irena: return "Night05b"
         }
     }
 

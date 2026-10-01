@@ -1,5 +1,12 @@
 import SwiftUI
 
+enum ReadingMeasure {
+    /// Phone column. A regular size class (iPad) gets the wider column.
+    static func column(_ horizontal: UserInterfaceSizeClass?) -> CGFloat {
+        horizontal == .regular ? 1040 : 720
+    }
+}
+
 struct InkPlate<Content: View>: View {
     @ViewBuilder var content: Content
 

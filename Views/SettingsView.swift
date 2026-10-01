@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject private var store: GameStore
     @EnvironmentObject private var soundtrack: Soundtrack
+    @Environment(\.horizontalSizeClass) private var horizontal
 
     var body: some View {
         ZStack {
@@ -134,8 +135,8 @@ struct SettingsView: View {
 
                     Text(Copy.s(
                         store.language,
-                        pl: "Czyści stemple i otwiera pierwszą noc. „Jak czytać grę” i biblia zostają na biurku.",
-                        en: "Clears the stamps and opens the first night. How to play and the visual bible stay on the desk."
+                        pl: "Czyści stemple, słownik i obsadę, i wraca na ekran startowy.",
+                        en: "Clears the stamps, the glossary and the cast, and returns to the opening screen."
                     ))
                     .font(Typeface.body(16))
                     .foregroundStyle(Noir.paperDim)
@@ -154,7 +155,7 @@ struct SettingsView: View {
 
                     Color.clear.frame(height: 32)
                     }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }
@@ -165,6 +166,7 @@ struct SettingsView: View {
 
 struct VisualBibleView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
 
     var body: some View {
         ZStack {
@@ -196,17 +198,16 @@ struct VisualBibleView: View {
                         ComicPanel(
                             asset: person.asset,
                             caption: person.name(store.language) + " — " + person.lockLine(store.language),
-                            minHeight: person == .mecenas ? 200 : 280,
-                            contentMode: .fit
+                            plateRatio: 16 / 9
                         )
                         .padding(.horizontal, 16)
                     }
 
                     ComicPanel(
-                        asset: "OfficeNight",
+                        asset: "Gabinet",
                         caption: Canon.firm(store.language) + ". " + Canon.window(store.language),
                         bloodCaption: true,
-                        minHeight: 180
+                        plateRatio: 16 / 9
                     )
                     .padding(.horizontal, 16)
 
@@ -225,7 +226,7 @@ struct VisualBibleView: View {
                     .padding(16)
                     .padding(.bottom, 32)
                     }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }

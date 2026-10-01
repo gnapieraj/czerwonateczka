@@ -70,7 +70,7 @@ struct CasePlayView: View {
                     .padding(.horizontal, 16)
                     .padding(.bottom, 36)
             }
-            .frame(maxWidth: 720)
+            .frame(maxWidth: ReadingMeasure.column(horizontal))
             .frame(maxWidth: .infinity)
             .padding(.top, 14)
         }

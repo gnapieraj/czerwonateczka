@@ -185,11 +185,13 @@ struct Lesson: Codable, Equatable, Identifiable {
     var introVideo: String?
     /// Ace Attorney–style stepped play + theatrical verdict (case 01 only).
     var storyMode: Bool
+    /// Season 1 plates are named and reserved. The pixels are still the counsel poster.
+    var artPending: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, order, seasonId, seasonTitle, demo, exhibit, hero, tone, title, subtitle, deadline, context
         case beats, exhibitLabel, exhibitText, innerVoice, redFlags, choices, awareness, sourceIds
-        case introVideo, storyMode
+        case introVideo, storyMode, artPending
     }
 
     static let prologueSeasonId = "0"
@@ -219,6 +221,7 @@ struct Lesson: Codable, Equatable, Identifiable {
         sourceIds = try c.decode([String].self, forKey: .sourceIds)
         introVideo = try c.decodeIfPresent(String.self, forKey: .introVideo)
         storyMode = try c.decodeIfPresent(Bool.self, forKey: .storyMode) ?? false
+        artPending = try c.decodeIfPresent(Bool.self, forKey: .artPending) ?? false
     }
 
     func encode(to encoder: Encoder) throws {
@@ -245,6 +248,7 @@ struct Lesson: Codable, Equatable, Identifiable {
         try c.encode(sourceIds, forKey: .sourceIds)
         try c.encodeIfPresent(introVideo, forKey: .introVideo)
         if storyMode { try c.encode(true, forKey: .storyMode) }
+        if artPending { try c.encode(true, forKey: .artPending) }
     }
 }
 

@@ -23,7 +23,7 @@ known_assets = {
     directory.name.removesuffix(".imageset")
     for directory in asset_root.glob("*.imageset")
 }
-assert len(lessons) == 12, len(lessons)
+assert len(lessons) == 24, len(lessons)
 assert sum(1 for x in lessons if x["demo"]) == 3
 assert "Iglica" in blob and "Chropot" in blob and "Irena" in blob
 for banned in ("Vogel", "Kruk", "Wilk", "Królewska 16", "vogelkruk", "Art. 6", "DKN.5131", "aplikantk"):

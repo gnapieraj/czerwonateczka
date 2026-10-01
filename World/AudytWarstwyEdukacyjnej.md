@@ -107,7 +107,7 @@ Każda noc: **1× TRAFNE**, **1× BŁĘDNE**, **1× NIEPEŁNE**; `minimize ≠ p
 
 ## Co świadomie nie ruszono
 
-- `World/bible/` — mastery postaci do generacji
+- Ikona jest tylko w `AppIcon.appiconset`.
 - `Website/scripts/audit-dist.mjs`, `Website/docs/qa-launch.md` — aktywne narzędzia publikacji
 - `CutsceneView.swift` — haczyk pod przyszłe intro (obecnie niewywoływane z `open()`)
-- Obsada i `OfficeNight` — nadal w użyciu poza panelami nocy
+- Obsada biblii to plakaty sezonów oraz `Night04b` i `Night05b`. `Gabinet` czeka na płytę nowej serii.

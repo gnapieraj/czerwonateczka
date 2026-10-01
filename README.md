@@ -15,9 +15,9 @@ Komiks noir: czerń, biel, **tylko krew**. Akcja (fikcja): **Kancelaria Colgante
 3. Cel: iPhone (tylko pion) lub iPad (pion i poziom).
 4. ⌘R.
 
-## Mechanika (wersja 12 nocy)
+## Mechanika (dwa sezony, 24 noce)
 
-- Dwanaście nocy, odblokowywanych liniowo po stemplu poprzedniej.
+- Dwadzieścia cztery noce w dwóch sezonach. Sezon aplikanta otwiera się po stemplu nocy 12. W sezonie noce idą liniowo, po stemplu poprzedniej.
 - Komiks: dwa kadry (`NightNNa` / `NightNNb`).
 - Decyzja: trzy wiarygodne odpowiedzi → werdykt **TRAFNE / BŁĘDNE / NIEPEŁNE**.
 - Po wyborze: splash werdyktu → Ratio (refleks; w trybie fabularnym bez pełnych liczników na ekranie) → opcjonalny Briefing.
@@ -37,4 +37,4 @@ Audyt warstwy edukacyjnej: `World/AudytWarstwyEdukacyjnej.md`.
 
 Na Macu: ⌘U (`LessonPackTests`).
 
-Grafika (Studio): `python3 tools/macos-studio/generate_noir.py --smoke`
+Grafika: jeden plik na kadr w `Resources/Assets.xcassets`. Spis: `World/AssetRegistry.md`. Prompty sezonów: `tools/macos-studio/komiks-sezony.md`.

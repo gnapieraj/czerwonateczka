@@ -18,7 +18,19 @@ struct DocketHabit: Identifiable, Equatable {
         DocketHabit(lessonId: "09-glos", name: Loc(pl: "Głos", en: "Voice")),
         DocketHabit(lessonId: "10-okno", name: Loc(pl: "Dokument", en: "Document")),
         DocketHabit(lessonId: "11-konta", name: Loc(pl: "Dostęp", en: "Access")),
-        DocketHabit(lessonId: "12-okup", name: Loc(pl: "Okup", en: "Ransom"))
+        DocketHabit(lessonId: "12-okup", name: Loc(pl: "Okup", en: "Ransom")),
+        DocketHabit(lessonId: "13-chmura", name: Loc(pl: "Chmura", en: "Cloud")),
+        DocketHabit(lessonId: "14-cudze", name: Loc(pl: "Cudze", en: "Borrowed")),
+        DocketHabit(lessonId: "15-polecenie", name: Loc(pl: "Polecenie", en: "Order")),
+        DocketHabit(lessonId: "16-link", name: Loc(pl: "Link", en: "Link")),
+        DocketHabit(lessonId: "17-wydruk", name: Loc(pl: "Wydruk", en: "Print")),
+        DocketHabit(lessonId: "18-odbior", name: Loc(pl: "Odbiór", en: "Receipt")),
+        DocketHabit(lessonId: "19-mandat", name: Loc(pl: "Mandat", en: "Retainer")),
+        DocketHabit(lessonId: "20-nosnik", name: Loc(pl: "Nośnik", en: "Drive")),
+        DocketHabit(lessonId: "21-termin", name: Loc(pl: "Termin", en: "Date")),
+        DocketHabit(lessonId: "22-granica", name: Loc(pl: "Granica", en: "Boundary")),
+        DocketHabit(lessonId: "23-nagranie", name: Loc(pl: "Nagranie", en: "Recording")),
+        DocketHabit(lessonId: "24-ekran", name: Loc(pl: "Ekran", en: "Screen"))
     ]
 }
 
@@ -216,12 +228,19 @@ enum ExhibitGesture {
                     ]
                 ),
                 GestureCard(
-                    id: "apart",
-                    title: Loc(pl: "Osobno", en: "Apart"),
-                    note: Loc(pl: "Telefon i drugi mail.", en: "The phone, and a second mail."),
+                    id: "aloud",
+                    title: Loc(pl: "Telefon", en: "The phone"),
+                    note: Loc(pl: "Cztery słowa czytasz na osobnej rozmowie.", en: "You read the four words on a separate call."),
                     taps: [
-                        GestureTap(id: "aloud", title: Loc(pl: "Czytaj na głos", en: "Read it aloud"), flag: "aloud"),
-                        GestureTap(id: "link", title: Loc(pl: "Mail bez słów", en: "Mail without the words"), flag: "link-only")
+                        GestureTap(id: "aloud", title: Loc(pl: "Czytaj na głos", en: "Read it aloud"), flag: "aloud")
+                    ]
+                ),
+                GestureCard(
+                    id: "link",
+                    title: Loc(pl: "Mail bez hasła", en: "Mail without the password"),
+                    note: Loc(pl: "Link idzie sam. Słów hasła w nim nie ma.", en: "The link goes alone. The password words are not in it."),
+                    taps: [
+                        GestureTap(id: "link", title: Loc(pl: "Wyślij link", en: "Send the link"), flag: "link-only")
                     ]
                 )
             ],
@@ -377,30 +396,297 @@ enum ExhibitGesture {
         ExhibitScene(
             lessonId: "12-okup",
             aside: Loc(
-                pl: "Ekran chce bitcoin przed rozprawą.",
-                en: "The screen wants bitcoin before the hearing."
+                pl: "Ekran chce bitcoin i milczenia. Rozprawa jest jutro.",
+                en: "The screen wants bitcoin and silence. The hearing is tomorrow."
             ),
             cards: [
                 GestureCard(
                     id: "pay",
                     title: Loc(pl: "Przelew", en: "The transfer"),
-                    note: Loc(pl: "Pisma są zablokowane.", en: "The papers are locked."),
+                    note: Loc(
+                        pl: "Każdy z tych rachunków płaci okup. Noc kończy się od razu.",
+                        en: "Either account pays the ransom. The night ends at once."
+                    ),
                     taps: [
-                        GestureTap(id: "client", title: Loc(pl: "Rachunek klienta", en: "The client’s account"), choiceId: "decoy-a"),
-                        GestureTap(id: "firm", title: Loc(pl: "Rachunek kancelarii", en: "The firm’s account"), choiceId: "decoy-b")
+                        GestureTap(id: "client", title: Loc(pl: "Zapłać z klienta", en: "Pay from the client"), choiceId: "decoy-a"),
+                        GestureTap(id: "firm", title: Loc(pl: "Cicho, z kancelarii", en: "Quietly, from the firm"), choiceId: "decoy-a")
                     ]
                 ),
                 GestureCard(
-                    id: "cut",
+                    id: "unplug",
                     title: Loc(pl: "Laptop", en: "The laptop"),
-                    note: Loc(pl: "Lista awaryjna leży w sejfie procedur.", en: "The emergency list is in the procedure safe."),
+                    note: Loc(pl: "Kabel sieci. Zaznacz, jeśli odłączasz.", en: "The network cable. Mark it if you unplug."),
                     taps: [
-                        GestureTap(id: "unplug", title: Loc(pl: "Odłącz", en: "Unplug"), flag: "unplug"),
-                        GestureTap(id: "list", title: Loc(pl: "Lista awaryjna", en: "Emergency list"), flag: "list")
+                        GestureTap(id: "unplug", title: Loc(pl: "Odłącz", en: "Unplug"), flag: "unplug")
+                    ]
+                ),
+                GestureCard(
+                    id: "list",
+                    title: Loc(pl: "Lista awaryjna", en: "Emergency list"),
+                    note: Loc(
+                        pl: "Leży w sejfie procedur. Zaznacz, jeśli dzwonisz.",
+                        en: "It is in the procedure safe. Mark it if you call."
+                    ),
+                    taps: [
+                        GestureTap(id: "list", title: Loc(pl: "Zadzwoń", en: "Call"), flag: "list")
                     ]
                 )
             ],
             commitTitle: Loc(pl: "Odłóż", en: "Set it down")
+        ),
+        ExhibitScene(
+            lessonId: "13-chmura",
+            aside: Loc(
+                pl: "Akta leżą na biurku. W kieszeni jest prywatny telefon.",
+                en: "The file is on the desk. A personal phone is in your pocket."
+            ),
+            cards: [
+                GestureCard(
+                    id: "phone",
+                    title: Loc(pl: "Telefon", en: "The phone"),
+                    note: Loc(pl: "Chropot chce zdjęcie na rano.", en: "Chropot wants a photo by morning."),
+                    taps: [
+                        GestureTap(id: "send", title: Loc(pl: "Wyślij zdjęcie", en: "Send the photo"), choiceId: "decoy-a"),
+                        GestureTap(id: "keep", title: Loc(pl: "Zostaw w telefonie", en: "Leave it on the phone"), choiceId: "decoy-b")
+                    ]
+                ),
+                GestureCard(
+                    id: "desk",
+                    title: Loc(pl: "Biurko", en: "The desk"),
+                    note: Loc(pl: "Papier kancelarii.", en: "The firm’s paper."),
+                    taps: [
+                        GestureTap(id: "stay", title: Loc(pl: "Zostaw akta", en: "Leave the file"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "14-cudze",
+            aside: Loc(
+                pl: "Kartka z hasłem partnera. Twojego konta jeszcze nie ma.",
+                en: "A slip with the partner’s password. Your account does not exist yet."
+            ),
+            cards: [
+                GestureCard(
+                    id: "portal",
+                    title: Loc(pl: "Portal", en: "The portal"),
+                    note: Loc(pl: "Pozew ma wyjść dziś.", en: "The pleading is due today."),
+                    taps: [
+                        GestureTap(id: "his", title: Loc(pl: "Hasło Chropota", en: "Chropot’s password"), choiceId: "decoy-a"),
+                        GestureTap(id: "draft", title: Loc(pl: "Szkic na jego koncie", en: "A draft on his account"), choiceId: "decoy-b"),
+                        GestureTap(id: "wait", title: Loc(pl: "Czekaj na własne", en: "Wait for your own"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "15-polecenie",
+            aside: Loc(
+                pl: "Mecenas chce jedną stronę. Czat jest poza kancelarią.",
+                en: "The lawyer wants one page. The chat is outside the firm."
+            ),
+            cards: [
+                GestureCard(
+                    id: "chat",
+                    title: Loc(pl: "Czat", en: "The chat"),
+                    note: Loc(pl: "Pismo ma nazwy, kwotę i sygnaturę.", en: "The paper has names, a sum and a case number."),
+                    taps: [
+                        GestureTap(id: "all", title: Loc(pl: "Wklej pismo", en: "Paste the paper"), choiceId: "decoy-a"),
+                        GestureTap(id: "cut", title: Loc(pl: "Wytnij nazwiska", en: "Cut the names"), choiceId: "decoy-b"),
+                        GestureTap(id: "paper", title: Loc(pl: "Kartka kancelarii", en: "The firm’s paper"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "16-link",
+            aside: Loc(
+                pl: "Link „od sądu” przyszedł komunikatorem.",
+                en: "A link “from the court” arrived in the messenger."
+            ),
+            cards: [
+                GestureCard(
+                    id: "link",
+                    title: Loc(pl: "Link", en: "The link"),
+                    note: Loc(pl: "Sala za dwanaście minut.", en: "The room is in twelve minutes."),
+                    taps: [
+                        GestureTap(id: "join", title: Loc(pl: "Wejdź", en: "Join"), choiceId: "decoy-a"),
+                        GestureTap(id: "again", title: Loc(pl: "Poproś o mail", en: "Ask for an email"), choiceId: "decoy-b")
+                    ]
+                ),
+                GestureCard(
+                    id: "portal",
+                    title: Loc(pl: "Portal", en: "The portal"),
+                    note: Loc(pl: "Adres, który znasz.", en: "The address you know."),
+                    taps: [
+                        GestureTap(id: "check", title: Loc(pl: "Sprawdź termin", en: "Check the date"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "17-wydruk",
+            aside: Loc(
+                pl: "Toner pusty. Pismo ma być rano na biurku.",
+                en: "The toner is empty. The paper is due on the desk in the morning."
+            ),
+            cards: [
+                GestureCard(
+                    id: "print",
+                    title: Loc(pl: "Plik", en: "The file"),
+                    note: Loc(pl: "Irena wskazuje dom.", en: "Irena points toward home."),
+                    taps: [
+                        GestureTap(id: "home", title: Loc(pl: "Drukarka u rodziców", en: "The printer at home"), choiceId: "decoy-a"),
+                        GestureTap(id: "usb", title: Loc(pl: "Pendrive na potem", en: "A USB stick for later"), choiceId: "decoy-b"),
+                        GestureTap(id: "here", title: Loc(pl: "Zostaw w kancelarii", en: "Leave it at the firm"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "18-odbior",
+            aside: Loc(
+                pl: "Kurier czeka. Koperta jest zamknięta.",
+                en: "The courier is waiting. The envelope is sealed."
+            ),
+            cards: [
+                GestureCard(
+                    id: "receipt",
+                    title: Loc(pl: "Pokwitowanie", en: "The receipt"),
+                    note: Loc(pl: "Chropot jest na sali.", en: "Chropot is in the courtroom."),
+                    taps: [
+                        GestureTap(id: "open", title: Loc(pl: "Podpisz i otwórz", en: "Sign and open"), choiceId: "decoy-a"),
+                        GestureTap(id: "sign", title: Loc(pl: "Podpisz, nie otwieraj", en: "Sign, don’t open"), choiceId: "decoy-b"),
+                        GestureTap(id: "wait", title: Loc(pl: "Zostaw adresatowi", en: "Leave it for the addressee"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "19-mandat",
+            aside: Loc(
+                pl: "Klient jest na twoim numerze. Prosi o radę i o pismo.",
+                en: "The client is on your number. He wants advice, and a paper."
+            ),
+            cards: [
+                GestureCard(
+                    id: "call",
+                    title: Loc(pl: "Rozmowa", en: "The call"),
+                    note: Loc(pl: "Mecenas oddzwoni wieczorem.", en: "The lawyer calls back this evening."),
+                    taps: [
+                        GestureTap(id: "advise", title: Loc(pl: "Poradź i wyjmij pismo", en: "Advise, and take the paper"), choiceId: "decoy-a"),
+                        GestureTap(id: "hide", title: Loc(pl: "Obiecaj, że nie wypłynie", en: "Promise it will not come up"), choiceId: "decoy-b"),
+                        GestureTap(id: "note", title: Loc(pl: "Zapisz dla mecenasa", en: "Note it for the lawyer"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "20-nosnik",
+            aside: Loc(
+                pl: "Protokolant trzyma pendrive. Laptop jest otwarty.",
+                en: "The clerk is holding a USB stick. The laptop is open."
+            ),
+            cards: [
+                GestureCard(
+                    id: "stick",
+                    title: Loc(pl: "Nośnik", en: "The drive"),
+                    note: Loc(pl: "Człowiek czeka.", en: "The man is waiting."),
+                    taps: [
+                        GestureTap(id: "copy", title: Loc(pl: "Zgraj na laptop", en: "Copy it to the laptop"), choiceId: "decoy-a"),
+                        GestureTap(id: "mail", title: Loc(pl: "Wyślij sobie pocztą", en: "Email it to yourself"), choiceId: "decoy-b"),
+                        GestureTap(id: "portal", title: Loc(pl: "Poproś o portal", en: "Ask for the portal"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "21-termin",
+            aside: Loc(
+                pl: "Zaproszenie prosi o hasło skrzynki.",
+                en: "The invite asks for the mailbox password."
+            ),
+            cards: [
+                GestureCard(
+                    id: "invite",
+                    title: Loc(pl: "Zaproszenie", en: "The invite"),
+                    note: Loc(pl: "Termin jest jutro.", en: "The date is tomorrow."),
+                    taps: [
+                        GestureTap(id: "password", title: Loc(pl: "Wpisz hasło", en: "Type the password"), choiceId: "decoy-a"),
+                        GestureTap(id: "copy", title: Loc(pl: "Przepisz termin", en: "Copy the date"), choiceId: "decoy-b"),
+                        GestureTap(id: "portal", title: Loc(pl: "Sprawdź w portalu", en: "Check the portal"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "22-granica",
+            aside: Loc(
+                pl: "Irena prosi o akta sprawy, której nie prowadzisz.",
+                en: "Irena asks for a file you do not work on."
+            ),
+            cards: [
+                GestureCard(
+                    id: "file",
+                    title: Loc(pl: "Cudze akta", en: "Someone else’s file"),
+                    note: Loc(pl: "Klient czeka na sygnaturę.", en: "The client is waiting for the case number."),
+                    taps: [
+                        GestureTap(id: "read", title: Loc(pl: "Odczytaj sygnaturę", en: "Read out the number"), choiceId: "decoy-a"),
+                        GestureTap(id: "peek", title: Loc(pl: "Tylko zajrzyj", en: "Only have a look"), choiceId: "decoy-b"),
+                        GestureTap(id: "note", title: Loc(pl: "Zostaw prowadzącemu", en: "Leave it to counsel"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "23-nagranie",
+            aside: Loc(
+                pl: "Klient dyktuje. Prywatny telefon leży przy głośniku.",
+                en: "The client is dictating. A personal phone lies by the speaker."
+            ),
+            cards: [
+                GestureCard(
+                    id: "voice",
+                    title: Loc(pl: "Głos", en: "The voice"),
+                    note: Loc(pl: "Chropot mówi: nagraj.", en: "Chropot says: record it."),
+                    taps: [
+                        GestureTap(id: "phone", title: Loc(pl: "Nagraj telefonem", en: "Record on the phone"), choiceId: "decoy-a"),
+                        GestureTap(id: "laptop", title: Loc(pl: "Nagraj na laptop", en: "Record on the laptop"), choiceId: "decoy-b"),
+                        GestureTap(id: "pen", title: Loc(pl: "Notuj na papierze", en: "Write it on paper"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
+        ),
+        ExhibitScene(
+            lessonId: "24-ekran",
+            aside: Loc(
+                pl: "Laptop jest otwarty na ławce. Obcy prosi o wokandę.",
+                en: "The laptop is open on a bench. A stranger asks for the list."
+            ),
+            cards: [
+                GestureCard(
+                    id: "bench",
+                    title: Loc(pl: "Ławka", en: "The bench"),
+                    note: Loc(pl: "Chropot wszedł na salę.", en: "Chropot has gone into the courtroom."),
+                    taps: [
+                        GestureTap(id: "look", title: Loc(pl: "Sprawdź mu wokandę", en: "Check the list for him"), choiceId: "decoy-a"),
+                        GestureTap(id: "lid", title: Loc(pl: "Zamknij bez blokady", en: "Close it, don’t lock"), choiceId: "decoy-b"),
+                        GestureTap(id: "lock", title: Loc(pl: "Zablokuj i weź", en: "Lock it and take it"), choiceId: "trap")
+                    ]
+                )
+            ],
+            commitTitle: nil
         )
     ]
 }

@@ -7,12 +7,12 @@ import { materials, site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout preloadImage="OfficeNight">
+<BaseLayout preloadImage="SezonMecenas">
   <section class="hero">
     <OptimizedImage
       class="hero-media"
-      name="OfficeNight"
-      alt="Fikcyjna warszawska kancelaria nocą, w oknie Pałac Kultury w deszczu"
+      name="SezonMecenas"
+      alt="Mecenas przy biurku, w oknie Pałac Kultury w deszczu. Twarz zasłonięta tuszem."
       width={1400}
       height={933}
       sizes="100vw"
@@ -22,8 +22,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p class="eyebrow">INTERAKTYWNA WOKANDA / IT SECURITY DLA PRAWNIKÓW</p>
       <h1>{site.tagline}</h1>
       <p class="lead">
-        Dwanaście nocy. Każda zaczyna się od presji wokandy, niepełnej informacji
-        i decyzji, którą ktoś chce podjąć za szybko.
+        Dwadzieścia cztery noce w dwóch sezonach. Każda zaczyna się od presji
+        wokandy, niepełnej informacji i decyzji, którą ktoś chce podjąć za szybko.
+        Kadry Sezonu 1 są w przygotowaniu.
       </p>
       <div class="actions">
         <a class="button" href="/wokanda">Otwórz wokandę →</a>
@@ -50,7 +51,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       {lessons.slice(0, 4).map((lesson) => <DocketCard lesson={lesson} />)}
     </div>
     <div class="actions">
-      <a class="button button-secondary" href="/wokanda">Wszystkie 12 nocy →</a>
+      <a class="button button-secondary" href="/wokanda">Dwa sezony →</a>
     </div>
   </section>
 
@@ -62,12 +63,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <h2>Weź procedurę na jutro.</h2>
         </div>
         <p>
-          Trzy krótkie karty do wydruku: drugi kanał przy BEC, własne zatwierdzenie
-          MFA i dopuszczenie narzędzia AI.
+          Na start trzy karty do wydruku: drugi kanał przy BEC, własne zatwierdzenie
+          MFA i dopuszczenie narzędzia AI. Reszta leży w Materiałach.
         </p>
       </div>
       <div class="card-grid">
-        {materials.map((material) => (
+        {materials.slice(0, 3).map((material) => (
           <article class="ink-card">
             <p class="eyebrow">{material.number}</p>
             <h3>
@@ -76,6 +77,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <p class="muted">{material.summary}</p>
           </article>
         ))}
+      </div>
+      <div class="actions">
+        <a class="button button-secondary" href="/materialy">Wszystkie materiały →</a>
       </div>
     </div>
   </section>

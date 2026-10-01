@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RatioView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
     let outcome: Outcome
 
     private var storyChrome: Bool { outcome.lesson.storyMode }
@@ -137,7 +138,7 @@ struct RatioView: View {
                     .padding(16)
                     .padding(.bottom, 32)
                     }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }

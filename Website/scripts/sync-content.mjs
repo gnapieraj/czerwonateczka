@@ -18,8 +18,8 @@ await Promise.all([
 
 const lessonsPath = resolve(root, "Resources/Lessons.json");
 const lessons = JSON.parse(await readFile(lessonsPath, "utf8"));
-if (!Array.isArray(lessons) || lessons.length !== 12) {
-  throw new Error(`Oczekiwano 12 lekcji, otrzymano: ${lessons.length}`);
+if (!Array.isArray(lessons) || lessons.length !== 24) {
+  throw new Error(`Oczekiwano 24 lekcji, otrzymano: ${lessons.length}`);
 }
 
 const sourcePath = resolve(root, "Views/SourcesView.swift");
@@ -40,8 +40,8 @@ const sources =
             en: "SANS OUCH! — security-awareness newsletter",
           },
           note: {
-            pl: "Dwanaście nocy bierze tematy z newslettera SANS OUCH. Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
-            en: "The twelve nights take their topics from the SANS OUCH newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter.",
+            pl: "Noce biorą tematy z newslettera SANS OUCH. Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
+            en: "The nights take their topics from the SANS OUCH newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter.",
           },
           url: "https://www.sans.org/newsletters/ouch",
         },
@@ -72,17 +72,15 @@ await Promise.all([
 ]);
 
 const castImages = [
-  "OfficeNight",
-  "DeskFolders",
-  "MecenasPOV",
-  "AplikantIglica",
-  "PartnerChropot",
-  "SekretariatIrena",
+  "SezonMecenas",
+  "SezonAplikant",
+  "Gabinet",
+  "Biurko",
 ];
-const nightImages = Array.from({ length: 12 }, (_, index) => {
+const nightImages = Array.from({ length: 24 }, (_, index) => {
   const n = String(index + 1).padStart(2, "0");
-  return [`Night${n}a`, `Night${n}b`];
-}).flat();
+  return `Night${n}a`;
+});
 const imageNames = [...castImages, ...nightImages];
 
 await Promise.all(
@@ -94,6 +92,17 @@ await Promise.all(
       optimizeImage(source, resolve(publicAssets, `${name}-720.webp`), 720, 64),
     ]);
     await rm(resolve(publicAssets, `${name}.png`), { force: true });
+  }),
+);
+
+await Promise.all(
+  Array.from({ length: 24 }, (_, index) => {
+    const n = String(index + 1).padStart(2, "0");
+    return Promise.all(
+      ["", "-1000", "-720"].map((suffix) =>
+        rm(resolve(publicAssets, `Night${n}b${suffix}.webp`), { force: true }),
+      ),
+    );
   }),
 );
 
@@ -121,7 +130,7 @@ const screenFiles = [
   "iphone-komiks.jpg",
   "iphone-teczka.jpg",
   "ipad-wokanda.jpg",
-  "ipad-wokanda-landscape.jpg",
+  "ipad-komiks-landscape.jpg",
 ];
 await Promise.all(
   screenFiles.map((name) => copyFile(resolve(screenDir, name), resolve(publicScreens, name))),

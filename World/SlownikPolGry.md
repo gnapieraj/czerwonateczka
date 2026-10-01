@@ -49,12 +49,13 @@ Nie pokazywać Briefingu *przed* decyzją — spoiluje odruch.
 
 | Asset | Kim jest |
 |---|---|
-| MecenasPOV | Gracz |
-| AplikantIglica | Filip Iglica |
-| PartnerChropot | Partner |
-| SekretariatIrena | Irena |
-| OfficeNight | Miejsce |
-| Night01a…Night12b | Panele fabularne nocy |
+| SezonMecenas | Gracz, plakat sezonu 0 |
+| SezonAplikant | Filip Iglica, plakat sezonu 1 |
+| Night04b | Partner Chropot w biblii |
+| Night05b | Irena w biblii |
+| Gabinet | Miejsce |
+| Biurko | Tło wokandy |
+| Night01a…Night12b | Panele fabularne sezonu 0 |
 
 ---
 

@@ -284,7 +284,7 @@ struct ComicIntroView: View {
 
     private func comicPager(sideBySide: Bool) -> some View {
         HorizontalPager(pageCount: pages.count, selection: $pageIndex) { index in
-            ComicBoard(beats: pages[index], language: store.language, sideBySide: sideBySide)
+            ComicBoard(beats: pages[index], language: store.language, sideBySide: sideBySide, preparing: lesson.artPending)
                 .padding(10)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .contentShape(Rectangle())
@@ -310,7 +310,8 @@ struct ComicIntroView: View {
                     ComicBoard(
                         beats: pages[index],
                         language: store.language,
-                        letteringOutside: true
+                        letteringOutside: true,
+                        preparing: lesson.artPending
                     )
                     .padding(8)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

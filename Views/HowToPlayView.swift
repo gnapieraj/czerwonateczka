@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HowToPlayView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
 
     private var stages: [(String, String)] {
         [
@@ -33,8 +34,8 @@ struct HowToPlayView: View {
                 Copy.s(store.language, pl: "Teczka", en: "File"),
                 Copy.s(
                     store.language,
-                    pl: "Ruch na przedmiocie nocy. Trzy możliwe wyniki, a sytuację czytasz wcześniej.",
-                    en: "The move is on the night’s object. Three possible results, and you read the situation first."
+                    pl: "Ruch na przedmiocie nocy. Część przycisków kończy noc od razu, resztę zaznaczasz i domykasz na dole. Wynik jest jeden z trzech: trafny, błędny albo niepełny.",
+                    en: "The move is on the night’s object. Some buttons end the night at once; mark the rest and finish at the bottom. The result is one of three: sound, unsound, or incomplete."
                 )
             ),
             (
@@ -84,7 +85,7 @@ struct HowToPlayView: View {
                 ) { EmptyView() }
 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 10) {
                         InkPlate {
                             Text(Copy.s(
                                 store.language,
@@ -113,14 +114,14 @@ struct HowToPlayView: View {
                                             .foregroundStyle(Noir.paper)
                                             .fixedSize(horizontal: false, vertical: true)
                                         Text(stage.1)
-                                            .font(Typeface.body(18))
+                                            .font(Typeface.body(17))
                                             .foregroundStyle(Noir.paperDim)
-                                            .lineSpacing(4)
+                                            .lineSpacing(2)
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 }
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 7)
                                 if index < stages.count - 1 {
                                     Rectangle()
                                         .fill(Color.white.opacity(0.18))
@@ -162,7 +163,7 @@ struct HowToPlayView: View {
                         .padding(16)
                         .padding(.bottom, 32)
                     }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }

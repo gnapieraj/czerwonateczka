@@ -4,13 +4,15 @@ import test from "node:test";
 
 const generated = new URL("../src/data/generated/", import.meta.url);
 
-test("eksport zawiera dwanaście kompletnych nocy", async () => {
+test("eksport zawiera dwadzieścia cztery noce w dwóch sezonach", async () => {
   const lessons = JSON.parse(await readFile(new URL("lessons.json", generated), "utf8"));
-  assert.equal(lessons.length, 12);
+  assert.equal(lessons.length, 24);
   assert.deepEqual(
     lessons.map((lesson) => lesson.order),
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    Array.from({ length: 24 }, (_, index) => index + 1),
   );
+  assert.equal(lessons.filter((lesson) => lesson.seasonId === "0").length, 12);
+  assert.equal(lessons.filter((lesson) => lesson.seasonId === "1").length, 12);
   for (const lesson of lessons) {
     assert.ok(lesson.title.pl);
     assert.ok(lesson.awareness.threat.pl);
@@ -58,6 +60,9 @@ test("każda noc ma publiczne copy WWW", async () => {
   }
   assert.match(site, /newsletterSequence/);
   assert.match(site, /mfa-tylko-swoje/);
+  assert.match(site, /okup-pierwsza-godzina/);
+  assert.match(site, /Spoofing i vishing/);
+  assert.doesNotMatch(site, /Deepfake i przelewy/);
   assert.match(site, /Poznaj grę/);
   assert.match(site, /\/o-projekcie/);
 });
@@ -88,7 +93,8 @@ test("o-projekcie pokazuje zrzuty i status App Store", async () => {
   const site = await readFile(new URL("../src/data/site.ts", import.meta.url), "utf8");
   assert.match(page, /iphone-wokanda\.jpg/);
   assert.match(page, /ipad-wokanda\.jpg/);
-  assert.match(page, /ipad-wokanda-landscape\.jpg/);
+  assert.match(page, /ipad-komiks-landscape\.jpg/);
+  assert.match(page, /iPad · komiks · poziom/);
   assert.match(page, /DeviceShot/);
   assert.match(page, /device-gallery--phones/);
   assert.match(page, /device-gallery--ipads/);

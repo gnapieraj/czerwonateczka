@@ -8,6 +8,7 @@ final class Soundtrack: ObservableObject {
     private let mutedKey = "docket.musicMuted"
     private var player: AVAudioPlayer?
     private var preparing = false
+    private var sessionObservers: [NSObjectProtocol] = []
 
     @Published var isMuted: Bool {
         didSet {
@@ -22,6 +23,7 @@ final class Soundtrack: ObservableObject {
 
     func prepare() {
         guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else { return }
+        watchSession()
         guard player == nil, !preparing else {
             apply()
             return
@@ -29,6 +31,7 @@ final class Soundtrack: ObservableObject {
         guard let url = Bundle.main.url(forResource: "NightDocket", withExtension: "m4a") else { return }
         do {
             let session = AVAudioSession.sharedInstance()
+            // Ambient follows the Ring/Silent switch, so a silenced phone stays quiet.
             try session.setCategory(.ambient, mode: .default, options: [.mixWithOthers])
             preparing = true
             if #available(iOS 27.0, *) {
@@ -71,7 +74,17 @@ final class Soundtrack: ObservableObject {
     }
 
     func resumeIfNeeded() {
-        apply()
+        let session = AVAudioSession.sharedInstance()
+        if #available(iOS 27.0, *) {
+            session.activate(options: []) { _, _ in
+                Task { @MainActor in
+                    Soundtrack.shared.apply()
+                }
+            }
+        } else {
+            try? session.setActive(true)
+            apply()
+        }
     }
 
     private func apply() {
@@ -81,5 +94,34 @@ final class Soundtrack: ObservableObject {
         } else if !player.isPlaying {
             player.play()
         }
+    }
+
+    /// iOS 27 retires the old interruption notification. The player no longer resumes by itself.
+    private func watchSession() {
+        guard sessionObservers.isEmpty, #available(iOS 27.0, *) else { return }
+        let center = NotificationCenter.default
+        let resume = center.addObserver(
+            forName: AVAudioSession.resumptionRecommendationNotification,
+            object: nil,
+            queue: .main
+        ) { note in
+            guard
+                let context = note.userInfo?[AVAudioSession.resumptionContextKey] as? AVAudioSession.ResumptionContext,
+                context.recommendation == .shouldResume
+            else { return }
+            Task { @MainActor in
+                Soundtrack.shared.resumeIfNeeded()
+            }
+        }
+        let active = center.addObserver(
+            forName: AVAudioSession.didBecomeActiveNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            Task { @MainActor in
+                Soundtrack.shared.apply()
+            }
+        }
+        sessionObservers = [resume, active]
     }
 }

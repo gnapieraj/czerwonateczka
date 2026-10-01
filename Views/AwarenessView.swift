@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AwarenessView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
     let lesson: Lesson
 
     var body: some View {
@@ -17,113 +18,144 @@ struct AwarenessView: View {
 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
-
-                    InkPlate {
-                        HStack(alignment: .top, spacing: 12) {
-                            CroppedImage(name: lesson.hero)
-                                .frame(width: 64, height: 86)
-                                .overlay(Rectangle().stroke(Noir.blood, lineWidth: 2))
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(String(format: "%02d", lesson.order))
-                                    .font(Typeface.mono(16))
-                                    .foregroundStyle(Noir.paperDim)
-                                Text(lesson.title.t(store.language))
-                                    .font(Typeface.display(26))
-                                    .foregroundStyle(.white)
-                                    .lineSpacing(4)
-                                    .lineLimit(3)
-                                    .minimumScaleFactor(0.9)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                Text(lesson.subtitle.t(store.language))
-                                    .font(Typeface.mono(16))
-                                    .foregroundStyle(Noir.paper)
-                                    .fixedSize(horizontal: false, vertical: true)
+                        if horizontal == .regular {
+                            HStack(alignment: .top, spacing: 16) {
+                                VStack(alignment: .leading, spacing: 16) {
+                                    headerPlate
+                                    threatSection
+                                    watchSection
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 16) {
+                                    minimizeSection
+                                    practiceSection
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
+                        } else {
+                            headerPlate
+                            threatSection
+                            watchSection
+                            minimizeSection
+                            practiceSection
                         }
-                    }
-                    .padding(.horizontal, 16)
 
-                    section(
-                        kicker: Copy.s(store.language, pl: "JAK TO DZIAŁA", en: "HOW IT WORKS"),
-                        text: lesson.awareness.threat.t(store.language),
-                        blood: true
-                    )
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(Copy.s(store.language, pl: "NA CO ZWRACAĆ UWAGĘ", en: "WATCH FOR"))
-                            .font(Typeface.mono(16))
-                            .foregroundStyle(Noir.blood)
-                            .tracking(1)
-                        ForEach(Array(lesson.awareness.watchFor.enumerated()), id: \.offset) { _, item in
-                            HStack(alignment: .top, spacing: 10) {
-                                Text("▸")
-                                    .font(Typeface.mono(18))
-                                    .foregroundStyle(Noir.blood)
-                                Text(item.t(store.language))
-                                    .font(Typeface.body(22))
-                                    .foregroundStyle(.white)
-                                    .lineSpacing(8)
-                                    .fixedSize(horizontal: false, vertical: true)
+                        if store.lesson(after: lesson) != nil {
+                            Button {
+                                store.finishBriefingAndOpenNext(after: lesson)
+                            } label: {
+                                Text(Copy.s(store.language, pl: "Następna noc", en: "Next night"))
+                                    .font(Typeface.mono(20))
+                                    .foregroundStyle(Noir.void)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 18)
+                                    .padding(.horizontal, 16)
+                                    .background(Noir.paper)
                             }
+                            .buttonStyle(.plain)
+                            .padding(.horizontal, 16)
                         }
-                    }
-                    .padding(16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Noir.ink)
-                    .overlay(Rectangle().stroke(Noir.blood.opacity(0.7), lineWidth: 1))
-                    .padding(.horizontal, 16)
 
-                    section(
-                        kicker: Copy.s(store.language, pl: "JAK MINIMALIZOWAĆ", en: "HOW TO REDUCE IT"),
-                        text: lesson.awareness.minimize.t(store.language)
-                    )
-
-                    section(
-                        kicker: Copy.s(store.language, pl: "W KANCELARII — PRAKTYKA", en: "IN THE FIRM — PRACTICE"),
-                        text: lesson.awareness.practice.t(store.language)
-                    )
-
-                    if store.lesson(after: lesson) != nil {
                         Button {
-                            store.finishBriefingAndOpenNext(after: lesson)
+                            store.finishBriefing()
                         } label: {
-                            Text(Copy.s(store.language, pl: "Następna noc", en: "Next night"))
-                                .font(Typeface.mono(20))
-                                .foregroundStyle(Noir.void)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 18)
-                                .padding(.horizontal, 16)
-                                .background(Noir.paper)
-                        }
-                        .buttonStyle(.plain)
-                        .padding(.horizontal, 16)
-                    }
-
-                    Button {
-                        store.finishBriefing()
-                    } label: {
-                        Text(Copy.s(
-                            store.language,
-                            pl: "Zrozumiano — na wokandę",
-                            en: "Understood — to the docket"
-                        ))
+                            Text(Copy.s(
+                                store.language,
+                                pl: "Zrozumiano — na wokandę",
+                                en: "Understood — to the docket"
+                            ))
                             .font(Typeface.mono(20))
                             .foregroundStyle(Noir.void)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 18)
                             .padding(.horizontal, 16)
                             .background(Noir.blood)
+                        }
+                        .buttonStyle(.plain)
+                        .padding(16)
+                        .padding(.bottom, 32)
                     }
-                    .buttonStyle(.plain)
-                    .padding(16)
-                    .padding(.bottom, 32)
-                    }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }
             }
         }
+    }
+
+    private var headerPlate: some View {
+        InkPlate {
+            HStack(alignment: .top, spacing: 12) {
+                CroppedImage(name: lesson.hero)
+                    .frame(width: 64, height: 86)
+                    .overlay(Rectangle().stroke(Noir.blood, lineWidth: 2))
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(String(format: "%02d", lesson.order))
+                        .font(Typeface.mono(16))
+                        .foregroundStyle(Noir.paperDim)
+                    Text(lesson.title.t(store.language))
+                        .font(Typeface.display(26))
+                        .foregroundStyle(.white)
+                        .lineSpacing(4)
+                        .lineLimit(3)
+                        .minimumScaleFactor(0.9)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(lesson.subtitle.t(store.language))
+                        .font(Typeface.mono(16))
+                        .foregroundStyle(Noir.paper)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+    }
+
+    private var threatSection: some View {
+        section(
+            kicker: Copy.s(store.language, pl: "JAK TO DZIAŁA", en: "HOW IT WORKS"),
+            text: lesson.awareness.threat.t(store.language),
+            blood: true
+        )
+    }
+
+    private var watchSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(Copy.s(store.language, pl: "NA CO ZWRACAĆ UWAGĘ", en: "WATCH FOR"))
+                .font(Typeface.mono(16))
+                .foregroundStyle(Noir.blood)
+                .tracking(1)
+            ForEach(Array(lesson.awareness.watchFor.enumerated()), id: \.offset) { _, item in
+                HStack(alignment: .top, spacing: 10) {
+                    Text("▸")
+                        .font(Typeface.mono(18))
+                        .foregroundStyle(Noir.blood)
+                    Text(item.t(store.language))
+                        .font(Typeface.body(22))
+                        .foregroundStyle(.white)
+                        .lineSpacing(8)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Noir.ink)
+        .overlay(Rectangle().stroke(Noir.blood.opacity(0.7), lineWidth: 1))
+        .padding(.horizontal, 16)
+    }
+
+    private var minimizeSection: some View {
+        section(
+            kicker: Copy.s(store.language, pl: "JAK MINIMALIZOWAĆ", en: "HOW TO REDUCE IT"),
+            text: lesson.awareness.minimize.t(store.language)
+        )
+    }
+
+    private var practiceSection: some View {
+        section(
+            kicker: Copy.s(store.language, pl: "W KANCELARII — PRAKTYKA", en: "IN THE FIRM — PRACTICE"),
+            text: lesson.awareness.practice.t(store.language)
+        )
     }
 
     private func section(kicker: String, text: String, blood: Bool = false) -> some View {

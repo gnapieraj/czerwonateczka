@@ -14,6 +14,7 @@ final class GameStore: ObservableObject {
     @Published var loadError: String?
     @Published var seenBible: Bool
     @Published var seenHowToPlay: Bool
+    @Published var selectedSeasonId: String = "0"
     private var stack: [Route] = []
     private let stampsKey = "docket.stamps"
     private let bibleKey = "docket.seenBible"
@@ -21,6 +22,7 @@ final class GameStore: ObservableObject {
     private let metersKey = "docket.meters"
     private let streakKey = "docket.streak"
     private let coachKey = "docket.needsCoach"
+    private let seasonKey = "docket.season"
 
     let lessons: [Lesson]
 
@@ -66,6 +68,12 @@ final class GameStore: ObservableObject {
            let saved = try? JSONDecoder().decode(Meters.self, from: data) {
             meters = saved
         }
+        let storedSeason = UserDefaults.standard.string(forKey: seasonKey) ?? ""
+        if self.lessons.contains(where: { $0.seasonId == storedSeason }) {
+            selectedSeasonId = storedSeason
+        } else if let next = self.lessons.first(where: { stamps[$0.id] == nil }) {
+            selectedSeasonId = next.seasonId
+        }
     }
 
     var demoLessons: [Lesson] { lessons.filter(\.demo) }
@@ -105,8 +113,12 @@ final class GameStore: ObservableObject {
 
     func start() {
         stack = []
-        if stamps.isEmpty, let night = lessons.first {
-            route = .comic(night)
+        if stamps.isEmpty, !seenHowToPlay {
+            route = .howToPlay
+            return
+        }
+        if stamps.isEmpty, !seenBible {
+            route = .bible
             return
         }
         route = .desk
@@ -166,8 +178,17 @@ final class GameStore: ObservableObject {
     }
 
     func finishBriefing() {
+        if let next = nextNight {
+            selectSeason(next.seasonId)
+        }
         stack = []
         route = .desk
+    }
+
+    func selectSeason(_ id: String) {
+        guard lessons.contains(where: { $0.seasonId == id }) else { return }
+        selectedSeasonId = id
+        UserDefaults.standard.set(id, forKey: seasonKey)
     }
 
     func finishBriefingAndOpenNext(after lesson: Lesson) {
@@ -194,6 +215,7 @@ final class GameStore: ObservableObject {
         if let data = try? JSONEncoder().encode(Meters.full) {
             UserDefaults.standard.set(data, forKey: metersKey)
         }
+        selectSeason(lessons.first?.seasonId ?? "0")
     }
 
     /// Full onboarding again: clears progress and returns to splash (for multi-user testing).

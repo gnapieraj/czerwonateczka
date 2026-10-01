@@ -4,6 +4,7 @@ import UIKit
 /// The night’s object. Short verbs on the thing itself. The rule is said after the stamp.
 struct ExhibitGestureView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
     let lesson: Lesson
     @State private var flags: Set<String> = []
     @State private var sealed = false
@@ -21,7 +22,7 @@ struct ExhibitGestureView: View {
             .padding(.horizontal, 16)
             .padding(.top, 10)
             .padding(.bottom, 12)
-            .frame(maxWidth: 720)
+            .frame(maxWidth: ReadingMeasure.column(horizontal))
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
     }
@@ -58,8 +59,20 @@ struct ExhibitGestureView: View {
                 .font(Typeface.body(16))
                 .foregroundStyle(Noir.paperDim)
                 .fixedSize(horizontal: false, vertical: true)
-            ForEach(scene.cards) { card in
-                cardView(card)
+            if horizontal == .regular {
+                LazyVGrid(
+                    columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)],
+                    alignment: .leading,
+                    spacing: 8
+                ) {
+                    ForEach(scene.cards) { card in
+                        cardView(card)
+                    }
+                }
+            } else {
+                ForEach(scene.cards) { card in
+                    cardView(card)
+                }
             }
         }
         .background(GeometryReader { proxy in
@@ -99,8 +112,8 @@ struct ExhibitGestureView: View {
             )
         }
         return Loc(
-            pl: "Zaznacz, co robisz z przedmiotem. Na końcu odłóż.",
-            en: "Mark what you do with the object. Then set it down."
+            pl: "Część przycisków kończy noc od razu. Resztę zaznaczasz i domykasz na dole.",
+            en: "Some buttons end the night at once. Mark the rest, then finish at the bottom."
         )
     }
 

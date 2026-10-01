@@ -68,6 +68,7 @@ struct ComicPagePanel: View {
     var letteringOutside: Bool = false
     /// Inside a fixed frame the picture takes the space left after the words.
     var fillsFrame: Bool = false
+    var preparing: Bool = false
 
     var body: some View {
         Group {
@@ -104,6 +105,9 @@ struct ComicPagePanel: View {
                 }
             }
         }
+        .overlay(alignment: .topTrailing) {
+            if preparing { preparingFlag.padding(8) }
+        }
     }
 
     private var outside: some View {
@@ -123,6 +127,9 @@ struct ComicPagePanel: View {
                 .aspectRatio(fillsFrame ? nil : 16 / 9, contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: fillsFrame ? .infinity : nil)
                 .clipped()
+                .overlay(alignment: .topTrailing) {
+                    if preparing { preparingFlag.padding(8) }
+                }
             if beat.voice == .balloon {
                 lettering
                     .padding(.horizontal, 8)
@@ -136,6 +143,15 @@ struct ComicPagePanel: View {
     private var lettering: some View {
         ComicLettering(text: beat.caption.t(language), voice: beat.voice)
     }
+
+    private var preparingFlag: some View {
+        Text(Copy.s(language, pl: "W PRZYGOTOWANIU", en: "IN PREPARATION"))
+            .font(Typeface.mono(11))
+            .foregroundStyle(Noir.paper)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(Noir.blood)
+    }
 }
 
 struct ComicBoard: View {
@@ -147,12 +163,13 @@ struct ComicBoard: View {
     var fitsContent: Bool = false
     /// Words sit above or below the plate, inside a frame that already has a height.
     var letteringOutside: Bool = false
+    var preparing: Bool = false
 
     var body: some View {
         if fitsContent {
             VStack(spacing: 8) {
                 ForEach(beats) { beat in
-                    ComicPagePanel(beat: beat, language: language, letteringOutside: true)
+                    ComicPagePanel(beat: beat, language: language, letteringOutside: true, preparing: preparing)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .top)
@@ -217,7 +234,8 @@ struct ComicBoard: View {
             beat: beat,
             language: language,
             letteringOutside: letteringOutside,
-            fillsFrame: letteringOutside
+            fillsFrame: letteringOutside,
+            preparing: preparing
         )
         .frame(width: width, height: height)
     }
@@ -246,12 +264,32 @@ struct ComicPanel: View {
     var bloodCaption: Bool = false
     var minHeight: CGFloat = 160
     var contentMode: ContentMode = .fill
+    /// Full 16:9 plate. A fixed height crops or letterboxes these drawings.
+    var plateRatio: CGFloat? = nil
+    var preparing: Bool = false
+    var language: AppLanguage = .polish
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            CroppedImage(name: asset, contentMode: contentMode)
-                .frame(maxWidth: .infinity)
-                .frame(height: minHeight)
+            Group {
+                if let plateRatio {
+                    Color.clear
+                        .aspectRatio(plateRatio, contentMode: .fit)
+                        .overlay {
+                            Image(asset)
+                                .resizable()
+                                .scaledToFill()
+                        }
+                        .clipped()
+                        .overlay(alignment: .topTrailing) {
+                            if preparing { preparingFlag.padding(8) }
+                        }
+                } else {
+                    CroppedImage(name: asset, contentMode: contentMode)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: minHeight)
+                }
+            }
             if let caption, !caption.isEmpty {
                 Text(caption)
                     .font(Typeface.body(20))
@@ -267,6 +305,15 @@ struct ComicPanel: View {
         .clipShape(Rectangle())
         .overlay(Rectangle().stroke(Color.white.opacity(0.85), lineWidth: 2))
         .shadow(color: Noir.blood.opacity(0.25), radius: 0, x: 3, y: 3)
+    }
+
+    private var preparingFlag: some View {
+        Text(Copy.s(language, pl: "W PRZYGOTOWANIU", en: "IN PREPARATION"))
+            .font(Typeface.mono(11))
+            .foregroundStyle(Noir.paper)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(Noir.blood)
     }
 }
 
@@ -288,7 +335,7 @@ struct BlindsOverlay: View {
 }
 
 struct StageBackground: View {
-    var image: String = "OfficeNight"
+    var image: String = "Gabinet"
     /// Heavy ink so body copy never sits on hatching.
     var dim: Double = 0.78
 

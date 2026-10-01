@@ -27,9 +27,11 @@ final class LessonPackTests: XCTestCase {
         XCTAssertNotNil(Bundle(for: Soundtrack.self).url(forResource: "NightDocket", withExtension: "m4a"))
     }
 
-    func testTwelveAwarenessNights() throws {
+    func testTwentyFourAwarenessNights() throws {
         let lessons = try loadPack()
-        XCTAssertEqual(lessons.count, 12)
+        XCTAssertEqual(lessons.count, 24)
+        XCTAssertEqual(lessons.filter { $0.seasonId == "0" }.count, 12)
+        XCTAssertEqual(lessons.filter { $0.seasonId == "1" }.count, 12)
         XCTAssertEqual(lessons.filter(\.demo).map(\.id), ["01-kod", "02-list", "03-prompt"])
         XCTAssertTrue(lessons.allSatisfy(\.storyMode))
         XCTAssertTrue(lessons.allSatisfy { $0.introVideo == nil })
@@ -114,17 +116,20 @@ final class LessonPackTests: XCTestCase {
     }
 
     @MainActor
-    func testFirstLaunchOpensTheNightBeforeTheRulebook() throws {
+    func testFirstLaunchOpensTheRulebookBeforeTheNight() throws {
         let pack = try loadPack()
         UserDefaults.standard.set(false, forKey: "docket.seenBible")
         UserDefaults.standard.set(false, forKey: "docket.seenHowToPlay")
         let store = GameStore(lessons: pack)
         store.clearStamps()
         store.start()
-        let first = try XCTUnwrap(pack.first)
-        XCTAssertEqual(store.route, .comic(first))
+        XCTAssertEqual(store.route, .howToPlay)
         XCTAssertFalse(store.seenHowToPlay)
         XCTAssertFalse(store.seenBible)
+        store.dismissHowToPlay()
+        XCTAssertEqual(store.route, .bible)
+        store.back()
+        XCTAssertEqual(store.route, .desk)
     }
 
     @MainActor
@@ -135,8 +140,8 @@ final class LessonPackTests: XCTestCase {
         let store = GameStore(lessons: pack)
         store.clearStamps()
         store.start()
+        XCTAssertEqual(store.route, .desk)
         let first = try XCTUnwrap(pack.first)
-        XCTAssertEqual(store.route, .comic(first))
         store.open(first)
         XCTAssertEqual(store.route, .comic(first))
         store.resetFirstLaunch()
@@ -145,7 +150,7 @@ final class LessonPackTests: XCTestCase {
         XCTAssertFalse(store.seenBible)
         XCTAssertFalse(store.seenHowToPlay)
         store.start()
-        XCTAssertEqual(store.route, .comic(first))
+        XCTAssertEqual(store.route, .howToPlay)
     }
 
     @MainActor
@@ -187,8 +192,8 @@ final class LessonPackTests: XCTestCase {
             ExhibitGesture.resolve(lessonId: "12-okup", flags: ["unplug", "list"]),
             "trap"
         )
-        XCTAssertEqual(DocketHabit.all.count, 12)
-        XCTAssertEqual(Set(DocketHabit.all.map(\.lessonId)).count, 12)
+        XCTAssertEqual(DocketHabit.all.count, 24)
+        XCTAssertEqual(Set(DocketHabit.all.map(\.lessonId)).count, 24)
     }
 
     func testEveryNightHasAGesture() throws {
@@ -217,6 +222,25 @@ final class LessonPackTests: XCTestCase {
         store.choose(trap, in: first)
         XCTAssertTrue(store.canPlay(second))
         XCTAssertTrue(store.isCurrentNight(second))
+    }
+
+    @MainActor
+    func testAssociateSeasonOpensAfterTheTwelfthStamp() throws {
+        let pack = try loadPack()
+        XCTAssertEqual(pack.filter { $0.seasonId == "1" }.count, 12)
+        let store = GameStore(lessons: pack)
+        store.clearStamps()
+        store.selectSeason("1")
+        let associate = try XCTUnwrap(pack.first { $0.id == "13-chmura" })
+        XCTAssertFalse(store.canPlay(associate))
+        for lesson in pack where lesson.seasonId == "0" {
+            let trap = try XCTUnwrap(lesson.choices.first { $0.id == "trap" })
+            store.choose(trap, in: lesson)
+        }
+        XCTAssertTrue(store.canPlay(associate))
+        store.finishBriefing()
+        XCTAssertEqual(store.selectedSeasonId, "1")
+        XCTAssertEqual(store.route, .desk)
     }
 
     func testLegacyBinaryStampMigration() throws {

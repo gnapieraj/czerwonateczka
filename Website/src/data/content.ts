@@ -7,6 +7,7 @@ export type Localized = { pl: string; en: string };
 export type Lesson = {
   id: string;
   order: number;
+  seasonId: string;
   hero: string;
   tone: "shadow" | "probono";
   title: Localized;

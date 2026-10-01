@@ -5,43 +5,37 @@ struct DeskView: View {
     @EnvironmentObject private var soundtrack: Soundtrack
     var body: some View {
         ZStack {
-            StageBackground(image: "DeskFolders", dim: 0.82)
-            ScrollView {
+            StageBackground(image: "Biurko", dim: 0.82)
+            GeometryReader { proxy in
+                let wide = proxy.size.width > 1000
+                ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         deskTools
-                        habitStrip
-                            .padding(.horizontal, 16)
-
-                        deskHero
-
-                        todayCTA
-
-                        Text(Copy.s(store.language, pl: "WOKANDA", en: "DOCKET"))
-                            .font(Typeface.mono(16))
-                            .tracking(2)
-                            .foregroundStyle(Noir.paperDim)
-                            .padding(.horizontal, 16)
-                            .padding(.top, 4)
-
-                        ForEach(store.seasonSections, id: \.id) { section in
-                            Text(section.title.t(store.language).uppercased())
-                                .font(Typeface.mono(14))
-                                .tracking(1.5)
-                                .foregroundStyle(Noir.blood)
-                                .padding(.horizontal, 16)
-                                .padding(.top, 8)
-
-                            VStack(spacing: 10) {
-                                ForEach(section.lessons) { lesson in
-                                    FolderCard(lesson: lesson)
+                        if wide {
+                            HStack(alignment: .top, spacing: 20) {
+                                VStack(alignment: .leading, spacing: 16) {
+                                    habitStrip
+                                        .padding(.horizontal, 16)
+                                    seasonChoice
                                 }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                VStack(alignment: .leading, spacing: 16) {
+                                    todayCTA
+                                    wokandaList
+                                }
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
                             }
-                            .padding(.horizontal, 16)
+                        } else {
+                            habitStrip
+                                .padding(.horizontal, 16)
+                            seasonChoice
+                            todayCTA
+                            wokandaList
                         }
-                        .padding(.bottom, 40)
                     }
-                    .frame(maxWidth: 840)
+                    .frame(maxWidth: wide ? 1180 : 840)
                     .frame(maxWidth: .infinity)
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -127,8 +121,18 @@ struct DeskView: View {
         .padding(.top, 4)
     }
 
+    private var seasonLessons: [Lesson] {
+        store.seasonSections.first { $0.id == store.selectedSeasonId }?.lessons ?? []
+    }
+
+    private var seasonHabits: [DocketHabit] {
+        let ids = Set(seasonLessons.map(\.id))
+        return DocketHabit.all.filter { ids.contains($0.lessonId) }
+    }
+
     private var habitStrip: some View {
-        let earned = DocketHabit.all.filter { habit in
+        let habits = seasonHabits
+        let earned = habits.filter { habit in
             store.lessons.first { $0.id == habit.lessonId }.flatMap { store.stamp(for: $0) } != nil
         }.count
         return VStack(alignment: .leading, spacing: 6) {
@@ -138,7 +142,7 @@ struct DeskView: View {
                     .tracking(1.4)
                     .foregroundStyle(Noir.blood)
                 Spacer(minLength: 8)
-                Text("\(earned) / \(DocketHabit.all.count)")
+                Text("\(earned) / \(habits.count)")
                     .font(Typeface.mono(13))
                     .foregroundStyle(Noir.paperDim)
             }
@@ -147,7 +151,7 @@ struct DeskView: View {
                 alignment: .leading,
                 spacing: 4
             ) {
-                ForEach(DocketHabit.all) { habit in
+                ForEach(habits) { habit in
                     habitMark(habit)
                 }
             }
@@ -159,18 +163,110 @@ struct DeskView: View {
         .overlay(Rectangle().stroke(Color.white.opacity(0.28), lineWidth: 1))
     }
 
-    private var deskHero: some View {
-        CroppedImage(name: "MecenasPOV", contentMode: .fill)
+    private var seasonChoice: some View {
+        Color.clear
             .aspectRatio(16 / 9, contentMode: .fit)
+            .overlay {
+                HStack(spacing: 0) {
+                    seasonHalf(
+                        id: "0",
+                        image: "SezonMecenas",
+                        eyebrow: Copy.s(store.language, pl: "SEZON 0", en: "SEASON 0"),
+                        name: Copy.s(store.language, pl: "Mecenas", en: "Counsel")
+                    )
+                    Rectangle()
+                        .fill(Noir.blood)
+                        .frame(width: 3)
+                    seasonHalf(
+                        id: "1",
+                        image: "SezonAplikant",
+                        eyebrow: Copy.s(store.language, pl: "SEZON 1", en: "SEASON 1"),
+                        name: Copy.s(store.language, pl: "Aplikant", en: "Associate")
+                    )
+                }
+            }
             .clipShape(Rectangle())
             .overlay(Rectangle().stroke(Color.white.opacity(0.85), lineWidth: 2))
             .shadow(color: Noir.blood.opacity(0.25), radius: 0, x: 3, y: 3)
             .padding(.horizontal, 16)
+            .accessibilityElement(children: .contain)
+    }
+
+    private func seasonHalf(id: String, image: String, eyebrow: String, name: String) -> some View {
+        let selected = store.selectedSeasonId == id
+        return Button {
+            store.selectSeason(id)
+        } label: {
+            ZStack(alignment: .bottomLeading) {
+                CroppedImage(name: image)
+                if !selected {
+                    Color.black.opacity(0.52)
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(eyebrow)
+                        .font(Typeface.mono(12))
+                        .tracking(1.6)
+                        .foregroundStyle(Noir.blood)
+                    Text(name)
+                        .font(Typeface.display(26))
+                        .foregroundStyle(Noir.paper)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    LinearGradient(
+                        colors: [.clear, .black.opacity(selected ? 0.88 : 0.72)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Copy.s(
+            store.language,
+            pl: "\(eyebrow), \(name)",
+            en: "\(eyebrow), \(name)"
+        ))
+        .accessibilityAddTraits(selected ? .isSelected : [])
+    }
+
+    private var wokandaList: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(Copy.s(store.language, pl: "WOKANDA", en: "DOCKET"))
+                .font(Typeface.mono(16))
+                .tracking(2)
+                .foregroundStyle(Noir.paperDim)
+                .padding(.horizontal, 16)
+                .padding(.top, 4)
+
+            if let section = store.seasonSections.first(where: { $0.id == store.selectedSeasonId }) {
+                Text(section.title.t(store.language).uppercased())
+                    .font(Typeface.mono(14))
+                    .tracking(1.5)
+                    .foregroundStyle(Noir.blood)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 8)
+
+                VStack(spacing: 10) {
+                    ForEach(section.lessons) { lesson in
+                        FolderCard(lesson: lesson)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 40)
+            }
+        }
     }
 
     @ViewBuilder
     private var todayCTA: some View {
-        if let today = store.nextNight {
+        let next = seasonLessons.first { store.stamp(for: $0) == nil }
+        if let today = next, store.canPlay(today) {
             Button {
                 store.open(today)
             } label: {
@@ -199,6 +295,46 @@ struct DeskView: View {
                 .overlay(Rectangle().stroke(Noir.blood, lineWidth: 3))
             }
             .buttonStyle(.plain)
+            .padding(.horizontal, 16)
+        } else if next != nil {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(Copy.s(store.language, pl: "ZAMKNIĘTE", en: "CLOSED"))
+                    .font(Typeface.mono(16))
+                    .tracking(2)
+                    .foregroundStyle(Noir.blood)
+                Text(Copy.s(
+                    store.language,
+                    pl: "Ten sezon otwiera się po ostatniej nocy poprzedniego.",
+                    en: "This season opens after the last night of the one before it."
+                ))
+                .font(Typeface.body(20))
+                .foregroundStyle(Noir.paper)
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(18)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Noir.ink)
+            .overlay(Rectangle().stroke(Color.white.opacity(0.28), lineWidth: 1))
+            .padding(.horizontal, 16)
+        } else if !seasonLessons.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(Copy.s(store.language, pl: "SEZON ZAMKNIĘTY", en: "SEASON CLOSED"))
+                    .font(Typeface.mono(16))
+                    .tracking(2)
+                    .foregroundStyle(Noir.blood)
+                Text(Copy.s(
+                    store.language,
+                    pl: "Wszystkie noce tego sezonu mają stempel. Druga połowa obrazu prowadzi dalej.",
+                    en: "Every night in this season is stamped. The other half of the picture leads on."
+                ))
+                .font(Typeface.body(20))
+                .foregroundStyle(Noir.paper)
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(18)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Noir.ink)
+            .overlay(Rectangle().stroke(Color.white.opacity(0.28), lineWidth: 1))
             .padding(.horizontal, 16)
         }
     }

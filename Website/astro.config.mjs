@@ -5,7 +5,7 @@ export default defineConfig({
   site: "https://colgante.pl",
   integrations: [sitemap()],
   output: "static",
-  trailingSlash: "never",
+  trailingSlash: "always",
   build: {
     format: "directory",
   },

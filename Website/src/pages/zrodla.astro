@@ -16,9 +16,9 @@ const categories = [...new Set(sources.map((source) => source.category.pl))];
         <h1>Źródła</h1>
       </div>
       <p class="muted">
-        Dwanaście nocy bierze tematy z newslettera świadomości bezpieczeństwa.
-        Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna
-        ani cytat z materiałów źródłowych.
+        Dwadzieścia cztery noce, w dwóch sezonach, biorą tematy z newslettera
+        świadomości bezpieczeństwa. Sceny, nazwiska i kancelaria Colgante są
+        fikcją. To nie jest porada prawna ani cytat z materiałów źródłowych.
       </p>
     </div>
     {categories.map((category) => (
@@ -34,5 +34,30 @@ const categories = [...new Set(sources.map((source) => source.category.pl))];
         </div>
       </section>
     ))}
+    <section class="section-sm">
+      <h2 style="font-size: 2rem">Dalsze lektury</h2>
+      <p class="muted">
+        To nie są cytaty nocy i nie zastępują SANS OUCH jako źródła tematów.
+        Sięgnij po nie osobno, gdy chcesz procedurę instytucji, nie scenę z gry.
+      </p>
+      <div class="source-grid">
+        <article class="source-card">
+          <a href="https://cert.pl/" rel="external noopener">CERT Polska ↗</a>
+          <p>Ostrzeżenia i poradniki krajowego zespołu reagowania. Nie są źródłem fabuły Colgante.</p>
+        </article>
+        <article class="source-card">
+          <a href="https://www.enisa.europa.eu/" rel="external noopener">ENISA ↗</a>
+          <p>Materiały europejskiej agencji cyberbezpieczeństwa. Lektura obok nocy, nie cytat z nich.</p>
+        </article>
+        <article class="source-card">
+          <a href="https://www.ncsc.gov.uk/" rel="external noopener">NCSC ↗</a>
+          <p>Poradniki brytyjskiego centrum. Przydatne przy hasłach, poczcie i nośnikach.</p>
+        </article>
+        <article class="source-card">
+          <a href="https://www.cisa.gov/stopransomware" rel="external noopener">CISA — Stop Ransomware ↗</a>
+          <p>Pierwsza godzina po żądaniu okupu. Gra uczy odruchu, ta strona jest lekturą instytucji.</p>
+        </article>
+      </div>
+    </section>
   </section>
 </BaseLayout>

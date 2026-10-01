@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SourcesView: View {
     @EnvironmentObject private var store: GameStore
+    @Environment(\.horizontalSizeClass) private var horizontal
     var sourceIds: [String]? = nil
 
     var body: some View {
@@ -35,8 +36,8 @@ struct SourcesView: View {
                         InkPlate {
                             Text(Copy.s(
                                 store.language,
-                                pl: "Dwanaście nocy bierze tematy z newslettera SANS OUCH (świadomość bezpieczeństwa). Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
-                                en: "The twelve nights take their topics from the SANS OUCH security-awareness newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter."
+                                pl: "Noce biorą tematy z newslettera SANS OUCH (świadomość bezpieczeństwa). Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
+                                en: "The nights take their topics from the SANS OUCH security-awareness newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter."
                             ))
                             .font(Typeface.body(22))
                             .foregroundStyle(Noir.paper)
@@ -55,7 +56,7 @@ struct SourcesView: View {
                         }
                         .padding(.horizontal, 16)
                     }
-                    .frame(maxWidth: 720)
+                    .frame(maxWidth: ReadingMeasure.column(horizontal))
                     .frame(maxWidth: .infinity)
                     .padding(.top, 16)
                 }

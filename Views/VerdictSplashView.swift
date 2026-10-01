@@ -42,7 +42,7 @@ struct VerdictSplashView: View {
                 stamped = true
             }
             advanceTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 4_600_000_000)
+                try? await Task.sleep(nanoseconds: 7_000_000_000)
                 guard !Task.isCancelled else { return }
                 advance()
             }

@@ -185,12 +185,48 @@ def upload_sftp_password(password: str) -> None:
         sftp.put(str(path), remote)
         print(f"SFTP {relative}")
 
+    removed = prune_second_frames(sftp)
+    if removed:
+        print(f"Usunięto {removed} drugich kadrów (NightXXb) z /{REMOTE_ROOT}/assets/")
+
     sftp.close()
     transport.close()
     print(f"SFTP (hasło, port {PORT}): wgrano {len(files)} plików do /{REMOTE_ROOT}/")
     print(
         "Kanał był szyfrowany (SSH/SFTP). Zwykły FTP na porcie 21 nadal jest wyłączony."
     )
+
+
+def prune_second_frames(sftp) -> int:
+    """Drugie kadry zostają w grze. Na stronie publikowany jest tylko NightXXa."""
+    import re
+
+    remote_assets = posixpath.join(REMOTE_ROOT, "assets")
+    try:
+        names = sftp.listdir(remote_assets)
+    except FileNotFoundError:
+        return 0
+    pattern = re.compile(r"^Night\d{2}b(?:-720|-1000)?\.webp$")
+    removed = 0
+    for name in names:
+        if not pattern.match(name):
+            continue
+        sftp.remove(posixpath.join(remote_assets, name))
+        removed += 1
+    return removed
+
+
+def prune_night_b_remote(password: str) -> None:
+    import paramiko
+
+    transport = paramiko.Transport((HOST, PORT))
+    transport.connect(username=USER, password=password)
+    sftp = paramiko.SFTPClient.from_transport(transport)
+    assert sftp is not None
+    removed = prune_second_frames(sftp)
+    sftp.close()
+    transport.close()
+    print(f"Usunięto {removed} drugich kadrów (NightXXb) z /{REMOTE_ROOT}/assets/")
 
 
 def upload_ftpes(password: str) -> None:
@@ -236,6 +272,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Awaryjnie: hasło przez FTPES (TLS na 21). Na OVH mutualisé często niedostępne.",
     )
+    parser.add_argument(
+        "--prune-night-b",
+        action="store_true",
+        help="Usuń z serwera drugie kadry NightXXb. Nie wgrywa dist.",
+    )
     return parser.parse_args()
 
 
@@ -244,6 +285,12 @@ def main() -> None:
     allow_ftpes = args.allow_password_ftpes or os.environ.get(
         "OVH_ALLOW_PASSWORD_FTPES", ""
     ).strip() in {"1", "true", "yes"}
+
+    if args.prune_night_b:
+        if not PASSWORD:
+            die("Brak OVH_SFTP_PASSWORD w Website/.env.")
+        prune_night_b_remote(PASSWORD)
+        return
 
     if not LOCAL_DIST.exists():
         die(f"Brak {LOCAL_DIST}. Najpierw: npm run build")
