@@ -70,6 +70,8 @@ struct SettingsView: View {
                     }
                     .padding(.horizontal, 16)
 
+                    employerReportSection
+
                     InkPlate {
                         Text(Copy.s(
                             store.language,
@@ -161,6 +163,77 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+
+    /// Plan-raport-dyplom.md §11 — entry point; the full form lives in `EmployerReportView`.
+    private var employerReportSection: some View {
+        let ready = store.hasPassingReportScope
+        return Button {
+            store.openReport()
+        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .top, spacing: 12) {
+                    Image(systemName: ready ? "checkmark.seal.fill" : "doc.text.magnifyingglass")
+                        .font(.title3)
+                        .foregroundStyle(ready ? Noir.blood : Noir.paperDim)
+                        .frame(width: 28)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(Copy.s(store.language, pl: "Raport dla pracodawcy", en: "Report for your employer"))
+                            .font(Typeface.body(20))
+                            .foregroundStyle(.white)
+                        Text(reportStatusLine)
+                            .font(Typeface.body(18))
+                            .foregroundStyle(Noir.paper)
+                            .lineSpacing(4)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(Noir.paperDim)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+            .background(Noir.ink)
+            .overlay(Rectangle().stroke(ready ? Noir.blood : Color.white.opacity(0.28), lineWidth: 1))
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .padding(.horizontal, 16)
+    }
+
+    private var reportStatusLine: String {
+        if let scope = store.defaultReportScope {
+            let evaluation = store.evaluate(scope)
+            return Copy.s(
+                store.language,
+                pl: "\(scope.title(.polish, lessons: store.lessons)): \(evaluation.soundCount)/\(evaluation.lessonCount) TRAFNE — PDF, CSV i JSON gotowe do udostępnienia.",
+                en: "\(scope.title(.english, lessons: store.lessons)): \(evaluation.soundCount)/\(evaluation.lessonCount) SOUND — PDF, CSV and JSON ready to share."
+            )
+        }
+        guard let scope = store.reportScopes.first else {
+            return Copy.s(store.language, pl: "Brak lekcji.", en: "No lessons.")
+        }
+        let evaluation = store.evaluate(scope)
+        if !evaluation.unstamped.isEmpty {
+            return Copy.s(
+                store.language,
+                pl: "\(scope.title(.polish, lessons: store.lessons)): bez stempla \(evaluation.unstamped.count) z \(evaluation.lessonCount) nocy. Próg: ≥ \(PassPolicy.thresholdPercent)% TRAFNE.",
+                en: "\(scope.title(.english, lessons: store.lessons)): \(evaluation.unstamped.count) of \(evaluation.lessonCount) nights unstamped. Threshold: ≥ \(PassPolicy.thresholdPercent)% SOUND."
+            )
+        }
+        if !evaluation.unbriefed.isEmpty {
+            return Copy.s(
+                store.language,
+                pl: "Briefing do przejrzenia: \(evaluation.unbriefed.count). Potem raport.",
+                en: "Briefings to read: \(evaluation.unbriefed.count). Then the report."
+            )
+        }
+        return Copy.s(
+            store.language,
+            pl: "\(evaluation.soundCount)/\(evaluation.lessonCount) TRAFNE — brakuje \(evaluation.missingSound). Zagraj noce ponownie z wokandy.",
+            en: "\(evaluation.soundCount)/\(evaluation.lessonCount) SOUND — \(evaluation.missingSound) short. Replay nights from the docket."
+        )
     }
 }
 

@@ -30,6 +30,8 @@ struct RootView: View {
                 SourcesView(sourceIds: sourceIds)
             case .settings:
                 SettingsView()
+            case .report:
+                EmployerReportView()
             case .bible:
                 VisualBibleView()
             }

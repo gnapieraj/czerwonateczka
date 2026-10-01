@@ -15,8 +15,12 @@ final class GameStore: ObservableObject {
     @Published var seenBible: Bool
     @Published var seenHowToPlay: Bool
     @Published var selectedSeasonId: String = "0"
+    @Published var reportForm: ReportForm {
+        didSet { persistReportForm() }
+    }
     private var stack: [Route] = []
     private let stampsKey = "docket.stamps"
+    private let reportFormKey = "report.form"
     private let bibleKey = "docket.seenBible"
     private let howToPlayKey = "docket.seenHowToPlay"
     private let metersKey = "docket.meters"
@@ -27,6 +31,7 @@ final class GameStore: ObservableObject {
     let lessons: [Lesson]
 
     init(lessons: [Lesson]? = nil) {
+        reportForm = Self.loadReportForm(key: reportFormKey)
         if let lessons {
             self.lessons = lessons
         } else {
@@ -145,7 +150,9 @@ final class GameStore: ObservableObject {
         stamps[lesson.id] = DocketStamp(
             lessonId: lesson.id,
             verdict: choice.verdict,
-            kind: choice.kind
+            kind: choice.kind,
+            stampedAt: Date(),
+            briefed: false
         )
         persistStamps()
         if choice.verdict == .sound {
@@ -178,11 +185,25 @@ final class GameStore: ObservableObject {
     }
 
     func finishBriefing() {
+        markBriefedIfOnAwareness()
         if let next = nextNight {
             selectSeason(next.seasonId)
         }
         stack = []
         route = .desk
+    }
+
+    /// The report counts a verdict only once its briefing was read to the end.
+    func markBriefed(_ lessonId: String) {
+        guard let stamp = stamps[lessonId], !stamp.briefed else { return }
+        stamps[lessonId]?.briefed = true
+        persistStamps()
+    }
+
+    private func markBriefedIfOnAwareness() {
+        if case .awareness(let lesson) = route {
+            markBriefed(lesson.id)
+        }
     }
 
     func selectSeason(_ id: String) {
@@ -192,6 +213,7 @@ final class GameStore: ObservableObject {
     }
 
     func finishBriefingAndOpenNext(after lesson: Lesson) {
+        markBriefed(lesson.id)
         stack = []
         if let next = self.lesson(after: lesson), canPlay(next) {
             open(next)
@@ -222,6 +244,7 @@ final class GameStore: ObservableObject {
     func resetFirstLaunch() {
         clearStamps()
         lastOutcome = nil
+        reportForm = ReportForm()
         seenBible = false
         seenHowToPlay = false
         UserDefaults.standard.set(false, forKey: bibleKey)
@@ -243,6 +266,42 @@ final class GameStore: ObservableObject {
         else { return [:] }
         return Dictionary(uniqueKeysWithValues: list.map { ($0.lessonId, $0) })
     }
+
+    // MARK: Employer report (plan-raport-dyplom.md, MVP)
+
+    private func persistReportForm() {
+        if let data = try? JSONEncoder().encode(reportForm) {
+            UserDefaults.standard.set(data, forKey: reportFormKey)
+        }
+    }
+
+    private static func loadReportForm(key: String) -> ReportForm {
+        guard let data = UserDefaults.standard.data(forKey: key),
+              let form = try? JSONDecoder().decode(ReportForm.self, from: data)
+        else { return ReportForm() }
+        return form
+    }
+
+    /// Every season, then the whole pack when there is more than one season.
+    var reportScopes: [ReportScope] {
+        let seasons = seasonSections.map { ReportScope.season($0.id) }
+        return seasons.count > 1 ? seasons + [.pack] : seasons
+    }
+
+    func evaluate(_ scope: ReportScope) -> PassEvaluation {
+        PassPolicy.evaluate(scope: scope, lessons: lessons, stamps: stamps)
+    }
+
+    /// Widest scope that passes: the full pack first, then the first passing season.
+    var defaultReportScope: ReportScope? {
+        let scopes = reportScopes
+        if scopes.contains(.pack), evaluate(.pack).passed { return .pack }
+        return scopes.first { evaluate($0).passed }
+    }
+
+    var hasPassingReportScope: Bool { defaultReportScope != nil }
+
+    func openReport() { push(.report) }
 
     func back() {
         if case .howToPlay = route {
@@ -302,6 +361,7 @@ final class GameStore: ObservableObject {
     }
 
     func closeAwareness() {
+        markBriefedIfOnAwareness()
         // Mandatory path stacks only `.desk`; optional opens push the prior screen.
         if stack.count == 1, case .desk = stack.first {
             finishBriefing()

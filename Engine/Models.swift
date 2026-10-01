@@ -269,17 +269,24 @@ struct DocketStamp: Codable, Equatable {
     var lessonId: String
     var verdict: DecisionVerdict
     var kind: ChoiceKind
+    /// When the verdict fell. `nil` only for stamps saved before this field existed.
+    var stampedAt: Date?
+    /// The firm briefing after this verdict was read to the end. The employer report
+    /// counts a verdict only once its briefing is done (plan §5).
+    var briefed: Bool
 
     var pass: Bool { verdict.isSound }
 
     enum CodingKeys: String, CodingKey {
-        case lessonId, verdict, pass, kind
+        case lessonId, verdict, pass, kind, stampedAt, briefed
     }
 
-    init(lessonId: String, verdict: DecisionVerdict, kind: ChoiceKind) {
+    init(lessonId: String, verdict: DecisionVerdict, kind: ChoiceKind, stampedAt: Date? = nil, briefed: Bool = false) {
         self.lessonId = lessonId
         self.verdict = verdict
         self.kind = kind
+        self.stampedAt = stampedAt
+        self.briefed = briefed
     }
 
     init(from decoder: Decoder) throws {
@@ -291,6 +298,10 @@ struct DocketStamp: Codable, Equatable {
         } else {
             verdict = try c.decode(Bool.self, forKey: .pass) ? .sound : .unsound
         }
+        stampedAt = try c.decodeIfPresent(Date.self, forKey: .stampedAt)
+        // Legacy stamps predate the flag; the briefing was already the mandatory path
+        // back to the desk, so they are treated as briefed rather than forcing a replay.
+        briefed = try c.decodeIfPresent(Bool.self, forKey: .briefed) ?? true
     }
 
     func encode(to encoder: Encoder) throws {
@@ -298,6 +309,21 @@ struct DocketStamp: Codable, Equatable {
         try c.encode(lessonId, forKey: .lessonId)
         try c.encode(verdict, forKey: .verdict)
         try c.encode(kind, forKey: .kind)
+        try c.encodeIfPresent(stampedAt, forKey: .stampedAt)
+        try c.encode(briefed, forKey: .briefed)
+    }
+}
+
+/// Local-only fields printed on the employer report. Never leaves the device on its own.
+struct ReportForm: Codable, Equatable {
+    var employeeName: String = ""
+    var organization: String = ""
+    /// Shown next to the share button as a reminder of where to send the file.
+    /// Not a recipient, not a relay — the user types it into Mail themselves.
+    var hrEmailHint: String = ""
+
+    var hasRequiredFields: Bool {
+        !employeeName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 }
 
@@ -313,5 +339,6 @@ enum Route: Equatable {
     case awareness(Lesson)
     case sources([String]?)
     case settings
+    case report
     case bible
 }

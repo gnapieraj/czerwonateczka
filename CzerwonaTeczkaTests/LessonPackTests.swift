@@ -101,6 +101,8 @@ final class LessonPackTests: XCTestCase {
         }
         XCTAssertEqual(splash.choice.verdict, .sound)
         XCTAssertEqual(store.streak, 1)
+        XCTAssertEqual(store.stamps[lesson.id]?.briefed, false, "verdict counts for the report only after the briefing")
+        XCTAssertNotNil(store.stamps[lesson.id]?.stampedAt)
         store.finishVerdict(splash)
         guard case .ratio = store.route else {
             return XCTFail("missing reflex")
@@ -112,7 +114,32 @@ final class LessonPackTests: XCTestCase {
         XCTAssertEqual(briefed.id, lesson.id)
         store.finishBriefing()
         XCTAssertEqual(store.route, .desk)
+        XCTAssertEqual(store.stamps[lesson.id]?.briefed, true)
         XCTAssertEqual(store.lesson(after: lesson)?.id, "02-list")
+    }
+
+    @MainActor
+    func testEmployerReportUnlocksAtNinetyPercentAfterBriefings() throws {
+        let pack = try loadPack()
+        let store = GameStore(lessons: pack)
+        store.clearStamps()
+        XCTAssertNil(store.defaultReportScope)
+        for lesson in pack where lesson.seasonId == "0" {
+            let choiceId = lesson.id == "06-pomoc" ? "decoy-a" : "trap"
+            let choice = try XCTUnwrap(lesson.choices.first { $0.id == choiceId })
+            store.choose(choice, in: lesson)
+        }
+        XCTAssertEqual(store.evaluate(.season("0")).unbriefed.count, 12)
+        XCTAssertFalse(store.hasPassingReportScope, "briefings not read yet")
+        for lesson in pack where lesson.seasonId == "0" {
+            store.markBriefed(lesson.id)
+        }
+        let evaluation = store.evaluate(.season("0"))
+        XCTAssertEqual(evaluation.soundCount, 11)
+        XCTAssertTrue(evaluation.passed)
+        XCTAssertEqual(store.defaultReportScope, .season("0"))
+        XCTAssertFalse(store.evaluate(.pack).passed, "season 1 still unstamped")
+        XCTAssertEqual(store.reportScopes, [.season("0"), .season("1"), .pack])
     }
 
     @MainActor
