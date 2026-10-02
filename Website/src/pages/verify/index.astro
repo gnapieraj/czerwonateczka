@@ -58,18 +58,32 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
 </BaseLayout>
 
 <style>
+  /* JS builds dt/dd/code at runtime — use :global so Astro scope
+     attributes are not required on those nodes (Safari iOS overflow). */
+  .reading :global(.callout),
+  #verify-result {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
   .verify-dl {
     display: grid;
     grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
     gap: 0.55rem 1rem;
     margin: 0;
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
+    overflow-x: hidden;
   }
-  .verify-dl dt,
-  .verify-dl dd {
+  .verify-dl :global(dt),
+  .verify-dl :global(dd) {
     min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  .verify-dl dt {
+  .verify-dl :global(dt) {
     margin: 0;
     font-family: var(--mono, ui-monospace, monospace);
     font-size: 0.78rem;
@@ -77,27 +91,36 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
     text-transform: uppercase;
     color: var(--blood, #b81419);
   }
-  .verify-dl dd {
+  .verify-dl :global(dd) {
     margin: 0;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-  .verify-dl code {
-    display: inline-block;
     max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+    white-space: normal;
+  }
+  .verify-dl :global(code) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     font-size: 0.85em;
     overflow-wrap: anywhere;
     word-break: break-all;
+    white-space: normal;
   }
   @media (max-width: 560px) {
     .verify-dl {
       grid-template-columns: minmax(0, 1fr);
       gap: 0.2rem 0;
     }
-    .verify-dl dt {
+    .verify-dl :global(dt),
+    .verify-dl :global(dd) {
+      width: 100%;
+    }
+    .verify-dl :global(dt) {
       margin-top: 0.55rem;
     }
-    .verify-dl dt:first-child {
+    .verify-dl :global(dt:first-child) {
       margin-top: 0;
     }
   }

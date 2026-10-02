@@ -44,6 +44,17 @@ test("verify page is static SPA (no dynamic Astro reportId route)", async () => 
   // Must not claim a central ledger
   assert.match(page, /jest księga wszystkich wydanych dyplomów/);
 });
+test("verify WYNIK CSS reaches JS-created dd/code (Astro :global)", async () => {
+  const page = await readFile(new URL("src/pages/verify/index.astro", website), "utf8");
+  // Runtime dt/dd/code lack data-astro-cid; scoped selectors alone never wrap the hash.
+  assert.match(page, /\.verify-dl :global\(dd\)/);
+  assert.match(page, /\.verify-dl :global\(code\)/);
+  assert.match(page, /word-break:\s*break-all/);
+  assert.match(page, /overflow-wrap:\s*anywhere/);
+  assert.match(page, /overflow-x:\s*hidden/);
+  assert.match(page, /grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
 
 test("registry exposes public key and fixture without PII", async () => {
   const registry = JSON.parse(
