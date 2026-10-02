@@ -125,11 +125,11 @@ def draw_page1(ax):
     # commercial
     label(ax, x2 + .24, 5.85, 'PIERWSZA OFERTA KOMERCYJNA / B2B')
     txt(ax, x2 + .24, 5.55, 'Compliance pack', 15.2, white, 'bold')
-    txt(ax, x2 + .24, 5.18, 'S2 + S3 · 24 NOCE   |   nowa postać: Audytor', 7.5, '#f1c8bb', 'bold')
-    season(ax, x2 + .24, 4.55, 4.05, 'S2 · Kontrola', '12 nocy', 'Rola: Audytor',
+    txt(ax, x2 + .24, 5.18, 'S2 + S3 · 24 NOCE   |   Audytorka: Sylwia Szczelińska', 7.5, '#f1c8bb', 'bold')
+    season(ax, x2 + .24, 4.55, 4.05, 'S2 · Kontrola', '12 nocy', 'Rola: Audytorka · Szczelińska',
            'RODO, tajemnica zawodowa, chmura i AI: co wolno, kto odpowiada i co trzeba umieć wykazać.',
            'zasada, decyzja, właściciel i dowód.')
-    season(ax, x2 + .24, 3.12, 4.05, 'S3 · AML', '12 nocy', 'Rola: Audytor',
+    season(ax, x2 + .24, 3.12, 4.05, 'S3 · AML', '12 nocy', 'Rola: Audytorka · Szczelińska',
            'Klient, beneficjent, źródło środków i sygnały ryzyka — praktyka zamiast wykładu.',
            'mniej ślepych punktów i gotowość do sprawdzenia.', False)
     ax.add_patch(Rectangle((x2 + .24, 1.44), 4.07, .36, facecolor=red, edgecolor='none', zorder=4))
@@ -196,7 +196,7 @@ def draw_page2(ax):
 
     g_items = [
         ('Sezony = ścieżka.', 'Od awareness (S0–S1) do kontroli i AML (S2–S3).'),
-        ('Postacie prowadzą.', 'Mecenas → Aplikant → Audytor — rosnąca odpowiedzialność.'),
+        ('Postacie prowadzą.', 'Mecenas → Aplikant → Audytorka (Szczelińska) — rosnąca odpowiedzialność.'),
         ('12 nocy na sezon.', 'Krótki rytm, który da się domknąć w kalendarzu kancelarii.'),
         ('Mierzalny efekt.', 'TRAFNE ≥ 90% + dyplom PDF z weryfikacją QR — dowód, nie checklista.'),
     ]

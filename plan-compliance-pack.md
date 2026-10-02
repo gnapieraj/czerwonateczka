@@ -2,7 +2,7 @@
 
 **Status:** treść robocza 2026-10-02 — draft PR, **bez merge**, **bez generacji Midjourney**, **bez deployu Website**.  
 **Produkt:** Czerwona Teczka · Colgante  
-**Zakres:** B2B-only pack = **Sezon 2 · Audytor · Kontrola** + **Sezon 3 · Audytor · AML** (24 noce).
+**Zakres:** B2B-only pack = **Sezon 2 · Audytorka · Kontrola** + **Sezon 3 · Audytorka · AML** (24 noce). Protagonistka: **Sylwia Szczelińska**.
 
 ---
 
@@ -12,7 +12,7 @@
 |--------|---------|
 | Sezon 1 (Aplikant) | **zostaje free** (razem z Sezonem 0 w App Store) |
 | Pierwszy pack B2B | **Sezon 2 + Sezon 3** razem = „**Compliance pack**” (24 noce) |
-| Gracz | **Audytor** — nowa postać (nie redo Chropota/Aplikanta) |
+| Gracz | **Audytorka Sylwia Szczelińska** — nowa postać (nie redo Chropota/Aplikanta); subtekst: szczelność systemów / no leaks |
 | Ton | thriller kancelaria Colgante; noir/IT OK; **nie** corporate e-learning |
 | Obrazy | dopiero po akceptacji promptów; `assets.md` / AssetRegistry sync = osobne zadanie |
 | Raport HR | te same CSV/JSON co free; zakres = pack Compliance (24) lub sezon 2 / sezon 3 |
@@ -23,8 +23,8 @@
 
 | Sezon | `seasonId` | Tytuł PL / EN | Noce (order) | Lesson id | Assets |
 |------|------------|---------------|--------------|-----------|--------|
-| 2 | `"2"` | Sezon 2 · Audytor · Kontrola / Season 2 · Auditor · Control | 25–36 | `25-…` … `36-…` | `Night25a`–`Night36b` |
-| 3 | `"3"` | Sezon 3 · Audytor · AML / Season 3 · Auditor · AML | 37–48 | `37-…` … `48-…` | `Night37a`–`Night48b` |
+| 2 | `"2"` | Sezon 2 · Audytorka · Kontrola / Season 2 · Auditor · Control | 25–36 | `25-…` … `36-…` | `Night25a`–`Night36b` |
+| 3 | `"3"` | Sezon 3 · Audytorka · AML / Season 3 · Auditor · AML | 37–48 | `37-…` … `48-…` | `Night37a`–`Night48b` |
 | Plakat | — | wybór sezonu | — | — | `SezonAudytor` |
 
 Pakiet raportu B2B: `ReportScope.pack` (lub nowy scope `compliance`) obejmujący order 25–48. Pass ≥ 90% → min. **22× TRAFNE** z 24 + stempel + briefing.
@@ -76,7 +76,7 @@ Pakiet raportu B2B: `ReportScope.pack` (lub nowy scope `compliance`) obejmujący
 | `plan-compliance-pack.md` | ten plan |
 | `tools/macos-studio/komiks-compliance-pack.md` | 24 noce: kontekst, decyzje, Ratio, Briefing, evidence/register, szare bloki MJ |
 | `tools/build_compliance_pack.py` | źródło danych + emitter markdown/JSON (nie nadpisuje `Lessons.json` free) |
-| `World/compliance-pack-mj-process.md` | proces MJ dla packa (refs Audytor, batch, checklist) |
+| `World/compliance-pack-mj-process.md` | proces MJ dla packa (refs Szczelińska / Audytorka, batch, checklist) |
 
 **Świadomie poza tym PR:** wpięcie do `build_lessons.py` / `Lessons.json`, imagesety, Website sync, unlock sezonów w UI, OrgConfig / Custom Apps.
 
@@ -88,7 +88,7 @@ Każda noc ma pole **evidence** (osobno od briefingu fabularnego), pod przyszły
 
 - `topicCode` — krótki kod HR (np. `RODO-CEL`, `AML-KYC`)
 - `registerLine` — jedna linia PL: „id · tytuł · temat” do sklejenia w `zakres_tematow`
-- `controlHint` — co audytor **zostawia w aktach kontroli** (notatka, mail, ticket) — nie quiz
+- `controlHint` — co Audytorka **zostawia w aktach kontroli** (notatka, mail, ticket) — nie quiz
 
 ---
 
@@ -98,15 +98,15 @@ Każda noc ma pole **evidence** (osobno od briefingu fabularnego), pod przyszły
 2. TRAFNE kosztuje czas; BŁĘDNA = pułapka; NIEPEŁNA = kuszący półśrodek.
 3. Briefing ≠ retell sceny; `minimize ≠ practice`; threat ≥ ~120 znaków PL.
 4. Kaptiony A/B ≤ 140 znaków PL (limit silnika).
-5. MJ: Palace tylko gdy karta każe; bez liter na płycie; Audytor ≠ Chropot/Iglica/Irena.
+5. MJ: Palace tylko gdy karta każe; bez liter na płycie; Szczelińska ≠ Chropot/Iglica/Irena.
 6. Season 1 free nietknięty.
 
 ---
 
 ## 7. Open questions (nie blokują draftu)
 
-1. Imię własne Audytora w biblii (na razie rola „Audytor”; plakat `SezonAudytor`).
+1. ~~Imię własne Audytora~~ **LOCKED:** Sylwia Szczelińska (Audytorka); plakat asset id nadal `SezonAudytor`.
 2. Czy pack B2B odblokowuje się po Sezonie 1, czy osobny entry w Custom App.
 3. Czy `ReportScope` dostaje osobny case `.compliance` vs reuse `.pack` z filtrem seasonId ∈ {2,3}.
-4. Ref CDN Midjourney dla Audytora — po pierwszej zaakceptowanej czwórce plakatu.
+4. Ref CDN Midjourney dla Szczelińskiej — po pierwszej zaakceptowanej czwórce plakatu.
 

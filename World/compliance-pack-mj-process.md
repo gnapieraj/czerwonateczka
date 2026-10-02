@@ -1,6 +1,6 @@
 # Midjourney — proces Compliance pack (Sezon 2–3)
 
-Stan: 02.10.2026. To nie jest porada prawna. Robocza checklista przy generacji kadrów Audytora.  
+Stan: 02.10.2026. To nie jest porada prawna. Robocza checklista przy generacji kadrów Audytorki Sylwii Szczelińskiej.  
 Pełne szare bloki: `tools/macos-studio/komiks-compliance-pack.md`. Konwencje bazowe: `tools/macos-studio/komiks-sezony.md` (Sezon 0).
 
 **Nie generuj jeszcze obrazów w tym zadaniu.** Ten plik jest pod pierwszą sesję Imagine.
@@ -20,15 +20,17 @@ Pełne szare bloki: `tools/macos-studio/komiks-compliance-pack.md`. Konwencje ba
 | Reject | litery, cyfry, logo, czerwień, pieczęć, krew, tarcza zegara, telefon tarczowy, zlane palce, łańcuszek przy okularach, mozaika, pasek cenzury |
 | Asset | po akceptacji → `Resources/Assets.xcassets/<nazwa>.imageset/` + wpis w `World/AssetRegistry.md` (**osobne zadanie sync**) |
 
-Style seed z Sezonu 0 (dopóki Audytor nie ma własnego zaakceptowanego sref):
+Style seed z Sezonu 0 (dopóki Szczelińska nie ma własnego zaakceptowanego sref):
 
 `--sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth`
 
-Po zaakceptowaniu plakatu `SezonAudytor` podmień `--sref` / `--iw` na ten plakat dla kadrów z twarzą Audytora.
+Po zaakceptowaniu plakatu `SezonAudytor` podmień `--sref` / `--iw` na ten plakat dla kadrów z twarzą Szczelińskiej.
 
 ---
 
-## 2. Postać: Audytor (nowa)
+## 2. Postać: Audytorka Sylwia Szczelińska (nowa)
+
+Imię + nazwisko **LOCKED** (Greg): **Sylwia Szczelińska**. W dialogach / dymkach jak inni — samo **Szczelińska** (wzór: Iglica, Chropot). Subtekst: „szczelność systemów” / no leaks.
 
 **Nie** Chropot (ciężkie brwi, płaszcz, rozkaz). **Nie** Iglica (młody, piegi, panika). **Nie** Irena (kok, asysta).
 
@@ -36,12 +38,12 @@ Po zaakceptowaniu plakatu `SezonAudytor` podmień `--sref` / `--iw` na ten plaka
 |-------|------|
 | Wiek | późne 40. / wczesne 50. |
 | Energia | spokojniejsza, obserwująca; checklista i teczka |
-| Wygląd | krótkie siwe skronie, cienkie okulary do czytania (nie okrągłe Iglicy), ciemny garnitur, biała koszula, krawat zapięty |
+| Wygląd | krótkie siwe pasma przy skroniach, cienkie okulary do czytania (nie okrągłe Iglicy), ciemny żakiet / garnitur damski, biała koszula, bez krawata Chropota |
 | Gest | folder / checklista w dłoni; rzadko telefon; nigdy „wskazuje palcem jak Chropot” |
-| Twarz | **czytelna** (gracz = Audytor; nie tusz jak mecenas) |
-| Plakat | `SezonAudytor.png` — stojący, lekko na prawo od środka; biuro kontroli / pusty stół kontrolny; **bez** Palace jako tematu (wschodnie okno na dachy OK) |
+| Twarz | **czytelna** (gracz = Szczelińska; nie tusz jak mecenas) |
+| Plakat | `SezonAudytor.png` (asset id bez zmian) — stojąca, lekko na prawo od środka; biuro kontroli / pusty stół kontrolny; **bez** Palace jako tematu (wschodnie okno na dachy OK) |
 
-Głosy w dymkach (B): Audytor milczy w komiksie (gracz); nacisk robią Chropot, Irena, Iglica, klient albo „kontrola z zewnątrz” (fikcja). Kwestie krótkie, bez zdradzania werdyktu.
+Głosy w dymkach (B): Szczelińska milczy w komiksie (gracz); nacisk robią Chropot, Irena, Iglica, klient albo „kontrola z zewnątrz” (fikcja). Kwestie krótkie, bez zdradzania werdyktu.
 
 ---
 
@@ -71,7 +73,7 @@ Maksymalnie ~6–8 Imagine na sesję (zmęczenie oka = akceptacja liter).
 - [ ] Przeczytany `context_pl` nocy + `caption_pl` panelu
 - [ ] `paint_caption: no` — caption nie jest w prompcie jako tekst do namalowania
 - [ ] Palace: tylko jeśli `pass` wymaga / `where` mówi; inaczej `--no palace of culture…`
-- [ ] Audytor: nie ma okrągłych okularów Iglicy, nie ma płaszcza Chropota na ramionach jako default
+- [ ] Szczelińska: nie ma okrągłych okularów Iglicy, nie ma płaszcza Chropota na ramionach jako default; nie wygląda jak mężczyzna z plakatu „Polish man”
 - [ ] Props puste (blank folder, flat grey screen) — bez sygnatur, IBAN, CRBR numerów
 - [ ] `--ar 16:9` · `--stealth` · `--v 8.2` · jeden ciąg `--no`
 - [ ] Po Imagine: reject jeśli litery / czerwień / zlane palce / zegar / rotary
@@ -82,8 +84,8 @@ Maksymalnie ~6–8 Imagine na sesję (zmęczenie oka = akceptacja liter).
 
 | Problem | Fix |
 |---------|-----|
-| Audytor wygląda jak Chropot | obniż `--iw` twarzy Chropota; wzmocnij „reading glasses, grey temples, calm, checklist” |
-| Pokój zjada twarz | `--iw 0.35–0.4` na refie Audytora; nie dokładaj drugiego sref mebla |
+| Szczelińska wygląda jak Chropot | obniż `--iw` twarzy Chropota; wzmocnij „Polish woman, reading glasses, grey-streaked temples, calm, checklist, tailored jacket” |
+| Pokój zjada twarz | `--iw 0.35–0.4` na refie Szczelińskiej; nie dokładaj drugiego sref mebla |
 | Sezon 3 „za bardzo bank” | zostań w kancelarii Colgante (gabinet, lada, sala akt); gotówka = teczka na biurku, nie vault |
 | AML props z literami | blank stamp strip, empty columns — numery w SwiftUI |
 

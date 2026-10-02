@@ -1,4 +1,4 @@
-# Komiks Compliance pack — Sezon 2–3 (Audytor)
+# Komiks Compliance pack — Sezon 2–3 (Audytorka Sylwia Szczelińska)
 
 Stan: 02.10.2026. To nie jest porada prawna. Robocza księga Midjourney + treści nocy dla B2B packa.
 
@@ -14,21 +14,21 @@ Odrzucasz planszę przy literach, cyfrach, logo, czerwieni, pieczęci, krwi, tar
 
 ## Głosy
 
-**Audytor** (gracz): spokojniejszy, starszy, checklista/teczka; twarz czytelna; nie Chropot, nie Iglica, nie Irena.
+**Audytorka Sylwia Szczelińska** (gracz): spokojniejsza, starsza, checklista/teczka; twarz czytelna; nie Chropot, nie Iglica, nie Irena. W dymkach: **Szczelińska**. Subtekst: szczelność systemów / no leaks.
 Iglica — szybko, boi się listy. Chropot — krótko, rozkaz. Irena — spokój i porządek. Klient — presja terminu. Żadna kwestia nie zdradza werdyktu.
 
-## 0. Plakat sezonu — Audytor
+## 0. Plakat sezonu — Audytorka Sylwia Szczelińska
 
 <!-- card
 asset: SezonAudytor
 lesson: none
 panel: season
 file: SezonAudytor.png
-story: Season choice for Compliance pack. Player is the auditor. Face visible, distinct from Chropot/Iglica/Irena.
+story: Season choice for Compliance pack. Player is Audytorka Sylwia Szczelińska. Face visible, distinct from Chropot/Iglica/Irena.
 context_pl: none. This plate is the season switch, not a night.
 caption_pl: none. SwiftUI draws the season label. Do not paint it.
 paint_caption: no
-who: a calm Polish man in his late forties, short grey temples, thin rectangular reading glasses (not round), dark suit, white shirt, tie fastened, quiet eyes, face visible
+who: a calm Polish woman in her late forties, short grey-streaked temples, thin rectangular reading glasses (not round), dark tailored jacket, white blouse, no Chropot tie, quiet eyes, face visible
 where: smaller control office at night; east window looks down to rooftops and tram wires; no Palace as subject
 gesture: stands three-quarter length, large, right of center
 props: closed blank folder and a short blank checklist; optional grey smartphone screen-down
@@ -37,12 +37,12 @@ fail: round wire glasses like Iglica; overcoat-on Chropot look; blacked-out face
 -->
 
 ```
-https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, rain streaks, same pen as the reference, cool grey wash, bold contour. Wide poster panel. A calm Polish man in his late forties stands three-quarter length, short grey temples, thin rectangular reading glasses not round wire glasses, dark suit, white shirt, tie fastened, quiet eyes, face visible in grey ink. He stands, he is not sitting, in a smaller fifth-floor control office. Exactly five fingers, unmarked skin. One hand holds a closed blank folder. The other holds a short blank checklist. The east window looks steeply down: rooftops near the sill, tram tracks and wires far below, every sign an empty grey panel. Rain on the glass. The room is dry. He is large, right of center. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 700 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, rotary telephone, clock face, clock, bell, pixel mosaic, censor bar, blur filter, palace of culture, skyscraper spire, seated man, sitting, round wire glasses, freckles, overcoat
+https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, rain streaks, same pen as the reference, cool grey wash, bold contour. Wide poster panel. A calm Polish woman in her late forties stands three-quarter length, short grey-streaked temples, thin rectangular reading glasses not round wire glasses, dark tailored jacket, white blouse, no necktie, quiet eyes, face visible in grey ink. She stands, she is not sitting, in a smaller fifth-floor control office. Exactly five fingers, unmarked skin. One hand holds a closed blank folder. The other holds a short blank checklist. The east window looks steeply down: rooftops near the sill, tram tracks and wires far below, every sign an empty grey panel. Rain on the glass. The room is dry. She is large, right of center. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 700 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, rotary telephone, clock face, clock, bell, pixel mosaic, censor bar, blur filter, palace of culture, skyscraper spire, seated woman, sitting, seated man, round wire glasses, freckles, overcoat, necktie, heavy brow like Chropot
 ```
 
-Po akceptacji zapisz CDN URL i podmień refs w promptach z twarzą Audytora. Do tego czasu styl bierze sref Sezonu 0.
+Po akceptacji zapisz CDN URL i podmień refs w promptach z twarzą Szczelińskiej. Do tego czasu styl bierze sref Sezonu 0.
 
-## 1. Sezon 2 · Audytor · Kontrola (noce 25–36)
+## 1. Sezon 2 · Audytorka · Kontrola (noce 25–36)
 
 Tematy: RODO, tajemnica, chmura/AI, DPIA, DPA, retencja, wyciek, podmiot danych, shadow SaaS, transfer, dostęp, rejestr.
 
@@ -116,7 +116,7 @@ asset: Night25b
 lesson: 25-cel
 panel: b
 file: Night25b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Klient z portfolio prosi, żebyś „przy okazji akt sprawy” zrzucił całą bazę kontrahentów do ich nowego CRM marketingowego. Chropot: umowa jest szeroka, kontrola i tak patrzy na coś innego, a oni płacą za godzinę.
 caption_pl: Chropot: „Umowa jest szeroka. Zrób zrzut. Kontrola i tak nie czyta CRM.”
 caption_in_game_pl: Chropot: „Umowa jest szeroka. Zrób zrzut. Kontrola i tak nie czyta CRM.”
@@ -202,7 +202,7 @@ asset: Night26b
 lesson: 26-tajemnica
 panel: b
 file: Night26b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Znajomy Chropota z funduszu prosi o „listę klientów z branży proptech” przed spotkaniem. Twierdzi, że jest cichym partnerem spółki-klienta. Chropot każe wysłać PDF „bez kwot, same nazwy”. Irena czeka z kopertą.
 caption_pl: Chropot: „Bez kwot. Same nazwy. On jest z nimi. Wyślij przed osiemnastą.”
 caption_in_game_pl: Chropot: „Bez kwot. Same nazwy. On jest z nimi. Wyślij przed osiemnastą.”
@@ -288,7 +288,7 @@ asset: Night27b
 lesson: 27-chmura
 panel: b
 file: Night27b.png
-story: Iglica pressures the auditor. Panel B.
+story: Iglica pressures Szczelińska. Panel B.
 context_pl: Iglica wkleił fragmenty akt do publicznego asystenta AI „żeby skrócić opinię na radę”. Mówi, że wyciął nazwiska. Chropot chce gotowy tekst do rana. Na ekranie świeci darmowe konto w przeglądarce.
 caption_pl: Iglica: „Nazwiska wyciąłem. Zostaw to w modelu, bo Chropot chce tekst na ósmą.”
 caption_in_game_pl: Iglica: „Nazwiska wyciąłem. Zostaw to w modelu, bo Chropot chce tekst na ósmą.”
@@ -374,7 +374,7 @@ asset: Night28b
 lesson: 28-dpia
 panel: b
 file: Night28b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: IT chce włączyć skaner biometrii na recepcji „na próbę do kontroli”. Chropot: DPIA zrobimy po audycie, bo potem i tak trzeba poprawić. Irena ma karty dostępu gotowe.
 caption_pl: Chropot: „Włączcie na próbę. DPIA dopiszemy po kontroli, będzie nowsza.”
 caption_in_game_pl: Chropot: „Włączcie na próbę. DPIA dopiszemy po kontroli, będzie nowsza.”
@@ -460,7 +460,7 @@ asset: Night29b
 lesson: 29-dpa
 panel: b
 file: Night29b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Nowy dostawca e-teczek chce „na start” wgrać akta trzech spraw, a DPA „dośle w przyszłym tygodniu”. Chropot: bez tego nie zdążymy na kontrolę. Iglica ma pendrive z exportem.
 caption_pl: Chropot: „Wgraj te trzy. DPA przyjdzie mailem. Kontrola nie czeka.”
 caption_in_game_pl: Chropot: „Wgraj te trzy. DPA przyjdzie mailem. Kontrola nie czeka.”
@@ -546,7 +546,7 @@ asset: Night30b
 lesson: 30-retencja
 panel: b
 file: Night30b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Irena pokazuje szafę ze sprawami zamkniętymi trzy lata temu. Chropot: nie niszczymy przed kontrolą, bo „może coś będą chcieli zobaczyć”. Terminy retencji z polityki są przekroczone.
 caption_pl: Chropot: „Nic nie niszcz przed kontrolą. Jak zapytają, będziemy mieli.”
 caption_in_game_pl: Chropot: „Nic nie niszcz przed kontrolą. Jak zapytają, będziemy mieli.”
@@ -632,7 +632,7 @@ asset: Night31b
 lesson: 31-wyciek
 panel: b
 file: Night31b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Iglica wysłał akta do adresu różniącego się jedną literą. Odbiorca odpisał „to nie do mnie”. Chropot: poczekajmy do poniedziałku, może skasował. Minęło już ponad dobę.
 caption_pl: Chropot: „Poczekaj do poniedziałku. Jak skasował, nie ma tematu. Nie robię z tego cyrku.”
 caption_in_game_pl: Chropot: „Poczekaj do poniedziałku. Jak skasował, nie ma tematu. Nie robię z tego cyrku.”
@@ -718,7 +718,7 @@ asset: Night32b
 lesson: 32-podmiot
 panel: b
 file: Night32b.png
-story: Iglica pressures the auditor. Panel B.
+story: Iglica pressures Szczelińska. Panel B.
 context_pl: Na skrzynkę kancelarii wpada mail: osoba żąda „wszystkich danych i akt”. Iglica chce wrzucić PDF sprawy Chropota. Irena pyta, czy weryfikować tożsamość. Chropot: „odpisz szybko, bo UODO lubi terminy”.
 caption_pl: Iglica: „Wrzuć PDF sprawy. On i tak wie, że u nas jest. Termin goni.”
 caption_in_game_pl: Iglica: „Wrzuć PDF sprawy. On i tak wie, że u nas jest. Termin goni.”
@@ -804,7 +804,7 @@ asset: Night33b
 lesson: 33-shadow
 panel: b
 file: Night33b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Chropot każe wrzucić skany do „szybkiego dysku w chmurze”, bo firmowy SharePoint „wisi”. Iglica ma już prywatne konto. Irena przypomina, że narzędzia spoza listy są zakazane.
 caption_pl: Chropot: „Wrzucaj na ten dysk. SharePoint padł. Klient czeka na folder.”
 caption_in_game_pl: Chropot: „Wrzucaj na ten dysk. SharePoint padł. Klient czeka na folder.”
@@ -890,7 +890,7 @@ asset: Night34b
 lesson: 34-transfer
 panel: b
 file: Night34b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Dostawca poczty proponuje region spoza EOG w niższej cenie. Chropot: SCC „są w pakiecie”, kliknijcie migrację. IOD jest na urlopie. Iglica ma już zaznaczone checkboxy.
 caption_pl: Chropot: „Klikaj migrację. SCC są w umowie. IOD wróci i podpisze papier.”
 caption_in_game_pl: Chropot: „Klikaj migrację. SCC są w umowie. IOD wróci i podpisze papier.”
@@ -976,7 +976,7 @@ asset: Night35b
 lesson: 35-dostep
 panel: b
 file: Night35b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Aplikant odchodzi. Chropot chce zostawić mu dostęp do trzech spraw „bo zna kontekst”. Irena ma checklistę offboardingu. MFA siedzi na prywatnym telefonie odchodzącego.
 caption_pl: Chropot: „Nie zamykaj mu konta. Trzy sprawy. Oddzwoni, jak zajdzie potrzeba.”
 caption_in_game_pl: Chropot: „Nie zamykaj mu konta. Trzy sprawy. Oddzwoni, jak zajdzie potrzeba.”
@@ -1062,7 +1062,7 @@ asset: Night36b
 lesson: 36-rejestr
 panel: b
 file: Night36b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Rejestr czynności jest dziurawy. Chropot każe Iglicy „dopisać sensowne wiersze” na noc. Irena ma szablon. Kontroler będzie rano.
 caption_pl: Chropot: „Dopiszcie wiersze. Nie damy im pustej tabeli. Rano ma leżeć.”
 caption_in_game_pl: Chropot: „Dopiszcie wiersze. Nie damy im pustej tabeli. Rano ma leżeć.”
@@ -1080,7 +1080,7 @@ fail: letters
 https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference, cool grey wash, bold contour. The same stern middle-aged man under a desk lamp, overcoat half on, pointing at a blank table grid, mouth open, insistent. Exactly five fingers. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, rotary telephone, clock face, clock, bell, pixel mosaic, censor bar, blur filter, palace of culture, Palace of Culture, landmark tower, city skyline, seated, sitting
 ```
 
-## 2. Sezon 3 · Audytor · AML (noce 37–48)
+## 2. Sezon 3 · Audytorka · AML (noce 37–48)
 
 Tematy: KYC, CRBR, GIIF, gotówka, nieruchomości, tajemnica×AML, PEP, źródło środków, structuring, sankcje, tipping-off, monitoring.
 
@@ -1154,7 +1154,7 @@ asset: Night37b
 lesson: 37-kyc
 panel: b
 file: Night37b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Nowy klient — spółka z rachunkiem zagranicznym — ma akt za dwie godziny. Teczka KYC jest dziurawa: brak dokumentów reprezentacji. Chropot: „dopiszemy po akcie, notariusz nie będzie czekał”.
 caption_pl: Chropot: „Idziemy do aktu. KYC domkniemy po. Nie wypuszczaj klienta.”
 caption_in_game_pl: Chropot: „Idziemy do aktu. KYC domkniemy po. Nie wypuszczaj klienta.”
@@ -1240,7 +1240,7 @@ asset: Night38b
 lesson: 38-crbr
 panel: b
 file: Night38b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Klient składa oświadczenie o beneficjentach. Wypis z CRBR pokazuje inną osobę. Chropot: „oni aktualizują z opóźnieniem, bierz oświadczenie i bierz przelew”.
 caption_pl: Chropot: „CRBR się spóźnia. Oświadczenie jest. Bierz kasę.”
 caption_in_game_pl: Chropot: „CRBR się spóźnia. Oświadczenie jest. Bierz kasę.”
@@ -1326,7 +1326,7 @@ asset: Night39b
 lesson: 39-giif
 panel: b
 file: Night39b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Transakcja nie ma sensu ekonomicznego: kwota, cel i tempo się rozjeżdżają. Iglica boi się GIIF. Chropot: „to nasi od lat, nie robię donosu”. Termin wewnętrzny na analizę mija dziś.
 caption_pl: Chropot: „Nie wysyłaj nic do GIIF. To znani ludzie. Zamknij temat w tecze.”
 caption_in_game_pl: Chropot: „Nie wysyłaj nic do GIIF. To znani ludzie. Zamknij temat w tecze.”
@@ -1412,7 +1412,7 @@ asset: Night40b
 lesson: 40-gotowka
 panel: b
 file: Night40b.png
-story: Klient pressures the auditor. Panel B.
+story: Klient pressures Szczelińska. Panel B.
 context_pl: Klient kładzie na ladzie pakiet gotówki na koszty aktu. Mówi, że przelew „wisi w banku”. Irena nie chce liczyć. Chropot: „weź, wystaw kwit, potem się księguje”.
 caption_pl: Klient: „Weźcie. Notariusz za godzinę. Przelew nie wejdzie.”
 caption_in_game_pl: Klient: „Weźcie. Notariusz za godzinę. Przelew nie wejdzie.”
@@ -1498,7 +1498,7 @@ asset: Night41b
 lesson: 41-nieruchomosc
 panel: b
 file: Night41b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Transakcja nieruchomości: kupujący — spółka założona wczoraj, płatność ma iść z kilku kont. Chropot: „rynek nie poczeka, screening po wpisie do księgi”. Notariusz już czeka.
 caption_pl: Chropot: „Jedziemy na akt. Screening dopiszecie po księdze. To tylko mieszkanie.”
 caption_in_game_pl: Chropot: „Jedziemy na akt. Screening dopiszecie po księdze. To tylko mieszkanie.”
@@ -1584,7 +1584,7 @@ asset: Night42b
 lesson: 42-tajemnica-aml
 panel: b
 file: Night42b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Analiza AML wskazuje podejrzenie. Chropot powołuje się na tajemnicę zawodową i zakazuje ścieżki GIIF. Iglica pyta, co z ustawą AML. Masz dziś zamknąć decyzję.
 caption_pl: Chropot: „Tajemnica. Nic nie idzie na zewnątrz. Koniec dyskusji.”
 caption_in_game_pl: Chropot: „Tajemnica. Nic nie idzie na zewnątrz. Koniec dyskusji.”
@@ -1670,7 +1670,7 @@ asset: Night43b
 lesson: 43-pep
 panel: b
 file: Night43b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Screening wyrzuca trafienie PEP na członka rodziny reprezentanta. Chropot: „to nie on sam, bierz sprawę, EDD potem”. Klient czeka na umowę.
 caption_pl: Chropot: „To syn, nie on. Umowę wyślij. EDD dopiszemy w tygodniu.”
 caption_in_game_pl: Chropot: „To syn, nie on. Umowę wyślij. EDD dopiszemy w tygodniu.”
@@ -1756,7 +1756,7 @@ asset: Night44b
 lesson: 44-zrodlo
 panel: b
 file: Night44b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Klient ma wpłacić dużą kwotę. Na pytanie o źródło mówi: „sprzedaż auta znajomemu za gotówkę”. Brak umowy, brak przelewów. Chropot: „wystarczy oświadczenie, nie jesteśmy bankiem”.
 caption_pl: Chropot: „Weź oświadczenie. Nie rób z nas banku. Wpłata ma wejść.”
 caption_in_game_pl: Chropot: „Weź oświadczenie. Nie rób z nas banku. Wpłata ma wejść.”
@@ -1842,7 +1842,7 @@ asset: Night45b
 lesson: 45-split
 panel: b
 file: Night45b.png
-story: Iglica pressures the auditor. Panel B.
+story: Iglica pressures Szczelińska. Panel B.
 context_pl: Klient prosi o rozbicie jednej transakcji na kilka przelewów „żeby nie budzić wilka w banku”. Iglica już przygotował harmonogram. Chropot: „pomóż klientowi, to tylko księgowość”.
 caption_pl: Iglica: „Rozbijmy na pięć. Bank spokojniejszy. Klient tak chce.”
 caption_in_game_pl: Iglica: „Rozbijmy na pięć. Bank spokojniejszy. Klient tak chce.”
@@ -1928,7 +1928,7 @@ asset: Night46b
 lesson: 46-sankcje
 panel: b
 file: Night46b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Ma wyjść wypłata z depozytu. Screening sankcyjny z wczoraj jest niekompletny (brak drugiej strony i banku pośredniczącego). Chropot: „wczoraj było czysto, nie rób na nowo, bo spóźnimy SWIFT”.
 caption_pl: Chropot: „Wczoraj czysto. Nie odpalaj od nowa. SWIFT nie poczeka.”
 caption_in_game_pl: Chropot: „Wczoraj czysto. Nie odpalaj od nowa. SWIFT nie poczeka.”
@@ -2014,7 +2014,7 @@ asset: Night47b
 lesson: 47-tipoff
 panel: b
 file: Night47b.png
-story: Iglica pressures the auditor. Panel B.
+story: Iglica pressures Szczelińska. Panel B.
 context_pl: Zawiadomienie jest w toku. Klient dopytuje, czemu środki stoją. Iglica chce powiedzieć „bo compliance zgłasza”. Chropot: „powiedz delikatnie, że jest procedura, żeby nie stracić faceta”.
 caption_pl: Iglica: „Powiedz mu wprost. On i tak się domyśli. Lepiej od nas.”
 caption_in_game_pl: Iglica: „Powiedz mu wprost. On i tak się domyśli. Lepiej od nas.”
@@ -2100,7 +2100,7 @@ asset: Night48b
 lesson: 48-monitoring
 panel: b
 file: Night48b.png
-story: Chropot pressures the auditor. Panel B.
+story: Chropot pressures Szczelińska. Panel B.
 context_pl: Przegląd okresowy klienta AML był w sierpniu — nie zrobiony. Dziś nowa dyspozycja przelewu. Chropot: „przegląd w styczniu, teraz nie blokuj biznesu”. Irena ma czerwoną flagę w systemie (tu: pusta kartka alertu).
 caption_pl: Chropot: „Przelew idzie. Przegląd w styczniu. Nie blokuj.”
 caption_in_game_pl: Chropot: „Przelew idzie. Przegląd w styczniu. Nie blokuj.”
