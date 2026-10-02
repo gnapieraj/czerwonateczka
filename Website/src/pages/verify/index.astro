@@ -60,9 +60,14 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
 <style>
   .verify-dl {
     display: grid;
-    grid-template-columns: minmax(8rem, 11rem) 1fr;
+    grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
     gap: 0.55rem 1rem;
     margin: 0;
+    min-width: 0;
+  }
+  .verify-dl dt,
+  .verify-dl dd {
+    min-width: 0;
   }
   .verify-dl dt {
     margin: 0;
@@ -74,10 +79,27 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
   }
   .verify-dl dd {
     margin: 0;
+    overflow-wrap: anywhere;
     word-break: break-word;
   }
   .verify-dl code {
+    display: inline-block;
+    max-width: 100%;
     font-size: 0.85em;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+  @media (max-width: 560px) {
+    .verify-dl {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.2rem 0;
+    }
+    .verify-dl dt {
+      margin-top: 0.55rem;
+    }
+    .verify-dl dt:first-child {
+      margin-top: 0;
+    }
   }
 </style>
 
