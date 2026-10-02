@@ -3,11 +3,11 @@
 Statusy: `Next` | `Pending` | `AwaitingGreg` | `Accepted` | `Done` | `Rejected`.
 
 Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do Grega zawsze `Napis A` + `Napis B` + kontekst PL.
-**2026-10-02:** po rewrite causal S1 — statusy zresetowane. Night13a = Next (reroll: telefon **nad** stronami, bez tramwaju w Q). Night13b caption-only (płyta Accepted może zostać). Night14+ = Pending po SWAP/redesign kart.
+**2026-10-02:** po rewrite causal S1 — Night13a = Accepted (wariant 1; telefon **nad** stronami, bez tramwaju w Q). Night13b caption-only (płyta Accepted może zostać). Night14+ = Pending po SWAP/redesign kart.
 
 | Panel | Status | Wariant | Notatka |
 |---|---|---|---|
-| Night13a | Next | — | Reroll: phone above open pages (not window). Caption: „Prywatny telefon nad otwartymi stronami akt.” Title/Q bez tramwaju. Poprzedni Accepted CDN: `ade09f88…/0_1.png` — użyj jako ref likeness jeśli pomaga, ale gest musi być nad kartkami. |
+| Night13a | Accepted | 1 | Phone above open pages (not window). Caption: „Prywatny telefon nad otwartymi stronami akt.” Title/Q bez tramwaju. Accepted CDN: `4988aaf4-660e-4832-aa7a-905e68f272c3/0_1.png`; job `?index=1`. |
 | Night13b | Pending | 3 (stary) | Caption bez „wsiadaj”. Płyta Accepted (`17cc4d96…/0_3.png`) prawdopodobnie OK (Chropot w płaszczu w drzwiach) — potwierdź po Napis B. |
 | Night14a | Pending | — | **SWAP causal:** A = Chropot kładzie kartkę (mid-placement). Nie generować ze starą kartą (slip already on desk). |
 | Night14b | Pending | — | B = kartka już leży + dłonie nad pustymi polami + balloon Chropota. |
@@ -36,7 +36,7 @@ Po akceptacji Grega: ustaw wariant (`0`–`3`), Status → `Done`, uzupełnij As
 
 ---
 
-## Next=Night13a
+## Accepted=Night13a (wariant 1)
 
 Źródło: `tools/macos-studio/komiks-sezony.md` § Noc 13 · `13-chmura` · Zdjęcie akt.
 
