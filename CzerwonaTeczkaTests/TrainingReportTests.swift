@@ -204,7 +204,27 @@ final class TrainingReportTests: XCTestCase {
         XCTAssertFalse(back[0].briefed)
     }
 
-    func testReportFormIgnoresLegacyHREmailHint() throws {
+    func testDiplomaLanguageFlagAndValidUntilConsistentAcrossExports() throws {
+        let pack = try loadPack()
+        var form = ReportForm(employeeName: "Anna Nowak", organization: "Kancelaria Testowa", diplomaEnglish: true)
+        var config = ReportConfig.free
+        config.contentVersion = "9.9+7"
+        let evaluation = PassPolicy.evaluate(scope: .season("0"), lessons: pack, stamps: soundStamps(for: pack, seasonId: "0"))
+        let report = ReportBuilder.make(evaluation: evaluation, allLessons: pack, form: form, config: config, now: fixedDate)
+        XCTAssertEqual(report.language, "en")
+        XCTAssertEqual(report.validUntil, "2027-09-21")
+        XCTAssertEqual(report.validityMonths, 12)
+        let csv = ReportCSV.register(report)
+        XCTAssertTrue(csv.contains(",en,"))
+        XCTAssertTrue(csv.contains(",2027-09-21,"))
+        let json = try ReportJSON.encode(report)
+        let decoded = try ReportJSON.decode(json)
+        XCTAssertEqual(decoded.language, "en")
+        XCTAssertEqual(decoded.validUntil, "2027-09-21")
+        XCTAssertEqual(decoded.publishOrganization, false)
+    }
+
+        func testReportFormIgnoresLegacyHREmailHint() throws {
         let legacy = Data(#"{"employeeName":"Anna Nowak","organization":"Kancelaria Testowa","hrEmailHint":"hr@firma.pl"}"#.utf8)
         let decoded = try JSONDecoder().decode(ReportForm.self, from: legacy)
         XCTAssertEqual(decoded, ReportForm(employeeName: "Anna Nowak", organization: "Kancelaria Testowa"))

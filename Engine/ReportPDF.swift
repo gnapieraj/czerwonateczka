@@ -232,7 +232,8 @@ enum ReportPDF {
 
     private static func drawFooter(_ report: TrainingReport, on page: inout Page) {
         let language = report.appLanguage
-        let height = estimatedFooterHeight(report)
+        let qrSide: CGFloat = 72
+        let height = estimatedFooterHeight(report, qrSide: qrSide)
         // Prefer keeping meta + disclaimer with the topics. Never leave them alone on a blank page
         // when the previous page still has room after a modest compact — but if we truly need a
         // new page, open it with a continuation header so page 2 is intentional.
@@ -241,40 +242,87 @@ enum ReportPDF {
         }
         page.rule(color: rule, width: 0.5)
         page.space(6)
+
+        let shortVerifyURL = ReportVerify.publicURL(reportId: report.reportId)
+        let qrURL = ReportVerify.isPublicRegistryLive
+            ? ReportVerify.signedPublicURL(for: report)
+            : shortVerifyURL
+        let qrImage = ReportQR.image(url: qrURL, side: qrSide)
+        let metaWidth = qrImage == nil ? page.contentWidth : page.contentWidth - qrSide - 10
+        let metaTop = page.y
+
         let versionLabel = Copy.s(language, pl: "wersja treści", en: "content version")
         let issuedLabel = Copy.s(language, pl: "wydano", en: "issued")
         let hashLabel = Copy.s(language, pl: "pakiet lekcji w zakresie", en: "lessons in scope")
+        let verifyLabel = Copy.s(language, pl: "weryfikacja", en: "verify")
         let issued = ReportDates.iso8601(report.issuedAt)
         let meta = [
             "reportId: \(report.reportId.uuidString)",
             "\(versionLabel): \(report.contentVersion) · build: \(report.buildFlavor) · \(issuedLabel): \(issued)",
             "SHA-256 (\(hashLabel)): \(report.lessonsPackHash)",
+            "\(verifyLabel): \(shortVerifyURL.absoluteString)",
         ]
+        var metaY = metaTop
         for line in meta {
-            page.text(line, font: monoFont(7), color: mist, lineSpacing: 0.5)
+            let font = monoFont(6.5)
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.lineSpacing = 0.4
+            paragraph.lineBreakMode = .byCharWrapping
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: font, .foregroundColor: mist, .paragraphStyle: paragraph,
+            ]
+            let attributed = NSAttributedString(string: line, attributes: attributes)
+            let bounds = attributed.boundingRect(
+                with: CGSize(width: metaWidth, height: .greatestFiniteMagnitude),
+                options: [.usesLineFragmentOrigin, .usesFontLeading],
+                context: nil
+            )
+            attributed.draw(
+                with: CGRect(x: ReportPDF.margin, y: metaY, width: metaWidth, height: ceil(bounds.height)),
+                options: [.usesLineFragmentOrigin, .usesFontLeading],
+                context: nil
+            )
+            metaY += ceil(bounds.height) + 1
         }
-        page.space(6)
+
+        if let qrImage {
+            let qrRect = CGRect(
+                x: ReportPDF.pageSize.width - ReportPDF.margin - qrSide,
+                y: metaTop,
+                width: qrSide,
+                height: qrSide
+            )
+            qrImage.draw(in: qrRect)
+            page.y = max(metaY, metaTop + qrSide) + 4
+        } else {
+            page.y = metaY + 4
+        }
+
+        page.space(2)
         page.text(report.disclaimer, font: .italicSystemFont(ofSize: 8), color: mist, lineSpacing: 0.5)
         page.space(2)
         page.text(Canon.fiction(language), font: .italicSystemFont(ofSize: 8), color: mist, lineSpacing: 0.5)
     }
 
-    private static func estimatedFooterHeight(_ report: TrainingReport) -> CGFloat {
-        // Rule + meta (3) + disclaimer (wrapped) + fiction + paddings. Conservative for ensure().
-        let width = pageSize.width - margin * 2
+    private static func estimatedFooterHeight(_ report: TrainingReport, qrSide: CGFloat = 72) -> CGFloat {
+        // Rule + meta/QR row + disclaimer + fiction. Conservative for ensure().
+        let width = pageSize.width - margin * 2 - qrSide - 10
         let disclaimer = (report.disclaimer as NSString).boundingRect(
-            with: CGSize(width: width, height: .greatestFiniteMagnitude),
+            with: CGSize(width: pageSize.width - margin * 2, height: .greatestFiniteMagnitude),
             options: [.usesLineFragmentOrigin, .usesFontLeading],
             attributes: [.font: UIFont.italicSystemFont(ofSize: 8)],
             context: nil
         ).height
         let fiction = (Canon.fiction(report.appLanguage) as NSString).boundingRect(
-            with: CGSize(width: width, height: .greatestFiniteMagnitude),
+            with: CGSize(width: pageSize.width - margin * 2, height: .greatestFiniteMagnitude),
             options: [.usesLineFragmentOrigin, .usesFontLeading],
             attributes: [.font: UIFont.italicSystemFont(ofSize: 8)],
             context: nil
         ).height
-        return 0.5 + 6 + 3 * 10 + 6 + ceil(disclaimer) + 2 + ceil(fiction) + 4
+        // Meta lines can wrap (especially the verify URL); reserve room for QR beside them.
+        let metaBlock = max(qrSide, 4 * 11)
+        _ = width
+        return 0.5 + 6 + CGFloat(metaBlock) + 6 + ceil(disclaimer) + 2 + ceil(fiction) + 4
     }
 
     // MARK: Fonts

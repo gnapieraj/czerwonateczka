@@ -42,10 +42,47 @@ final class TrainingReportLayoutTests: XCTestCase {
         XCTAssertTrue(text.contains("issueYear=2026"))
         XCTAssertTrue(text.contains("certUrl="))
         XCTAssertTrue(text.contains("colgante.pl/verify/"))
-        XCTAssertFalse(ReportVerify.isPublicRegistryLive)
+        XCTAssertTrue(ReportVerify.isPublicRegistryLive, "v2 flips the flag only while signed verify works")
         let fields = ReportVerify.publicFields(from: report)
         XCTAssertEqual(fields["reportId"], report.reportId.uuidString.lowercased())
+        XCTAssertEqual(fields["validUntil"], report.validUntil)
         XCTAssertFalse(fields.values.contains(report.employeeName), "wariant A: no employee name on public payload")
+        XCTAssertNil(fields["organization"], "org is omitted unless publishOrganization is on")
+
+        let token = ReportVerify.signedToken(for: report)
+        let verified = try XCTUnwrap(ReportVerify.verify(token: token))
+        XCTAssertEqual(verified.id, report.reportId.uuidString.lowercased())
+        XCTAssertEqual(verified.vu, report.validUntil)
+        XCTAssertEqual(verified.cd, report.completionDate)
+        XCTAssertNil(verified.org)
+        XCTAssertTrue(ReportVerify.signedPublicURL(for: report).absoluteString.contains("p="))
+        XCTAssertNotNil(ReportQR.image(for: report, side: 96))
+    }
+
+    func testEnglishDiplomaFlagAndPublishedOrgOnVerifyPayload() throws {
+        let pack = try loadPack()
+        var form = ReportForm(employeeName: "Anna Nowak", organization: "Kancelaria Testowa")
+        form.diplomaEnglish = true
+        form.publishOrganizationOnVerify = true
+        var config = ReportConfig.free
+        config.contentVersion = "9.9+7"
+        let stamps = soundStamps(for: pack, seasonId: "0")
+        let evaluation = PassPolicy.evaluate(scope: .season("0"), lessons: pack, stamps: stamps)
+        let report = ReportBuilder.make(
+            evaluation: evaluation,
+            allLessons: pack,
+            form: form,
+            config: config,
+            now: fixedDate
+        )
+        XCTAssertEqual(report.language, "en")
+        XCTAssertTrue(report.publishOrganization)
+        XCTAssertEqual(report.validUntil, "2027-09-21")
+        let payload = ReportVerify.publicPayload(from: report)
+        XCTAssertEqual(payload.org, "Kancelaria Testowa")
+        XCTAssertTrue(report.trainingName.contains("Season") || report.trainingName.contains("Czerwona Teczka"))
+        let pdf = ReportPDF.render(report)
+        XCTAssertEqual(ReportPDF.pageCount(of: pdf), 1)
     }
 
     func testBadgePNGIsNonEmpty() throws {

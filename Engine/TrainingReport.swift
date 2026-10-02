@@ -202,6 +202,8 @@ struct TrainingReport: Codable, Equatable {
     var contentVersion: String
     var lessonsPackHash: String
     var buildFlavor: String
+    /// When true, organisation may be shown on public verify (never the employee name).
+    var publishOrganization: Bool = false
 
     var scope: ReportScopeDescriptor
     var seasons: [ReportSeason]
@@ -227,7 +229,8 @@ enum ReportBuilder {
         reportId: UUID = UUID(),
         now: Date = Date()
     ) -> TrainingReport {
-        let language = config.language
+        // Free v2: PL by default; EN only when the form flag is on (plan §12).
+        let language: AppLanguage = form.diplomaEnglish ? .english : .polish
         let scopedLessons = evaluation.lessons.map(\.lesson)
         let completedAt = evaluation.lastStampDate ?? now
         let validUntil = ReportDates.adding(months: config.validityMonths, to: completedAt)
@@ -283,6 +286,7 @@ enum ReportBuilder {
             contentVersion: config.contentVersion,
             lessonsPackHash: ReportHash.lessonsPackHash(scopedLessons),
             buildFlavor: config.buildFlavor,
+            publishOrganization: form.publishOrganizationOnVerify,
             scope: scopeDescriptor,
             seasons: seasons,
             disclaimer: disclaimer(language)

@@ -105,7 +105,7 @@ import { site } from "../data/site";
       <li><strong>PDF</strong> — dyplom A4 z zakresem, progiem i zastrzeżeniem edukacyjnym.</li>
       <li><strong>Odznaka PNG</strong> — kwadrat pod Licenses &amp; Certifications; deeplink LinkedIn wypełnia organizację Colgante / Czerwona Teczka.</li>
       <li><strong>CSV / JSON</strong> — rejestr szkoleń i przypomnienie o odświeżeniu; werdykty per noc tylko tu, nie na dyplomie.</li>
-      <li><strong>Weryfikacja publiczna</strong> — adres <code>colgante.pl/verify/&lt;id&gt;</code> jest w przygotowaniu (wariant A bez imienia). Dziś nie twierdzimy, że rejestr działa.</li>
+      <li><strong>Weryfikacja publiczna</strong> — QR na dyplomie otwiera <code>colgante.pl/verify/&lt;id&gt;</code> (wariant A bez imienia). Strona sprawdza podpisany ładunek z QR; to nie jest centralny rejestr wszystkich dyplomów.</li>
     </ul>
     <p>
       {site.firm} jest fikcją. Dokument nie jest poradą prawną ani urzędowym certyfikatem
@@ -113,7 +113,7 @@ import { site } from "../data/site";
     </p>
     <p>
       <a class="button" href="/o-projekcie">Poznaj grę</a>
-      <a class="button button-secondary" href="/verify/">Weryfikacja (stub)</a>
+      <a class="button button-secondary" href="/verify/">Weryfikacja</a>
     </p>
   </section>
 </BaseLayout>

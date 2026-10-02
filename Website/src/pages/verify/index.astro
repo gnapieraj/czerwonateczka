@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site";
 
-const verifyPattern = `https://${site.domain}/verify/<reportId>`;
+const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
 ---
 
 <BaseLayout
@@ -14,25 +14,263 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>`;
     <p class="eyebrow">VERIFY · WARIANT A</p>
     <h1>Weryfikacja raportu</h1>
     <p class="lead">
-      Publiczna strona weryfikacji (plan v2) pokazuje status ukończenia, zakres tematów,
-      datę wydania i hash pakietu — <strong>bez imienia i nazwiska pracownika</strong>.
+      Ta strona pokazuje status ukończenia, zakres tematów, datę wydania, ważność
+      i hash pakietu — <strong>bez imienia i nazwiska, e-maila, werdyktów per noc ani danych HR</strong>.
+      Nazwa organizacji pojawia się tylko gdy dyplom na to zezwala.
     </p>
 
-    <div class="callout">
+    <div id="verify-status" class="callout" aria-live="polite">
       <p class="eyebrow">STATUS</p>
-      <h2>Rejestr jeszcze nie jest aktywny</h2>
+      <h2 id="verify-title">Sprawdzam…</h2>
+      <p id="verify-summary" class="muted">Odczytuję identyfikator i podpis z adresu.</p>
+    </div>
+
+    <div id="verify-result" class="callout" hidden>
+      <p class="eyebrow">WYNIK</p>
+      <dl class="verify-dl" id="verify-fields"></dl>
+    </div>
+
+    <div class="callout">
+      <p class="eyebrow">MODEL ZAUFANIA</p>
+      <h2>Podpisany ładunek, nie centralny rejestr</h2>
       <p>
-        Colgante nie hostuje jeszcze żywego rejestru <code>reportId</code>. Link z aplikacji
-        i odznaki LinkedIn ma docelowy kształt
-        <code>{verifyPattern}</code>, ale dziś ta strona
-        <strong>nie potwierdza</strong> ukończenia. Nie twierdzimy, że weryfikacja działa.
+        Hosting colgante.pl jest statyczny (OVH SFTP, bez serwera Node). QR z dyplomu
+        niesie skrócony, podpisany Ed25519 ładunek publiczny (<code>?p=</code>).
+        Przeglądarka weryfikuje podpis kluczem publicznym aplikacji free.
+        To <strong>nie</strong> jest księga wszystkich wydanych dyplomów — ktoś z seedem
+        podpisującym z builda free mógłby wygenerować ważny token. Cel: utrudnić
+        przypadkowe fałszerstwo PDF i dać HR szybki podgląd zakresu bez PII.
+        Portal B2B z prawdziwym rejestrem to faza v3.
+      </p>
+      <p class="muted">
+        Docelowy kształt URL: <code>{verifyPattern}</code> (rewrite Apache /
+        Netlify serwuje tę stronę także pod <code>/verify/&lt;uuid&gt;/</code>).
+        Działa też <code>/verify/?id=&lt;uuid&gt;&amp;p=&lt;token&gt;</code>.
       </p>
     </div>
 
     <p>
-      Dyplom PDF i odznaka PNG powstają offline w aplikacji. Udostępniasz je Share Sheetem;
+      Dyplom PDF i odznaka PNG powstają offline w aplikacji. Udostępniasz je Share Sheetem.
       LinkedIn Add certification to deeplink z nazwą szkolenia, organizacją
-      „Colgante / Czerwona Teczka”, datami i tym URL-em.
+      „Colgante / Czerwona Teczka”, datami i URL-em weryfikacji.
     </p>
   </section>
 </BaseLayout>
+
+<style>
+  .verify-dl {
+    display: grid;
+    grid-template-columns: minmax(8rem, 11rem) 1fr;
+    gap: 0.55rem 1rem;
+    margin: 0;
+  }
+  .verify-dl dt {
+    margin: 0;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--blood, #b81419);
+  }
+  .verify-dl dd {
+    margin: 0;
+    word-break: break-word;
+  }
+  .verify-dl code {
+    font-size: 0.85em;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+        const titleEl = document.getElementById("verify-title");
+    const summaryEl = document.getElementById("verify-summary");
+    const resultEl = document.getElementById("verify-result");
+    const fieldsEl = document.getElementById("verify-fields");
+    const statusEl = document.getElementById("verify-status");
+
+    const UUID_RE =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+    function todayWarsaw() {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Europe/Warsaw",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date());
+    }
+
+    function parseReportId() {
+      const params = new URLSearchParams(location.search);
+      const fromQuery = (params.get("id") || "").toLowerCase();
+      if (UUID_RE.test(fromQuery)) return fromQuery;
+      const parts = location.pathname.split("/").filter(Boolean);
+      // ["verify", "<uuid>"] or ["verify"]
+      if (parts[0] === "verify" && parts[1] && UUID_RE.test(parts[1])) {
+        return parts[1].toLowerCase();
+      }
+      return "";
+    }
+
+    function b64urlToBytes(s) {
+      const pad = "=".repeat((4 - (s.length % 4)) % 4);
+      const b64 = (s + pad).replace(/-/g, "+").replace(/_/g, "/");
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
+    }
+
+    function hexToBytes(hex) {
+      const clean = hex.trim();
+      const out = new Uint8Array(clean.length / 2);
+      for (let i = 0; i < out.length; i++) {
+        out[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+      }
+      return out;
+    }
+
+    async function verifyToken(token, keyHex) {
+      const parts = token.split(".");
+      if (parts.length !== 2) return null;
+      const body = b64urlToBytes(parts[0]);
+      const sig = b64urlToBytes(parts[1]);
+      if (!window.crypto || !window.crypto.subtle) return null;
+      try {
+        const key = await crypto.subtle.importKey(
+          "raw",
+          hexToBytes(keyHex),
+          { name: "Ed25519" },
+          false,
+          ["verify"],
+        );
+        const ok = await crypto.subtle.verify({ name: "Ed25519" }, key, sig, body);
+        if (!ok) return null;
+        return JSON.parse(new TextDecoder().decode(body));
+      } catch (err) {
+        console.warn("verifyToken failed", err);
+        return null;
+      }
+    }
+
+    function validityLabel(payload) {
+      const day = todayWarsaw();
+      if (payload.st !== "UKONCZONO") return { ok: false, text: "Nieukończono (brak dyplomu UKOŃCZONO)" };
+      if (payload.vu >= day) return { ok: true, text: "Ważne do " + payload.vu };
+      return { ok: false, text: "Wygasło " + payload.vu + " (dziś " + day + ", Europe/Warsaw)" };
+    }
+
+    function showFields(payload, source) {
+      const validity = validityLabel(payload);
+      const rows = [
+        ["reportId", payload.id],
+        ["Ważność", validity.text],
+        ["Data ukończenia", payload.cd],
+        ["Ważne do", payload.vu],
+        ["Zakres", payload.tn + " · " + payload.n + " lekcji"],
+        ["Hash pakietu", payload.h],
+        ["Wystawca", payload.iss],
+        ["Wersja treści", payload.cv],
+        ["Build", payload.bf],
+      ];
+      if (payload.org) rows.splice(5, 0, ["Organizacja", payload.org]);
+      fieldsEl.innerHTML = "";
+      for (const [k, v] of rows) {
+        const dt = document.createElement("dt");
+        dt.textContent = k;
+        const dd = document.createElement("dd");
+        if (k === "Hash pakietu" || k === "reportId") {
+          const code = document.createElement("code");
+          code.textContent = v;
+          dd.appendChild(code);
+        } else {
+          dd.textContent = v;
+        }
+        fieldsEl.appendChild(dt);
+        fieldsEl.appendChild(dd);
+      }
+      resultEl.hidden = false;
+      titleEl.textContent = validity.ok ? "Dyplom potwierdzony" : "Ładunek odczytany — status negatywny";
+      summaryEl.textContent =
+        "Źródło: " +
+        source +
+        ". Wariant A — bez imienia i nazwiska. " +
+        (validity.ok
+          ? "Podpis Ed25519 jest poprawny względem klucza publicznego free."
+          : "Podpis jest poprawny, ale status/ważność nie potwierdzają aktywnego ukończenia.");
+      statusEl.classList.toggle("callout--ok", validity.ok);
+    }
+
+    function showIdle(reportId) {
+      resultEl.hidden = true;
+      if (!reportId) {
+        titleEl.textContent = "Podaj reportId lub zeskanuj QR z dyplomu";
+        summaryEl.innerHTML =
+          "Oczekiwany adres: <code>/verify/&lt;uuid&gt;/?p=…</code> albo <code>/verify/?id=&lt;uuid&gt;&amp;p=…</code>. " +
+          "Bez tokenu <code>p</code> strona może pokazać tylko wpis z lokalnego rejestru fixture’ów.";
+        return;
+      }
+      titleEl.textContent = "Brak podpisanego ładunku";
+      summaryEl.innerHTML =
+        "Widzę <code>" +
+        reportId +
+        "</code>, ale w adresie nie ma poprawnego <code>?p=</code>, a identyfikator nie ma wpisu w statycznym rejestrze fixture’ów. " +
+        "Zeskanuj QR z PDF albo otwórz pełny link z aplikacji.";
+    }
+
+    async function lookupFixture(reportId) {
+      try {
+        const res = await fetch("/verify/registry.json", { credentials: "omit" });
+        if (!res.ok) return null;
+        const data = await res.json();
+        const entry = (data.entries || []).find(
+          (e) => (e.id || "").toLowerCase() === reportId.toLowerCase(),
+        );
+        return entry || null;
+      } catch {
+        return null;
+      }
+    }
+
+    async function main() {
+      const reportId = parseReportId();
+      const token = new URLSearchParams(location.search).get("p") || "";
+
+      if (token) {
+        const payload = await verifyToken(token, publicKeyHex);
+        if (!payload) {
+          titleEl.textContent = "Nie udało się zweryfikować podpisu";
+          summaryEl.textContent =
+            "Token ?p= jest obecny, ale podpis jest niepoprawny albo przeglądarka nie obsługuje Ed25519 w Web Crypto.";
+          return;
+        }
+        if (reportId && payload.id.toLowerCase() !== reportId) {
+          titleEl.textContent = "Niezgodność reportId";
+          summaryEl.textContent =
+            "Identyfikator w ścieżce/query nie zgadza się z id w podpisanym ładunku.";
+          return;
+        }
+        // Guard: never render PII keys even if a malformed token tried to smuggle them.
+        if (payload.employeeName || payload.email || payload.hrEmail) {
+          titleEl.textContent = "Odrzucono ładunek";
+          summaryEl.textContent = "Ładunek zawiera pola zabronione w wariancie A.";
+          return;
+        }
+        showFields(payload, "podpisany token z QR/URL");
+        return;
+      }
+
+      if (reportId) {
+        const fixture = await lookupFixture(reportId);
+        if (fixture) {
+          showFields(fixture, "statyczny rejestr fixture’ów");
+          return;
+        }
+      }
+      showIdle(reportId);
+    }
+
+    main();
+  })();
+</script>
