@@ -1,8 +1,49 @@
 # Plan: raport / dyplom ukończenia (Czerwona Teczka)
 
-**Status:** decyzje produktowe zamknięte (2026-10-01) — **bez implementacji w kodzie**.  
+**Status:** decyzje produktowe zamknięte (2026-10-01); **MVP zaimplementowane** (§0); **layout PDF + odznaka LinkedIn** (2026-10-02, patrz §0.1).  
 **Produkt:** gra edukacyjna Czerwona Teczka + colgante.pl  
 **Cel:** udokumentowana ścieżka szkolenia pracowników (RODO, bezpieczeństwo informacji, ISO 27001 i podobne).
+
+---
+
+## 0. Status implementacji MVP (2026-10-01)
+
+**Wylądowało w kodzie (free build, zero sieci, zero konta):**
+
+| Element | Gdzie | Uwagi |
+|--------|-------|-------|
+| Pass policy ≥ 90% TRAFNE | `Engine/TrainingReport.swift` → `PassPolicy`, `PassEvaluation` | Arytmetyka całkowita: 12 → 11, 24 → 22. Liczy się **ostatni** werdykt **po przejrzanym briefingu**; NIEPEŁNE i BŁĘDNE = nie-TRAFNE; każda noc w zakresie musi mieć stempel. |
+| Stempel z datą i flagą briefingu | `Engine/Models.swift` → `DocketStamp.stampedAt`, `.briefed`; `GameStore.markBriefed` | Nowy stempel ma `briefed=false` do zamknięcia briefingu. Stemple sprzed tej zmiany dekodują się jako `briefed=true` (briefing był już obowiązkową ścieżką). |
+| Zakres raportu | `ReportScope` (`.season(id)` / `.pack`) | Domyślnie najszerszy zaliczony zakres (cały pakiet, inaczej pierwszy zaliczony sezon). |
+| PDF dyplom (PL domyślnie, EN wg języka gry) | `Engine/ReportPDF.swift` (UIGraphicsPDFRenderer, A4) | Imię i nazwisko, organizacja, data ukończenia (Europe/Warsaw), nazwa sezonu/packa, pełna lista tematów (id + tytuł), status UKOŃCZONO tylko przy pass, ważne do / następne przypomnienie, `reportId`, `contentVersion`, SHA-256 pakietu, disclaimer. **Bez werdyktów per noc.** |
+| CSV rejestr szkoleń (§6.2) | `ReportCSV.register` | Dokładnie kolumny z §6.2, separator tematów ` \| `, BOM UTF-8 dla Excela. Dodatkowo `*_lekcje.csv` (per noc, tylko HR). |
+| JSON (§6.3) | `ReportJSON` / `TrainingReport` | Ten sam payload + `seasons[].lessons[]` z `lastVerdict`, `stampedAt`, `briefed`; daty ISO 8601; `nextReminderAt`. |
+| Share Sheet | `Views/EmployerReportView.swift` → `ShareSheet` (UIActivityViewController) | Podgląd PDF (PDFKit), Udostępnij PDF, Eksport CSV, Eksport JSON, Udostępnij komplet. Pliki w katalogu tymczasowym aplikacji. |
+| Settings → „Raport dla pracodawcy” | `Views/SettingsView.swift` → `EmployerReportView` | Free: imię i nazwisko (wymagane) oraz organizacja — bez pola podpowiedzi e-maila HR. W buildach org adres będzie później prefillowany z `OrgConfig`. Poniżej progu: lista braków (bez stempla / briefing / brakujące TRAFNE), eksport zablokowany. |
+| Persist formularza | `GameStore.reportForm` → UserDefaults `report.form` | Czyszczone przy „Pierwsze uruchomienie”. |
+| Ważność | `ReportConfig.free` | `validityMonths = 12`, przypomnienie 30 dni przed (`reminderLeadDays`). Hook pod konfig org. |
+| Testy | `CzerwonaTeczkaTests/TrainingReportTests.swift`, rozszerzony `LessonPackTests` | Pass-policy, szablon CSV, escaping, hash (wektor SHA-256 + stabilność/scope), JSON round-trip, daty, legacy stemple, flaga briefingu w przepływie nocy. |
+
+**Odłożone (zgodnie z fazami §12):**
+
+- v2: QR + publiczny verify (wariant A) na colgante.pl, flaga EN per org, `validUntil` z konfigu org.
+- v3 / B2B: flavory / Custom Apps, `OrgConfig`, portal HR z logowaniem, przypomnienia z `nextReminderAt` po stronie klienta, ostrzejsza polityka pass per org.
+- Nadal **zakazane** w free: SMTP, `mailto` jako relay, automatyczna wysyłka, konta.
+
+**Decyzje z §14 podjęte przy implementacji:** ostatni werdykt (nie najlepszy); NIEPEŁNE w mianowniku jako nie-TRAFNE; `validityMonths` free = 12; raport dostępny dla Sezonu 0, Sezonu 1 i całego pakietu (24).
+
+---
+
+## 0.1 Layout PDF + odznaka LinkedIn (2026-10-02)
+
+| Element | Gdzie | Uwagi |
+|--------|-------|-------|
+| A4 bez sierotki disclaimeru | `Engine/ReportPDF.swift` | Zwarte odstępy, dynamiczny font tematów, 2 kolumny od ~10 tematów, `ensure(..., reserving: footer)`, kontynuacja z nagłówkiem zamiast gołej strony 2 z samym meta/disclaimerem. |
+| Fixtures PDF | `CzerwonaTeczkaTests/Fixtures/Reports/` | `sezon0-12`, `short-2x3`, `short-2x4`, `pack-24` (+ badge PNG). Regeneracja: `WRITE_REPORT_FIXTURES=1` w teście. |
+| Layout tests | `TrainingReportLayoutTests.swift` | Sezon 0 i short packi = 1 strona; pack 24 ≤ 2. |
+| Odznaka PNG | `Engine/ReportBadge.swift` | Offline credential card (noir + red rules/seal/folder/ribbon); **no** filled red disc. Styles: credential (prod), folder, ribbon. |
+| LinkedIn Add certification | `Engine/ReportSharing.swift` + `EmployerReportView` | Deeplink name / Colgante·Czerwona Teczka / daty / certUrl; Share Sheet odznaki. |
+| Verify v2 wariant A (stub) | `Website/src/pages/verify/[reportId].astro` + `ReportVerify` | URL publiczny bez imienia; **rejestr nieaktywny** (`isPublicRegistryLive = false`) — UI nie twierdzi, że verify żyje. |
 
 ---
 
@@ -288,3 +329,5 @@ Sekcja **„Raport dla pracodawcy”** (aktywna gdy pass ≥ 90% w zakresie):
 ## 15. Historia decyzji
 
 - 2026-10-01 — analiza + plan; decyzje 1–8 zamknięte przez Grega; plik zapisany w repo (`plan-raport-dyplom.md`). Brak zmian w kodzie gry/strony w tym kroku.
+- 2026-10-01 — MVP w aplikacji (§0): pass policy, PDF/CSV/JSON, Share Sheet, sekcja w Ustawieniach, testy. Strona i assety bez zmian.
+- 2026-10-02 — layout PDF (bez sierotki disclaimeru), fixtures, odznaka PNG + LinkedIn deeplink, stub verify A na stronie (rejestr jeszcze nie live).

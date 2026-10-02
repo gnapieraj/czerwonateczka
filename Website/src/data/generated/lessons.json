@@ -2096,7 +2096,7 @@
     },
     "context": {
       "pl": "Aplikant, którego szanujesz, odszedł dziś. Jego skrzynka wciąż dostaje pocztę klienta. Zestaw pism na jutrzejszą rozprawę leży w niedokończonym mailu, w kopiach roboczych. Przy każdym logowaniu jego prywatny telefon pyta „Czy zatwierdzić?”. Ten telefon został u niego.",
-      "en": "An associate you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
+      "en": "A trainee you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
     },
     "beats": [
       {
@@ -2122,7 +2122,7 @@
     },
     "exhibitText": {
       "pl": "Aplikant, którego szanujesz, odszedł dziś. Jego skrzynka wciąż dostaje pocztę klienta. Zestaw pism na jutrzejszą rozprawę leży w niedokończonym mailu, w kopiach roboczych. Przy każdym logowaniu jego prywatny telefon pyta „Czy zatwierdzić?”. Ten telefon został u niego.",
-      "en": "An associate you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
+      "en": "A trainee you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."
     },
     "innerVoice": {
       "pl": "Co robisz z tym logowaniem przed nocą?",
@@ -2250,7 +2250,7 @@
     "awareness": {
       "threat": {
         "pl": "Dopóki prywatny telefon byłego aplikanta zatwierdza logowanie, skrzynka klienta jest nadal jego kluczem — także po zmianie hasła. Presja jutrzejszych pism ma odroczyć wyłączenie dostępu. Odejście zamyka konto tego samego dnia; ciągłość sprawy robi się przejęciem skrzynki, nie zostawieniem MFA u kogoś spoza firmy.",
-        "en": "As long as a former associate’s personal phone approves sign-in, the client mailbox is still their key — even after a password change. Tomorrow’s papers are meant to delay cutting access. A departure closes the account the same day; continuity is a mailbox hand-over, not leaving MFA with someone outside the firm."
+        "en": "As long as a former trainee’s personal phone approves sign-in, the client mailbox is still their key — even after a password change. Tomorrow’s papers are meant to delay cutting access. A departure closes the account the same day; continuity is a mailbox hand-over, not leaving MFA with someone outside the firm."
       },
       "minimize": {
         "pl": "Logowanie wyłączasz dziś, zanim wyjdą pisma. Niedokończony mail przejmuje partner sprawy. Telefon z pytaniem „Czy zatwierdzić?” wraca albo jest czyszczony.",
@@ -2267,7 +2267,7 @@
         },
         {
           "pl": "Nowe hasło przy telefonie, który został u aplikanta.",
-          "en": "A new password while the phone stayed with the associate."
+          "en": "A new password while the phone stayed with the trainee."
         }
       ]
     },
@@ -2489,7 +2489,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -2696,7 +2696,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -2903,7 +2903,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -3110,7 +3110,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -3317,7 +3317,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -3524,7 +3524,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -3731,7 +3731,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -3906,7 +3906,7 @@
     "awareness": {
       "threat": {
         "pl": "Aplikant nie ma pełnomocnictwa do rady, czy klient ma podpisać ugodę, ani do wyjmowania pisma z akt. Prośba „niech tego jutro nie będzie” jest ukryciem, także gdy ograniczysz ją do jednego przeglądu. Rozmowę zapisujesz i zostawiasz mecenasowi. Klient słyszy tylko, kiedy ten oddzwoni.",
-        "en": "An associate has no retainer to advise whether a client should sign a settlement, and no authority to take a paper out of the file. A request that it “not be there tomorrow” is concealment, even if you limit it to one review. You note the call and leave it for the lawyer. The client hears only when that call will come."
+        "en": "A trainee has no retainer to advise whether a client should sign a settlement, and no authority to take a paper out of the file. A request that it “not be there tomorrow” is concealment, even if you limit it to one review. You note the call and leave it for the lawyer. The client hears only when that call will come."
       },
       "minimize": {
         "pl": "Nie radzisz, czy podpisać, i nie ruszasz pisma. Klient słyszy, że oddzwoni mecenas. Prośbę i godzinę zapisujesz dla mecenasa.",
@@ -3938,7 +3938,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -4145,7 +4145,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -4352,7 +4352,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -4559,7 +4559,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,
@@ -4766,7 +4766,7 @@
     "seasonId": "1",
     "seasonTitle": {
       "pl": "Sezon 1 · Aplikant",
-      "en": "Season 1 · The associate"
+      "en": "Season 1 · The trainee"
     },
     "demo": false,
     "storyMode": true,

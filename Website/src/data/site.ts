@@ -30,6 +30,7 @@ export const site = {
 export const navigation = [
   { href: "/wokanda", label: "Wokanda" },
   { href: "/o-projekcie", label: "Poznaj grę" },
+  { href: "/raport", label: "Raport" },
   { href: "/materialy", label: "Materiały" },
   { href: "/newsletter", label: "Czerwona lampka" },
   { href: "/jak-czytac-gre", label: "Jak czytać grę" },

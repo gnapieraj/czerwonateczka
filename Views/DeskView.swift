@@ -181,7 +181,7 @@ struct DeskView: View {
                         id: "1",
                         image: "SezonAplikant",
                         eyebrow: Copy.s(store.language, pl: "SEZON 1", en: "SEASON 1"),
-                        name: Copy.s(store.language, pl: "Aplikant", en: "Associate")
+                        name: Copy.s(store.language, pl: "Aplikant", en: "Trainee")
                     )
                 }
             }
@@ -419,7 +419,7 @@ struct FolderCard: View {
                             .padding(.vertical, 4)
                             .background(Noir.paper)
                     } else if isLocked {
-                        Text(Copy.s(store.language, pl: "ZAMKNIĘTE", en: "LOCKED"))
+                        Text(Copy.s(store.language, pl: "ZABLOKOWANE", en: "LOCKED"))
                             .font(Typeface.mono(16))
                             .foregroundStyle(Noir.paperDim)
                             .padding(.horizontal, 8)

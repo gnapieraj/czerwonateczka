@@ -131,6 +131,10 @@ const screenFiles = [
   "iphone-teczka.jpg",
   "ipad-wokanda.jpg",
   "ipad-komiks-landscape.jpg",
+  "ipad-raport-formularz.jpg",
+  "ipad-raport-share.jpg",
+  "raport-dyplom-sezon0.png",
+  "raport-odznaka-folder.png",
 ];
 await Promise.all(
   screenFiles.map((name) => copyFile(resolve(screenDir, name), resolve(publicScreens, name))),

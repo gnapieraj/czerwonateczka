@@ -33,8 +33,12 @@ cd Website && npm run sync && npm run verify
 
 Audyt warstwy edukacyjnej: `World/AudytWarstwyEdukacyjnej.md`.
 
+## Raport dla pracodawcy
+
+Ustawienia → „Raport dla pracodawcy”: lokalny PDF (dyplom), CSV (rejestr szkoleń) i JSON (przypomnienia), udostępniane wyłącznie przez systemowy arkusz. Próg: ≥ 90% nocy z werdyktem TRAFNE w zakresie (sezon lub cały pakiet), komplet stempli i briefingów. Szczegóły i decyzje: `plan-raport-dyplom.md`.
+
 ## Testy
 
-Na Macu: ⌘U (`LessonPackTests`).
+Na Macu: ⌘U (`LessonPackTests`, `TrainingReportTests`).
 
 Grafika: jeden plik na kadr w `Resources/Assets.xcassets`. Spis: `World/AssetRegistry.md`. Prompty sezonów: `tools/macos-studio/komiks-sezony.md`.

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+
+const verifyPattern = `https://${site.domain}/verify/<reportId>`;
+---
+
+<BaseLayout
+  title="Weryfikacja raportu"
+  description="Publiczna weryfikacja dyplomu Czerwona Teczka (wariant A — bez imienia i nazwiska)."
+  noindex={true}
+>
+  <section class="reading section">
+    <p class="eyebrow">VERIFY · WARIANT A</p>
+    <h1>Weryfikacja raportu</h1>
+    <p class="lead">
+      Publiczna strona weryfikacji (plan v2) pokazuje status ukończenia, zakres tematów,
+      datę wydania i hash pakietu — <strong>bez imienia i nazwiska pracownika</strong>.
+    </p>
+
+    <div class="callout">
+      <p class="eyebrow">STATUS</p>
+      <h2>Rejestr jeszcze nie jest aktywny</h2>
+      <p>
+        Colgante nie hostuje jeszcze żywego rejestru <code>reportId</code>. Link z aplikacji
+        i odznaki LinkedIn ma docelowy kształt
+        <code>{verifyPattern}</code>, ale dziś ta strona
+        <strong>nie potwierdza</strong> ukończenia. Nie twierdzimy, że weryfikacja działa.
+      </p>
+    </div>
+
+    <p>
+      Dyplom PDF i odznaka PNG powstają offline w aplikacji. Udostępniasz je Share Sheetem;
+      LinkedIn Add certification to deeplink z nazwą szkolenia, organizacją
+      „Colgante / Czerwona Teczka”, datami i tym URL-em.
+    </p>
+  </section>
+</BaseLayout>
