@@ -19,7 +19,7 @@
 | CSV rejestr szkoleń (§6.2) | `ReportCSV.register` | Dokładnie kolumny z §6.2, separator tematów ` \| `, BOM UTF-8 dla Excela. Dodatkowo `*_lekcje.csv` (per noc, tylko HR). |
 | JSON (§6.3) | `ReportJSON` / `TrainingReport` | Ten sam payload + `seasons[].lessons[]` z `lastVerdict`, `stampedAt`, `briefed`; daty ISO 8601; `nextReminderAt`. |
 | Share Sheet | `Views/EmployerReportView.swift` → `ShareSheet` (UIActivityViewController) | Podgląd PDF (PDFKit), Udostępnij PDF, Eksport CSV, Eksport JSON, Udostępnij komplet. Pliki w katalogu tymczasowym aplikacji. |
-| Settings → „Raport dla pracodawcy” | `Views/SettingsView.swift` → `EmployerReportView` | Imię i nazwisko (wymagane), organizacja, podpowiedź e-maila HR (tylko składnia + „kopiuj”; nigdy odbiorca ani relay). Poniżej progu: lista braków (bez stempla / briefing / brakujące TRAFNE), eksport zablokowany. |
+| Settings → „Raport dla pracodawcy” | `Views/SettingsView.swift` → `EmployerReportView` | Free: imię i nazwisko (wymagane) oraz organizacja — bez pola podpowiedzi e-maila HR. W buildach org adres będzie później prefillowany z `OrgConfig`. Poniżej progu: lista braków (bez stempla / briefing / brakujące TRAFNE), eksport zablokowany. |
 | Persist formularza | `GameStore.reportForm` → UserDefaults `report.form` | Czyszczone przy „Pierwsze uruchomienie”. |
 | Ważność | `ReportConfig.free` | `validityMonths = 12`, przypomnienie 30 dni przed (`reminderLeadDays`). Hook pod konfig org. |
 | Testy | `CzerwonaTeczkaTests/TrainingReportTests.swift`, rozszerzony `LessonPackTests` | Pass-policy, szablon CSV, escaping, hash (wektor SHA-256 + stabilność/scope), JSON round-trip, daty, legacy stemple, flaga briefingu w przepływie nocy. |
@@ -41,7 +41,7 @@
 | A4 bez sierotki disclaimeru | `Engine/ReportPDF.swift` | Zwarte odstępy, dynamiczny font tematów, 2 kolumny od ~10 tematów, `ensure(..., reserving: footer)`, kontynuacja z nagłówkiem zamiast gołej strony 2 z samym meta/disclaimerem. |
 | Fixtures PDF | `CzerwonaTeczkaTests/Fixtures/Reports/` | `sezon0-12`, `short-2x3`, `short-2x4`, `pack-24` (+ badge PNG). Regeneracja: `WRITE_REPORT_FIXTURES=1` w teście. |
 | Layout tests | `TrainingReportLayoutTests.swift` | Sezon 0 i short packi = 1 strona; pack 24 ≤ 2. |
-| Odznaka PNG | `Engine/ReportBadge.swift` | Offline, noir + pieczęć UKOŃCZONO. |
+| Odznaka PNG | `Engine/ReportBadge.swift` | Offline credential card (noir + red rules/seal/folder/ribbon); **no** filled red disc. Styles: credential (prod), folder, ribbon. |
 | LinkedIn Add certification | `Engine/ReportSharing.swift` + `EmployerReportView` | Deeplink name / Colgante·Czerwona Teczka / daty / certUrl; Share Sheet odznaki. |
 | Verify v2 wariant A (stub) | `Website/src/pages/verify/[reportId].astro` + `ReportVerify` | URL publiczny bez imienia; **rejestr nieaktywny** (`isPublicRegistryLive = false`) — UI nie twierdzi, że verify żyje. |
 

@@ -204,13 +204,10 @@ final class TrainingReportTests: XCTestCase {
         XCTAssertFalse(back[0].briefed)
     }
 
-    func testHREmailHintIsSyntaxOnly() {
-        XCTAssertTrue(HREmailHint.looksValid("hr@firma.pl"))
-        XCTAssertTrue(HREmailHint.looksValid("  iod@kancelaria.example.com "))
-        XCTAssertFalse(HREmailHint.looksValid("hr"))
-        XCTAssertFalse(HREmailHint.looksValid("hr@firma"))
-        XCTAssertFalse(HREmailHint.looksValid("hr @firma.pl"))
-        XCTAssertFalse(HREmailHint.looksValid("@firma.pl"))
+    func testReportFormIgnoresLegacyHREmailHint() throws {
+        let legacy = Data(#"{"employeeName":"Anna Nowak","organization":"Kancelaria Testowa","hrEmailHint":"hr@firma.pl"}"#.utf8)
+        let decoded = try JSONDecoder().decode(ReportForm.self, from: legacy)
+        XCTAssertEqual(decoded, ReportForm(employeeName: "Anna Nowak", organization: "Kancelaria Testowa"))
     }
 
     // MARK: Helpers
@@ -222,7 +219,7 @@ final class TrainingReportTests: XCTestCase {
         return ReportBuilder.make(
             evaluation: evaluation,
             allLessons: pack,
-            form: ReportForm(employeeName: " Anna Nowak ", organization: "Kancelaria Testowa", hrEmailHint: "hr@firma.pl"),
+            form: ReportForm(employeeName: " Anna Nowak ", organization: "Kancelaria Testowa"),
             config: config,
             now: fixedDate
         )

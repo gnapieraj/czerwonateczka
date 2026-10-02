@@ -443,17 +443,3 @@ enum ReportJSON {
         return try decoder.decode(TrainingReport.self, from: data)
     }
 }
-
-// MARK: - HR email hint (syntax only)
-
-enum HREmailHint {
-    /// Loose syntax check for the hint field. Nothing is sent anywhere.
-    static func looksValid(_ text: String) -> Bool {
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        let parts = trimmed.split(separator: "@", omittingEmptySubsequences: false)
-        guard parts.count == 2, !parts[0].isEmpty else { return false }
-        let domain = parts[1]
-        guard domain.contains("."), !domain.hasPrefix("."), !domain.hasSuffix(".") else { return false }
-        return !trimmed.contains(where: { $0.isWhitespace })
-    }
-}

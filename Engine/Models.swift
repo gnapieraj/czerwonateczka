@@ -318,10 +318,6 @@ struct DocketStamp: Codable, Equatable {
 struct ReportForm: Codable, Equatable {
     var employeeName: String = ""
     var organization: String = ""
-    /// Shown next to the share button as a reminder of where to send the file.
-    /// Not a recipient, not a relay — the user types it into Mail themselves.
-    var hrEmailHint: String = ""
-
     var hasRequiredFields: Bool {
         !employeeName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }

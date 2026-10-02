@@ -80,6 +80,50 @@ final class TrainingReportLayoutTests: XCTestCase {
         XCTAssertTrue(FileManager.default.fileExists(atPath: fixtures.appendingPathComponent("sezon0-12.pdf").path))
     }
 
+
+    /// Writes 3 badge style previews (credential / folder / ribbon) when WRITE_BADGE_PREVIEWS=1.
+    func testWriteBadgeStylePreviewsIfRequested() throws {
+        guard ProcessInfo.processInfo.environment["WRITE_BADGE_PREVIEWS"] == "1" else {
+            throw XCTSkip("set WRITE_BADGE_PREVIEWS=1 to regenerate style previews")
+        }
+        let pack = try loadPack()
+        let report = makeFullPack(pack: pack)
+        // Absolute host Desktop - Simulator NSHomeDirectory is the sandbox.
+        let desktop = URL(fileURLWithPath: "/Users/AI/Desktop/CzerwonaTeczka-badge-previews", isDirectory: true)
+        let world = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("World/report-fixtures/badge-previews", isDirectory: true)
+        for dir in [desktop, world] {
+            try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        }
+        for style in ReportBadge.Style.allCases {
+            let data = ReportBadge.render(report, style: style)
+            XCTAssertGreaterThan(data.count, 5_000)
+            let name = "badge-\(style.rawValue)-pack24.png"
+            for dir in [desktop, world] {
+                try data.write(to: dir.appendingPathComponent(name), options: .atomic)
+            }
+        }
+        let worldRoot = world.deletingLastPathComponent()
+        try ReportBadge.render(report).write(
+            to: worldRoot.appendingPathComponent("pack-24-badge.png"),
+            options: .atomic
+        )
+        try ReportBadge.render(makeSeason0(pack: pack, name: "Grzegorz Napieraj", org: "It Security")).write(
+            to: worldRoot.appendingPathComponent("sezon0-12-badge.png"),
+            options: .atomic
+        )
+        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 3)).write(
+            to: worldRoot.appendingPathComponent("short-2x3-badge.png"),
+            options: .atomic
+        )
+        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 4)).write(
+            to: worldRoot.appendingPathComponent("short-2x4-badge.png"),
+            options: .atomic
+        )
+    }
+
     // MARK: Helpers
 
     private func makeSeason0(pack: [Lesson], name: String = "Anna Nowak", org: String = "Kancelaria Testowa") -> TrainingReport {
@@ -90,7 +134,7 @@ final class TrainingReportLayoutTests: XCTestCase {
         return ReportBuilder.make(
             evaluation: evaluation,
             allLessons: pack,
-            form: ReportForm(employeeName: name, organization: org, hrEmailHint: ""),
+            form: ReportForm(employeeName: name, organization: org),
             config: config,
             now: fixedDate
         )
@@ -104,7 +148,7 @@ final class TrainingReportLayoutTests: XCTestCase {
         return ReportBuilder.make(
             evaluation: evaluation,
             allLessons: pack,
-            form: ReportForm(employeeName: "Grzegorz Napieraj", organization: "It Security", hrEmailHint: ""),
+            form: ReportForm(employeeName: "Grzegorz Napieraj", organization: "It Security"),
             config: config,
             now: fixedDate
         )
@@ -122,7 +166,7 @@ final class TrainingReportLayoutTests: XCTestCase {
         return ReportBuilder.make(
             evaluation: evaluation,
             allLessons: subset,
-            form: ReportForm(employeeName: "Grzegorz Napieraj", organization: "It Security", hrEmailHint: ""),
+            form: ReportForm(employeeName: "Grzegorz Napieraj", organization: "It Security"),
             config: config,
             now: fixedDate
         )

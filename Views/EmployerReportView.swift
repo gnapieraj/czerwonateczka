@@ -48,7 +48,6 @@ struct EmployerReportView: View {
                         }
                         formPlate
                         actionsPlate
-                        hrHintPlate
                         footerPlate
                         Color.clear.frame(height: 32)
                     }
@@ -91,8 +90,8 @@ struct EmployerReportView: View {
         } message: {
             Text(Copy.s(
                 lang,
-                pl: "LinkedIn otworzy formularz Licenses & Certifications (nazwa, Colgante / Czerwona Teczka, daty, link verify). Pola mogą wymagać ręcznego potwierdzenia.",
-                en: "LinkedIn opens the Licenses & Certifications form (name, Colgante / Czerwona Teczka, dates, verify link). Fields may need manual confirmation."
+                pl: "LinkedIn otworzy formularz Licenses & Certifications. Dołącz odznakę PNG (certyfikat ukończenia) — wygląda jak dyplom, nie jak znak zakazu. Pola w formularzu mogą wymagać ręcznego potwierdzenia.",
+                en: "LinkedIn opens the Licenses & Certifications form. Attach the badge PNG (completion certificate) — diploma look, not a prohibition sign. Form fields may need manual confirmation."
             ))
         }
         .onChange(of: store.reportForm) { _, _ in cached = nil }
@@ -235,12 +234,6 @@ struct EmployerReportView: View {
                 text: $store.reportForm.organization,
                 contentType: .organizationName
             )
-            field(
-                Copy.s(lang, pl: "Adres e-mail HR (tylko podpowiedź)", en: "HR e-mail (hint only)"),
-                text: $store.reportForm.hrEmailHint,
-                contentType: .emailAddress,
-                keyboard: .emailAddress
-            )
             Text(Copy.s(
                 lang,
                 pl: "Dane zostają na telefonie i trafiają tylko do plików, które sam(a) udostępnisz. Język dyplomu: \(lang == .polish ? "polski" : "angielski") (wg języka gry).",
@@ -347,42 +340,6 @@ struct EmployerReportView: View {
             )
         }
         return Copy.s(lang, pl: "Wpisz imię i nazwisko do dyplomu.", en: "Enter the full name for the diploma.")
-    }
-
-    @ViewBuilder
-    private var hrHintPlate: some View {
-        let hint = store.reportForm.hrEmailHint.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !hint.isEmpty {
-            InkPlate {
-                if HREmailHint.looksValid(hint) {
-                    Text(Copy.s(lang, pl: "Dokąd wysłać (wpisujesz ręcznie w Mail):", en: "Where to send (you type it into Mail yourself):"))
-                        .font(Typeface.body(16))
-                        .foregroundStyle(Noir.paperDim)
-                    HStack {
-                        Text(hint)
-                            .font(Typeface.mono(18))
-                            .foregroundStyle(Noir.paper)
-                            .textSelection(.enabled)
-                        Spacer()
-                        Button {
-                            UIPasteboard.general.string = hint
-                        } label: {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundStyle(Noir.blood)
-                                .frame(width: 44, height: 44)
-                                .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(Copy.s(lang, pl: "Kopiuj adres", en: "Copy address"))
-                    }
-                } else {
-                    Text(Copy.s(lang, pl: "To nie wygląda jak adres e-mail. Podpowiedź nie blokuje eksportu.", en: "This does not look like an e-mail address. The hint does not block the export."))
-                        .font(Typeface.body(16))
-                        .foregroundStyle(Noir.paperDim)
-                }
-            }
-            .padding(.horizontal, 16)
-        }
     }
 
     private var footerPlate: some View {
