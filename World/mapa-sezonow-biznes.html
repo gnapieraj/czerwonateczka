@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Czerwona Teczka — mapa sezonów</title>
+  <style>
+    :root { --bg:#0b0c10; --card:#151820; --blue:#25303a; --line:#39424c; --cream:#f1ecdf; --muted:#b6b8bd; --red:#a62b33; --red2:#d95a5a; --pale:#f1b6ab; }
+    @page { size: 16in 9in; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; min-height:100%; }
+    body { background:var(--bg); color:var(--cream); font-family:Arial,Helvetica,sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .sheet { width:16in; min-height:9in; padding:.38in .72in .18in; margin:auto; overflow:hidden; position:relative; background:var(--bg); }
+    .sheet::after { content:""; position:absolute; width:5.2in; height:5.2in; right:-2.4in; top:-2.1in; border-radius:50%; background:rgba(166,43,51,.07); box-shadow:0 0 0 1.2in rgba(166,43,51,.045); pointer-events:none; }
+    .kicker { margin:0 0 .12in; color:var(--muted); font-size:8pt; font-weight:700; letter-spacing:.12em; }
+    h1 { margin:0; font-size:25pt; line-height:1; letter-spacing:-.02em; }
+    h1 span { color:var(--red2); }
+    .subtitle { margin:.15in 0 .24in; color:#d8d4cb; font-size:10.8pt; }
+    .status { position:absolute; right:.72in; top:.36in; width:2.8in; color:var(--muted); text-align:right; font-size:6.5pt; line-height:1.45; }
+    .rule { border-top:1px solid var(--line); }
+    .flow { display:grid; grid-template-columns:3.35fr 4.55fr 4.93fr; gap:.93in; margin:.18in 0 .45in; position:relative; }
+    .flow::before, .flow::after { content:"→"; position:absolute; top:.19in; color:var(--red2); font-size:18pt; font-weight:700; }
+    .flow::before { left:3.52in; } .flow::after { left:8.36in; }
+    .flow-item { height:.62in; padding:.13in .2in; border:1px solid var(--line); border-radius:.1in; background:var(--blue); }
+    .flow-item.commercial { background:var(--red); border-color:#e7aaa9; }
+    .flow strong { display:block; font-size:7.6pt; line-height:1.1; }
+    .flow small { display:block; margin-top:.11in; color:#c5cbd0; font-size:6.3pt; white-space:nowrap; }
+    .commercial small { color:#f0ede4; }
+    .columns { display:grid; grid-template-columns:3.75fr 4.55fr 4.93fr; gap:.53in; }
+    .panel { min-height:5.14in; padding:.24in; border:1px solid var(--line); border-radius:.13in; background:var(--card); }
+    .panel.commercial { border:1.5px solid var(--red2); }
+    .eyebrow { margin:0 0 .14in; color:var(--muted); font-size:6.7pt; font-weight:700; letter-spacing:.1em; }
+    h2 { margin:0; color:#fffaf0; font-size:15.2pt; line-height:1; }
+    .intro { margin:.17in 0 .25in; color:#d9d7d0; font-size:7.5pt; line-height:1.25; min-height:.38in; }
+    .commercial .intro { color:#f1c8bb; font-weight:700; }
+    .season { padding:.12in 0 .16in; border-top:1px solid var(--line); }
+    .season:first-of-type { border-top:0; }
+    .season-head { display:flex; justify-content:space-between; gap:.1in; }
+    h3 { margin:0; color:#fffaf0; font-size:9.2pt; line-height:1.1; }
+    .nights { color:var(--red2); font-size:7.2pt; font-weight:700; white-space:nowrap; }
+    .role { margin:.06in 0 .1in; color:var(--muted); font-size:6.9pt; }
+    .focus { margin:0; color:var(--cream); font-size:7.25pt; line-height:1.16; }
+    .value { margin:.1in 0 0; color:var(--pale); font-size:6.9pt; line-height:1.15; }
+    .free-note { margin:.03in 0 0 .15in; padding:.02in 0 .02in .12in; border-left:3px solid var(--red2); font-size:7.2pt; line-height:1.6; }
+    .free-note strong, .quote strong { color:#fffaf0; }
+    .pack-banner { margin:.03in 0 .04in; padding:.09in .19in; background:var(--red); color:#fffaf0; font-size:6.65pt; font-weight:700; white-space:nowrap; }
+    .quote { margin:.02in 0 0 .15in; padding-left:.12in; border-left:3px solid var(--red2); font-size:7pt; line-height:1.55; }
+    .roadmap .season { padding-bottom:.13in; }
+    .roadmap .footnote { margin:.03in 0 0; color:var(--muted); font-size:6.3pt; }
+    footer { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.3in; margin-top:.15in; padding-top:.1in; border-top:1px solid var(--line); }
+    footer div { padding-left:.16in; border-left:3px solid var(--red); }
+    footer strong { display:block; color:#fffaf0; font-size:7pt; }
+    footer span { display:block; margin-top:.03in; color:#c2c6c9; font-size:6.7pt; }
+    .legal { margin:.13in 0 0; color:#69727a; font-size:5.8pt; text-align:right; }
+    @media print { .sheet { margin:0; } }
+    @media screen { body { padding:.2in; } .sheet { box-shadow:0 0 .2in #000; } }
+
+    .sheet + .sheet { margin-top:.35in; }
+    .vision-grid { display:grid; grid-template-columns:1fr 1fr; gap:.28in; margin-top:.28in; }
+    .vision { min-height:2.85in; padding:.22in .24in; border:1px solid var(--line); border-radius:.13in; background:var(--card); }
+    .vision.accent { border:1.5px solid var(--red2); }
+    .vision .num { margin:0 0 .12in; padding-left:.12in; border-left:3px solid var(--red); color:var(--red2); font-size:8.2pt; font-weight:700; letter-spacing:.04em; }
+    .vision h2 { margin:0 0 .14in; color:#fffaf0; font-size:10.2pt; line-height:1.2; }
+    .vision ul { margin:0; padding:0; list-style:none; }
+    .vision li { margin:0 0 .11in; padding-left:.14in; }
+    .vision li strong { display:block; color:#fffaf0; font-size:7.7pt; }
+    .vision li span { display:block; margin-top:.03in; color:var(--cream); font-size:7.25pt; line-height:1.2; }
+    .cta { margin-top:.2in; padding-top:.1in; border-top:1px solid var(--line); padding-left:.16in; border-left:3px solid var(--red); }
+    .cta strong { display:block; color:#fffaf0; font-size:7.2pt; }
+    .cta span { display:block; margin-top:.03in; color:#c2c6c9; font-size:6.8pt; }
+  </style>
+</head>
+<body>
+<main class="sheet">
+  <p class="kicker">BUSINESS MAP · COLGANTE</p>
+  <div class="status">STAN DECYZJI · 02.10.2026 PT<br>KANCELARIA COLGANTE I WSPÓLNICY<br>fikcja / materiał biznesowy</div>
+  <h1>Czerwona Teczka <span>— mapa sezonów</span></h1>
+  <p class="subtitle">Od codziennej świadomości do kontroli, gotowości i odpowiedzialnego wdrożenia.</p>
+  <div class="rule"></div>
+
+  <section class="flow" aria-label="Przepływ oferty">
+    <div class="flow-item"><strong>FREE · App Store</strong><small>S0 Wstęp + S1 Aplikant · 24 noce</small></div>
+    <div class="flow-item commercial"><strong>B2B · COMPLIANCE PACK</strong><small>S2 Kontrola + S3 AML · 24 noce · pierwszy pack komercyjny</small></div>
+    <div class="flow-item"><strong>KOLEJNE PACKI</strong><small>S4 AI · S5 Cyfryzacja · S6 Etyka / ustrój</small></div>
+  </section>
+
+  <section class="columns" aria-label="Trzy ścieżki mapy sezonów">
+    <article class="panel free">
+      <p class="eyebrow">ŚCIEŻKA FREE / APP STORE</p>
+      <h2>Fundament</h2>
+      <p class="intro">Wejście do marki i nawyku. Bez opłaty —<br>zanim pojawia się oferta compliance.</p>
+      <section class="season"><div class="season-head"><h3>S0 · Wstęp</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Mecenas</p><p class="focus">Higiena cyfrowa, phishing, MFA, dane i decyzje pod presją.</p><p class="value">Wartość: wspólny język sygnałów ryzyka.</p></section>
+      <section class="season"><div class="season-head"><h3>S1 · Aplikant</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Aplikant</p><p class="focus">Nawyki codziennej pracy, przekazywanie spraw, dostępy i odpowiedzialność.</p><p class="value">Wartość: awareness, który widać w zachowaniu zespołu.</p></section>
+      <p class="free-note"><strong>Nie sprzedajemy ścieżki osobno:</strong><br>to wejście do marki i nawyku.</p>
+    </article>
+
+    <article class="panel commercial">
+      <p class="eyebrow">PIERWSZA OFERTA KOMERCYJNA / B2B</p>
+      <h2>Compliance pack</h2>
+      <p class="intro">S2 + S3 · 24 NOCE &nbsp; | &nbsp; nowa postać: Audytorka Sylwia Szczelińska</p>
+      <section class="season"><div class="season-head"><h3>S2 · Kontrola</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Audytorka · Szczelińska</p><p class="focus">RODO, tajemnica zawodowa, chmura i AI: co wolno, kto odpowiada i co trzeba umieć wykazać.</p><p class="value">Wartość: zasada, decyzja, właściciel i dowód.</p></section>
+      <section class="season"><div class="season-head"><h3>S3 · AML</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Audytorka · Szczelińska</p><p class="focus">Klient, beneficjent, źródło środków i sygnały ryzyka — praktyka zamiast wykładu.</p><p class="value">Wartość: mniej ślepych punktów i gotowość do sprawdzenia.</p></section>
+      <div class="pack-banner">24 NOCE · JEDEN PACK · PIERWSZY PRODUKT DLA KANCELARII</div>
+      <p class="quote"><strong>Nie tylko „wiemy, że ryzyko istnieje”,</strong><br>ale „mamy kontrolę nad tym, co robimy dalej”.</p>
+    </article>
+
+    <article class="panel roadmap">
+      <p class="eyebrow">PÓŹNIEJ / ROADMAPA</p>
+      <h2>Kolejne pakiety</h2>
+      <p class="intro">Kierunek rozwoju — jeszcze nie sprzedajemy jako packów.</p>
+      <section class="season"><div class="season-head"><h3>S4 · AI deployer</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">Wdrażanie AI do pracy: zakres, nadzór, jakość i odpowiedzialność.</p><p class="value">Wartość: z eksperymentu do procesu.</p></section>
+      <section class="season"><div class="season-head"><h3>S5 · Cyfryzacja</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">e-Doręczenia, NIS2 i odporność procesów.</p><p class="value">Wartość: sprawna kancelaria mimo awarii kanału lub dostawcy.</p></section>
+      <section class="season"><div class="season-head"><h3>S6 · Etyka / ustrój</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">Etyka, konflikt ról, ustrój i granice odpowiedzialności.</p><p class="value">Wartość: decyzje obronne także zawodowo.</p></section>
+      <p class="footnote">* S4–S6: wariant roboczy 12 nocy — do potwierdzenia przed ofertą.</p>
+    </article>
+  </section>
+
+  <footer>
+    <div><strong>AWARENESS</strong><span>Dostrzegam sygnał i zatrzymuję automatyzm.</span></div>
+    <div><strong>CONTROL / COMPLIANCE</strong><span>Mam zasadę, właściciela, dowód i ścieżkę reakcji.</span></div>
+    <div><strong>POZYCJONOWANIE</strong><span>Free buduje świadomość. B2B sprzedaje działającą kontrolę.</span></div>
+  </footer>
+  <p class="legal">Czerwona Teczka · Colgante i Wspólnicy są fikcją · nie jest to porada prawna · strona 1 / 2</p>
+</main>
+
+<main class="sheet" aria-label="Wizja">
+  <p class="kicker">BUSINESS MAP · COLGANTE · WIZJA</p>
+  <div class="status">STAN DECYZJI · 02.10.2026 PT<br>KANCELARIA COLGANTE I WSPÓLNICY<br>fikcja / materiał biznesowy</div>
+  <h1>Czerwona Teczka <span>— dlaczego to działa</span></h1>
+  <p class="subtitle">Cztery decyzje, które składają się na ofertę dla partnera, HR i compliance: gra, dystrybucja, opłaty, marka.</p>
+  <div class="rule"></div>
+  <section class="vision-grid">
+    <article class="vision accent">
+      <p class="num">01 · WIZJA GRY</p>
+      <h2>Immersyjny trening noir — nie kolejny e-learning.</h2>
+      <ul>
+        <li><strong>Sezony = ścieżka.</strong><span>Od awareness (S0–S1) do kontroli i AML (S2–S3).</span></li>
+        <li><strong>Postacie prowadzą.</strong><span>Mecenas → Aplikant → Audytorka (Szczelińska) — rosnąca odpowiedzialność.</span></li>
+        <li><strong>12 nocy na sezon.</strong><span>Krótki rytm, który da się domknąć w kalendarzu kancelarii.</span></li>
+        <li><strong>Mierzalny efekt.</strong><span>TRAFNE ≥ 90% + dyplom PDF z weryfikacją QR — dowód, nie checklista.</span></li>
+      </ul>
+    </article>
+    <article class="vision">
+      <p class="num">02 · WIZJA DYSTRYBUCJI</p>
+      <h2>Free buduje zaufanie. B2B dostarcza kontrolę.</h2>
+      <ul>
+        <li><strong>App Store — free.</strong><span>S0 + S1: nawyk, język ryzyka, zerowy próg wejścia.</span></li>
+        <li><strong>Compliance pack — B2B.</strong><span>S2 + S3 poza sklepem: Custom App / licencja dla kancelarii.</span></li>
+        <li><strong>Dowody dla HR / IOD.</strong><span>PDF raportu i QR verify — gotowe do teczki szkoleniowej.</span></li>
+        <li><strong>Skalowanie packami.</strong><span>Kolejne: AI, cyfryzacja, etyka — ta sama marka, nowe kompetencje.</span></li>
+      </ul>
+    </article>
+    <article class="vision">
+      <p class="num">03 · WIZJA OPŁAT</p>
+      <h2>Wejście free. Pierwszy produkt płatny = Compliance pack.</h2>
+      <ul>
+        <li><strong>Model B2B.</strong><span>Licencja organizacji / pack / okres — bez cennika w mapie; rozmowa handlowa.</span></li>
+        <li><strong>Zakres packa.</strong><span>24 noce (S2 Kontrola + S3 AML) jako jeden produkt dla kancelarii.</span></li>
+        <li><strong>Wartość dla kupującego.</strong><span>Mniej ryzyka reputacyjnego + dowód szkolenia zamiast checklisty.</span></li>
+      </ul>
+    </article>
+    <article class="vision accent">
+      <p class="num">04 · WIZJA PROJEKTU ŁĄCZNIE</p>
+      <h2>Colgante / Czerwona Teczka — marka szkolenia compliance.</h2>
+      <ul>
+        <li><strong>Ścieżka marki.</strong><span>Świadomość → kontrola → gotowość regulacyjna.</span></li>
+        <li><strong>Fikcyjna kancelaria.</strong><span>Realne kompetencje — decyzje, dowody, odpowiedzialność.</span></li>
+        <li><strong>Zaproszenie.</strong><span>Partner, HR, IOD: to nie kurs o przepisach. To trening, który widać w zachowaniu.</span></li>
+      </ul>
+    </article>
+  </section>
+  <p class="cta"><strong>PÓJŚĆ W TO</strong><span>Free w App Store otwiera drzwi. Compliance pack sprzedaje działającą kontrolę — z dyplomem, który HR i IOD mogą sprawdzić.</span></p>
+  <p class="legal">Czerwona Teczka · Colgante i Wspólnicy są fikcją · nie jest to porada prawna · strona 2 / 2</p>
+</main>
+
+</body>
+</html>
