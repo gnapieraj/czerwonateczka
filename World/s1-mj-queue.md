@@ -2,6 +2,8 @@
 
 Statusy: `Next` | `Pending` | `AwaitingGreg` | `Accepted` | `Done` | `Rejected`.
 
+Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do Grega zawsze `Napis A` + `Napis B` + kontekst PL.
+
 | Panel | Status | Wariant | Notatka |
 |---|---|---|---|
 | Night13a | Accepted | 1 | CDN: `https://cdn.midjourney.com/ade09f88-f920-4c47-a564-875dea6c6d79/0_1.png`; job: `https://www.midjourney.com/jobs/ade09f88-f920-4c47-a564-875dea6c6d79?index=1` |

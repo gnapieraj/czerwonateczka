@@ -14,6 +14,8 @@
 5. **Sesja:** ~6–8 Imagine; paruj a→b.
 6. **`paint_caption: no`** — żadnych liter na płycie.
 7. **Przy każdej czwórce** pokaż Gregowi pełny kontekst PL + dialogi / napisy z nocy (żeby mógł zatwierdzić wariant świadomie).
+8. **Spójność postaci i miejsca:** między kadrami/nocami/sezonami zawsze lead accepted plates tej osoby — Chropot: `Night04b` + `Night12b`; Aplikant: `SezonAplikant` + ręce; nigdy Mecenas dla POV S1. Pilnuj spójności biura i widoku za oknem (biuro Aplikanta vs falisty dach Mecenasa; Śródmieście). Reroll, gdy dryfuje likeness lub lokalizacja.
+9. **Propozycja do Grega:** zawsze `Napis A` + `Napis B` + kontekst PL.
 
 ## Flow akceptacji (jak Sezon 0)
 
