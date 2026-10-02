@@ -3,6 +3,9 @@
 ## Must-have
 
 - [ ] S1: grafiki Night13–24, `artPending` = `false`
+  - proces MJ: [`World/s1-mj-process.md`](World/s1-mj-process.md)
+  - kolejka: [`World/s1-mj-queue.md`](World/s1-mj-queue.md)
+  - prompty: `tools/macos-studio/komiks-sezony.md` §4
 - [ ] `PrivacyInfo.xcprivacy`: Required Reason APIs (`UserDefaults`)
 - [ ] `/prywatnosc`: Raport / Share / QR oraz link do `/prywatnosc` w Settings
 - [ ] Zrzuty ekranu w ASC: iPhone 6.7″ + iPad (prawdziwy flow)

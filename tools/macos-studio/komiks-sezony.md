@@ -893,6 +893,18 @@ https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black 
 
 ## 4. Sezon 1 — własne kadry
 
+### Checklista MJ (S1)
+
+Zasady operacyjne (skrót; pełny opis: `World/s1-mj-process.md`, kolejka: `World/s1-mj-queue.md`):
+
+- Przed każdym Imagine: przeczytaj kontekst nocy + kartę panelu + napis; przepisz szary blok, jeśli jest nieaktualny.
+- Zapis z Create **tylko 2×2** — **NIGDY Upscale**; natywnie ~1456×816.
+- Pałac Kultury tylko gdy karta panelu o niego prosi; inaczej deszcz / korytarz / generyczne bloki + `--no palace of culture`.
+- Po wyborze wariantu N: PNG → `Assets.xcassets/NightNNx.imageset`, AssetRegistry (CDN `…/0_N.png`, job `?index=N`); `artPending: false` gdy a+b nocy gotowe.
+- Batch ~6–8 Imagine / sesja; paruj a→b.
+- `paint_caption: no` — bez liter na płycie.
+- Przy czwórce pokaż Gregowi pełny kontekst PL + dialogi / napisy.
+
 Gracz jest aplikantem. Iglica nie pojawia się jako druga osoba. Mecenasa, gdy pada w tekście, nie rysujemy twarzą: albo jest poza kadrem, albo plecy i cień. Na ekranie jest Chropot albo Irena.
 
 #### Noc 13 · `13-chmura` · Akta w tramwaju
@@ -1140,7 +1152,7 @@ fail: a glasses chain; a window skyline; letters; also reject letters, numbers, 
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, dark blouse, stands rather than sits, a blank grey phone at her ear, mouth open, calm pressure. The reception counter is behind her and soft. No letters. Exactly five fingers if a hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, red glasses chain, beads, clock face, window, city skyline
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, dark blouse, stands rather than sits, a blank grey phone at her ear, mouth open, calm pressure. The reception counter is behind her and soft. No letters. Exactly five fingers if a hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window, city skyline
 ```
 
 #### Noc 17 · `17-wydruk` · Wydruk u rodziców
@@ -1202,7 +1214,7 @@ fail: a glasses chain; a window; a full cartridge; letters; also reject letters,
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, holds out an empty toner cartridge, mouth open, practical. She stands at the counter. The calendar faces her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, holds out an empty toner cartridge, mouth open, practical. She stands at the counter. The calendar faces her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
 ```
 
 #### Noc 18 · `18-odbior` · Pokwitowanie za partnera
@@ -1241,7 +1253,7 @@ fail: the envelope opened; the pen in the younger hand; writing on the receipt; 
 -->
 
 ```
-https://cdn.midjourney.com/4e94c6cf-a83e-45d3-807f-b30ad6dd16c3/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The reception counter at night, no window. A courier's hand offers a sealed blank envelope and a pen. A younger hand, white cuff, stays open and does not take the pen. The envelope is closed, string or flap smooth, no mark. Exactly five fingers on each hand. The closed wood door and blank nameplate stay behind the counter. No face of the lawyer. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, clock face, red glasses chain
+https://cdn.midjourney.com/4e94c6cf-a83e-45d3-807f-b30ad6dd16c3/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The reception counter at night, no window. A courier's hand offers a sealed blank envelope and a pen. A younger hand, white cuff, stays open and does not take the pen. The envelope is closed, string or flap smooth, no mark. Exactly five fingers on each hand. The closed wood door and blank nameplate stay behind the counter. No face of the lawyer. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain
 ```
 
 ### 18b `Night18b` — Chropot w uchu, sala za plecami
@@ -1328,7 +1340,7 @@ fail: a glasses chain; a window; her speaking into the handset as the client; al
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, calm, mouth open, one hand on a desk phone that is still in its cradle, as if telling someone else to take the call. Counter, calendar facing her, door behind. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, calm, mouth open, one hand on a desk phone that is still in its cradle, as if telling someone else to take the call. Counter, calendar facing her, door behind. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
 ```
 
 #### Noc 20 · `20-nosnik` · Pendrive protokolanta
@@ -1452,7 +1464,7 @@ fail: her hand on the keyboard; a glasses chain; a window; letters; also reject 
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, mouth open, pointing at a laptop screen that shows an empty card and an empty field. Her finger does not touch the keys. Counter behind her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, mouth open, pointing at a laptop screen that shows an empty card and an empty field. Her finger does not touch the keys. Counter behind her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
 ```
 
 #### Noc 22 · `22-granica` · Akta drugiej sprawy
