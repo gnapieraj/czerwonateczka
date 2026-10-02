@@ -1,17 +1,19 @@
 import UIKit
 
-/// Offline completion badge PNG — Credsverse-adjacent credential card (no traffic-sign seal).
+/// Offline completion badge PNG — folder-led diploma card (no traffic-sign seal).
 enum ReportBadge {
     static let size = CGSize(width: 1080, height: 1080)
 
-    /// Production default is `.credential`. Other styles exist for side-by-side previews.
+    /// Production default is `.folder`. Other styles exist for side-by-side previews.
     enum Style: String, CaseIterable {
         case credential // thin red rules + outline seal + typography
         case folder     // folder motif lead, diploma card
         case ribbon     // ribbon banner status, no disc
     }
 
-    static func render(_ report: TrainingReport, style: Style = .credential) -> Data {
+    static let productionStyle: Style = .folder
+
+    static func render(_ report: TrainingReport, style: Style = productionStyle) -> Data {
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
         format.opaque = true

@@ -414,7 +414,7 @@ struct EmployerReportView: View {
         config.language = lang
         let report = ReportBuilder.make(evaluation: evaluation, allLessons: store.lessons, form: store.reportForm, config: config)
         let pdf = ReportPDF.render(report)
-        let badge = ReportBadge.render(report)
+        let badge = ReportBadge.render(report, style: ReportBadge.productionStyle)
         let fresh = CachedReport(scope: evaluation.scope, report: report, pdf: pdf, badge: badge)
         cached = fresh
         return fresh

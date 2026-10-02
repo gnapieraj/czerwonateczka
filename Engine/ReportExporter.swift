@@ -28,7 +28,7 @@ enum ReportExporter {
         try? fm.removeItem(at: directory)
         try fm.createDirectory(at: directory, withIntermediateDirectories: true)
         let base = baseName(for: report)
-        let badgeData = badge ?? ReportBadge.render(report)
+        let badgeData = badge ?? ReportBadge.render(report, style: ReportBadge.productionStyle)
         let files = ReportFiles(
             pdf: directory.appendingPathComponent("\(base).pdf"),
             badge: directory.appendingPathComponent("\(base)-badge.png"),

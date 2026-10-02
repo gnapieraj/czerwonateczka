@@ -50,7 +50,10 @@ final class TrainingReportLayoutTests: XCTestCase {
 
     func testBadgePNGIsNonEmpty() throws {
         let pack = try loadPack()
-        let png = ReportBadge.render(makeSeason0(pack: pack))
+        let report = makeSeason0(pack: pack)
+        let png = ReportBadge.render(report)
+        XCTAssertEqual(ReportBadge.productionStyle.rawValue, ReportBadge.Style.folder.rawValue)
+        XCTAssertEqual(png, ReportBadge.render(report, style: .folder), "default production badge style must be folder")
         XCTAssertGreaterThan(png.count, 5_000)
         XCTAssertTrue(png.starts(with: Data([0x89, 0x50, 0x4E, 0x47])))
     }
@@ -70,7 +73,7 @@ final class TrainingReportLayoutTests: XCTestCase {
         func write(_ name: String, _ report: TrainingReport) throws {
             try ReportPDF.render(report).write(to: fixtures.appendingPathComponent(name), options: .atomic)
             let badgeName = name.replacingOccurrences(of: ".pdf", with: "-badge.png")
-            try ReportBadge.render(report).write(to: fixtures.appendingPathComponent(badgeName), options: .atomic)
+            try ReportBadge.render(report, style: ReportBadge.productionStyle).write(to: fixtures.appendingPathComponent(badgeName), options: .atomic)
         }
 
         try write("sezon0-12.pdf", makeSeason0(pack: pack, name: "Grzegorz Napieraj", org: "It Security"))
@@ -106,19 +109,19 @@ final class TrainingReportLayoutTests: XCTestCase {
             }
         }
         let worldRoot = world.deletingLastPathComponent()
-        try ReportBadge.render(report).write(
+        try ReportBadge.render(report, style: ReportBadge.productionStyle).write(
             to: worldRoot.appendingPathComponent("pack-24-badge.png"),
             options: .atomic
         )
-        try ReportBadge.render(makeSeason0(pack: pack, name: "Grzegorz Napieraj", org: "It Security")).write(
+        try ReportBadge.render(makeSeason0(pack: pack, name: "Grzegorz Napieraj", org: "It Security"), style: ReportBadge.productionStyle).write(
             to: worldRoot.appendingPathComponent("sezon0-12-badge.png"),
             options: .atomic
         )
-        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 3)).write(
+        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 3), style: ReportBadge.productionStyle).write(
             to: worldRoot.appendingPathComponent("short-2x3-badge.png"),
             options: .atomic
         )
-        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 4)).write(
+        try ReportBadge.render(makeShortPack(pack: pack, nightsPerSeason: 4), style: ReportBadge.productionStyle).write(
             to: worldRoot.appendingPathComponent("short-2x4-badge.png"),
             options: .atomic
         )
