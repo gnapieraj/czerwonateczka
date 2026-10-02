@@ -1103,7 +1103,7 @@ https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black 
 
 #### Noc 16 · `16-link` · Rozprawa na komunikatorze
 
-Sezon 1. Termin: Sala o 9:00, link o 8:40. Pytanie: Skąd bierzesz adres rozprawy?
+Sezon 1. Termin: Sala o 9:00, link o 8:40. Pytanie: Skąd bierzesz link do zdalnej sali?
 
 Kontekst, który czyta gracz:
 

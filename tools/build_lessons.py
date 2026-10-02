@@ -625,7 +625,7 @@ lessons = [
         ("Sala o 9:00, link o 8:40", "Courtroom at 9:00, the link at 8:40"),
         ("Dwanaście minut przed salą na komunikatorze wpada link „od sądu” — przesłany przez koleżankę z aplikacji, nie z portalu. Irena mówi, że sala już czeka i że masz wejść, bo wokanda nie będzie powtarzana.",
          "Twelve minutes before the hearing a link “from the court” lands in the messenger — forwarded by another trainee, not from the portal. Irena says the room is already waiting and that you should join, because the list will not be called again."),
-        ("Skąd bierzesz adres rozprawy?", "Where do you take the hearing address from?"),
+        ("Skąd bierzesz link do zdalnej sali?", "Where do you get the link to the remote hearing?"),
         [
             ("Night16a", "Na telefonie link do spotkania. Nadawcą jest koleżanka, nie sąd.",
              "A meeting link on the phone. The sender is another trainee, not the court.", "caption"),
