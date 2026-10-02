@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Czerwona Teczka — mapa sezonów biznesowych</title>
+  <style>
+    :root {
+      --ink: #20242b;
+      --muted: #626b76;
+      --line: #d7dce2;
+      --paper: #f7f5f0;
+      --card: #fffdf9;
+      --red: #b8202a;
+      --red-dark: #86151d;
+      --red-soft: #f5e1df;
+      --blue: #295879;
+      --blue-soft: #e8f0f5;
+      --gold: #9b6b21;
+      --gold-soft: #f7edcf;
+    }
+
+    @page { size: A4 landscape; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      color: var(--ink);
+      background: #dfe2e5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sheet {
+      width: 297mm;
+      height: 210mm;
+      overflow: hidden;
+      padding: 11mm 14mm 9mm;
+      background: var(--paper);
+      display: grid;
+      grid-template-rows: 26mm 1fr 7mm;
+      gap: 4mm;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12mm;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+    .kicker {
+      margin: 0 0 1.5mm;
+      color: var(--red);
+      font-size: 8.2pt;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: #171a20;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26pt;
+      line-height: .98;
+      letter-spacing: -.02em;
+    }
+    .deck {
+      max-width: 150mm;
+      margin: 2.5mm 0 0;
+      color: var(--muted);
+      font-size: 9.2pt;
+      line-height: 1.35;
+    }
+    .header-mark {
+      flex: 0 0 55mm;
+      align-self: center;
+      padding: 3mm 4mm;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      background: #fffaf6;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.3;
+    }
+    .header-mark strong {
+      display: block;
+      color: var(--ink);
+      font-size: 9pt;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .seasons {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 5mm;
+    }
+    .season-card {
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 4.5mm 5mm 4mm;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      border-radius: 2mm;
+      background: var(--card);
+      box-shadow: 0 1mm 2mm rgba(28, 36, 45, .07);
+      break-inside: avoid;
+    }
+    .season-card.s0 { border-top-color: #4a5968; }
+    .season-card.s1 { border-top-color: var(--gold); }
+    .season-card.s2 { border-top-color: var(--blue); }
+    .season-card.s3 { border-top-color: var(--red); }
+
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 5mm;
+      margin-bottom: 2.5mm;
+    }
+    .eyebrow {
+      display: block;
+      margin-bottom: 1.2mm;
+      color: var(--muted);
+      font-size: 7.2pt;
+      font-weight: 800;
+      letter-spacing: .13em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      color: #171a20;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17pt;
+      line-height: 1;
+    }
+    .badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 7mm;
+      padding: 1.5mm 2.5mm;
+      border-radius: 1mm;
+      background: #edf0f2;
+      color: var(--ink);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+    .badge.free { background: var(--gold-soft); color: #745018; }
+    .badge.business { background: var(--blue-soft); color: #214d6c; }
+    .badge.pack { background: var(--red); color: #fff; }
+
+    .lead {
+      min-height: 10mm;
+      margin: 0 0 3mm;
+      color: #343b44;
+      font-size: 9.2pt;
+      line-height: 1.3;
+    }
+    .card-rule { height: 1px; margin: 0 0 3mm; background: var(--line); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3mm;
+      margin: 0 0 3mm;
+    }
+    .stats > div { min-width: 0; }
+    dt {
+      margin: 0 0 .7mm;
+      color: var(--muted);
+      font-size: 7.2pt;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    dd {
+      margin: 0;
+      color: #20252c;
+      font-size: 9.1pt;
+      font-weight: 750;
+      line-height: 1.18;
+    }
+    .value {
+      margin: 0 0 3mm;
+      padding: 2.5mm 3mm;
+      border-left: 3px solid var(--blue);
+      background: #f0f4f6;
+      color: #303943;
+      font-size: 8.7pt;
+      line-height: 1.3;
+    }
+    .s0 .value { border-left-color: #4a5968; }
+    .s1 .value { border-left-color: var(--gold); background: #fbf6e7; }
+    .s3 .value { border-left-color: var(--red); background: #fbefed; }
+    .value strong { color: var(--ink); }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5mm;
+      margin-top: auto;
+      padding-top: 1mm;
+    }
+    .tag {
+      padding: 1.1mm 2mm;
+      border: 1px solid var(--line);
+      border-radius: 10mm;
+      color: var(--muted);
+      font-size: 7.4pt;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* The pack banner is deliberately in normal flow: it owns its height and
+       cannot cover the card copy when a browser prints the page. */
+    .pack-callout {
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      margin: 0 0 3mm;
+      padding: 2.4mm 3mm;
+      border-radius: 1.2mm;
+      background: var(--red);
+      color: #fff;
+    }
+    .pack-callout strong {
+      flex: 0 0 auto;
+      font-size: 10.2pt;
+      letter-spacing: .04em;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+    .pack-callout span {
+      min-width: 0;
+      font-size: 8.1pt;
+      line-height: 1.2;
+    }
+    .s3 .lead { min-height: 0; margin-bottom: 2.5mm; }
+
+    .page-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 8mm;
+      color: var(--muted);
+      font-size: 7.2pt;
+      line-height: 1;
+    }
+    .page-footer strong { color: var(--ink); }
+    .page-footer span:last-child { text-align: right; }
+
+    @media screen {
+      body { padding: 12mm; }
+      .sheet { margin: 0 auto; }
+    }
+    @media print {
+      body { background: none; }
+      .sheet { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="page-header">
+      <div>
+        <p class="kicker">Czerwona Teczka · mapa produktu</p>
+        <h1>Sezony biznesowe</h1>
+        <p class="deck">Ścieżka od bezpiecznego odruchu do kontroli i AML — jedna czytelna mapa dla partnera, HR i zespołu wdrożeniowego.</p>
+      </div>
+      <div class="header-mark">
+        <strong>Business brief</strong>
+        Materiał jednokartkowy · PL<br>
+        Zakres: Sezon 0–3
+      </div>
+    </header>
+
+    <section class="seasons" aria-label="Mapa sezonów">
+      <article class="season-card s0">
+        <header class="card-head">
+          <div><span class="eyebrow">Sezon 0 · fundament</span><h2>Wstęp</h2></div>
+          <span class="badge free">FREE</span>
+        </header>
+        <p class="lead">Pierwsze 12 nocy buduje cyberodruch kancelarii pod presją: rozpoznaj, zatrzymaj, potwierdź właściwym kanałem.</p>
+        <div class="card-rule"></div>
+        <dl class="stats">
+          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
+          <div><dt>Rola</dt><dd>Mecenas</dd></div>
+          <div><dt>Efekt</dt><dd>odruch</dd></div>
+        </dl>
+        <p class="value"><strong>Wartość:</strong> wspólny język bezpieczeństwa i pierwszy mierzalny krok do zmiany zachowania.</p>
+        <div class="tags"><span class="tag">MFA</span><span class="tag">BEC</span><span class="tag">ransomware</span></div>
+      </article>
+
+      <article class="season-card s1">
+        <header class="card-head">
+          <div><span class="eyebrow">Sezon 1 · praktyka</span><h2>Aplikant</h2></div>
+          <span class="badge free">FREE</span>
+        </header>
+        <p class="lead">Kolejne 12 nocy przenosi świadomość na biurko: decyzja ma mieć właściciela, ślad i bezpieczny następny krok.</p>
+        <div class="card-rule"></div>
+        <dl class="stats">
+          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
+          <div><dt>Rola</dt><dd>Aplikant</dd></div>
+          <div><dt>Efekt</dt><dd>praktyka</dd></div>
+        </dl>
+        <p class="value"><strong>Wartość:</strong> awareness → wejście w praktykę; decyzje, które da się obronić i powtórzyć.</p>
+        <div class="tags"><span class="tag">kanały</span><span class="tag">akta</span><span class="tag">offboarding</span></div>
+      </article>
+
+      <article class="season-card s2">
+        <header class="card-head">
+          <div><span class="eyebrow">Sezon 2 · compliance</span><h2>Kontrola</h2></div>
+          <span class="badge business">B2B</span>
+        </header>
+        <p class="lead">Audytor wchodzi w miejsca, gdzie proces, uprawnienie i rejestr muszą wytrzymać pytania drugiej strony.</p>
+        <div class="card-rule"></div>
+        <dl class="stats">
+          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
+          <div><dt>Rola</dt><dd>Audytor</dd></div>
+          <div><dt>Temat</dt><dd>RODO · IT</dd></div>
+        </dl>
+        <p class="value"><strong>Wartość:</strong> kontrola celu, dostępu, retencji i dowodu — bez skrótów, które wracają w audycie.</p>
+        <div class="tags"><span class="tag">RODO</span><span class="tag">DPA</span><span class="tag">RBAC</span><span class="tag">rejestr</span></div>
+      </article>
+
+      <article class="season-card s3">
+        <header class="card-head">
+          <div><span class="eyebrow">Sezon 3 · compliance</span><h2>AML</h2></div>
+          <span class="badge pack">PACK</span>
+        </header>
+        <div class="pack-callout"><strong>24 NOCE · JEDEN PACK</strong><span>Sezon 2 + Sezon 3 = Compliance pack dla zespołu.</span></div>
+        <p class="lead">Audytor prowadzi sprawy od KYC do monitoringu: rozpoznaj ryzyko, udokumentuj i eskaluj właściwą drogą.</p>
+        <div class="card-rule"></div>
+        <dl class="stats">
+          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
+          <div><dt>Rola</dt><dd>Audytor</dd></div>
+          <div><dt>Temat</dt><dd>AML</dd></div>
+        </dl>
+        <p class="value"><strong>Wartość:</strong> gotowość do KYC, sankcji, PEP i zgłoszeń — z wynikiem do raportu HR.</p>
+        <div class="tags"><span class="tag">KYC</span><span class="tag">CRBR</span><span class="tag">GIIF</span><span class="tag">screening</span></div>
+      </article>
+    </section>
+
+    <footer class="page-footer">
+      <span><strong>Czerwona Teczka</strong> · materiał roboczy do rozmowy B2B</span>
+      <span>Sezon 2 + 3: 24 noce · pass ≥ 90% = min. 22 trafne</span>
+    </footer>
+  </main>
+</body>
+</html>
