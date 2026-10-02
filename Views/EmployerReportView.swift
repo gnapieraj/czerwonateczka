@@ -11,6 +11,7 @@ struct EmployerReportView: View {
     @State private var cached: CachedReport?
     @State private var preview: PreviewItem?
     @State private var share: ShareItem?
+    @State private var linkedInURL: URL?
     @State private var exportError: String?
 
     private var lang: AppLanguage { store.language }
@@ -71,6 +72,28 @@ struct EmployerReportView: View {
             Button("OK", role: .cancel) { exportError = nil }
         } message: {
             Text(exportError ?? "")
+        }
+
+        .confirmationDialog(
+            Copy.s(lang, pl: "Dodaj certyfikat na LinkedIn", en: "Add certification on LinkedIn"),
+            isPresented: Binding(get: { linkedInURL != nil }, set: { if !$0 { linkedInURL = nil } }),
+            titleVisibility: .visible
+        ) {
+            Button(Copy.s(lang, pl: "Otwórz LinkedIn", en: "Open LinkedIn")) {
+                if let linkedInURL { UIApplication.shared.open(linkedInURL) }
+                linkedInURL = nil
+            }
+            Button(Copy.s(lang, pl: "Udostępnij odznakę PNG", en: "Share badge PNG")) {
+                withFiles { files, _ in shareFiles([files.badge]) }
+                linkedInURL = nil
+            }
+            Button(Copy.s(lang, pl: "Anuluj", en: "Cancel"), role: .cancel) { linkedInURL = nil }
+        } message: {
+            Text(Copy.s(
+                lang,
+                pl: "LinkedIn otworzy formularz Licenses & Certifications (nazwa, Colgante / Czerwona Teczka, daty, link verify). Pola mogą wymagać ręcznego potwierdzenia.",
+                en: "LinkedIn opens the Licenses & Certifications form (name, Colgante / Czerwona Teczka, dates, verify link). Fields may need manual confirmation."
+            ))
         }
         .onChange(of: store.reportForm) { _, _ in cached = nil }
         .onChange(of: store.stamps) { _, _ in cached = nil }
@@ -279,6 +302,27 @@ struct EmployerReportView: View {
             actionButton(Copy.s(lang, pl: "Udostępnij komplet", en: "Share everything"), system: "square.and.arrow.up.on.square") {
                 withFiles { files, _ in shareFiles(files.all) }
             }
+            actionButton(Copy.s(lang, pl: "Udostępnij odznakę (PNG)", en: "Share badge (PNG)"), system: "rosette") {
+                withFiles { files, _ in shareFiles([files.badge]) }
+            }
+            actionButton(Copy.s(lang, pl: "Dodaj do LinkedIn", en: "Add to LinkedIn"), system: "link") {
+                withFiles { _, report in
+                    if LinkedInCertification.addToProfileURL(for: report.report) != nil {
+                        linkedInURL = LinkedInCertification.addToProfileURL(for: report.report)
+                    }
+                }
+            }
+            if !ReportVerify.isPublicRegistryLive {
+                Text(Copy.s(
+                    lang,
+                    pl: "Odznaka i deeplink LinkedIn działają offline. Publiczna weryfikacja (colgante.pl/verify, wariant A bez imienia) jest w przygotowaniu — nie twierdzimy, że już działa.",
+                    en: "The badge and LinkedIn deeplink work offline. Public verify (colgante.pl/verify, variant A without the name) is not live yet — we do not claim it works."
+                ))
+                .font(Typeface.body(15))
+                .foregroundStyle(Noir.paperDim)
+                .lineSpacing(3)
+                .fixedSize(horizontal: false, vertical: true)
+            }
             if let cached {
                 Text("reportId: \(cached.report.reportId.uuidString)")
                     .font(Typeface.mono(14))
@@ -413,7 +457,8 @@ struct EmployerReportView: View {
         config.language = lang
         let report = ReportBuilder.make(evaluation: evaluation, allLessons: store.lessons, form: store.reportForm, config: config)
         let pdf = ReportPDF.render(report)
-        let fresh = CachedReport(scope: evaluation.scope, report: report, pdf: pdf)
+        let badge = ReportBadge.render(report)
+        let fresh = CachedReport(scope: evaluation.scope, report: report, pdf: pdf, badge: badge)
         cached = fresh
         return fresh
     }
@@ -421,7 +466,7 @@ struct EmployerReportView: View {
     private func withFiles(_ body: (ReportFiles, CachedReport) -> Void) {
         guard let report = currentReport() else { return }
         do {
-            let files = try ReportExporter.write(report.report, pdf: report.pdf)
+            let files = try ReportExporter.write(report.report, pdf: report.pdf, badge: report.badge)
             body(files, report)
         } catch {
             exportError = error.localizedDescription
@@ -439,6 +484,7 @@ private struct CachedReport {
     var scope: ReportScope
     var report: TrainingReport
     var pdf: Data
+    var badge: Data
 }
 
 private struct PreviewItem: Identifiable {

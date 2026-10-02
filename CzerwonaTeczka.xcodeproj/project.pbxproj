@@ -44,6 +44,9 @@
 		A7E90B7E0000000000000006 /* ReportExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000005 /* ReportExporter.swift */; };
 		A7E90B7E0000000000000008 /* EmployerReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000007 /* EmployerReportView.swift */; };
 		A7E90B7E000000000000000A /* TrainingReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000009 /* TrainingReportTests.swift */; };
+		A7E90B7E0000000000000016 /* TrainingReportLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000015 /* TrainingReportLayoutTests.swift */; };
+		A7E90B7E0000000000000012 /* ReportBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000011 /* ReportBadge.swift */; };
+		A7E90B7E0000000000000014 /* ReportSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E90B7E0000000000000013 /* ReportSharing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		A7E90B7E0000000000000005 /* ReportExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportExporter.swift; sourceTree = "<group>"; };
 		A7E90B7E0000000000000007 /* EmployerReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerReportView.swift; sourceTree = "<group>"; };
 		A7E90B7E0000000000000009 /* TrainingReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingReportTests.swift; sourceTree = "<group>"; };
+		A7E90B7E0000000000000015 /* TrainingReportLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingReportLayoutTests.swift; sourceTree = "<group>"; };
+		A7E90B7E0000000000000011 /* ReportBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBadge.swift; sourceTree = "<group>"; };
+		A7E90B7E0000000000000013 /* ReportSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSharing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,8 @@
 				C8A0D105E000000000000001 /* Soundtrack.swift */,
 				A7E90B7E0000000000000005 /* ReportExporter.swift */,
 				A7E90B7E0000000000000003 /* ReportPDF.swift */,
+				A7E90B7E0000000000000011 /* ReportBadge.swift */,
+				A7E90B7E0000000000000013 /* ReportSharing.swift */,
 				A7E90B7E0000000000000001 /* TrainingReport.swift */,
 			);
 			path = Engine;
@@ -199,6 +207,7 @@
 			children = (
 				A9CEEC05FFD558CC835E99B1 /* LessonPackTests.swift */,
 				A7E90B7E0000000000000009 /* TrainingReportTests.swift */,
+				A7E90B7E0000000000000015 /* TrainingReportLayoutTests.swift */,
 			);
 			path = CzerwonaTeczkaTests;
 			sourceTree = "<group>";
@@ -328,6 +337,7 @@
 			files = (
 				D2A8A909660552B9BD8D1AF6 /* LessonPackTests.swift in Sources */,
 				A7E90B7E000000000000000A /* TrainingReportTests.swift in Sources */,
+				A7E90B7E0000000000000016 /* TrainingReportLayoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +371,8 @@
 				A7E90B7E0000000000000008 /* EmployerReportView.swift in Sources */,
 				A7E90B7E0000000000000006 /* ReportExporter.swift in Sources */,
 				A7E90B7E0000000000000004 /* ReportPDF.swift in Sources */,
+				A7E90B7E0000000000000012 /* ReportBadge.swift in Sources */,
+				A7E90B7E0000000000000014 /* ReportSharing.swift in Sources */,
 				A7E90B7E0000000000000002 /* TrainingReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

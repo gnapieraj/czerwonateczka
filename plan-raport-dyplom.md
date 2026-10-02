@@ -1,6 +1,6 @@
 # Plan: raport / dyplom ukończenia (Czerwona Teczka)
 
-**Status:** decyzje produktowe zamknięte (2026-10-01); **MVP zaimplementowane w aplikacji** (patrz §0).  
+**Status:** decyzje produktowe zamknięte (2026-10-01); **MVP zaimplementowane** (§0); **layout PDF + odznaka LinkedIn** (2026-10-02, patrz §0.1).  
 **Produkt:** gra edukacyjna Czerwona Teczka + colgante.pl  
 **Cel:** udokumentowana ścieżka szkolenia pracowników (RODO, bezpieczeństwo informacji, ISO 27001 i podobne).
 
@@ -31,6 +31,19 @@
 - Nadal **zakazane** w free: SMTP, `mailto` jako relay, automatyczna wysyłka, konta.
 
 **Decyzje z §14 podjęte przy implementacji:** ostatni werdykt (nie najlepszy); NIEPEŁNE w mianowniku jako nie-TRAFNE; `validityMonths` free = 12; raport dostępny dla Sezonu 0, Sezonu 1 i całego pakietu (24).
+
+---
+
+## 0.1 Layout PDF + odznaka LinkedIn (2026-10-02)
+
+| Element | Gdzie | Uwagi |
+|--------|-------|-------|
+| A4 bez sierotki disclaimeru | `Engine/ReportPDF.swift` | Zwarte odstępy, dynamiczny font tematów, 2 kolumny od ~10 tematów, `ensure(..., reserving: footer)`, kontynuacja z nagłówkiem zamiast gołej strony 2 z samym meta/disclaimerem. |
+| Fixtures PDF | `CzerwonaTeczkaTests/Fixtures/Reports/` | `sezon0-12`, `short-2x3`, `short-2x4`, `pack-24` (+ badge PNG). Regeneracja: `WRITE_REPORT_FIXTURES=1` w teście. |
+| Layout tests | `TrainingReportLayoutTests.swift` | Sezon 0 i short packi = 1 strona; pack 24 ≤ 2. |
+| Odznaka PNG | `Engine/ReportBadge.swift` | Offline, noir + pieczęć UKOŃCZONO. |
+| LinkedIn Add certification | `Engine/ReportSharing.swift` + `EmployerReportView` | Deeplink name / Colgante·Czerwona Teczka / daty / certUrl; Share Sheet odznaki. |
+| Verify v2 wariant A (stub) | `Website/src/pages/verify/[reportId].astro` + `ReportVerify` | URL publiczny bez imienia; **rejestr nieaktywny** (`isPublicRegistryLive = false`) — UI nie twierdzi, że verify żyje. |
 
 ---
 
@@ -317,3 +330,4 @@ Sekcja **„Raport dla pracodawcy”** (aktywna gdy pass ≥ 90% w zakresie):
 
 - 2026-10-01 — analiza + plan; decyzje 1–8 zamknięte przez Grega; plik zapisany w repo (`plan-raport-dyplom.md`). Brak zmian w kodzie gry/strony w tym kroku.
 - 2026-10-01 — MVP w aplikacji (§0): pass policy, PDF/CSV/JSON, Share Sheet, sekcja w Ustawieniach, testy. Strona i assety bez zmian.
+- 2026-10-02 — layout PDF (bez sierotki disclaimeru), fixtures, odznaka PNG + LinkedIn deeplink, stub verify A na stronie (rejestr jeszcze nie live).
