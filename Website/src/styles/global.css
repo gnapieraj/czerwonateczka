@@ -608,6 +608,44 @@ h3 {
   grid-column: span 4;
 }
 
+.report-assets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.report-asset {
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.report-asset__link {
+  display: block;
+  cursor: zoom-in;
+}
+
+.report-asset__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.report-asset figcaption {
+  margin-top: 14px;
+  color: var(--paper-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .paper-card {
   background: var(--paper);
   color: var(--void);
@@ -1019,6 +1057,10 @@ input:focus {
   .card-grid .paper-card,
   .source-grid .source-card {
     grid-column: 1 / -1;
+  }
+
+  .report-assets {
+    grid-template-columns: 1fr;
   }
 
   .device-shot,
