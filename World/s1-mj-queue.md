@@ -5,7 +5,7 @@ Statusy: `Next` | `Pending` | `AwaitingGreg` | `Accepted` | `Done` | `Rejected`.
 | Panel | Status | Wariant | Notatka |
 |---|---|---|---|
 | Night13a | Accepted | 1 | CDN: `https://cdn.midjourney.com/ade09f88-f920-4c47-a564-875dea6c6d79/0_1.png`; job: `https://www.midjourney.com/jobs/ade09f88-f920-4c47-a564-875dea6c6d79?index=1` |
-| Night13b | AwaitingGreg | — | waiting Greg pick |
+| Night13b | AwaitingGreg | — | likeness fail; r3 with stronger refs: Night04b + Night12b; --iw 0.55; add "same stern Chropot face as references" |
 | Night14a | Pending | — |  |
 | Night14b | Pending | — |  |
 | Night15a | Pending | — |  |
