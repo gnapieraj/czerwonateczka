@@ -2,10 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { site } from "../../data/site";
 
-const { reportId } = Astro.params;
-const id = (reportId ?? "").toLowerCase();
-const looksLikeUuid =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id);
 const verifyPattern = `https://${site.domain}/verify/<reportId>`;
 ---
 
@@ -32,23 +28,6 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>`;
         <strong>nie potwierdza</strong> ukończenia. Nie twierdzimy, że weryfikacja działa.
       </p>
     </div>
-
-    {looksLikeUuid ? (
-      <div class="callout">
-        <p class="eyebrow">IDENTYFIKATOR Z LINKA</p>
-        <p>
-          <code>{id}</code>
-        </p>
-        <p class="muted">
-          Gdy rejestr wystartuje, tu pojawi się status ważności, zakres (sezony/tematy bez PII),
-          hash pakietu i wystawca — nadal bez imienia.
-        </p>
-      </div>
-    ) : (
-      <p class="muted">
-        Oczekiwany adres: <code>/verify/&lt;uuid&gt;</code>. Podany segment nie wygląda na UUID.
-      </p>
-    )}
 
     <p>
       Dyplom PDF i odznaka PNG powstają offline w aplikacji. Udostępniasz je Share Sheetem;

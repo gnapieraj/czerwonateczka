@@ -30,7 +30,8 @@ enum ReportScope: Hashable, Identifiable {
             }
             return Copy.s(language, pl: "Sezon \(seasonId)", en: "Season \(seasonId)")
         case .pack:
-            return Copy.s(language, pl: "Cały pakiet · \(all.count) nocy", en: "Full pack · \(all.count) nights")
+            let labeled = Copy.nightsLabeled(all.count, language)
+            return Copy.s(language, pl: "Cały pakiet · \(labeled)", en: "Full pack · \(labeled)")
         }
     }
 }

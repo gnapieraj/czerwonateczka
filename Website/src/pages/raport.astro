@@ -1,0 +1,101 @@
+---
+import DeviceShot from "../components/DeviceShot.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Raport dla pracodawcy"
+  description="Dyplom PDF, odznaka LinkedIn i eksport CSV/JSON z Czerwonej Teczki — lokalnie na iPadzie, bez konta i bez automatycznej wysyłki."
+>
+  <section class="reading section">
+    <p class="eyebrow">DOWÓD UKOŃCZENIA</p>
+    <h1>Raport dla pracodawcy</h1>
+    <p class="lead">
+      Po sezonie (lub całym pakiecie) gra wystawia lokalny dyplom PDF, odznakę PNG
+      pod LinkedIn oraz CSV/JSON dla rejestru szkoleń HR. Pliki powstają na urządzeniu
+      i wychodzą tylko przez systemowy Share Sheet — bez konta, bez analityki, bez
+      automatycznej wysyłki.
+    </p>
+    <div class="callout">
+      <p class="eyebrow">PRÓG</p>
+      <h2>≥ 90% TRAFNE + briefing po każdej nocy</h2>
+      <p>
+        Sezon 0 to dwanaście nocy — wystarczy jedenaście TRAFNE, ale każda noc musi mieć
+        stempel i przeczytany briefing. Dyplom „UKOŃCZONO” nie powstaje poniżej progu.
+        Imię i nazwisko wpisujesz dopiero przy eksporcie; zostają w plikach, które sam
+        udostępniasz.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell section-sm" aria-labelledby="shots-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">NA IPADZIE</p>
+        <h2 id="shots-title">Formularz, Share Sheet, dyplom, odznaka</h2>
+      </div>
+      <p class="muted">
+        Zrzuty z iPada Air&nbsp;11″ (Simulator). Odznaka w stylu folderu — ten sam motyw
+        co ikona aplikacji.
+      </p>
+    </div>
+
+    <div class="device-gallery device-gallery--ipads">
+      <DeviceShot
+        device="ipad"
+        src="/assets/screens/ipad-raport-formularz.jpg"
+        alt="Raport dla pracodawcy na iPadzie: zakres sezonu, próg TRAFNE, pola imienia i organizacji"
+        caption="iPad · formularz raportu"
+      />
+      <DeviceShot
+        device="ipad"
+        src="/assets/screens/ipad-raport-share.jpg"
+        alt="Systemowy Share Sheet na iPadzie z plikiem PDF dyplomu Czerwona Teczka"
+        caption="iPad · Share Sheet (PDF)"
+      />
+    </div>
+
+    <div class="card-grid" style="margin-top: 2rem;">
+      <figure class="card">
+        <img
+          src="/assets/screens/raport-dyplom-sezon0.png"
+          alt="Dyplom PDF sezonu 0: Czerwona Teczka, potwierdzenie ukończenia"
+          loading="lazy"
+          width="840"
+          height="1188"
+        />
+        <figcaption>Dyplom PDF · sezon 0 · 12 nocy</figcaption>
+      </figure>
+      <figure class="card">
+        <img
+          src="/assets/screens/raport-odznaka-folder.png"
+          alt="Odznaka LinkedIn w stylu folderu: Czerwona Teczka, certyfikat ukończenia"
+          loading="lazy"
+          width="540"
+          height="540"
+        />
+        <figcaption>Odznaka PNG · styl folder (produkcja)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="reading section">
+    <p class="eyebrow">CO DOSTAJE HR</p>
+    <h2>PDF, CSV, JSON, LinkedIn</h2>
+    <ul>
+      <li><strong>PDF</strong> — dyplom A4 z zakresem, progiem i zastrzeżeniem edukacyjnym.</li>
+      <li><strong>Odznaka PNG</strong> — kwadrat pod Licenses &amp; Certifications; deeplink LinkedIn wypełnia organizację Colgante / Czerwona Teczka.</li>
+      <li><strong>CSV / JSON</strong> — rejestr szkoleń i przypomnienie o odświeżeniu; werdykty per noc tylko tu, nie na dyplomie.</li>
+      <li><strong>Weryfikacja publiczna</strong> — adres <code>colgante.pl/verify/&lt;id&gt;</code> jest w przygotowaniu (wariant A bez imienia). Dziś nie twierdzimy, że rejestr działa.</li>
+    </ul>
+    <p>
+      {site.firm} jest fikcją. Dokument nie jest poradą prawną ani urzędowym certyfikatem
+      RODO/ISO. Pytania: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+    </p>
+    <p>
+      <a class="button" href="/o-projekcie">Poznaj grę</a>
+      <a class="button button-secondary" href="/verify/">Weryfikacja (stub)</a>
+    </p>
+  </section>
+</BaseLayout>

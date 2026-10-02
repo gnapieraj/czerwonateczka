@@ -58,7 +58,7 @@ enum ReportBadge {
                     at: CGPoint(x: size.width / 2, y: y + 56),
                     text: report.passed
                         ? Copy.s(language, pl: "UKOŃCZONO", en: "COMPLETED")
-                        : Copy.s(language, pl: "W TOK", en: "IN PROGRESS"),
+                        : Copy.s(language, pl: "W TOKU", en: "IN PROGRESS"),
                     blood: blood,
                     paper: paper,
                     cg: cg

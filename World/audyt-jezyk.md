@@ -3,7 +3,7 @@
 **Stan:** 02.10.2026 (UTC+2)  
 **Branch:** `cursor/raport-dyplom-mvp-6d1a`  
 **Zakres:** copy gry (UI, Lessons.json, raport/badge/PDF, Canon, słownik), witryna w repo, komiks (napisy in-app).  
-**Tryb:** analiza — **bez masowej edycji copy**. Ten plik jest jedynym zamierzonym artefaktem.
+**Tryb:** audyt + **zastosowane poprawki** (sekcja 8). Pierwotnie analiza-only.
 
 ---
 
@@ -239,3 +239,26 @@ Minimalny bezpieczny diff (gdy Greg powie „fix”):
 ---
 
 *Koniec audytu.*
+
+
+---
+
+## 8. Zastosowane poprawki (02.10.2026, ten branch)
+
+Wdrożono po decyzji Grega „apply ALL fixes”. Vocabulary noir/IT (Ratio, Briefing, Awareness) **zostawione**.
+
+| ID | Zmiana | Pliki |
+|---|---|---|
+| P0-1 | Badge `W TOK` → **`W TOKU`** | `Engine/ReportBadge.swift` |
+| P0-2 / P0-3 | Helper `Copy.nights` / `nightsLabeled`; pakiet **„Cały pakiet · 24 noce”** | `Engine/Copy.swift`, `Engine/TrainingReport.swift` |
+| P1-1 | EN aplikant: **trainee** (Desk + sezon + narracja Lessons) | `Views/DeskView.swift`, `tools/build_lessons.py`, `Resources/Lessons.json` |
+| P1-2 | `MODUŁ AWARENESS` **zostaje** jako brand | udokumentowane w `World/SlownikPolGry.md` |
+| P1-3 | Ratio / Briefing **bez zmian** | słownik |
+| P1-5 | Noc zablokowana: PL **ZABLOKOWANE** (EN LOCKED); sezon: ZAMKNIĘTE / CLOSED | `Views/DeskView.swift` |
+| P1-7 | PDF EN threshold: *sound decisions, all nights and briefings completed* | `Engine/ReportPDF.swift` |
+| P1-8 | Splash PL↔EN title swap **zostaje** jako brand | słownik |
+| P2 | Bez masowej edycji stylu / Lessons narracji poza trainee | — |
+
+**CI (osobno):** `Website/src/pages/verify/[reportId].astro` — dodano `getStaticPaths()` → `[]` (rejestr nieżywy); landing `verify/index.astro`.
+
+*Koniec sekcji zastosowań.*

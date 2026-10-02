@@ -97,6 +97,7 @@ struct EmployerReportView: View {
         .onChange(of: store.reportForm) { _, _ in cached = nil }
         .onChange(of: store.stamps) { _, _ in cached = nil }
         .onChange(of: store.language) { _, _ in cached = nil }
+        .onAppear { runScreenshotAutomationIfNeeded() }
     }
 
     // MARK: Sections
@@ -405,6 +406,26 @@ struct EmployerReportView: View {
     }
 
     // MARK: Report lifecycle
+
+
+    /// Launch-arg helpers for Simulator marketing shots.
+    private func runScreenshotAutomationIfNeeded() {
+        let args = ProcessInfo.processInfo.arguments
+        guard canExport else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            if args.contains("--auto-preview-pdf") {
+                withFiles { files, report in
+                    preview = PreviewItem(data: report.pdf, url: files.pdf, title: ReportExporter.baseName(for: report.report))
+                }
+            } else if args.contains("--auto-share-pdf") {
+                withFiles { files, _ in shareFiles([files.pdf]) }
+            } else if args.contains("--auto-share-badge") {
+                withFiles { files, _ in shareFiles([files.badge]) }
+            } else if args.contains("--auto-share-all") {
+                withFiles { files, _ in shareFiles(files.all) }
+            }
+        }
+    }
 
     /// One report (one `reportId`) per set of inputs; every file shares it.
     private func currentReport() -> CachedReport? {

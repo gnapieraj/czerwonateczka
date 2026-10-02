@@ -447,7 +447,7 @@ lessons = [
         ("Odejście", "A departure"),
         ("Zestaw pism na jutro", "The bundle for tomorrow"),
         ("Aplikant, którego szanujesz, odszedł dziś. Jego skrzynka wciąż dostaje pocztę klienta. Zestaw pism na jutrzejszą rozprawę leży w niedokończonym mailu, w kopiach roboczych. Przy każdym logowaniu jego prywatny telefon pyta „Czy zatwierdzić?”. Ten telefon został u niego.",
-         "An associate you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."),
+         "A trainee you respect left today. Their mailbox still receives client mail. Tomorrow’s hearing papers sit in an unfinished email, in drafts. On every sign-in their personal phone asks “Approve?”. That phone stayed with them."),
         ("Co robisz z tym logowaniem przed nocą?", "What do you do with this login before night?"),
         [
             ("Night11a", "Irena: „Zostaw skrzynkę do rana. Bez tych pism nie ma wejścia.”",
@@ -472,7 +472,7 @@ lessons = [
         ("Odejście zamyka logowanie tego samego dnia, także gdy człowiek jest porządny i pisma leżą w niedokończonym mailu. Nowe hasło bez odebrania telefonu nadal jest jego kluczem.",
          "A departure closes the login the same day, even when the person is decent and the papers sit in an unfinished email. A new password without the phone is still their key."),
         [("Logowanie zostawione, „bo pisma są w skrzynce”.", "A login left, “because the papers are in the mailbox”."),
-         ("Nowe hasło przy telefonie, który został u aplikanta.", "A new password while the phone stayed with the associate.")],
+         ("Nowe hasło przy telefonie, który został u aplikanta.", "A new password while the phone stayed with the trainee.")],
         ("Człowiek odszedł. Telefon do zatwierdzania logowania też.", "The person left. The phone that approves the login goes too."),
     ),
     night(
@@ -544,7 +544,7 @@ lessons = [
          ("Zdjęcie zostawione w telefonie „na rano”.", "A photo left on the phone “until morning”.")],
         ("Akta na biurku. W kieszeni prywatny telefon.", "The file on the desk. A personal phone in the pocket."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "14-cudze", 14, "email", "Night14a",
@@ -580,7 +580,7 @@ lessons = [
          ("Szkic zapisany po wejściu na jego konto.", "A draft saved after signing in to his account.")],
         ("Kartka z cudzym hasłem. Twojego konta jeszcze nie ma.", "A slip with someone else’s password. Your account does not exist yet."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "15-polecenie", 15, "prompt", "Night15a",
@@ -616,7 +616,7 @@ lessons = [
          ("Pismo bez nazwisk, ale z kwotą i sygnaturą.", "The paper without names, but with the sum and the case number.")],
         ("Jedna strona na rano. Pismo jeszcze leży na biurku.", "One page by morning. The paper is still on the desk."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "16-link", 16, "phone", "Night16a",
@@ -652,7 +652,7 @@ lessons = [
          ("Prośba, żeby ten sam link przyszedł mailem.", "Asking for the same link to arrive by email.")],
         ("Link „od sądu” na komunikatorze. Portal jest obok.", "A link “from the court” in the messenger. The portal is right there."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "17-wydruk", 17, "pdf", "Night17a",
@@ -688,7 +688,7 @@ lessons = [
          ("Pismo skopiowane na pendrive „na potem”.", "The paper copied to a USB stick “for later”.")],
         ("Toner pusty. Pismo ma być rano na biurku.", "The toner is empty. The paper is due on the desk in the morning."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "18-odbior", 18, "pleading", "Night18a",
@@ -724,7 +724,7 @@ lessons = [
          ("Podpis za partnera przy zamkniętej kopercie.", "A signature for the partner while the envelope stays sealed.")],
         ("Kurier czeka. Pismo jest za potwierdzeniem odbioru.", "The courier is waiting. The paper needs a signed receipt."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "19-mandat", 19, "phone", "Night19a",
@@ -760,7 +760,7 @@ lessons = [
          ("Obietnica, że pismo jutro „nie wypłynie”.", "A promise that the paper “will not come up” tomorrow.")],
         ("Klient na twoim numerze. Mecenas oddzwoni wieczorem.", "The client is on your number. The lawyer calls back this evening."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "20-nosnik", 20, "usb", "Night20a",
@@ -796,7 +796,7 @@ lessons = [
          ("Ten sam plik wysłany sobie pocztą z cudzego komputera.", "The same file emailed to yourself from someone else’s computer.")],
         ("Protokolant trzyma pendrive. Laptop kancelarii jest otwarty.", "The clerk is holding a USB stick. The firm laptop is open."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "21-termin", 21, "email", "Night21a",
@@ -832,7 +832,7 @@ lessons = [
          ("Termin przepisany do kalendarza bez sprawdzenia w portalu.", "The date copied into the calendar without checking the portal.")],
         ("Zaproszenie prosi o hasło skrzynki. Termin jest jutro.", "The invite asks for the mailbox password. The date is tomorrow."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "22-granica", 22, "memo", "Night22a",
@@ -868,7 +868,7 @@ lessons = [
          ("Akta otwarte „tylko żeby sprawdzić”.", "A file opened “only to check”.")],
         ("Klient chce sygnaturę. Tej sprawy nie prowadzisz.", "The client wants a case number. You do not have that matter."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "23-nagranie", 23, "phone", "Night23a",
@@ -904,7 +904,7 @@ lessons = [
          ("Nagranie na laptopie kancelarii bez decyzji mecenasa.", "A recording on the firm laptop without the lawyer’s decision.")],
         ("Klient dyktuje. Prywatny telefon leży przy głośniku.", "The client is dictating. A personal phone lies by the speaker."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
     night(
         "24-ekran", 24, "pdf", "Night24a",
@@ -940,7 +940,7 @@ lessons = [
          ("Klapa zamknięta, ekran bez blokady, ławka pusta.", "The lid closed, the screen unlocked, the bench empty.")],
         ("Laptop otwarty na ławce. Chropot wszedł na salę.", "The laptop is open on a bench. Chropot has gone into the courtroom."),
         season_id="1",
-        season_title=("Sezon 1 · Aplikant", "Season 1 · The associate"),
+        season_title=("Sezon 1 · Aplikant", "Season 1 · The trainee"),
     ),
 ]
 
@@ -989,7 +989,7 @@ BRIEFS = {
     ),
     "11-konta": (
         "Dopóki prywatny telefon byłego aplikanta zatwierdza logowanie, skrzynka klienta jest nadal jego kluczem — także po zmianie hasła. Presja jutrzejszych pism ma odroczyć wyłączenie dostępu. Odejście zamyka konto tego samego dnia; ciągłość sprawy robi się przejęciem skrzynki, nie zostawieniem MFA u kogoś spoza firmy.",
-        "As long as a former associate’s personal phone approves sign-in, the client mailbox is still their key — even after a password change. Tomorrow’s papers are meant to delay cutting access. A departure closes the account the same day; continuity is a mailbox hand-over, not leaving MFA with someone outside the firm.",
+        "As long as a former trainee’s personal phone approves sign-in, the client mailbox is still their key — even after a password change. Tomorrow’s papers are meant to delay cutting access. A departure closes the account the same day; continuity is a mailbox hand-over, not leaving MFA with someone outside the firm.",
     ),
     "12-okup": (
         "Ransomware żąda okupu i milczenia, żebyś zapłacił, zanim ktoś z listy awaryjnej zobaczy ekran. Płatność z konta klienta i cicha płatność z kancelarii są tą samą zapłatą: nie oddają plików, którym wolno ufać, i ukrywają incydent. Samo odłączenie laptopa, bez telefonu na listę, zostawia resztę kancelarii w sieci. Ruch domknięty to odłączenie i telefon, a potem wiadomość dla klienta, że pism nie ma, bez bitcoinów i bez obietnicy, że zestaw jest gotowy.",
@@ -1021,7 +1021,7 @@ BRIEFS = {
     ),
     "19-mandat": (
         "Aplikant nie ma pełnomocnictwa do rady, czy klient ma podpisać ugodę, ani do wyjmowania pisma z akt. Prośba „niech tego jutro nie będzie” jest ukryciem, także gdy ograniczysz ją do jednego przeglądu. Rozmowę zapisujesz i zostawiasz mecenasowi. Klient słyszy tylko, kiedy ten oddzwoni.",
-        "An associate has no retainer to advise whether a client should sign a settlement, and no authority to take a paper out of the file. A request that it “not be there tomorrow” is concealment, even if you limit it to one review. You note the call and leave it for the lawyer. The client hears only when that call will come.",
+        "A trainee has no retainer to advise whether a client should sign a settlement, and no authority to take a paper out of the file. A request that it “not be there tomorrow” is concealment, even if you limit it to one review. You note the call and leave it for the lawyer. The client hears only when that call will come.",
     ),
     "20-nosnik": (
         "Pendrive podany na korytarzu sądu może nieść protokół albo program, który wystartuje po włożeniu do laptopa. Czekający protokolant i polecenie „nie rób sceny” są presją towarzyską, nie sprawdzeniem nośnika. Wysłanie pliku sobie z cudzego komputera jest tą samą treścią inną drogą. Protokół bierzesz z portalu albo na papierze.",

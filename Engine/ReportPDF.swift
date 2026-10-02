@@ -99,7 +99,7 @@ enum ReportPDF {
     private static func drawFacts(_ report: TrainingReport, on page: inout Page) {
         let language = report.appLanguage
         let months = Copy.s(language, pl: "mies.", en: "months")
-        let thresholdNote = Copy.s(language, pl: "trafnych decyzji, komplet nocy i briefingów", en: "sound calls, every night and briefing done")
+        let thresholdNote = Copy.s(language, pl: "trafnych decyzji, komplet nocy i briefingów", en: "sound decisions, all nights and briefings completed")
         let rows: [(String, String)] = [
             (Copy.s(language, pl: "Data ukończenia", en: "Completion date"), "\(report.completionDate) (Europe/Warsaw)"),
             (Copy.s(language, pl: "Forma", en: "Format"), report.trainingForm),

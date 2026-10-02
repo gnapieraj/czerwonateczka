@@ -125,3 +125,13 @@ test("strona prywatności zawiera tylko niezbędne dane administratora", async (
   assert.match(site, /Stare Sady 6\/19/);
   assert.match(autor, /nipDisplay/);
 });
+
+test("strona Raport opisuje dyplom i odznakę", async () => {
+  const page = await readFile(new URL("../src/pages/raport.astro", import.meta.url), "utf8");
+  const siteSrc = await readFile(new URL("../src/data/site.ts", import.meta.url), "utf8");
+  assert.match(siteSrc, /href: "\/raport"/);
+  assert.match(page, /Raport dla pracodawcy/);
+  assert.match(page, /ipad-raport-formularz\.jpg/);
+  assert.match(page, /raport-odznaka-folder\.png/);
+  assert.match(page, /Share Sheet/);
+});

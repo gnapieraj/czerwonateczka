@@ -63,6 +63,10 @@ final class GameStore: ObservableObject {
             self.route = .bible
         } else if ProcessInfo.processInfo.arguments.contains("--howto") {
             self.route = .howToPlay
+        } else if ProcessInfo.processInfo.arguments.contains("--report") {
+            self.route = .report
+        } else if ProcessInfo.processInfo.arguments.contains("--settings") {
+            self.route = .settings
         }
         seenBible = UserDefaults.standard.bool(forKey: bibleKey)
         seenHowToPlay = UserDefaults.standard.bool(forKey: howToPlayKey)
@@ -78,6 +82,14 @@ final class GameStore: ObservableObject {
             selectedSeasonId = storedSeason
         } else if let next = self.lessons.first(where: { stamps[$0.id] == nil }) {
             selectedSeasonId = next.seasonId
+        }
+
+        // Screenshot / QA: stamp Season 0 as passed (>=11 TRAFNE + briefings) and fill diploma fields.
+        if ProcessInfo.processInfo.arguments.contains("--seed-season0-pass") {
+            seedSeason0PassForScreenshots()
+            if ProcessInfo.processInfo.arguments.contains("--report") {
+                route = .report
+            }
         }
     }
 
@@ -251,6 +263,32 @@ final class GameStore: ObservableObject {
         UserDefaults.standard.set(false, forKey: howToPlayKey)
         stack = []
         route = .splash
+    }
+
+
+    /// Debug/screenshot helper: 12 Season-0 nights TRAFNE + briefed, name/org filled.
+    private func seedSeason0PassForScreenshots() {
+        let now = Date()
+        var seeded: [String: DocketStamp] = [:]
+        for lesson in lessons where lesson.seasonId == "0" {
+            seeded[lesson.id] = DocketStamp(
+                lessonId: lesson.id,
+                verdict: .sound,
+                kind: .verify,
+                stampedAt: now,
+                briefed: true
+            )
+        }
+        stamps = seeded
+        persistStamps()
+        reportForm = ReportForm(employeeName: "Grzegorz Napieraj", organization: "It Security")
+        persistReportForm()
+        seenBible = true
+        seenHowToPlay = true
+        UserDefaults.standard.set(true, forKey: bibleKey)
+        UserDefaults.standard.set(true, forKey: howToPlayKey)
+        selectedSeasonId = "0"
+        UserDefaults.standard.set("0", forKey: seasonKey)
     }
 
     private func persistStamps() {
