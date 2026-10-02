@@ -235,10 +235,28 @@ struct EmployerReportView: View {
                 text: $store.reportForm.organization,
                 contentType: .organizationName
             )
+            Toggle(isOn: $store.reportForm.diplomaEnglish) {
+                Text(Copy.s(lang, pl: "Dyplom po angielsku (domyślnie PL)", en: "English diploma (PL is the default)"))
+                    .font(Typeface.body(17))
+                    .foregroundStyle(Noir.paper)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .tint(Noir.blood)
+            Toggle(isOn: $store.reportForm.publishOrganizationOnVerify) {
+                Text(Copy.s(
+                    lang,
+                    pl: "Pokaż nazwę organizacji na stronie weryfikacji (bez imienia)",
+                    en: "Show organisation on the verify page (never the name)"
+                ))
+                .font(Typeface.body(17))
+                .foregroundStyle(Noir.paper)
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            .tint(Noir.blood)
             Text(Copy.s(
                 lang,
-                pl: "Dane zostają na telefonie i trafiają tylko do plików, które sam(a) udostępnisz. Język dyplomu: \(lang == .polish ? "polski" : "angielski") (wg języka gry).",
-                en: "Data stays on the phone and goes only into the files you share yourself. Diploma language: \(lang == .polish ? "Polish" : "English") (follows the game language)."
+                pl: "Dane zostają na telefonie i trafiają tylko do plików, które sam(a) udostępnisz. Publiczna weryfikacja (QR) nie zawiera imienia ani e-maila.",
+                en: "Data stays on the phone and goes only into the files you share yourself. Public verify (QR) never includes the name or email."
             ))
             .font(Typeface.body(16))
             .foregroundStyle(Noir.paperDim)
@@ -306,7 +324,17 @@ struct EmployerReportView: View {
                     }
                 }
             }
-            if !ReportVerify.isPublicRegistryLive {
+            if ReportVerify.isPublicRegistryLive {
+                Text(Copy.s(
+                    lang,
+                    pl: "QR na dyplomie prowadzi do colgante.pl/verify/{reportId} (wariant A: bez imienia). Strona sprawdza podpisany ładunek z QR — to nie jest centralny rejestr wszystkich dyplomów.",
+                    en: "The diploma QR opens colgante.pl/verify/{reportId} (variant A: no name). The page checks the signed payload from the QR — it is not a central ledger of every diploma."
+                ))
+                .font(Typeface.body(15))
+                .foregroundStyle(Noir.paperDim)
+                .lineSpacing(3)
+                .fixedSize(horizontal: false, vertical: true)
+            } else {
                 Text(Copy.s(
                     lang,
                     pl: "Odznaka i deeplink LinkedIn działają offline. Publiczna weryfikacja (colgante.pl/verify, wariant A bez imienia) jest w przygotowaniu — nie twierdzimy, że już działa.",
@@ -432,7 +460,7 @@ struct EmployerReportView: View {
         guard let evaluation, canExport else { return nil }
         if let cached, cached.scope == evaluation.scope { return cached }
         var config = ReportConfig.free
-        config.language = lang
+        // Language comes from ReportForm.diplomaEnglish inside ReportBuilder (PL default).
         let report = ReportBuilder.make(evaluation: evaluation, allLessons: store.lessons, form: store.reportForm, config: config)
         let pdf = ReportPDF.render(report)
         let badge = ReportBadge.render(report, style: ReportBadge.productionStyle)

@@ -1,0 +1,2 @@
+/verify/:id  /verify/index.html  200
+/verify/:id/ /verify/index.html  200

@@ -1,6 +1,6 @@
 # Plan: raport / dyplom ukończenia (Czerwona Teczka)
 
-**Status:** decyzje produktowe zamknięte (2026-10-01); **MVP zaimplementowane** (§0); **layout PDF + odznaka LinkedIn** (2026-10-02, patrz §0.1).  
+**Status:** decyzje produktowe zamknięte (2026-10-01); **MVP zaimplementowane** (§0); **layout PDF + odznaka LinkedIn** (2026-10-02, §0.1); **v2 QR + verify A + EN** (2026-10-02, §0.2).  
 **Produkt:** gra edukacyjna Czerwona Teczka + colgante.pl  
 **Cel:** udokumentowana ścieżka szkolenia pracowników (RODO, bezpieczeństwo informacji, ISO 27001 i podobne).
 
@@ -26,8 +26,7 @@
 
 **Odłożone (zgodnie z fazami §12):**
 
-- v2: QR + publiczny verify (wariant A) na colgante.pl, flaga EN per org, `validUntil` z konfigu org.
-- v3 / B2B: flavory / Custom Apps, `OrgConfig`, portal HR z logowaniem, przypomnienia z `nextReminderAt` po stronie klienta, ostrzejsza polityka pass per org.
+- v3 / B2B: flavory / Custom Apps, `OrgConfig`, portal HR z logowaniem, przypomnienia z `nextReminderAt` po stronie klienta, ostrzejsza polityka pass per org, prawdziwy hostowany rejestr reportId.
 - Nadal **zakazane** w free: SMTP, `mailto` jako relay, automatyczna wysyłka, konta.
 
 **Decyzje z §14 podjęte przy implementacji:** ostatni werdykt (nie najlepszy); NIEPEŁNE w mianowniku jako nie-TRAFNE; `validityMonths` free = 12; raport dostępny dla Sezonu 0, Sezonu 1 i całego pakietu (24).
@@ -43,9 +42,34 @@
 | Layout tests | `TrainingReportLayoutTests.swift` | Sezon 0 i short packi = 1 strona; pack 24 ≤ 2. |
 | Odznaka PNG | `Engine/ReportBadge.swift` | Offline credential card (noir + red rules/seal/folder/ribbon); **no** filled red disc. Styles: credential (prod), folder, ribbon. |
 | LinkedIn Add certification | `Engine/ReportSharing.swift` + `EmployerReportView` | Deeplink name / Colgante·Czerwona Teczka / daty / certUrl; Share Sheet odznaki. |
-| Verify v2 wariant A (stub) | `Website/src/pages/verify/[reportId].astro` + `ReportVerify` | URL publiczny bez imienia; **rejestr nieaktywny** (`isPublicRegistryLive = false`) — UI nie twierdzi, że verify żyje. |
+| Verify v2 wariant A | → §0.2 | Stub dynamiczny `[reportId].astro` usunięty (łamał CI); zastąpiony statyczną stroną + podpis. |
 
 ---
+
+
+## 0.2 v2 — QR + verify A + EN (2026-10-02)
+
+| Element | Gdzie | Uwagi |
+|--------|-------|-------|
+| QR na PDF | `Engine/ReportPDF.swift` + `ReportQR` | QR (CoreImage) → `https://colgante.pl/verify/{reportId}/?p=<token>`. W stopce: krótki URL w meta, pełny signed token w QR. Bez sierotki disclaimeru (QR obok meta). |
+| Publiczny verify A | `Website/src/pages/verify/index.astro` | Statyczna strona (bez dynamicznych routów Astro). Odczyt `reportId` ze ścieżki (rewrite) lub `?id=`; walidacja `?p=` w przeglądarce (Web Crypto Ed25519). Pokazuje: reportId, ważność, datę, zakres, hash, issuer, org tylko jeśli zezwolono. **Nigdy** imię/email/werdykty/HR. |
+| Rewrite hostingu | `Website/public/.htaccess`, `_redirects` | OVH Apache i Netlify serwują `/verify/<uuid>/` jako SPA na `index.html` — bez `[reportId].astro` (ten wariant psuł `npm run verify`). |
+| Podpisany ładunek | `Engine/ReportSharing.swift` → `PublicReportPayload`, `ReportVerify` | Kompaktowy JSON (krótkie klucze) + Ed25519. `isPublicRegistryLive = true` tylko dlatego, że strona **naprawdę** weryfikuje podpis (lub fixture). |
+| Statyczny rejestr fixture | `Website/public/verify/registry.json` | Opcjonalny demo-wpis; nie jest ledgerem produkcji. |
+| EN na dyplomie | `ReportForm.diplomaEnglish` (domyślnie `false` = PL) | Toggle w `EmployerReportView`. Nie zależy od języka gry. |
+| Org na verify | `ReportForm.publishOrganizationOnVerify` | Domyślnie wyłączone; gdy włączone, `organization` trafia do publicznego ładunku. |
+| `validUntil` | `ReportConfig.free.validityMonths = 12` | Spójne w PDF / QR payload / verify UI / CSV / JSON. |
+| Testy | `TrainingReportTests`, `TrainingReportLayoutTests`, `Website/tests/verify.test.mjs` | Podpis round-trip, EN flaga, brak PII w publicznym ładunku, CI witryny. |
+
+### Model zaufania (verify v2)
+
+Hosting colgante.pl jest **statyczny** (SFTP → OVH, zero Node). Nie ma więc serwerowego rejestru wszystkich `reportId`.
+
+1. **Źródło prawdy dla skanu QR:** podpisany ładunek publiczny (wariant A, bez PII) w parametrze `p`. Aplikacja free podpisuje seedem Ed25519 wbudowanym w build; witryna ma tylko klucz publiczny.
+2. **Co to udowadnia:** że ładunek powstał w buildzie posiadającym seed — nie że Colgante prowadzi księgę wszystkich dyplomów. Seed da się wyciągnąć z IPA; cel to utrudnienie przypadkowego fałszerstwa PDF i wygodny podgląd dla HR.
+3. **Czego nie twierdzimy:** „centralny live registry wszystkich ukończeń”. Flaga `isPublicRegistryLive` oznacza „publiczna weryfikacja podpisu działa”, nie „ledger B2B”.
+4. **v3 / B2B:** osobny portal z logowaniem i prawdziwym rejestrem (poza App Store).
+
 
 ## 1. Werdykt
 
@@ -206,7 +230,7 @@ URL: `https://colgante.pl/verify/{reportId}` (lub równoważny).
 
 **Niewidoczne:** imię i nazwisko, email pracownika, werdykty per noc, adres HR.
 
-Rejestracja verify: minimalny payload podpisany; retencja wg polityki (np. do `validUntil` + bufor lub 36 mies.); prawo do usunięcia po stronie umowy B2B.
+Rejestracja verify (v2 free): **podpisany minimalny payload w URL/QR** (statyczny hosting, bez Node) — patrz §0.2 model zaufania. Retencja hostowanego rejestru i prawo do usunięcia: umowa B2B / v3. Fixture JSON na witrynie służy tylko demo/CI.
 
 ---
 
@@ -331,3 +355,4 @@ Sekcja **„Raport dla pracodawcy”** (aktywna gdy pass ≥ 90% w zakresie):
 - 2026-10-01 — analiza + plan; decyzje 1–8 zamknięte przez Grega; plik zapisany w repo (`plan-raport-dyplom.md`). Brak zmian w kodzie gry/strony w tym kroku.
 - 2026-10-01 — MVP w aplikacji (§0): pass policy, PDF/CSV/JSON, Share Sheet, sekcja w Ustawieniach, testy. Strona i assety bez zmian.
 - 2026-10-02 — layout PDF (bez sierotki disclaimeru), fixtures, odznaka PNG + LinkedIn deeplink, stub verify A na stronie (rejestr jeszcze nie live).
+- 2026-10-02 — **v2:** QR na PDF, statyczny verify A z Ed25519 (`?p=`), flaga EN na dyplomie, `publishOrganizationOnVerify`, `validUntil` 12 mies. spójne; model zaufania w §0.2. Bez SMTP/konta/B2B portalu.

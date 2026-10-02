@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "trustModel": "ed25519-signed-public-payload",
+  "publicKeyHex": "954ef85698d05c50a721386495599fab025aab4303e44b74fb36903102d5842e",
+  "notes": [
+    "Static fixtures are optional demos. Live diplomas validate via the signed ?p= token in the QR URL.",
+    "Variant A: never stores employee name, email, per-night verdicts, or HR contacts.",
+    "Free app embeds the signing seed; this file embeds only the public key. Not a hosted ledger of every diploma."
+  ],
+  "entries": [
+    {
+      "bf": "free",
+      "cd": "2026-09-21",
+      "cv": "1.0+1",
+      "h": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": "11111111-2222-4333-8444-555555555555",
+      "iss": "Colgante / colgante.pl",
+      "n": 12,
+      "st": "UKONCZONO",
+      "tn": "Czerwona Teczka — Sezon 0 · Wstęp · 12 nocy",
+      "v": 1,
+      "vu": "2027-09-21",
+      "fixture": true,
+      "note": "CI / local demo fixture. Pack hash is a placeholder, not a real lessons pack digest."
+    }
+  ]
+}

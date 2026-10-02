@@ -318,8 +318,32 @@ struct DocketStamp: Codable, Equatable {
 struct ReportForm: Codable, Equatable {
     var employeeName: String = ""
     var organization: String = ""
+    /// Free default is Polish; opt-in English diploma (plan §2 / §12 v2).
+    var diplomaEnglish: Bool = false
+    /// When true, organisation name may appear on the public verify page (wariant A).
+    var publishOrganizationOnVerify: Bool = false
     var hasRequiredFields: Bool {
         !employeeName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case employeeName, organization, diplomaEnglish, publishOrganizationOnVerify
+    }
+
+    init(employeeName: String = "", organization: String = "", diplomaEnglish: Bool = false, publishOrganizationOnVerify: Bool = false) {
+        self.employeeName = employeeName
+        self.organization = organization
+        self.diplomaEnglish = diplomaEnglish
+        self.publishOrganizationOnVerify = publishOrganizationOnVerify
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        employeeName = try c.decodeIfPresent(String.self, forKey: .employeeName) ?? ""
+        organization = try c.decodeIfPresent(String.self, forKey: .organization) ?? ""
+        diplomaEnglish = try c.decodeIfPresent(Bool.self, forKey: .diplomaEnglish) ?? false
+        publishOrganizationOnVerify = try c.decodeIfPresent(Bool.self, forKey: .publishOrganizationOnVerify) ?? false
+        // Legacy `hrEmailHint` (and any other unknown keys) are intentionally ignored.
     }
 }
 
