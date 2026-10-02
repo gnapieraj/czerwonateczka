@@ -92,6 +92,10 @@ const verifyPattern = `https://${site.domain}/verify/<reportId>/`;
     const UUID_RE =
       /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+    // Public half of the free-build Ed25519 key. The signing seed never ships here.
+    const publicKeyHex =
+      "954ef85698d05c50a721386495599fab025aab4303e44b74fb36903102d5842e";
+
     function todayWarsaw() {
       return new Intl.DateTimeFormat("en-CA", {
         timeZone: "Europe/Warsaw",

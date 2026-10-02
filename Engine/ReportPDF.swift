@@ -232,7 +232,7 @@ enum ReportPDF {
 
     private static func drawFooter(_ report: TrainingReport, on page: inout Page) {
         let language = report.appLanguage
-        let qrSide: CGFloat = 72
+        let qrSide: CGFloat = 192
         let height = estimatedFooterHeight(report, qrSide: qrSide)
         // Prefer keeping meta + disclaimer with the topics. Never leave them alone on a blank page
         // when the previous page still has room after a modest compact — but if we truly need a

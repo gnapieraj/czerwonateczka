@@ -144,16 +144,23 @@ enum ReportQR {
         // L packs denser URLs; print size on A4 is large enough for phone cameras.
         filter.setValue("L", forKey: "inputCorrectionLevel")
         guard let output = filter.outputImage else { return nil }
-        let scale = max(1, side / output.extent.width)
-        let scaled = output.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
         let bounds = CGRect(x: 0, y: 0, width: side, height: side)
+        // Keep the ISO/IEC 18004 four-module quiet zone. A dense signed URL is
+        // otherwise technically generated but unreliable when rasterized for print.
+        let quiet: CGFloat = max(8, side * 0.08)
+        let qrRect = bounds.insetBy(dx: quiet, dy: quiet)
+        let scale = max(1, qrRect.width / output.extent.width)
+        let scaled = output.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        // Materialize the CI image before placing it in a PDF. Drawing UIImage(ciImage:)
+        // directly can leave the QR blank in UIGraphicsPDFRenderer on simulator/device.
+        guard let cgImage = CIContext().createCGImage(scaled, from: scaled.extent) else { return nil }
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
         format.opaque = true
         return UIGraphicsImageRenderer(size: bounds.size, format: format).image { ctx in
             UIColor.white.setFill()
             ctx.fill(bounds)
-            UIImage(ciImage: scaled).draw(in: bounds.insetBy(dx: 2, dy: 2))
+            UIImage(cgImage: cgImage).draw(in: qrRect)
         }
     }
 }
