@@ -468,9 +468,13 @@ h3 {
 }
 
 .device-frame__screen {
+  display: block;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 10%);
   background: #000;
+  color: inherit;
+  cursor: zoom-in;
+  text-decoration: none;
 }
 
 .device-frame--iphone .device-frame__screen {
@@ -628,6 +632,7 @@ h3 {
 .report-asset__link {
   display: block;
   cursor: zoom-in;
+  text-decoration: none;
 }
 
 .report-asset__image {
@@ -643,6 +648,71 @@ h3 {
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.image-lightbox {
+  width: min(94vw, 1400px);
+  max-width: none;
+  max-height: 94svh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: rgb(9 9 10 / 98%);
+  color: #fff;
+}
+
+.image-lightbox::backdrop {
+  background: rgb(0 0 0 / 88%);
+}
+
+.image-lightbox__surface {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.image-lightbox__image {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(94svh - 112px);
+  object-fit: contain;
+}
+
+.image-lightbox__close {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.image-lightbox__close:hover {
+  background: var(--blood);
+}
+
+.image-lightbox__caption {
+  position: absolute;
+  right: 24px;
+  bottom: 12px;
+  left: 24px;
+  margin: 0;
+  color: var(--paper-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-align: center;
   text-transform: uppercase;
 }
 

@@ -120,5 +120,58 @@ const activePath = Astro.url.pathname;
       </div>
       <p class="copyright">© {new Date().getFullYear()} {site.author}. Stan materiałów prawnych: {site.legalState}.</p>
     </footer>
+
+    <dialog class="image-lightbox" data-lightbox-dialog aria-label="Powiększenie obrazu">
+      <div class="image-lightbox__surface">
+        <button class="image-lightbox__close" type="button" data-lightbox-close aria-label="Zamknij powiększenie">
+          <span aria-hidden="true">×</span>
+        </button>
+        <img class="image-lightbox__image" data-lightbox-image alt="" />
+        <p class="image-lightbox__caption" data-lightbox-caption></p>
+      </div>
+    </dialog>
+
+    <script is:inline>
+      const lightbox = document.querySelector("[data-lightbox-dialog]");
+      const lightboxImage = lightbox?.querySelector("[data-lightbox-image]");
+      const lightboxCaption = lightbox?.querySelector("[data-lightbox-caption]");
+      const lightboxClose = lightbox?.querySelector("[data-lightbox-close]");
+      let lightboxTrigger;
+
+      const closeLightbox = () => {
+        if (!lightbox?.open) return;
+        lightbox.close();
+      };
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const trigger = target.closest("[data-lightbox]");
+        if (trigger instanceof HTMLAnchorElement) {
+          if (!lightbox || !lightboxImage || typeof lightbox.showModal !== "function") return;
+          event.preventDefault();
+
+          lightboxTrigger = trigger;
+          lightboxImage.src = trigger.href;
+          lightboxImage.alt = trigger.querySelector("img")?.alt || trigger.getAttribute("aria-label") || "";
+          if (lightboxCaption) {
+            lightboxCaption.textContent = trigger.dataset.lightboxCaption || "";
+            lightboxCaption.hidden = !lightboxCaption.textContent;
+          }
+          lightbox.showModal();
+          lightboxClose?.focus();
+          return;
+        }
+
+        if (target === lightbox || target.closest("[data-lightbox-close]")) closeLightbox();
+      });
+
+      lightbox?.addEventListener("close", () => {
+        lightboxImage?.removeAttribute("src");
+        lightboxTrigger?.focus();
+        lightboxTrigger = undefined;
+      });
+    </script>
   </body>
 </html>
