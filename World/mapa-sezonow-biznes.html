@@ -3,356 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Czerwona Teczka — mapa sezonów biznesowych</title>
+  <title>Czerwona Teczka — mapa sezonów</title>
   <style>
-    :root {
-      --ink: #20242b;
-      --muted: #626b76;
-      --line: #d7dce2;
-      --paper: #f7f5f0;
-      --card: #fffdf9;
-      --red: #b8202a;
-      --red-dark: #86151d;
-      --red-soft: #f5e1df;
-      --blue: #295879;
-      --blue-soft: #e8f0f5;
-      --gold: #9b6b21;
-      --gold-soft: #f7edcf;
-    }
-
-    @page { size: A4 landscape; margin: 0; }
+    :root { --bg:#0b0c10; --card:#151820; --blue:#25303a; --line:#39424c; --cream:#f1ecdf; --muted:#b6b8bd; --red:#a62b33; --red2:#d95a5a; --pale:#f1b6ab; }
+    @page { size: 16in 9in; margin: 0; }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      color: var(--ink);
-      background: #dfe2e5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .sheet {
-      width: 297mm;
-      height: 210mm;
-      overflow: hidden;
-      padding: 11mm 14mm 9mm;
-      background: var(--paper);
-      display: grid;
-      grid-template-rows: 26mm 1fr 7mm;
-      gap: 4mm;
-    }
-
-    .page-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12mm;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 4mm;
-    }
-    .kicker {
-      margin: 0 0 1.5mm;
-      color: var(--red);
-      font-size: 8.2pt;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0;
-      color: #171a20;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26pt;
-      line-height: .98;
-      letter-spacing: -.02em;
-    }
-    .deck {
-      max-width: 150mm;
-      margin: 2.5mm 0 0;
-      color: var(--muted);
-      font-size: 9.2pt;
-      line-height: 1.35;
-    }
-    .header-mark {
-      flex: 0 0 55mm;
-      align-self: center;
-      padding: 3mm 4mm;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--red);
-      background: #fffaf6;
-      color: var(--muted);
-      font-size: 8pt;
-      line-height: 1.3;
-    }
-    .header-mark strong {
-      display: block;
-      color: var(--ink);
-      font-size: 9pt;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .seasons {
-      min-height: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 5mm;
-    }
-    .season-card {
-      min-width: 0;
-      min-height: 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      padding: 4.5mm 5mm 4mm;
-      border: 1px solid var(--line);
-      border-top: 4px solid var(--blue);
-      border-radius: 2mm;
-      background: var(--card);
-      box-shadow: 0 1mm 2mm rgba(28, 36, 45, .07);
-      break-inside: avoid;
-    }
-    .season-card.s0 { border-top-color: #4a5968; }
-    .season-card.s1 { border-top-color: var(--gold); }
-    .season-card.s2 { border-top-color: var(--blue); }
-    .season-card.s3 { border-top-color: var(--red); }
-
-    .card-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 5mm;
-      margin-bottom: 2.5mm;
-    }
-    .eyebrow {
-      display: block;
-      margin-bottom: 1.2mm;
-      color: var(--muted);
-      font-size: 7.2pt;
-      font-weight: 800;
-      letter-spacing: .13em;
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-    h2 {
-      margin: 0;
-      color: #171a20;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17pt;
-      line-height: 1;
-    }
-    .badge {
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      min-height: 7mm;
-      padding: 1.5mm 2.5mm;
-      border-radius: 1mm;
-      background: #edf0f2;
-      color: var(--ink);
-      font-size: 7.4pt;
-      font-weight: 800;
-      letter-spacing: .08em;
-      white-space: nowrap;
-    }
-    .badge.free { background: var(--gold-soft); color: #745018; }
-    .badge.business { background: var(--blue-soft); color: #214d6c; }
-    .badge.pack { background: var(--red); color: #fff; }
-
-    .lead {
-      min-height: 10mm;
-      margin: 0 0 3mm;
-      color: #343b44;
-      font-size: 9.2pt;
-      line-height: 1.3;
-    }
-    .card-rule { height: 1px; margin: 0 0 3mm; background: var(--line); }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 3mm;
-      margin: 0 0 3mm;
-    }
-    .stats > div { min-width: 0; }
-    dt {
-      margin: 0 0 .7mm;
-      color: var(--muted);
-      font-size: 7.2pt;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    dd {
-      margin: 0;
-      color: #20252c;
-      font-size: 9.1pt;
-      font-weight: 750;
-      line-height: 1.18;
-    }
-    .value {
-      margin: 0 0 3mm;
-      padding: 2.5mm 3mm;
-      border-left: 3px solid var(--blue);
-      background: #f0f4f6;
-      color: #303943;
-      font-size: 8.7pt;
-      line-height: 1.3;
-    }
-    .s0 .value { border-left-color: #4a5968; }
-    .s1 .value { border-left-color: var(--gold); background: #fbf6e7; }
-    .s3 .value { border-left-color: var(--red); background: #fbefed; }
-    .value strong { color: var(--ink); }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5mm;
-      margin-top: auto;
-      padding-top: 1mm;
-    }
-    .tag {
-      padding: 1.1mm 2mm;
-      border: 1px solid var(--line);
-      border-radius: 10mm;
-      color: var(--muted);
-      font-size: 7.4pt;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    /* The pack banner is deliberately in normal flow: it owns its height and
-       cannot cover the card copy when a browser prints the page. */
-    .pack-callout {
-      display: flex;
-      align-items: center;
-      gap: 4mm;
-      margin: 0 0 3mm;
-      padding: 2.4mm 3mm;
-      border-radius: 1.2mm;
-      background: var(--red);
-      color: #fff;
-    }
-    .pack-callout strong {
-      flex: 0 0 auto;
-      font-size: 10.2pt;
-      letter-spacing: .04em;
-      line-height: 1.05;
-      white-space: nowrap;
-    }
-    .pack-callout span {
-      min-width: 0;
-      font-size: 8.1pt;
-      line-height: 1.2;
-    }
-    .s3 .lead { min-height: 0; margin-bottom: 2.5mm; }
-
-    .page-footer {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 8mm;
-      color: var(--muted);
-      font-size: 7.2pt;
-      line-height: 1;
-    }
-    .page-footer strong { color: var(--ink); }
-    .page-footer span:last-child { text-align: right; }
-
-    @media screen {
-      body { padding: 12mm; }
-      .sheet { margin: 0 auto; }
-    }
-    @media print {
-      body { background: none; }
-      .sheet { box-shadow: none; }
-    }
+    html, body { margin:0; min-height:100%; }
+    body { background:var(--bg); color:var(--cream); font-family:Arial,Helvetica,sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .sheet { width:16in; min-height:9in; padding:.38in .72in .18in; margin:auto; overflow:hidden; position:relative; background:var(--bg); }
+    .sheet::after { content:""; position:absolute; width:5.2in; height:5.2in; right:-2.4in; top:-2.1in; border-radius:50%; background:rgba(166,43,51,.07); box-shadow:0 0 0 1.2in rgba(166,43,51,.045); pointer-events:none; }
+    .kicker { margin:0 0 .12in; color:var(--muted); font-size:8pt; font-weight:700; letter-spacing:.12em; }
+    h1 { margin:0; font-size:25pt; line-height:1; letter-spacing:-.02em; }
+    h1 span { color:var(--red2); }
+    .subtitle { margin:.15in 0 .24in; color:#d8d4cb; font-size:10.8pt; }
+    .status { position:absolute; right:.72in; top:.36in; width:2.8in; color:var(--muted); text-align:right; font-size:6.5pt; line-height:1.45; }
+    .rule { border-top:1px solid var(--line); }
+    .flow { display:grid; grid-template-columns:3.35fr 4.55fr 4.93fr; gap:.93in; margin:.18in 0 .45in; position:relative; }
+    .flow::before, .flow::after { content:"→"; position:absolute; top:.19in; color:var(--red2); font-size:18pt; font-weight:700; }
+    .flow::before { left:3.52in; } .flow::after { left:8.36in; }
+    .flow-item { height:.62in; padding:.13in .2in; border:1px solid var(--line); border-radius:.1in; background:var(--blue); }
+    .flow-item.commercial { background:var(--red); border-color:#e7aaa9; }
+    .flow strong { display:block; font-size:7.6pt; line-height:1.1; }
+    .flow small { display:block; margin-top:.11in; color:#c5cbd0; font-size:6.3pt; white-space:nowrap; }
+    .commercial small { color:#f0ede4; }
+    .columns { display:grid; grid-template-columns:3.75fr 4.55fr 4.93fr; gap:.53in; }
+    .panel { min-height:5.14in; padding:.24in; border:1px solid var(--line); border-radius:.13in; background:var(--card); }
+    .panel.commercial { border:1.5px solid var(--red2); }
+    .eyebrow { margin:0 0 .14in; color:var(--muted); font-size:6.7pt; font-weight:700; letter-spacing:.1em; }
+    h2 { margin:0; color:#fffaf0; font-size:15.2pt; line-height:1; }
+    .intro { margin:.17in 0 .25in; color:#d9d7d0; font-size:7.5pt; line-height:1.25; min-height:.38in; }
+    .commercial .intro { color:#f1c8bb; font-weight:700; }
+    .season { padding:.12in 0 .16in; border-top:1px solid var(--line); }
+    .season:first-of-type { border-top:0; }
+    .season-head { display:flex; justify-content:space-between; gap:.1in; }
+    h3 { margin:0; color:#fffaf0; font-size:9.2pt; line-height:1.1; }
+    .nights { color:var(--red2); font-size:7.2pt; font-weight:700; white-space:nowrap; }
+    .role { margin:.06in 0 .1in; color:var(--muted); font-size:6.9pt; }
+    .focus { margin:0; color:var(--cream); font-size:7.25pt; line-height:1.16; }
+    .value { margin:.1in 0 0; color:var(--pale); font-size:6.9pt; line-height:1.15; }
+    .free-note { margin:.03in 0 0 .15in; padding:.02in 0 .02in .12in; border-left:3px solid var(--red2); font-size:7.2pt; line-height:1.6; }
+    .free-note strong, .quote strong { color:#fffaf0; }
+    .pack-banner { margin:.03in 0 .04in; padding:.09in .19in; background:var(--red); color:#fffaf0; font-size:6.65pt; font-weight:700; white-space:nowrap; }
+    .quote { margin:.02in 0 0 .15in; padding-left:.12in; border-left:3px solid var(--red2); font-size:7pt; line-height:1.55; }
+    .roadmap .season { padding-bottom:.13in; }
+    .roadmap .footnote { margin:.03in 0 0; color:var(--muted); font-size:6.3pt; }
+    footer { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.3in; margin-top:.15in; padding-top:.1in; border-top:1px solid var(--line); }
+    footer div { padding-left:.16in; border-left:3px solid var(--red); }
+    footer strong { display:block; color:#fffaf0; font-size:7pt; }
+    footer span { display:block; margin-top:.03in; color:#c2c6c9; font-size:6.7pt; }
+    .legal { margin:.13in 0 0; color:#69727a; font-size:5.8pt; text-align:right; }
+    @media print { .sheet { margin:0; } }
+    @media screen { body { padding:.2in; } .sheet { box-shadow:0 0 .2in #000; } }
   </style>
 </head>
 <body>
-  <main class="sheet">
-    <header class="page-header">
-      <div>
-        <p class="kicker">Czerwona Teczka · mapa produktu</p>
-        <h1>Sezony biznesowe</h1>
-        <p class="deck">Ścieżka od bezpiecznego odruchu do kontroli i AML — jedna czytelna mapa dla partnera, HR i zespołu wdrożeniowego.</p>
-      </div>
-      <div class="header-mark">
-        <strong>Business brief</strong>
-        Materiał jednokartkowy · PL<br>
-        Zakres: Sezon 0–3
-      </div>
-    </header>
+<main class="sheet">
+  <p class="kicker">BUSINESS MAP · COLGANTE</p>
+  <div class="status">STAN DECYZJI · 02.10.2026 PT<br>KANCELARIA COLGANTE I WSPÓLNICY<br>fikcja / materiał biznesowy</div>
+  <h1>Czerwona Teczka <span>— mapa sezonów</span></h1>
+  <p class="subtitle">Od codziennej świadomości do kontroli, gotowości i odpowiedzialnego wdrożenia.</p>
+  <div class="rule"></div>
 
-    <section class="seasons" aria-label="Mapa sezonów">
-      <article class="season-card s0">
-        <header class="card-head">
-          <div><span class="eyebrow">Sezon 0 · fundament</span><h2>Wstęp</h2></div>
-          <span class="badge free">FREE</span>
-        </header>
-        <p class="lead">Pierwsze 12 nocy buduje cyberodruch kancelarii pod presją: rozpoznaj, zatrzymaj, potwierdź właściwym kanałem.</p>
-        <div class="card-rule"></div>
-        <dl class="stats">
-          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
-          <div><dt>Rola</dt><dd>Mecenas</dd></div>
-          <div><dt>Efekt</dt><dd>odruch</dd></div>
-        </dl>
-        <p class="value"><strong>Wartość:</strong> wspólny język bezpieczeństwa i pierwszy mierzalny krok do zmiany zachowania.</p>
-        <div class="tags"><span class="tag">MFA</span><span class="tag">BEC</span><span class="tag">ransomware</span></div>
-      </article>
+  <section class="flow" aria-label="Przepływ oferty">
+    <div class="flow-item"><strong>FREE · App Store</strong><small>S0 Wstęp + S1 Aplikant · 24 noce</small></div>
+    <div class="flow-item commercial"><strong>B2B · COMPLIANCE PACK</strong><small>S2 Kontrola + S3 AML · 24 noce · pierwszy pack komercyjny</small></div>
+    <div class="flow-item"><strong>KOLEJNE PACKI</strong><small>S4 AI · S5 Cyfryzacja · S6 Etyka / ustrój</small></div>
+  </section>
 
-      <article class="season-card s1">
-        <header class="card-head">
-          <div><span class="eyebrow">Sezon 1 · praktyka</span><h2>Aplikant</h2></div>
-          <span class="badge free">FREE</span>
-        </header>
-        <p class="lead">Kolejne 12 nocy przenosi świadomość na biurko: decyzja ma mieć właściciela, ślad i bezpieczny następny krok.</p>
-        <div class="card-rule"></div>
-        <dl class="stats">
-          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
-          <div><dt>Rola</dt><dd>Aplikant</dd></div>
-          <div><dt>Efekt</dt><dd>praktyka</dd></div>
-        </dl>
-        <p class="value"><strong>Wartość:</strong> awareness → wejście w praktykę; decyzje, które da się obronić i powtórzyć.</p>
-        <div class="tags"><span class="tag">kanały</span><span class="tag">akta</span><span class="tag">offboarding</span></div>
-      </article>
+  <section class="columns" aria-label="Trzy ścieżki mapy sezonów">
+    <article class="panel free">
+      <p class="eyebrow">ŚCIEŻKA FREE / APP STORE</p>
+      <h2>Fundament</h2>
+      <p class="intro">Wejście do marki i nawyku. Bez opłaty —<br>zanim pojawia się oferta compliance.</p>
+      <section class="season"><div class="season-head"><h3>S0 · Wstęp</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Mecenas</p><p class="focus">Higiena cyfrowa, phishing, MFA, dane i decyzje pod presją.</p><p class="value">Wartość: wspólny język sygnałów ryzyka.</p></section>
+      <section class="season"><div class="season-head"><h3>S1 · Aplikant</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Aplikant</p><p class="focus">Nawyki codziennej pracy, przekazywanie spraw, dostępy i odpowiedzialność.</p><p class="value">Wartość: awareness, który widać w zachowaniu zespołu.</p></section>
+      <p class="free-note"><strong>Nie sprzedajemy ścieżki osobno:</strong><br>to wejście do marki i nawyku.</p>
+    </article>
 
-      <article class="season-card s2">
-        <header class="card-head">
-          <div><span class="eyebrow">Sezon 2 · compliance</span><h2>Kontrola</h2></div>
-          <span class="badge business">B2B</span>
-        </header>
-        <p class="lead">Audytor wchodzi w miejsca, gdzie proces, uprawnienie i rejestr muszą wytrzymać pytania drugiej strony.</p>
-        <div class="card-rule"></div>
-        <dl class="stats">
-          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
-          <div><dt>Rola</dt><dd>Audytor</dd></div>
-          <div><dt>Temat</dt><dd>RODO · IT</dd></div>
-        </dl>
-        <p class="value"><strong>Wartość:</strong> kontrola celu, dostępu, retencji i dowodu — bez skrótów, które wracają w audycie.</p>
-        <div class="tags"><span class="tag">RODO</span><span class="tag">DPA</span><span class="tag">RBAC</span><span class="tag">rejestr</span></div>
-      </article>
+    <article class="panel commercial">
+      <p class="eyebrow">PIERWSZA OFERTA KOMERCYJNA / B2B</p>
+      <h2>Compliance pack</h2>
+      <p class="intro">S2 + S3 · 24 NOCE &nbsp; | &nbsp; nowa postać: Audytor</p>
+      <section class="season"><div class="season-head"><h3>S2 · Kontrola</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Audytor</p><p class="focus">RODO, tajemnica zawodowa, chmura i AI: co wolno, kto odpowiada i co trzeba umieć wykazać.</p><p class="value">Wartość: zasada, decyzja, właściciel i dowód.</p></section>
+      <section class="season"><div class="season-head"><h3>S3 · AML</h3><span class="nights">12 NOCY</span></div><p class="role">Rola: Audytor</p><p class="focus">Klient, beneficjent, źródło środków i sygnały ryzyka — praktyka zamiast wykładu.</p><p class="value">Wartość: mniej ślepych punktów i gotowość do sprawdzenia.</p></section>
+      <div class="pack-banner">24 NOCE · JEDEN PACK · PIERWSZY PRODUKT DLA KANCELARII</div>
+      <p class="quote"><strong>Nie tylko „wiemy, że ryzyko istnieje”,</strong><br>ale „mamy kontrolę nad tym, co robimy dalej”.</p>
+    </article>
 
-      <article class="season-card s3">
-        <header class="card-head">
-          <div><span class="eyebrow">Sezon 3 · compliance</span><h2>AML</h2></div>
-          <span class="badge pack">PACK</span>
-        </header>
-        <div class="pack-callout"><strong>24 NOCE · JEDEN PACK</strong><span>Sezon 2 + Sezon 3 = Compliance pack dla zespołu.</span></div>
-        <p class="lead">Audytor prowadzi sprawy od KYC do monitoringu: rozpoznaj ryzyko, udokumentuj i eskaluj właściwą drogą.</p>
-        <div class="card-rule"></div>
-        <dl class="stats">
-          <div><dt>Zakres</dt><dd>12 nocy</dd></div>
-          <div><dt>Rola</dt><dd>Audytor</dd></div>
-          <div><dt>Temat</dt><dd>AML</dd></div>
-        </dl>
-        <p class="value"><strong>Wartość:</strong> gotowość do KYC, sankcji, PEP i zgłoszeń — z wynikiem do raportu HR.</p>
-        <div class="tags"><span class="tag">KYC</span><span class="tag">CRBR</span><span class="tag">GIIF</span><span class="tag">screening</span></div>
-      </article>
-    </section>
+    <article class="panel roadmap">
+      <p class="eyebrow">PÓŹNIEJ / ROADMAPA</p>
+      <h2>Kolejne pakiety</h2>
+      <p class="intro">Kierunek rozwoju — jeszcze nie sprzedajemy jako packów.</p>
+      <section class="season"><div class="season-head"><h3>S4 · AI deployer</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">Wdrażanie AI do pracy: zakres, nadzór, jakość i odpowiedzialność.</p><p class="value">Wartość: z eksperymentu do procesu.</p></section>
+      <section class="season"><div class="season-head"><h3>S5 · Cyfryzacja</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">e-Doręczenia, NIS2 i odporność procesów.</p><p class="value">Wartość: sprawna kancelaria mimo awarii kanału lub dostawcy.</p></section>
+      <section class="season"><div class="season-head"><h3>S6 · Etyka / ustrój</h3><span class="nights">12 NOCY*</span></div><p class="role">Rola: do ustalenia</p><p class="focus">Etyka, konflikt ról, ustrój i granice odpowiedzialności.</p><p class="value">Wartość: decyzje obronne także zawodowo.</p></section>
+      <p class="footnote">* S4–S6: wariant roboczy 12 nocy — do potwierdzenia przed ofertą.</p>
+    </article>
+  </section>
 
-    <footer class="page-footer">
-      <span><strong>Czerwona Teczka</strong> · materiał roboczy do rozmowy B2B</span>
-      <span>Sezon 2 + 3: 24 noce · pass ≥ 90% = min. 22 trafne</span>
-    </footer>
-  </main>
+  <footer>
+    <div><strong>AWARENESS</strong><span>Dostrzegam sygnał i zatrzymuję automatyzm.</span></div>
+    <div><strong>CONTROL / COMPLIANCE</strong><span>Mam zasadę, właściciela, dowód i ścieżkę reakcji.</span></div>
+    <div><strong>POZYCJONOWANIE</strong><span>Free buduje świadomość. B2B sprzedaje działającą kontrolę.</span></div>
+  </footer>
+  <p class="legal">Czerwona Teczka · Colgante i Wspólnicy są fikcją · nie jest to porada prawna</p>
+</main>
 </body>
 </html>

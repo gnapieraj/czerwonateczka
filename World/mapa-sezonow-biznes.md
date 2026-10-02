@@ -1,15 +1,14 @@
 # Mapa sezonów biznesowych
 
-Jednostronicowa mapa PL dla rozmowy B2B: `mapa-sezonow-biznes.html` → `mapa-sezonow-biznes.pdf`.
+Jednostronicowa mapa PL dla rozmowy B2B. To jest pierwsza mapa produktu: trzy kolumny — Free / App Store, pierwsza oferta B2B Compliance pack oraz późniejsza roadmapa.
 
-- Sezon 0: Wstęp — fundament i bezpieczny odruch.
-- Sezon 1: Aplikant — przełożenie awareness na praktykę.
-- Sezon 2: Kontrola — RODO, tajemnica, IT i dowody procesu.
-- Sezon 3: AML — KYC, CRBR, GIIF, sankcje i monitoring.
-- Compliance pack: Sezon 2 + 3, razem 24 noce; pass ≥ 90% to minimum 22 trafne.
+- **FREE · App Store:** S0 Wstęp + S1 Aplikant, razem 24 noce. Mecenas i Aplikant budują wejście do marki i nawyku; ścieżka nie jest sprzedawana osobno.
+- **B2B · Compliance pack:** S2 Kontrola + S3 AML, razem 24 noce. Rola: Audytor; pierwszy produkt komercyjny dla kancelarii.
+- **Później / roadmapa:** S4 AI deployer, S5 Cyfryzacja, S6 Etyka / ustrój — wariant roboczy, jeszcze nie sprzedajemy jako packów.
 
-## Kontrakt layoutu PDF
+## Kontrakt layoutu
 
-- Format: A4 poziomo, jedna strona.
-- Karty są w siatce 2×2; banner Compliance jest elementem normalnego przepływu w karcie S3.
-- Brak absolutnego pozycjonowania tekstu, bannerów i badge’y w obszarze kart — tekst nie może się przykrywać przy druku.
+- Format PDF: 16 × 9, jedna strona, ciemna mapa w układzie trzech kolumn.
+- Treść i założenia sezonów są wspólne z `render_mapa_sezonow.py`.
+- Przy S1 notatka o ścieżce Free jest poniżej wartości.
+- Przy S3 banner „24 NOCE · JEDEN PACK…” jest poniżej wartości, a następnie cytat.
