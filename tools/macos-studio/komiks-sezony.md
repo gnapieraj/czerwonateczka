@@ -898,63 +898,67 @@ https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black 
 Zasady operacyjne (skrót; pełny opis: `World/s1-mj-process.md`, kolejka: `World/s1-mj-queue.md`):
 
 - Przed każdym Imagine: przeczytaj kontekst nocy + kartę panelu + napis; przepisz szary blok, jeśli jest nieaktualny.
+- **Causal A→B:** A = setup (stan / rekwizyt / gest wyjściowy); B = pressure (postać, rozkaz). Czas tylko do przodu. Audyt: `World/audyt-logika-ciag.md`.
 - Zapis z Create **tylko 2×2** — **NIGDY Upscale**; natywnie ~1456×816.
 - Pałac Kultury tylko gdy karta panelu o niego prosi; inaczej deszcz / korytarz / generyczne bloki + `--no palace of culture`.
 - Po wyborze wariantu N: PNG → `Assets.xcassets/NightNNx.imageset`, AssetRegistry (CDN `…/0_N.png`, job `?index=N`); `artPending: false` gdy a+b nocy gotowe.
 - Batch ~6–8 Imagine / sesja; paruj a→b.
 - `paint_caption: no` — bez liter na płycie.
 - Przy czwórce pokaż Gregowi pełny kontekst PL + dialogi / napisy.
+- POV S1: aplikant (ręce / biała koszula). Chropot albo Irena na ekranie. **Nigdy** Mecenas-as-POV / ręka mecenasa dla gracza. Iglica nie jako druga osoba.
 
 Gracz jest aplikantem. Iglica nie pojawia się jako druga osoba. Mecenasa, gdy pada w tekście, nie rysujemy twarzą: albo jest poza kadrem, albo plecy i cień. Na ekranie jest Chropot albo Irena.
 
-#### Noc 13 · `13-chmura` · Akta w tramwaju
+#### Noc 13 · `13-chmura` · Zdjęcie akt
 
-Sezon 1. Termin: Poprawka przed ósmą. Pytanie: Czy akta wsiądą z tobą do tramwaju?
+Sezon 1. Termin: Poprawka przed ósmą. Pytanie: Czy robisz zdjęcie akt prywatnym telefonem?
 
 Kontekst, który czyta gracz:
 
-> Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron i jedź, rano samo się wyśle.
+> Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.
 
-Kadr A `Night13a`, napis w grze, nie malować: Prywatny telefon nad otwartymi aktami. Chropot już w płaszczu.
+**Causal:** A = telefon nad stronami (setup BYOD / chmura); B = Chropot w płaszczu w drzwiach, rozkaz wyślij (pressure). Bez tramwaju / „wsiadaj”.
 
-Kadr B `Night13b`, kwestia do wklejenia w grę, nie malować: Chropot: „Zrób zdjęcie i wsiadaj. Rano ma leżeć na mojej skrzynce.”
+Kadr A `Night13a`, napis w grze, nie malować: Prywatny telefon nad otwartymi stronami akt.
 
-### 13a `Night13a` — prywatny telefon nad aktami
+Kadr B `Night13b`, kwestia do wklejenia w grę, nie malować: Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”
+
+### 13a `Night13a` — prywatny telefon nad stronami akt
 
 <!-- card
 asset: Night13a
 lesson: 13-chmura
 panel: a
 file: Night13a.png
-story: The partner tells the associate to photograph the file on a personal phone and leave. The photo would leave the firm.
-context_pl: Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron i jedź, rano samo się wyśle.
-caption_pl: Prywatny telefon nad otwartymi aktami. Chropot już w płaszczu.
-caption_in_game_pl: Prywatny telefon nad otwartymi aktami. Chropot już w płaszczu.
+story: The partner tells the associate to photograph the file on a personal phone. The photo would leave the firm into a private cloud (BYOD).
+context_pl: Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.
+caption_pl: Prywatny telefon nad otwartymi stronami akt.
+caption_in_game_pl: Prywatny telefon nad otwartymi stronami akt.
 game_asset: Night13a
 paint_caption: no
 who: a young man's hand, white shirt cuff, no jacket, face out of frame
 where: the associate's smaller office; window looking steeply down to rooftops and tram wires
-gesture: the phone is held above the open pages, about to photograph them
-props: open blank file; older personal smartphone, screen flat grey; a coat on the door
-pass: phone above the pages; coat ready to leave; five fingers; no face
-fail: the Palace; the phone already pocketed and the file closed; letters on the pages; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+gesture: the phone is held directly above the open pages, about to photograph them — not aimed at the window
+props: open blank file on the desk; older personal smartphone, screen flat grey, above the pages; a coat hangs on the door
+pass: phone clearly above the open pages on the desk; five fingers; no face; coat on the door only as background
+fail: the Palace; the phone aimed at the window or already pocketed; the file closed; letters on the pages; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, rain streaks, same pen as the reference. The associate's smaller office, window looking steeply down to rooftops and tram wires. An open blank file on the desk. A young man's hand holds an older personal smartphone above the pages, about to photograph them, screen flat grey. White shirt cuff, no suit jacket. Exactly five fingers. His face is out of frame. A coat hangs on the door, as if someone is leaving. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
+https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference, rain streaks. The associate's smaller office, window looking steeply down to rooftops and tram wires. An open blank file on the desk. A young man's hand holds an older personal smartphone directly above the open pages, about to photograph them, screen flat grey — the phone aims at the paper, not at the window. White shirt cuff, no suit jacket. Exactly five fingers. His face is out of frame. A coat hangs on the door in the background. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
 ```
 
-### 13b `Night13b` — Chropot już w płaszczu, w drzwiach
+### 13b `Night13b` — Chropot w płaszczu, w drzwiach
 
 <!-- card
 asset: Night13b
 lesson: 13-chmura
 panel: b
 file: Night13b.png
-story: The partner is already in his coat and orders the photo sent to his mailbox by morning.
-context_pl: Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron i jedź, rano samo się wyśle.
-caption_pl: Chropot: „Zrób zdjęcie i wsiadaj. Rano ma leżeć na mojej skrzynce.”
-caption_in_game_pl: Chropot: „Zrób zdjęcie i wsiadaj. Rano ma leżeć na mojej skrzynce.”
+story: The partner is in his coat at the door and orders the photo sent to his mailbox by morning.
+context_pl: Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.
+caption_pl: Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”
+caption_in_game_pl: Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”
 game_asset: Night13b
 paint_caption: no
 who: the partner, overcoat on, looking back, mouth open
@@ -977,58 +981,60 @@ Kontekst, który czyta gracz:
 
 > Portal sądu nie ma jeszcze twojego konta. Pozew ma wyjść dziś. Chropot kładzie kartkę z własnym hasłem i mówi, żebyś wszedł jako on, „tylko ten jeden pozew”, bo wniosek o konto leży u Ireny od tygodnia.
 
-Kadr A `Night14a`, napis w grze, nie malować: Kartka z hasłem partnera obok pustych pól logowania.
+**Causal (SWAP):** A = Chropot **kładzie** kartkę (przyczyna); B = kartka już leży, dłonie nad pustymi polami + rozkaz (pressure). Nie pokazywać gotowej kartki na A bez aktu kładzenia.
+
+Kadr A `Night14a`, napis w grze, nie malować: Chropot kładzie kartkę z hasłem. Portal nie ma jeszcze twojego konta.
 
 Kadr B `Night14b`, kwestia do wklejenia w grę, nie malować: Chropot: „Wejdź jako ja. Wniosek o twoje konto leży od tygodnia.”
 
-### 14a `Night14a` — kartka z hasłem, dłonie z dala od klawiatury
+### 14a `Night14a` — Chropot kładzie kartkę
 
 <!-- card
 asset: Night14a
 lesson: 14-cudze
 panel: a
 file: Night14a.png
-story: The court portal has no account for the associate. The partner's password is on a slip. It must not be typed.
+story: The partner places his password slip on the associate's desk. The court portal has no account for the associate yet.
 context_pl: Portal sądu nie ma jeszcze twojego konta. Pozew ma wyjść dziś. Chropot kładzie kartkę z własnym hasłem i mówi, żebyś wszedł jako on, „tylko ten jeden pozew”, bo wniosek o konto leży u Ireny od tygodnia.
-caption_pl: Kartka z hasłem partnera obok pustych pól logowania.
-caption_in_game_pl: Kartka z hasłem partnera obok pustych pól logowania.
+caption_pl: Chropot kładzie kartkę z hasłem. Portal nie ma jeszcze twojego konta.
+caption_in_game_pl: Chropot kładzie kartkę z hasłem. Portal nie ma jeszcze twojego konta.
 game_asset: Night14a
 paint_caption: no
-who: two young hands, white shirt, no jacket, no face
-where: the associate's desk; east window looking down
-gesture: both hands are lifted off the keyboard
-props: a slip with four empty boxes; a laptop with an empty sign-in window
-pass: hands off the keys; four empty boxes; empty sign-in window; five fingers
-fail: hands typing; marks in the boxes or in the sign-in fields; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+who: the partner, mouth open
+where: the associate's smaller room, window looking down, not the wavy roof
+gesture: standing, setting a small slip on a desk that is not his
+props: a small blank slip mid-placement; laptop with empty sign-in window in soft background
+pass: he stands at the associate's desk placing the slip; five fingers; empty sign-in only as backdrop
+fail: his own office; him seated at his own laptop; the slip already lying flat with no placing gesture; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's desk. A slip of paper with four empty boxes lies beside a laptop that shows an empty sign-in window, no letters. Two young hands are lifted off the keyboard. White shirt, no jacket. The east window looks down. Exactly five fingers. No face. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
+https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same stern man stands and sets a small blank slip on a desk that is not his: smaller room, window looking down, not the wavy roof. The slip is mid-placement in his hand, not already lying flat. Mouth open, short gesture. A laptop with an empty sign-in window sits soft in the background, no letters. Exactly five fingers. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face
 ```
 
-### 14b `Night14b` — Chropot kładzie kartkę
+### 14b `Night14b` — kartka leży, dłonie z dala od klawiatury
 
 <!-- card
 asset: Night14b
 lesson: 14-cudze
 panel: b
 file: Night14b.png
-story: The partner tells the associate to sign in as him, just this once, because the account request has waited a week.
+story: The slip already lies beside empty sign-in fields. The partner's order presses the associate to type the password.
 context_pl: Portal sądu nie ma jeszcze twojego konta. Pozew ma wyjść dziś. Chropot kładzie kartkę z własnym hasłem i mówi, żebyś wszedł jako on, „tylko ten jeden pozew”, bo wniosek o konto leży u Ireny od tygodnia.
 caption_pl: Chropot: „Wejdź jako ja. Wniosek o twoje konto leży od tygodnia.”
 caption_in_game_pl: Chropot: „Wejdź jako ja. Wniosek o twoje konto leży od tygodnia.”
 game_asset: Night14b
 paint_caption: no
-who: the partner, mouth open
-where: the associate's smaller room, window looking down, not the wavy roof
-gesture: standing, setting a small slip on a desk that is not his
-props: a small slip
-pass: he stands at the associate's desk; five fingers
-fail: his own office; him seated at his own laptop; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+who: two young hands, white shirt, no jacket, no face
+where: the associate's desk; east window looking down
+gesture: both hands are lifted off the keyboard, hovering above empty fields
+props: a slip with four empty boxes already lying flat beside a laptop with an empty sign-in window
+pass: hands off the keys; slip already on the desk; four empty boxes; empty sign-in window; five fingers
+fail: hands typing; marks in the boxes or in the sign-in fields; someone still placing the slip; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same stern man stands and sets a small slip on a desk that is not his: smaller room, window looking down, not the wavy roof. Mouth open, short gesture. Exactly five fingers. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face
+https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's desk. A slip of paper with four empty boxes already lies flat beside a laptop that shows an empty sign-in window, no letters. Two young hands are lifted off the keyboard, hovering above the empty fields. White shirt, no jacket. The east window looks down. Exactly five fingers. No face. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
 ```
 
 #### Noc 15 · `15-polecenie` · Jedna strona na rano
@@ -1038,6 +1044,8 @@ Sezon 1. Termin: Mecenas czyta o 7:30. Pytanie: Co wkładasz do czatu, którego 
 Kontekst, który czyta gracz:
 
 > Mecenas chce rano jedną stronę streszczenia pisma, które leży przed tobą: nazwy stron, kwota, sygnatura. Mówi, żebyś wrzucił całość do darmowego czatu, bo sam nie zdąży czytać, a firmowy asystent jest wyłączony na noc.
+
+**Causal:** A = pismo + pusty czat (setup); B = Chropot z progu, rozkaz wrzucaj (pressure).
 
 Kadr A `Night15a`, napis w grze, nie malować: Pismo z nazwami i kwotą. Obok pusty czat, poza kancelarią.
 
@@ -1101,6 +1109,8 @@ Kontekst, który czyta gracz:
 
 > Dwanaście minut przed salą na komunikatorze wpada link „od sądu” — przesłany przez koleżankę z aplikacji, nie z portalu. Irena mówi, że sala już czeka i że masz wejść, bo wokanda nie będzie powtarzana.
 
+**Causal:** A = link na telefonie od koleżanki (setup); B = Irena naciska „wchodź” (pressure).
+
 Kadr A `Night16a`, napis w grze, nie malować: Na telefonie link do spotkania. Nadawcą jest koleżanka, nie sąd.
 
 Kadr B `Night16b`, kwestia do wklejenia w grę, nie malować: Irena: „Wchodź. Tej sali nikt drugi raz nie wywoła.”
@@ -1130,7 +1140,7 @@ fail: the thumb opening the card; a firm office; letters on the card; also rejec
 https://cdn.midjourney.com/73e52afa-6d19-4f17-8834-22988d1a488c/0_3.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. A court corridor. A young man's hand holds a blank grey smartphone showing one empty meeting card, no letters. The thumb is off the card. White shirt, no jacket, exactly five fingers. Wood doors and a rainy window at the end of the hall. No face. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
 ```
 
-### 16b `Night16b` — Irena, telefon przy uchu, lada za nią miękka
+### 16b `Night16b` — Irena, telefon przy uchu
 
 <!-- card
 asset: Night16b
@@ -1152,7 +1162,7 @@ fail: a glasses chain; a window skyline; letters; also reject letters, numbers, 
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, dark blouse, stands rather than sits, a blank grey phone at her ear, mouth open, calm pressure. The reception counter is behind her and soft. No letters. Exactly five fingers if a hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window, city skyline
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, dark blouse, stands rather than sits, a blank grey phone at her ear, mouth open, calm pressure. The reception counter is behind her and soft. No letters. Exactly five fingers if a hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain, beads, clock face, window, city skyline
 ```
 
 #### Noc 17 · `17-wydruk` · Wydruk u rodziców
@@ -1163,11 +1173,13 @@ Kontekst, który czyta gracz:
 
 > W kancelarii skończył się toner, a pismo ma leżeć rano na biurku mecenasa. Irena mówi, żebyś zabrał plik do domu i wydrukował u rodziców, bo tam drukarka działa, a rano i tak zdążysz przywieźć kartki.
 
-Kadr A `Night17a`, napis w grze, nie malować: Plik pisma na laptopie. Kaseta z tonerem jest pusta.
+**Causal:** A = plik na laptopie + pusta drukarka, **bez** kasety w ręku (setup); B = Irena **podaje** pustą kasetę + rozkaz drukuj u rodziców (pressure).
+
+Kadr A `Night17a`, napis w grze, nie malować: Plik pisma na laptopie. W drukarce skończył się toner.
 
 Kadr B `Night17b`, kwestia do wklejenia w grę, nie malować: Irena: „Toner padł. Wydrukuj u rodziców i rano połóż na biurku.”
 
-### 17a `Night17a` — pusta kaseta, płaszcz na krześle
+### 17a `Night17a` — plik na laptopie, pusta drukarka
 
 <!-- card
 asset: Night17a
@@ -1176,20 +1188,20 @@ panel: a
 file: Night17a.png
 story: The toner is empty. The filing is due on the lawyer's desk in the morning and must not go home to be printed.
 context_pl: W kancelarii skończył się toner, a pismo ma leżeć rano na biurku mecenasa. Irena mówi, żebyś zabrał plik do domu i wydrukował u rodziców, bo tam drukarka działa, a rano i tak zdążysz przywieźć kartki.
-caption_pl: Plik pisma na laptopie. Kaseta z tonerem jest pusta.
-caption_in_game_pl: Plik pisma na laptopie. Kaseta z tonerem jest pusta.
+caption_pl: Plik pisma na laptopie. W drukarce skończył się toner.
+caption_in_game_pl: Plik pisma na laptopie. W drukarce skończył się toner.
 game_asset: Night17a
 paint_caption: no
-who: a young hand, no face
+who: a young hand resting near the laptop, no face; no cartridge in hand
 where: the associate's office at night; east window, rain, trams below
-gesture: holding an empty toner cartridge beside the laptop; a coat is on the chair
-props: empty toner cartridge; laptop with a blank page; coat on the chair
-pass: the cartridge is visibly empty; the coat says someone might leave; no USB stick; five fingers
-fail: a USB stick; a home interior; letters on the page; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+gesture: hands stay off any cartridge; attention on the laptop with a blank page
+props: laptop with a blank page; a small office printer with its cover open or an empty slot visible; coat on the chair
+pass: no toner cartridge in anyone's hand; laptop shows blank page; coat on chair; five fingers
+fail: a hand holding an empty toner cartridge; a USB stick; a home interior; letters on the page; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's office at night. A young hand holds an empty toner cartridge beside a laptop with a blank page on screen. A coat is draped on the chair, ready to leave. East window, rain, trams below. Exactly five fingers. No face. No letters. No USB stick. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
+https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's office at night. A laptop shows a blank page. Beside it a small office printer sits with its cover open, empty of toner — no cartridge in any hand. A coat is draped on the chair. A young hand rests near the laptop, not holding a cartridge. East window, rain, trams below. Exactly five fingers. No face. No letters. No USB stick. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
 ```
 
 ### 17b `Night17b` — Irena podaje pustą kasetę
@@ -1199,7 +1211,7 @@ asset: Night17b
 lesson: 17-wydruk
 panel: b
 file: Night17b.png
-story: The assistant tells him to print at his parents' and bring the pages in the morning.
+story: The assistant holds out the empty cartridge and tells him to print at his parents' and bring the pages in the morning.
 context_pl: W kancelarii skończył się toner, a pismo ma leżeć rano na biurku mecenasa. Irena mówi, żebyś zabrał plik do domu i wydrukował u rodziców, bo tam drukarka działa, a rano i tak zdążysz przywieźć kartki.
 caption_pl: Irena: „Toner padł. Wydrukuj u rodziców i rano połóż na biurku.”
 caption_in_game_pl: Irena: „Toner padł. Wydrukuj u rodziców i rano połóż na biurku.”
@@ -1214,7 +1226,7 @@ fail: a glasses chain; a window; a full cartridge; letters; also reject letters,
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, holds out an empty toner cartridge, mouth open, practical. She stands at the counter. The calendar faces her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, holds out an empty toner cartridge, mouth open, practical. She stands at the counter. The calendar faces her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain, beads, window
 ```
 
 #### Noc 18 · `18-odbior` · Pokwitowanie za partnera
@@ -1224,6 +1236,8 @@ Sezon 1. Termin: Chropot jest na sali. Pytanie: Czyje nazwisko ląduje na pokwit
 Kontekst, który czyta gracz:
 
 > Kurier czeka z pismem za potwierdzeniem odbioru. Chropot jest na sali i pisze, żebyś pokwitował za niego, bo termin biegnie od doręczenia, a on nie zejdzie przed czwartą. Pisemka nie czytałeś.
+
+**Causal:** A = zamknięta koperta + nietknięte pióro (setup); B = Chropot z sali, rozkaz pokwituj (pressure zdalna).
 
 Kadr A `Night18a`, napis w grze, nie malować: Pokwitowanie odbioru na ladzie. Pismo jest jeszcze zamknięte.
 
@@ -1280,16 +1294,17 @@ fail: his office desk; the wavy roof; letters; also reject letters, numbers, gly
 ```
 https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same stern man stands in a courtroom hallway, overcoat, phone at his ear, mouth open, a short order. He is not at his desk. Benches and a tall door behind him, no wavy roof, no Palace. Exactly five fingers. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, desk
 ```
-
 #### Noc 19 · `19-mandat` · Klient dzwoni do ciebie
 
-Sezon 1. Termin: Mecenas jest poza biurem. Pytanie: Co obiecyjesz człowiekowi, który nie ma twojego pełnomocnictwa?
+Sezon 1. Termin: Mecenas jest poza biurem. Pytanie: Co mówisz klientowi o ugodzie i o piśmie w aktach?
 
 Kontekst, który czyta gracz:
 
 > Klient dzwoni na twój numer, nie do mecenasa. Prosi o zdanie, czy podpisać ugodę dziś, i żeby pewnego pisma „nie było jutro w aktach”, bo szkodzi rozmowie. Irena mówi, że masz go uspokoić, bo mecenas oddzwoni dopiero wieczorem.
 
-Kadr A `Night19a`, napis w grze, nie malować: Telefon od klienta. Ugoda leży obok, pismo też.
+**Causal:** A = telefon + ugoda + prośba o ukrycie pisma (setup); B = Irena naciska „uspokój go” (pressure).
+
+Kadr A `Night19a`, napis w grze, nie malować: Telefon od klienta. Pyta o ugodę i o pismo, którego „nie ma być w aktach”.
 
 Kadr B `Night19b`, kwestia do wklejenia w grę, nie malować: Irena: „Uspokój go. Mecenas oddzwoni wieczorem, nie teraz.”
 
@@ -1302,8 +1317,8 @@ panel: a
 file: Night19a.png
 story: The client calls the associate, not the lawyer, asking whether to sign and asking that a paper not be in the file tomorrow.
 context_pl: Klient dzwoni na twój numer, nie do mecenasa. Prosi o zdanie, czy podpisać ugodę dziś, i żeby pewnego pisma „nie było jutro w aktach”, bo szkodzi rozmowie. Irena mówi, że masz go uspokoić, bo mecenas oddzwoni dopiero wieczorem.
-caption_pl: Telefon od klienta. Ugoda leży obok, pismo też.
-caption_in_game_pl: Telefon od klienta. Ugoda leży obok, pismo też.
+caption_pl: Telefon od klienta. Pyta o ugodę i o pismo, którego „nie ma być w aktach”.
+caption_in_game_pl: Telefon od klienta. Pyta o ugodę i o pismo, którego „nie ma być w aktach”.
 game_asset: Night19a
 paint_caption: no
 who: the associate from the side, round glasses, messy hair, white shirt, mouth closed
@@ -1340,7 +1355,7 @@ fail: a glasses chain; a window; her speaking into the handset as the client; al
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, calm, mouth open, one hand on a desk phone that is still in its cradle, as if telling someone else to take the call. Counter, calendar facing her, door behind. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, calm, mouth open, one hand on a desk phone that is still in its cradle, as if telling someone else to take the call. Counter, calendar facing her, door behind. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain, beads, window
 ```
 
 #### Noc 20 · `20-nosnik` · Pendrive protokolanta
@@ -1351,7 +1366,9 @@ Kontekst, który czyta gracz:
 
 > Na korytarzu sądu protokolant podaje ci pendrive: „tu jest protokół, otwórz od razu, bo za chwilę zamykają”. Chropot z sali pisze, żebyś nie dyskutował i zgrał plik na laptop kancelarii, póki człowiek czeka.
 
-Kadr A `Night20a`, napis w grze, nie malować: Pendrive w wyciągniętej dłoni. Laptop kancelarii jest otwarty.
+**Causal:** A = pendrive w cudzej dłoni + laptop **zamknięty** pod pachą (setup / odmowa wizualna); B = Chropot z sali, rozkaz zgraj (pressure). Napis A ≠ „otwarty”.
+
+Kadr A `Night20a`, napis w grze, nie malować: Pendrive w wyciągniętej dłoni. Laptop kancelarii zamknięty pod pachą.
 
 Kadr B `Night20b`, kwestia do wklejenia w grę, nie malować: Chropot: „Zgraj pendrive. Człowiek czeka, nie rób z tego sprawy.”
 
@@ -1364,8 +1381,8 @@ panel: a
 file: Night20a.png
 story: In the court corridor a clerk offers a USB stick and says the minutes are on it. It must not go into the firm laptop.
 context_pl: Na korytarzu sądu protokolant podaje ci pendrive: „tu jest protokół, otwórz od razu, bo za chwilę zamykają”. Chropot z sali pisze, żebyś nie dyskutował i zgrał plik na laptop kancelarii, póki człowiek czeka.
-caption_pl: Pendrive w wyciągniętej dłoni. Laptop kancelarii jest otwarty.
-caption_in_game_pl: Pendrive w wyciągniętej dłoni. Laptop kancelarii jest otwarty.
+caption_pl: Pendrive w wyciągniętej dłoni. Laptop kancelarii zamknięty pod pachą.
+caption_in_game_pl: Pendrive w wyciągniętej dłoni. Laptop kancelarii zamknięty pod pachą.
 game_asset: Night20a
 paint_caption: no
 who: an older offered hand; a younger man turned away, white shirt, hands in pockets
@@ -1412,6 +1429,8 @@ Sezon 1. Termin: Hasło skrzynki w zaproszeniu. Pytanie: Gdzie sprawdzasz, czy t
 Kontekst, który czyta gracz:
 
 > Na skrzynkę wpada zaproszenie „sekretariat sądu”: jutrzejszy termin i prośba, żebyś wpisał hasło do poczty kancelarii, „inaczej sala nie zobaczy pełnomocnika”. Irena mówi, że bez tego rano wypadniecie z listy.
+
+**Causal:** A = zaproszenie + puste pole hasła, dłonie zdjęte (setup); B = Irena naciska wpisz (pressure).
 
 Kadr A `Night21a`, napis w grze, nie malować: Zaproszenie na ekranie. Pod termin wstawione puste pole hasła.
 
@@ -1464,7 +1483,7 @@ fail: her hand on the keyboard; a glasses chain; a window; letters; also reject 
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, mouth open, pointing at a laptop screen that shows an empty card and an empty field. Her finger does not touch the keys. Counter behind her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, red glasses chain, beads, clock face, window
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, mouth open, pointing at a laptop screen that shows an empty card and an empty field. Her finger does not touch the keys. Counter behind her. No letters. Exactly five fingers. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain, beads, window
 ```
 
 #### Noc 22 · `22-granica` · Akta drugiej sprawy
@@ -1475,11 +1494,13 @@ Kontekst, który czyta gracz:
 
 > Irena prosi, żebyś zajrzał w akta sprawy kolegi: on jest na sali, a klient dzwoni o sygnaturę. Do tej sprawy nie jesteś dopisany. Mówi, że to pięć minut i że mecenas i tak by pozwolił.
 
-Kadr A `Night22a`, napis w grze, nie malować: Irena przy twoim biurku. Na ekranie akta, których nie prowadzisz.
+**Causal:** A = Irena przy biurku, prośba o cudze akta — folder/lista jeszcze **nie** otwarte jako twoje (setup); B = „Pięć minut…” (pressure). Bez premature „na ekranie już otwarte”.
+
+Kadr A `Night22a`, napis w grze, nie malować: Irena przy twoim biurku. Prosi o akta sprawy, której nie prowadzisz.
 
 Kadr B `Night22b`, kwestia do wklejenia w grę, nie malować: Irena: „Pięć minut. Mecenas i tak by ci te akta puścił.”
 
-### 22a `Night22a` — ekran cudzej sprawy, dłonie cofnięte
+### 22a `Night22a` — prośba o cudze akta, dłonie cofnięte
 
 <!-- card
 asset: Night22a
@@ -1488,20 +1509,20 @@ panel: a
 file: Night22a.png
 story: The assistant asks him to open a colleague's matter he is not listed on, just for a case number.
 context_pl: Irena prosi, żebyś zajrzał w akta sprawy kolegi: on jest na sali, a klient dzwoni o sygnaturę. Do tej sprawy nie jesteś dopisany. Mówi, że to pięć minut i że mecenas i tak by pozwolił.
-caption_pl: Irena przy twoim biurku. Na ekranie akta, których nie prowadzisz.
-caption_in_game_pl: Irena przy twoim biurku. Na ekranie akta, których nie prowadzisz.
+caption_pl: Irena przy twoim biurku. Prosi o akta sprawy, której nie prowadzisz.
+caption_in_game_pl: Irena przy twoim biurku. Prosi o akta sprawy, której nie prowadzisz.
 game_asset: Night22a
 paint_caption: no
 who: two young hands, no face
 where: the associate's desk; east window
 gesture: both hands are pulled back to the edge of the desk, not on the keys
-props: laptop with a blank file window; a second closed folder, unopened
-pass: hands off the keys; the second folder stays closed; five fingers
+props: laptop with a blank list or closed catalog window; a second closed folder, unopened
+pass: hands off the keys; the second folder stays closed; no open matter file filling the screen; five fingers
 fail: hands on the keyboard; the second folder open; letters in the file window; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's desk. A laptop shows a blank file window, no words. Two young hands are pulled back to the edge of the desk, not on the keys. A second closed folder lies unopened. East window. Exactly five fingers. No face. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
+https://cdn.midjourney.com/fcfdd2be-2d44-46c0-9f4d-65a1508825f4/0_1.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The associate's desk. A laptop shows a blank list or closed catalog window, no words, no open matter. Two young hands are pulled back to the edge of the desk, not on the keys. A second closed folder lies unopened. East window. Exactly five fingers. No face. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, face
 ```
 
 ### 22b `Night22b` — Irena przy jego biurku, on nie sięga
@@ -1526,7 +1547,7 @@ fail: him typing; the reception counter; a glasses chain; the Palace; also rejec
 -->
 
 ```
-https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, stands beside a smaller desk that is not the reception counter, mouth open, one hand toward a laptop. A younger man's hands stay in his lap, white shirt, face turned down, round glasses just visible, he does not reach. East window soft behind them. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, red glasses chain, beads, clock face, palace of culture
+https://cdn.midjourney.com/0725ad0c-4b63-43e3-890c-d1f2a1b6c4b4/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same woman, bun, glasses with no chain, stands beside a smaller desk that is not the reception counter, mouth open, one hand toward a laptop. A younger man's hands stay in his lap, white shirt, face turned down, round glasses just visible, he does not reach. East window soft behind them. No letters. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, red glasses chain, beads, palace of culture
 ```
 
 #### Noc 23 · `23-nagranie` · Notatka z rozmowy
@@ -1537,7 +1558,9 @@ Kontekst, który czyta gracz:
 
 > Klient na głośnomówiącym dyktuje fakty do pisma. Chropot, z drugiego pokoju, mówi, żebyś nagrał to prywatnym telefonem, bo nie nadążysz, a telefon i tak zsynchronizuje nagranie z twoją chmurą.
 
-Kadr A `Night23a`, napis w grze, nie malować: Głośnik na biurku. Prywatny telefon leży obok, gotowy nagrywać.
+**Causal:** A = głośnik + telefon **ekranem w dół** + ołówek (setup / gest odmowy); B = Chropot z progu, rozkaz nagraj (pressure). Napis A ≠ „gotowy nagrywać”.
+
+Kadr A `Night23a`, napis w grze, nie malować: Głośnik na biurku. Prywatny telefon leży ekranem w dół; ołówek na papierze kancelarii.
 
 Kadr B `Night23b`, kwestia do wklejenia w grę, nie malować: Chropot: „Nagraj prywatnym. Rano przepiszesz, klient nie będzie powtarzał.”
 
@@ -1550,8 +1573,8 @@ panel: a
 file: Night23a.png
 story: The client dictates on speaker. The partner wants it recorded on a personal phone that syncs to the cloud.
 context_pl: Klient na głośnomówiącym dyktuje fakty do pisma. Chropot, z drugiego pokoju, mówi, żebyś nagrał to prywatnym telefonem, bo nie nadążysz, a telefon i tak zsynchronizuje nagranie z twoją chmurą.
-caption_pl: Głośnik na biurku. Prywatny telefon leży obok, gotowy nagrywać.
-caption_in_game_pl: Głośnik na biurku. Prywatny telefon leży obok, gotowy nagrywać.
+caption_pl: Głośnik na biurku. Prywatny telefon leży ekranem w dół; ołówek na papierze kancelarii.
+caption_in_game_pl: Głośnik na biurku. Prywatny telefon leży ekranem w dół; ołówek na papierze kancelarii.
 game_asset: Night23a
 paint_caption: no
 who: a young hand writing, no face
@@ -1593,66 +1616,68 @@ https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black 
 
 #### Noc 24 · `24-ekran` · Laptop na korytarzu
 
-Sezon 1. Termin: Chropot znika na salę. Pytanie: Co jest na ekranie, kiedy odchodzisz od ławki?
+Sezon 1. Termin: Chropot znika na salę. Pytanie: Co robisz z otwartym laptopem, gdy obcy prosi o wokandę?
 
 Kontekst, który czyta gracz:
 
-> Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „popilnuj, zaraz wracam”. Na ekranie są akta. Podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
+> Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
 
-Kadr A `Night24a`, napis w grze, nie malować: Otwarty laptop na ławce przed salą. Obcy stoi o krok.
+**Causal:** A = Chropot **zostawia** otwarty laptop / wchodzi na salę (setup); B = obcy o krok, prośba o wokandę (pressure). Nie flashback wyjścia na B.
 
-Kadr B `Night24b`, kwestia do wklejenia w grę, nie malować: Chropot: „Zostaw klapę otwartą i pilnuj. Wracam przed woźnym.”
+Kadr A `Night24a`, napis w grze, nie malować: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
 
-### 24a `Night24a` — ława, klapa w drodze w dół
+Kadr B `Night24b`, kwestia do wklejenia w grę, nie malować: Obcy: „Pokaż wokandę. Telefon padł.”
 
-Plakat. Korytarz sądu, obcy o krok, ekran jeszcze otwarty.
+### 24a `Night24a` — otwarty laptop, Chropot w drzwiach sali
+
+Plakat. Setup: laptop zostawiony, partner odchodzi.
 
 <!-- card
 asset: Night24a
 lesson: 24-ekran
 panel: a
 file: Night24a.png
-story: The partner leaves the firm laptop open on a court bench. A stranger asks to check the list on that screen.
-context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „popilnuj, zaraz wracam”. Na ekranie są akta. Podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
-caption_pl: Otwarty laptop na ławce przed salą. Obcy stoi o krok.
-caption_in_game_pl: Otwarty laptop na ławce przed salą. Obcy stoi o krok.
+story: The partner leaves the firm laptop open on a court bench and steps into the courtroom.
+context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
+caption_pl: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
+caption_in_game_pl: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
 game_asset: Night24a
 paint_caption: no
-who: a young man's hand closing the lid; a stranger one step away, coat, face in shadow, empty hands
-where: a bench in a court corridor, tall doors behind
-gesture: the lid is halfway down; the stranger does not touch the laptop
-props: open laptop, screen a flat grey field, no logo
-pass: the lid is moving shut; the stranger's hands are empty and off the machine; five fingers on the closing hand
-fail: the stranger's hands on the keyboard; the lid left fully open and unattended; letters on the screen; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+who: the partner seen from behind, overcoat, face not visible; open laptop on the bench in the foreground
+where: a bench in a court corridor; tall courtroom door ahead
+gesture: walking through a tall courtroom door; one hand raised in a short wave that means wait; laptop stays open on the bench
+props: open laptop on the bench, screen a flat grey field, no logo
+pass: we see his back entering the courtroom; laptop lid fully open on the bench; five fingers if the hand shows
+fail: his face; a desk; the stranger already in this panel; lid already shutting; letters on the screen; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/73e52afa-6d19-4f17-8834-22988d1a488c/0_3.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. A bench in a court corridor. An open laptop, screen a flat grey field, no words, no logo. A young man's hand is closing the lid, halfway down. A stranger stands one step away, coat, face in shadow, empty hands, not touching the laptop. Tall doors behind. Exactly five fingers on the closing hand. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face
+https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. A bench in a court corridor in the foreground holds an open laptop, screen a flat grey field, no words, no logo. The same stern man seen from behind, overcoat, walks through a tall courtroom door, one hand raised in a short wave that means wait. His face is not visible. The laptop stays fully open on the bench. No stranger in this panel. No letters. Exactly five fingers if the hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, desk
 ```
 
-### 24b `Night24b` — plecy Chropota w drzwiach sali
+### 24b `Night24b` — obcy o krok, klapa w grze
 
 <!-- card
 asset: Night24b
 lesson: 24-ekran
 panel: b
 file: Night24b.png
-story: The partner has gone into the courtroom and told the associate to watch the open laptop for five minutes.
-context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „popilnuj, zaraz wracam”. Na ekranie są akta. Podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
-caption_pl: Chropot: „Zostaw klapę otwartą i pilnuj. Wracam przed woźnym.”
-caption_in_game_pl: Chropot: „Zostaw klapę otwartą i pilnuj. Wracam przed woźnym.”
+story: A stranger asks to check the list on the open firm laptop. The associate's hand is near the lid.
+context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
+caption_pl: Obcy: „Pokaż wokandę. Telefon padł.”
+caption_in_game_pl: Obcy: „Pokaż wokandę. Telefon padł.”
 game_asset: Night24b
 paint_caption: no
-who: the partner seen from behind, overcoat, face not visible
-where: walking through a tall courtroom door; the corridor and a bench remain small behind him
-gesture: one hand raised in a short wave that means wait
-props: none
-pass: we see his back, not his face; he is entering the courtroom; five fingers if the hand shows
-fail: his face; a desk; the laptop still the subject of this panel; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
+who: a young man's hand near the lid; a stranger one step away, coat, face in shadow, empty hands
+where: a bench in a court corridor, tall doors behind
+gesture: the lid is still open or the hand hovers above it; the stranger does not touch the laptop
+props: open laptop, screen a flat grey field, no logo
+pass: stranger one step away with empty hands; laptop still open; five fingers on the associate's hand
+fail: the stranger's hands on the keyboard; Chropot's back as the main subject; letters on the screen; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 
 ```
-https://cdn.midjourney.com/6d9d9b6f-29c0-4c4a-bcf4-16dba87de3cf/0_2.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. The same stern man seen from behind, overcoat, walking through a tall courtroom door, one hand raised in a short wave that means wait. His face is not visible. The corridor and a bench remain behind him, small. No letters. Exactly five fingers if the hand shows. --iw 0.4 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face, desk
+https://cdn.midjourney.com/73e52afa-6d19-4f17-8834-22988d1a488c/0_3.png a black and white graphic illustration, comic book sketch style with strong ink outlines and shading, same pen as the reference. A bench in a court corridor. An open laptop, screen a flat grey field, no words, no logo. A young man's hand hovers near the lid, not yet closing it. A stranger stands one step away, coat, face in shadow, empty hands, not touching the laptop. Tall doors behind. Exactly five fingers on the associate's hand. No letters. --iw 0.35 --ar 16:9 --sref https://cdn.midjourney.com/f378dd5f-7ff5-4aba-88ab-fb346a8dba19/0_3.png --sw 400 --stylize 0 --v 8.2 --stealth --no red, scarlet, wax seal, blood, gore, readable text, letters, numbers, glyphs, logo, watermark, signature, brand mark, photoreal photograph, sepia, ochre, brown ink, yellowed paper, tan paper, warm cream, anime, 3d render, palace of culture, clock face
 ```
 
 ## 5. Jedna poprawka werdyktu, zanim ruszysz tekst

@@ -2473,8 +2473,8 @@
     "hero": "Night13a",
     "tone": "shadow",
     "title": {
-      "pl": "Akta w tramwaju",
-      "en": "The file on the tram"
+      "pl": "Zdjęcie akt",
+      "en": "Photo of the file"
     },
     "subtitle": {
       "pl": "Prywatny telefon",
@@ -2485,23 +2485,23 @@
       "en": "Revision before eight"
     },
     "context": {
-      "pl": "Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron i jedź, rano samo się wyśle.",
-      "en": "Chropot leaves for dinner and leaves the file on the desk for you. The revision is due on his mailbox in the morning. All that remains in the office is your personal phone. He says: photograph the pages and go, it will send itself in the morning."
+      "pl": "Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.",
+      "en": "Chropot leaves for dinner and leaves the file on the desk for you. The revision is due on his mailbox in the morning. All that remains in the office is your personal phone. He says: photograph the pages on your personal phone — in the morning it will send itself to his mailbox."
     },
     "beats": [
       {
         "asset": "Night13a",
         "caption": {
-          "pl": "Prywatny telefon nad otwartymi aktami. Chropot już w płaszczu.",
-          "en": "A personal phone over the open file. Chropot already has his coat on."
+          "pl": "Prywatny telefon nad otwartymi stronami akt.",
+          "en": "A personal phone held over the open pages of the file."
         },
         "voice": "caption"
       },
       {
         "asset": "Night13b",
         "caption": {
-          "pl": "Chropot: „Zrób zdjęcie i wsiadaj. Rano ma leżeć na mojej skrzynce.”",
-          "en": "Chropot: “Take the photo and get on. It has to be in my mailbox by morning.”"
+          "pl": "Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”",
+          "en": "Chropot: “Take the photo and send it. It has to be in my mailbox by morning.”"
         },
         "voice": "balloon"
       }
@@ -2511,12 +2511,12 @@
       "en": "ON THE DESK"
     },
     "exhibitText": {
-      "pl": "Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron i jedź, rano samo się wyśle.",
-      "en": "Chropot leaves for dinner and leaves the file on the desk for you. The revision is due on his mailbox in the morning. All that remains in the office is your personal phone. He says: photograph the pages and go, it will send itself in the morning."
+      "pl": "Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.",
+      "en": "Chropot leaves for dinner and leaves the file on the desk for you. The revision is due on his mailbox in the morning. All that remains in the office is your personal phone. He says: photograph the pages on your personal phone — in the morning it will send itself to his mailbox."
     },
     "innerVoice": {
-      "pl": "Czy akta wsiądą z tobą do tramwaju?",
-      "en": "Do the papers ride the tram with you?"
+      "pl": "Czy robisz zdjęcie akt prywatnym telefonem?",
+      "en": "Do you photograph the file with a personal phone?"
     },
     "redFlags": [
       {
@@ -2639,8 +2639,8 @@
     ],
     "awareness": {
       "threat": {
-        "pl": "Zdjęcie akt na prywatnym telefonie nie zostaje w kieszeni. Telefon wysyła je do chmury producenta, często zanim sam je komuś wyślesz. Partner, który mówi „rzuć zdjęcie i jedź”, przenosi sprawę na urządzenie poza kancelarią. Poprawka albo powstaje na miejscu, albo akta zostają na biurku do rana.",
-        "en": "A photo of the file on a personal phone does not stay in the pocket. The phone sends it to the maker’s cloud, often before you send it to anyone. A partner who says “snap it and go” moves the matter onto a device outside the firm. The revision is made on site, or the file stays on the desk until morning."
+        "pl": "Zdjęcie akt na prywatnym telefonie nie zostaje w kieszeni. Telefon wysyła je do chmury producenta, często zanim sam je komuś wyślesz. Partner, który każe „zrób zdjęcie i wyślij”, przenosi sprawę na urządzenie poza kancelarią (BYOD). Poprawka albo powstaje na miejscu, albo akta zostają na biurku do rana.",
+        "en": "A photo of the file on a personal phone does not stay in the pocket. The phone sends it to the maker’s cloud, often before you send it to anyone. A partner who says “take the photo and send it” moves the matter onto a device outside the firm (BYOD). The revision is made on site, or the file stays on the desk until morning."
       },
       "minimize": {
         "pl": "Telefon zostaje w kieszeni. Poprawkę robisz na papierze kancelarii albo zostawiasz akta na biurku do rana.",
@@ -2662,7 +2662,7 @@
       ]
     },
     "sourceIds": [],
-    "artPending": false
+    "artPending": true
   },
   {
     "id": "14-cudze",
@@ -2697,8 +2697,8 @@
       {
         "asset": "Night14a",
         "caption": {
-          "pl": "Kartka z hasłem partnera obok pustych pól logowania.",
-          "en": "A slip with the partner’s password beside empty sign-in fields."
+          "pl": "Chropot kładzie kartkę z hasłem. Portal nie ma jeszcze twojego konta.",
+          "en": "Chropot lays down a slip with a password. The portal has no account for you yet."
         },
         "voice": "caption"
       },
@@ -3312,8 +3312,8 @@
       {
         "asset": "Night17a",
         "caption": {
-          "pl": "Plik pisma na laptopie. Kaseta z tonerem jest pusta.",
-          "en": "The filing on the laptop. The toner cartridge is empty."
+          "pl": "Plik pisma na laptopie. W drukarce skończył się toner.",
+          "en": "The filing on the laptop. The printer has run out of toner."
         },
         "voice": "caption"
       },
@@ -3722,8 +3722,8 @@
       {
         "asset": "Night19a",
         "caption": {
-          "pl": "Telefon od klienta. Ugoda leży obok, pismo też.",
-          "en": "A call from the client. The settlement is beside it, and so is the paper."
+          "pl": "Telefon od klienta. Pyta o ugodę i o pismo, którego „nie ma być w aktach”.",
+          "en": "A call from the client. He asks about the settlement and a paper that “must not be in the file”."
         },
         "voice": "caption"
       },
@@ -3745,8 +3745,8 @@
       "en": "The client calls your number, not the lawyer’s. He asks whether to sign a settlement today, and that a certain paper “not be in the file tomorrow”, because it hurts the talks. Irena says you should calm him down, because the lawyer will not call back until evening."
     },
     "innerVoice": {
-      "pl": "Co obiecyjesz człowiekowi, który nie ma twojego pełnomocnictwa?",
-      "en": "What do you promise a person who does not have your retainer?"
+      "pl": "Co mówisz klientowi o ugodzie i o piśmie w aktach?",
+      "en": "What do you tell the client about the settlement and the paper in the file?"
     },
     "redFlags": [
       {
@@ -3927,8 +3927,8 @@
       {
         "asset": "Night20a",
         "caption": {
-          "pl": "Pendrive w wyciągniętej dłoni. Laptop kancelarii jest otwarty.",
-          "en": "A USB stick in an outstretched hand. The firm laptop is open."
+          "pl": "Pendrive w wyciągniętej dłoni. Laptop kancelarii zamknięty pod pachą.",
+          "en": "A USB stick in an outstretched hand. The firm laptop stays closed under the arm."
         },
         "voice": "caption"
       },
@@ -3955,8 +3955,8 @@
     },
     "redFlags": [
       {
-        "pl": "Protokolant trzyma pendrive. Laptop kancelarii jest otwarty.",
-        "en": "The clerk is holding a USB stick. The firm laptop is open."
+        "pl": "Protokolant trzyma pendrive. Laptop kancelarii jest zamknięty.",
+        "en": "The clerk is holding a USB stick. The firm laptop is closed."
       }
     ],
     "choices": [
@@ -4337,8 +4337,8 @@
       {
         "asset": "Night22a",
         "caption": {
-          "pl": "Irena przy twoim biurku. Na ekranie akta, których nie prowadzisz.",
-          "en": "Irena at your desk. On the screen, a file you do not work on."
+          "pl": "Irena przy twoim biurku. Prosi o akta sprawy, której nie prowadzisz.",
+          "en": "Irena at your desk. She asks for a matter’s file you do not work on."
         },
         "voice": "caption"
       },
@@ -4542,8 +4542,8 @@
       {
         "asset": "Night23a",
         "caption": {
-          "pl": "Głośnik na biurku. Prywatny telefon leży obok, gotowy nagrywać.",
-          "en": "A speaker on the desk. A personal phone lies beside it, ready to record."
+          "pl": "Głośnik na biurku. Prywatny telefon leży ekranem w dół; ołówek na papierze kancelarii.",
+          "en": "A speaker on the desk. A personal phone lies face down; a pencil on the firm’s paper."
         },
         "voice": "caption"
       },
@@ -4740,23 +4740,23 @@
       "en": "Chropot disappears into the courtroom"
     },
     "context": {
-      "pl": "Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „popilnuj, zaraz wracam”. Na ekranie są akta. Podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.",
-      "en": "Outside the courtroom Chropot leaves the firm laptop open on a bench: “watch it, I’ll be right back”. The file is on the screen. A stranger comes up and asks you to “just check the list”, because his phone has died."
+      "pl": "Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.",
+      "en": "Outside the courtroom Chropot leaves the firm laptop open on a bench: “leave the lid open and watch it, I’ll be right back”. The file is on the screen. Then a stranger comes up and asks you to “just check the list”, because his phone has died."
     },
     "beats": [
       {
         "asset": "Night24a",
         "caption": {
-          "pl": "Otwarty laptop na ławce przed salą. Obcy stoi o krok.",
-          "en": "An open laptop on a bench outside the courtroom. A stranger stands a step away."
+          "pl": "Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”",
+          "en": "Chropot leaves the open laptop on the bench. “I’ll be right back.”"
         },
         "voice": "caption"
       },
       {
         "asset": "Night24b",
         "caption": {
-          "pl": "Chropot: „Zostaw klapę otwartą i pilnuj. Wracam przed woźnym.”",
-          "en": "Chropot: “Leave the lid open and watch it. I will be back before the usher.”"
+          "pl": "Obcy: „Pokaż wokandę. Telefon padł.”",
+          "en": "Stranger: “Show me the list. My phone died.”"
         },
         "voice": "balloon"
       }
@@ -4766,12 +4766,12 @@
       "en": "ON THE DESK"
     },
     "exhibitText": {
-      "pl": "Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „popilnuj, zaraz wracam”. Na ekranie są akta. Podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.",
-      "en": "Outside the courtroom Chropot leaves the firm laptop open on a bench: “watch it, I’ll be right back”. The file is on the screen. A stranger comes up and asks you to “just check the list”, because his phone has died."
+      "pl": "Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.",
+      "en": "Outside the courtroom Chropot leaves the firm laptop open on a bench: “leave the lid open and watch it, I’ll be right back”. The file is on the screen. Then a stranger comes up and asks you to “just check the list”, because his phone has died."
     },
     "innerVoice": {
-      "pl": "Co jest na ekranie, kiedy odchodzisz od ławki?",
-      "en": "What is on the screen when you step away from the bench?"
+      "pl": "Co robisz z otwartym laptopem, gdy obcy prosi o wokandę?",
+      "en": "What do you do with the open laptop when a stranger asks for the list?"
     },
     "redFlags": [
       {
