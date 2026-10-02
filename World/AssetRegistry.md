@@ -50,8 +50,9 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night11b.png` | Chropot przy ladzie | `https://cdn.midjourney.com/64a7c4d1-a5cc-4b5d-b3fd-4cc3bfd345ec/0_3.png` |
 | `Night12a.png` | laptop z kłódką | `https://cdn.midjourney.com/9cb7b058-4fad-4618-a830-ee32e7a8e865/0_2.png` |
 | `Night12b.png` | Chropot, laptop zabierany | `https://cdn.midjourney.com/12ff6522-694b-492e-a12a-2513c8de0bfb/0_1.png` |
+| `Night13a.png` | zaakceptowana plansza Aplikant, 1456×816, 1,496,195 bajtów; job: `https://www.midjourney.com/jobs/ade09f88-f920-4c47-a564-875dea6c6d79?index=1` | `https://cdn.midjourney.com/ade09f88-f920-4c47-a564-875dea6c6d79/0_1.png` |
 
-`Night13a.png`–`Night24b.png` są w bundlu pod tymi nazwami. Piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. Na kadrze gra kładzie flagę „W przygotowaniu”. Podmiana później jest podmianą pliku, nie zmianą nazwy.
+`Night13b.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` jest wyjątkiem: zaakceptowana generacja Midjourney dla referencji Aplikant (MJ index 1), 1456×816, 1,496,195 bajtów, podmieniona powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
 
 ## Licencja Midjourney
 
