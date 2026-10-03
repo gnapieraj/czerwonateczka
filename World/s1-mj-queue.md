@@ -20,7 +20,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night18a | Accepted | 1 | Historia: kurier podaje pióro i zamkniętą kopertę, dłoń aplikanta zostaje otwarta. CDN `904a15da-1f9c-4470-a135-bd3cc01c725f/0_1.png`; job `?index=1`. |
 | Night18b | Accepted | 2 | Historia: Chropot w płaszczu rozmawia przez telefon w korytarzu sądu. CDN `b865238e-e738-4080-92eb-9dc41163d22c/0_2.png`; job `?index=2`. |
 | Night19a | Done | 1 | Accepted: associate side view, mouth closed, phone at ear, folder and loose sheet on the desk, rooftop window. CDN `9ba3740a-63cf-4ecb-b2ea-33f9fa0700d5/0_1.png`; job `https://www.midjourney.com/jobs/9ba3740a-63cf-4ecb-b2ea-33f9fa0700d5?index=1`. |
-| Night19b | Pending | — |  |
+| Night19b | Done | 1 | Accepted: variant 1 of cycle 2, Irena at the counter, mouth open, desk phone handset in the cradle, hand on the counter not on the phone. CDN `94f4eb09-a70d-4c9a-a84b-7555d4b8959f/0_1.png`; job `https://www.midjourney.com/jobs/94f4eb09-a70d-4c9a-a84b-7555d4b8959f?index=1`. |
 | Night20a | Pending | — | Napis/Flags: laptop **zamknięty** pod pachą (zgodne z kartą). |
 | Night20b | Pending | — |  |
 | Night21a | Pending | — |  |
