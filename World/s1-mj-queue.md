@@ -16,7 +16,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night16a | Accepted | 0 | Historia: korytarz sądu, na telefonie pusta karta spotkania. CDN `7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c/0_0.png`; job `?index=0`. |
 | Night16b | Accepted | 1 | Historia: Irena przy ladzie, telefon przy uchu, mówi wchodzić. CDN `d7719a9b-60a8-457f-a6e3-a3a580665c54/0_1.png`; job `?index=1`. |
 | Night17a | Accepted | 0 | Historia: laptop z pismem, drukarka otwarta i pusta, płaszcz na krześle. CDN `f485d210-e12d-4b2e-ae58-33cb5b278efb/0_0.png`; job `?index=0`. |
-| Night17b | Pending | — | B = Irena podaje pustą kasetę. |
+| Night17b | Accepted | 2 | Historia: Irena przy ladzie podaje pustą kasetę. CDN `3f3943fb-adf5-4d23-a439-a57c334b0261/0_2.png`; job `?index=2`. |
 | Night18a | Pending | — |  |
 | Night18b | Pending | — |  |
 | Night19a | Pending | — | Napis A z prośbą o ukrycie pisma; Q bez żargonu „pełnomocnictwa”. |
