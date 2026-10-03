@@ -24,7 +24,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night20a | Done | 0 | Accepted: variant 0, USB offered, laptop shut under the arm, courtroom corridor. CDN `https://cdn.midjourney.com/04a31d18-c1ef-4b8c-8038-52c2ff7f687b/0_0.png`; job `https://www.midjourney.com/jobs/04a31d18-c1ef-4b8c-8038-52c2ff7f687b?index=0`. |
 | Night20b | Done | 0 | Accepted: variant 0, Chropot in a courtroom doorway, overcoat, empty palm-up hand, no USB. CDN `https://cdn.midjourney.com/297e6ff6-7f97-4179-8541-220b0f70fab4/0_0.png`; job `https://www.midjourney.com/jobs/297e6ff6-7f97-4179-8541-220b0f70fab4?index=0`. |
 | Night21a | Done | 0 | Accepted: variant 0 of cycle 2, blank invite and empty password bar, hands on the palm rest not on the keys, rooftop window. CDN `https://cdn.midjourney.com/2acd08e3-e7b0-4a4d-9910-c6545bda0135/0_0.png`; job `https://www.midjourney.com/jobs/2acd08e3-e7b0-4a4d-9910-c6545bda0135?index=0`. |
-| Night21b | Pending | — |  |
+| Night21b | Done | 1 | Accepted: variant 1, Irena points at the blank screen, clear glasses, no chain, finger off the keys. CDN `https://cdn.midjourney.com/2db4348c-f67d-4ddf-967f-42121d506ae1/0_1.png`; job `https://www.midjourney.com/jobs/2db4348c-f67d-4ddf-967f-42121d506ae1?index=1`. |
 | Night22a | Pending | — | Bez premature „akta już na ekranie”; folder/lista zamknięte. |
 | Night22b | Pending | — |  |
 | Night23a | Pending | — | Napis = telefon ekranem w dół + ołówek (nie „gotowy nagrywać”). |
