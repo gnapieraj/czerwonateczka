@@ -15,7 +15,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night15b | Accepted | 0 | Historia: Chropot w płaszczu stoi w drzwiach i mówi wrzucać. CDN `3409596c-4f64-46ab-b1c4-418a091617bd/0_0.png`; job `?index=0`. |
 | Night16a | Accepted | 0 | Historia: korytarz sądu, na telefonie pusta karta spotkania. CDN `7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c/0_0.png`; job `?index=0`. |
 | Night16b | Accepted | 1 | Historia: Irena przy ladzie, telefon przy uchu, mówi wchodzić. CDN `d7719a9b-60a8-457f-a6e3-a3a580665c54/0_1.png`; job `?index=1`. |
-| Night17a | Pending | — | **Causal:** A = laptop + pusta drukarka, **bez** kasety w ręku. |
+| Night17a | Accepted | 0 | Historia: laptop z pismem, drukarka otwarta i pusta, płaszcz na krześle. CDN `f485d210-e12d-4b2e-ae58-33cb5b278efb/0_0.png`; job `?index=0`. |
 | Night17b | Pending | — | B = Irena podaje pustą kasetę. |
 | Night18a | Pending | — |  |
 | Night18b | Pending | — |  |
