@@ -26,7 +26,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night21a | Done | 0 | Accepted: variant 0 of cycle 2, blank invite and empty password bar, hands on the palm rest not on the keys, rooftop window. CDN `https://cdn.midjourney.com/2acd08e3-e7b0-4a4d-9910-c6545bda0135/0_0.png`; job `https://www.midjourney.com/jobs/2acd08e3-e7b0-4a4d-9910-c6545bda0135?index=0`. |
 | Night21b | Done | 1 | Accepted: variant 1, Irena points at the blank screen, clear glasses, no chain, finger off the keys. CDN `https://cdn.midjourney.com/2db4348c-f67d-4ddf-967f-42121d506ae1/0_1.png`; job `https://www.midjourney.com/jobs/2db4348c-f67d-4ddf-967f-42121d506ae1?index=1`. |
 | Night22a | Done | 1 | Accepted: variant 1, hands pulled back to the desk edge, closed folder, blank laptop window, rooftop view. CDN `https://cdn.midjourney.com/09468f61-365b-4497-a625-395c3b40cca1/0_1.png`; job `https://www.midjourney.com/jobs/09468f61-365b-4497-a625-395c3b40cca1?index=1`. |
-| Night22b | Pending | — |  |
+| Night22b | Done | 0 | Accepted: variant 0, Irena no chain, small desk, blank laptop, he does not reach. CDN `https://cdn.midjourney.com/411a4b1a-75b6-4345-89ca-9565faad17b4/0_0.png`; job `https://www.midjourney.com/jobs/411a4b1a-75b6-4345-89ca-9565faad17b4?index=0`. |
 | Night23a | Pending | — | Napis = telefon ekranem w dół + ołówek (nie „gotowy nagrywać”). |
 | Night23b | Pending | — |  |
 | Night24a | Pending | — | **Causal:** A = Chropot zostawia otwarty laptop / wchodzi na salę. |
