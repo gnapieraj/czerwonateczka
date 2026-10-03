@@ -11,7 +11,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night13b | Accepted | 3 | Zostaje. Historia: Chropot w płaszczu wychodzi, dłoń na klamce, mówi żeby wysłać. CDN `17cc4d96-a584-48e5-b127-4d4f5dbb3276/0_3.png`. |
 | Night14a | Accepted | 0 | Historia: Chropot kładzie kartkę przy laptopie z pustym logowaniem. CDN `5da205cf-982c-492a-8c7a-9ab2b6525137/0_0.png`; job `?index=0`. |
 | Night14b | Accepted | 1 | Historia: kartka leży, dłonie wiszą nad pustym ekranem, jeszcze nie wpisują. CDN `c9b2f8ff-4972-4d6f-bdcb-409aaffdf5a4/0_1.png`; job `?index=1`. |
-| Night15a | Pending | — | Causal OK; szary blok odświeżony. |
+| Night15a | Accepted | 1 | Historia: pismo na biurku, obok pusty czat, dłonie na papierze. CDN `f55ff8e6-2632-4eba-84fd-500b81ce89c0/0_1.png`; job `?index=1`. |
 | Night15b | Pending | — |  |
 | Night16a | Pending | — |  |
 | Night16b | Pending | — |  |
