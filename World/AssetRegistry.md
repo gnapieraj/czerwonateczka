@@ -58,10 +58,11 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night15b.png` | zaakceptowana plansza Chropot w drzwiach, 1456×816, 1,345,519 bajtów; job: `https://www.midjourney.com/jobs/3409596c-4f64-46ab-b1c4-418a091617bd?index=0` | `https://cdn.midjourney.com/3409596c-4f64-46ab-b1c4-418a091617bd/0_0.png` |
 | `Night16a.png` | zaakceptowana plansza korytarz sądu i telefon, 1456×816, 1,575,828 bajtów; job: `https://www.midjourney.com/jobs/7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c?index=0` | `https://cdn.midjourney.com/7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c/0_0.png` |
 | `Night16b.png` | zaakceptowana plansza Irena przy ladzie, 1456×816, 1,280,719 bajtów; job: `https://www.midjourney.com/jobs/d7719a9b-60a8-457f-a6e3-a3a580665c54?index=1` | `https://cdn.midjourney.com/d7719a9b-60a8-457f-a6e3-a3a580665c54/0_1.png` |
-| `Night17a.png` | zaakceptowana plansza pusta drukarka, 1456×816, 1,686,625 bajtów; job: `https://www.midjourney.com/jobs/f485d210-e12d-4b2e-ae58-33cb5b278efb?index=0` | `https://cdn.midjourney.com/f485d210-e12d-4b2e-ae58-33cb5b278efb/0_0.png` |
+| `Night17a.png` | zaakceptowana plansza drukarka A4, 1456×816, 1,542,990 bajtów; job: `https://www.midjourney.com/jobs/3046f30e-1aba-4b70-a61c-7d11b6785b15?index=1` | `https://cdn.midjourney.com/3046f30e-1aba-4b70-a61c-7d11b6785b15/0_1.png` |
 | `Night17b.png` | zaakceptowana plansza Irena z kasetą, 1456×816, 1,135,925 bajtów; job: `https://www.midjourney.com/jobs/3f3943fb-adf5-4d23-a439-a57c334b0261?index=2` | `https://cdn.midjourney.com/3f3943fb-adf5-4d23-a439-a57c334b0261/0_2.png` |
+| `Night18a.png` | zaakceptowana plansza kurier i otwarta dłoń, 1456×816, 1,179,639 bajtów; job: `https://www.midjourney.com/jobs/904a15da-1f9c-4470-a135-bd3cc01c725f?index=1` | `https://cdn.midjourney.com/904a15da-1f9c-4470-a135-bd3cc01c725f/0_1.png` |
 
-`Night18a.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
+`Night18b.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
 
 ## Licencja Midjourney
 
