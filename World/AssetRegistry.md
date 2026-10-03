@@ -56,8 +56,9 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night14b.png` | zaakceptowana plansza dłonie nad pustym logowaniem, 1456×816, 1,376,315 bajtów; job: `https://www.midjourney.com/jobs/c9b2f8ff-4972-4d6f-bdcb-409aaffdf5a4?index=1` | `https://cdn.midjourney.com/c9b2f8ff-4972-4d6f-bdcb-409aaffdf5a4/0_1.png` |
 | `Night15a.png` | zaakceptowana plansza pismo i pusty czat, 1456×816, 1,594,683 bajtów; job: `https://www.midjourney.com/jobs/f55ff8e6-2632-4eba-84fd-500b81ce89c0?index=1` | `https://cdn.midjourney.com/f55ff8e6-2632-4eba-84fd-500b81ce89c0/0_1.png` |
 | `Night15b.png` | zaakceptowana plansza Chropot w drzwiach, 1456×816, 1,345,519 bajtów; job: `https://www.midjourney.com/jobs/3409596c-4f64-46ab-b1c4-418a091617bd?index=0` | `https://cdn.midjourney.com/3409596c-4f64-46ab-b1c4-418a091617bd/0_0.png` |
+| `Night16a.png` | zaakceptowana plansza korytarz sądu i telefon, 1456×816, 1,575,828 bajtów; job: `https://www.midjourney.com/jobs/7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c?index=0` | `https://cdn.midjourney.com/7e0206fe-51ed-4b1f-9f4c-882aeaa0e88c/0_0.png` |
 
-`Night16a.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
+`Night16b.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
 
 ## Licencja Midjourney
 
