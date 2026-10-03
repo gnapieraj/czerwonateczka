@@ -9,7 +9,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 |---|---|---|---|
 | Night13a | Accepted | 2 | 2026-10-04 Greg: telefon **na** aktach, nie w powietrzu. Historia BYOD nie wymaga chwytu nad kartką. CDN `3bfc6ba9-533c-4371-96fd-0a3543a4e7a8/0_2.png`; job `?index=2`. Napis: „Prywatny telefon na otwartych aktach.” |
 | Night13b | Accepted | 3 | Zostaje. Historia: Chropot w płaszczu wychodzi, dłoń na klamce, mówi żeby wysłać. CDN `17cc4d96-a584-48e5-b127-4d4f5dbb3276/0_3.png`. |
-| Night14a | Pending | — | **SWAP causal:** A = Chropot kładzie kartkę (mid-placement). Nie generować ze starą kartą (slip already on desk). |
+| Night14a | Accepted | 0 | Historia: Chropot kładzie kartkę przy laptopie z pustym logowaniem. CDN `5da205cf-982c-492a-8c7a-9ab2b6525137/0_0.png`; job `?index=0`. |
 | Night14b | Pending | — | B = kartka już leży + dłonie nad pustymi polami + balloon Chropota. |
 | Night15a | Pending | — | Causal OK; szary blok odświeżony. |
 | Night15b | Pending | — |  |
