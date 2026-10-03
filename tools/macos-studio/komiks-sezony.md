@@ -917,13 +917,13 @@ Kontekst, który czyta gracz:
 
 > Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.
 
-**Causal:** A = telefon nad stronami (setup BYOD / chmura); B = Chropot w płaszczu w drzwiach, rozkaz wyślij (pressure). Bez tramwaju / „wsiadaj”.
+**Causal:** A = prywatny telefon leży na otwartych aktach (setup BYOD / chmura). Historia nie wymaga, żeby dłoń trzymała go w powietrzu. B = Chropot w płaszczu w drzwiach, rozkaz wyślij (pressure). Bez tramwaju / „wsiadaj”.
 
-Kadr A `Night13a`, napis w grze, nie malować: Prywatny telefon nad otwartymi stronami akt.
+Kadr A `Night13a`, napis w grze, nie malować: Prywatny telefon na otwartych aktach.
 
 Kadr B `Night13b`, kwestia do wklejenia w grę, nie malować: Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”
 
-### 13a `Night13a` — prywatny telefon nad stronami akt
+### 13a `Night13a` — prywatny telefon na otwartych aktach
 
 <!-- card
 asset: Night13a
@@ -932,15 +932,15 @@ panel: a
 file: Night13a.png
 story: The partner tells the associate to photograph the file on a personal phone. The photo would leave the firm into a private cloud (BYOD).
 context_pl: Chropot wychodzi na kolację i zostawia ci akta na biurku. Poprawka ma być rano na jego skrzynce. W kancelarii zostaje twój prywatny telefon. Mówi: zrób zdjęcie stron prywatnym telefonem — rano samo wyleci na jego skrzynkę.
-caption_pl: Prywatny telefon nad otwartymi stronami akt.
-caption_in_game_pl: Prywatny telefon nad otwartymi stronami akt.
+caption_pl: Prywatny telefon na otwartych aktach.
+caption_in_game_pl: Prywatny telefon na otwartych aktach.
 game_asset: Night13a
 paint_caption: no
 who: a young man's hand, white shirt cuff, no jacket, face out of frame
 where: the associate's smaller office; window looking steeply down to rooftops and tram wires
-gesture: the phone is held directly above the open pages, about to photograph them — not aimed at the window
-props: open blank file on the desk; older personal smartphone, screen flat grey, above the pages; a coat hangs on the door
-pass: phone clearly above the open pages on the desk; five fingers; no face; coat on the door only as background
+gesture: the personal phone rests on the open file, screen up, not aimed at the window. The hand may rest beside it; it does not have to pinch the phone in the air
+props: open blank file on the desk; older personal smartphone lying on the pages, screen flat grey; a coat hangs on the door
+pass: phone on or beside the open pages; five fingers; no face; coat on the door only as background; window looks down to rooftops and tram wires
 fail: the Palace; the phone aimed at the window or already pocketed; the file closed; letters on the pages; also reject letters, numbers, glyphs, logos, watermarks, red, wax seal, blood, clock face, rotary phone, fused or extra fingers, writing on skin, photo blur, pixel mosaic, a censor bar
 -->
 

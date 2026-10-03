@@ -50,7 +50,7 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night11b.png` | Chropot przy ladzie | `https://cdn.midjourney.com/64a7c4d1-a5cc-4b5d-b3fd-4cc3bfd345ec/0_3.png` |
 | `Night12a.png` | laptop z kłódką | `https://cdn.midjourney.com/9cb7b058-4fad-4618-a830-ee32e7a8e865/0_2.png` |
 | `Night12b.png` | Chropot, laptop zabierany | `https://cdn.midjourney.com/12ff6522-694b-492e-a12a-2513c8de0bfb/0_1.png` |
-| `Night13a.png` | zaakceptowana plansza Aplikant, 1456×816, 1,480,701 bajtów; job: `https://www.midjourney.com/jobs/4988aaf4-660e-4832-aa7a-905e68f272c3?index=1` | `https://cdn.midjourney.com/4988aaf4-660e-4832-aa7a-905e68f272c3/0_1.png` |
+| `Night13a.png` | zaakceptowana plansza Aplikant, 1456×816, 1,849,395 bajtów; telefon leży na aktach; job: `https://www.midjourney.com/jobs/3bfc6ba9-533c-4371-96fd-0a3543a4e7a8?index=2` | `https://cdn.midjourney.com/3bfc6ba9-533c-4371-96fd-0a3543a4e7a8/0_2.png` |
 | `Night13b.png` | zaakceptowana plansza Chropot, 1456×816, 1,693,903 bajtów; job: `https://www.midjourney.com/jobs/17cc4d96-a584-48e5-b127-4d4f5dbb3276?index=3` | `https://cdn.midjourney.com/17cc4d96-a584-48e5-b127-4d4f5dbb3276/0_3.png` |
 
 `Night14a.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.

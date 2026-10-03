@@ -7,7 +7,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 
 | Panel | Status | Wariant | Notatka |
 |---|---|---|---|
-| Night13a | Accepted | 1 | Phone above open pages (not window). Caption: „Prywatny telefon nad otwartymi stronami akt.” Title/Q bez tramwaju. Accepted CDN: `4988aaf4-660e-4832-aa7a-905e68f272c3/0_1.png`; job `?index=1`. |
+| Night13a | Accepted | 2 | 2026-10-04 Greg: telefon **na** aktach, nie w powietrzu. Historia BYOD nie wymaga chwytu nad kartką. CDN `3bfc6ba9-533c-4371-96fd-0a3543a4e7a8/0_2.png`; job `?index=2`. Napis: „Prywatny telefon na otwartych aktach.” |
 | Night13b | Pending | 3 (stary) | Caption bez „wsiadaj”. Płyta Accepted (`17cc4d96…/0_3.png`) prawdopodobnie OK (Chropot w płaszczu w drzwiach) — potwierdź po Napis B. |
 | Night14a | Pending | — | **SWAP causal:** A = Chropot kładzie kartkę (mid-placement). Nie generować ze starą kartą (slip already on desk). |
 | Night14b | Pending | — | B = kartka już leży + dłonie nad pustymi polami + balloon Chropota. |
@@ -50,7 +50,7 @@ Kontekst, który czyta gracz:
 
 ### Napis A / Napis B (PL)
 
-- **Napis A** (`Night13a`): Prywatny telefon nad otwartymi stronami akt.
+- **Napis A** (`Night13a`): Prywatny telefon na otwartych aktach.
 - **Napis B** (`Night13b`): Chropot: „Zrób zdjęcie i wyślij. Rano ma leżeć na mojej skrzynce.”
 
 ### Exact gray Imagine block (Night13a)

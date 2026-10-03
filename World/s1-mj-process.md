@@ -24,6 +24,8 @@ Dla nocy `N` zaprojektuj / zweryfikuj:
 
 Jeśli karta / napisy są sprzeczne z ciągiem — **najpierw popraw kartę w `komiks-sezony.md`**, potem generate. Nie „naprawiaj” odwróconej chronologii samym promptem MJ.
 
+Zanim zablokujesz gest w prompcie (np. „telefon w powietrzu nad kartką”), sprawdź, czy wymaga tego **historia**, nie tylko stary napis. Jeśli kadr czyta się bez tego gestu, popraw napis pod kadr, nie odwrotnie.
+
 ### 2. Build promptów Imagine
 
 - Character / office / window refs z lead accepted plates (patrz § Spójność).
