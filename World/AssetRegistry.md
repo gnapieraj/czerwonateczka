@@ -61,8 +61,9 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night17a.png` | zaakceptowana plansza drukarka A4, 1456×816, 1,542,990 bajtów; job: `https://www.midjourney.com/jobs/3046f30e-1aba-4b70-a61c-7d11b6785b15?index=1` | `https://cdn.midjourney.com/3046f30e-1aba-4b70-a61c-7d11b6785b15/0_1.png` |
 | `Night17b.png` | zaakceptowana plansza Irena z kasetą, 1456×816, 1,135,925 bajtów; job: `https://www.midjourney.com/jobs/3f3943fb-adf5-4d23-a439-a57c334b0261?index=2` | `https://cdn.midjourney.com/3f3943fb-adf5-4d23-a439-a57c334b0261/0_2.png` |
 | `Night18a.png` | zaakceptowana plansza kurier i otwarta dłoń, 1456×816, 1,179,639 bajtów; job: `https://www.midjourney.com/jobs/904a15da-1f9c-4470-a135-bd3cc01c725f?index=1` | `https://cdn.midjourney.com/904a15da-1f9c-4470-a135-bd3cc01c725f/0_1.png` |
+| `Night18b.png` | zaakceptowana plansza Chropot w płaszczu rozmawia przez telefon w korytarzu sądu, 1456×816, 1,590,482 bajtów; job: `https://www.midjourney.com/jobs/b865238e-e738-4080-92eb-9dc41163d22c?index=2`; status: accepted; note: variant 2, Chropot overcoat, phone at ear, courtroom hallway. | `https://cdn.midjourney.com/b865238e-e738-4080-92eb-9dc41163d22c/0_2.png` |
 
-`Night18b.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
+`Night19a.png`–`Night24b.png` są w bundlu pod tymi nazwami jako kadry oczekujące; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
 
 ## Licencja Midjourney
 

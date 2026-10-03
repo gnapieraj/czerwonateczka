@@ -18,7 +18,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night17a | Accepted | 1 | Poprawka: drukarka biurowa A4, klapa otwarta, nie etykieciarka. CDN `3046f30e-1aba-4b70-a61c-7d11b6785b15/0_1.png`; job `?index=1`. |
 | Night17b | Accepted | 2 | Historia: Irena przy ladzie podaje pustą kasetę. CDN `3f3943fb-adf5-4d23-a439-a57c334b0261/0_2.png`; job `?index=2`. |
 | Night18a | Accepted | 1 | Historia: kurier podaje pióro i zamkniętą kopertę, dłoń aplikanta zostaje otwarta. CDN `904a15da-1f9c-4470-a135-bd3cc01c725f/0_1.png`; job `?index=1`. |
-| Night18b | Pending | — |  |
+| Night18b | Accepted | 2 | Historia: Chropot w płaszczu rozmawia przez telefon w korytarzu sądu. CDN `b865238e-e738-4080-92eb-9dc41163d22c/0_2.png`; job `?index=2`. |
 | Night19a | Pending | — | Napis A z prośbą o ukrycie pisma; Q bez żargonu „pełnomocnictwa”. |
 | Night19b | Pending | — |  |
 | Night20a | Pending | — | Napis/Flags: laptop **zamknięty** pod pachą (zgodne z kartą). |
