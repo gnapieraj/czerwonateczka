@@ -1624,7 +1624,7 @@ Kontekst, który czyta gracz:
 
 **Causal:** A = Chropot **zostawia** otwarty laptop / wchodzi na salę (setup); B = obcy o krok, prośba o wokandę (pressure). Nie flashback wyjścia na B.
 
-Kadr A `Night24a`, napis w grze, nie malować: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
+Kadr A `Night24a`, napis w grze, nie malować: Dłoń domyka klapę. Obcy stoi o krok, ręce puste.
 
 Kadr B `Night24b`, kwestia do wklejenia w grę, nie malować: Obcy: „Pokaż wokandę. Telefon padł.”
 
@@ -1639,8 +1639,8 @@ panel: a
 file: Night24a.png
 story: The partner leaves the firm laptop open on a court bench and steps into the courtroom.
 context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
-caption_pl: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
-caption_in_game_pl: Chropot zostawia otwarty laptop na ławce. „Zaraz wracam.”
+caption_pl: Dłoń domyka klapę. Obcy stoi o krok, ręce puste.
+caption_in_game_pl: Dłoń domyka klapę. Obcy stoi o krok, ręce puste.
 game_asset: Night24a
 paint_caption: no
 who: the partner seen from behind, overcoat, face not visible; open laptop on the bench in the foreground
