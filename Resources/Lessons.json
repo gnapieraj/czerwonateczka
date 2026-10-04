@@ -4748,15 +4748,15 @@
         "asset": "Night24a",
         "caption": {
           "pl": "Dłoń domyka klapę. Obcy stoi o krok, ręce puste.",
-          "en": "Chropot leaves the open laptop on the bench. “I’ll be right back.”"
+          "en": "A hand closes the lid. The stranger stands one step away, hands empty."
         },
         "voice": "caption"
       },
       {
         "asset": "Night24b",
         "caption": {
-          "pl": "Obcy: „Pokaż wokandę. Telefon padł.”",
-          "en": "Stranger: “Show me the list. My phone died.”"
+          "pl": "Chropot: „Popilnuj. Ja na pięć minut.”",
+          "en": "Chropot: “Watch it. I’ll be five minutes.”"
         },
         "voice": "balloon"
       }

@@ -1626,7 +1626,7 @@ Kontekst, który czyta gracz:
 
 Kadr A `Night24a`, napis w grze, nie malować: Dłoń domyka klapę. Obcy stoi o krok, ręce puste.
 
-Kadr B `Night24b`, kwestia do wklejenia w grę, nie malować: Obcy: „Pokaż wokandę. Telefon padł.”
+Kadr B `Night24b`, kwestia do wklejenia w grę, nie malować: Chropot: „Popilnuj. Ja na pięć minut.”
 
 ### 24a `Night24a` — otwarty laptop, Chropot w drzwiach sali
 
@@ -1664,8 +1664,8 @@ panel: b
 file: Night24b.png
 story: A stranger asks to check the list on the open firm laptop. The associate's hand is near the lid.
 context_pl: Przed salą Chropot zostawia otwarty laptop kancelarii na ławce: „zostaw klapę otwartą i pilnuj, zaraz wracam”. Na ekranie są akta. Potem podchodzi obcy i prosi, żebyś „tylko sprawdził wokandę”, bo jego telefon padł.
-caption_pl: Obcy: „Pokaż wokandę. Telefon padł.”
-caption_in_game_pl: Obcy: „Pokaż wokandę. Telefon padł.”
+caption_pl: Chropot: „Popilnuj. Ja na pięć minut.”
+caption_in_game_pl: Chropot: „Popilnuj. Ja na pięć minut.”
 game_asset: Night24b
 paint_caption: no
 who: a young man's hand near the lid; a stranger one step away, coat, face in shadow, empty hands
