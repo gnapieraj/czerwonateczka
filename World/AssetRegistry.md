@@ -73,8 +73,9 @@ Narzędzie: midjourney.com/imagine (Create), nie Discord. Model: V8.2. Plan: Pro
 | `Night23a.png` | zaakceptowana plansza 1456×816, 1,696,979 bajtów; job: `https://www.midjourney.com/jobs/e2c9a063-76f8-456a-b7cd-3a103706e94d?index=2`; status: accepted; note: variant 2, speaker dark, phone face down, pencil on blank paper. | `https://cdn.midjourney.com/e2c9a063-76f8-456a-b7cd-3a103706e94d/0_2.png` |
 | `Night23b.png` | zaakceptowana plansza 1456×816, 1,332,951 bajtów; job: `https://www.midjourney.com/jobs/4d29d8f1-2735-47ce-8ced-d19fb3957453?index=3`; status: accepted; note: variant 3, doorway between offices, points at the phone on the desk, does not hold it. | `https://cdn.midjourney.com/4d29d8f1-2735-47ce-8ced-d19fb3957453/0_3.png` |
 | `Night24a.png` | zaakceptowana plansza 1456×816, 1,175,794 bajtów; job: `https://www.midjourney.com/jobs/a456239d-8364-4846-93a9-1462e294195d?index=0`; status: accepted; note: variant 0, lid halfway down, stranger one step away, face in shadow, empty hands. | `https://cdn.midjourney.com/a456239d-8364-4846-93a9-1462e294195d/0_0.png` |
+| `Night24b.png` | zaakceptowana plansza 1456×816, 1,502,925 bajtów; job: `https://www.midjourney.com/jobs/70430e74-f7ce-4f55-8285-2df884db34e2?index=0`; status: accepted; note: from behind, wave, entering the courtroom. | `https://cdn.midjourney.com/70430e74-f7ce-4f55-8285-2df884db34e2/0_0.png` |
 
-`Night24b.png` jest w bundlu jako kadr oczekujący; piksele to kopia `SezonMecenas.png` (1 472 079 bajtów), nie nowa generacja. `Night24a.png` jest zaakceptowaną generacją Midjourney opisaną powyżej. `Night13a.png` i `Night13b.png` są wyjątkiem: zaakceptowane generacje Midjourney (Aplikant index 1; Chropot index 3), obie 1456×816, podmienione powyżej. Pozostałe oczekujące kadry mają flagę „W przygotowaniu”; podmiana później jest podmianą pliku, nie zmianą nazwy.
+`Night13–24.png` są teraz zaakceptowanymi planszami Midjourney opisanymi powyżej; Night24b jest wariantem 0, z Chropotem pokazanym od tyłu, machającym dłonią przy wejściu do sali sądowej. `Night13a.png` i `Night13b.png` pozostają wyjątkiem opisanym powyżej. Nie ma już placeholdera dla Night24b.
 
 ## Licencja Midjourney
 

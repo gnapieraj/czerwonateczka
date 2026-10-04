@@ -30,7 +30,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night23a | Done | 2 | Accepted: variant 2, speaker dark, phone face down, pencil on blank paper. CDN `https://cdn.midjourney.com/e2c9a063-76f8-456a-b7cd-3a103706e94d/0_2.png`; job `https://www.midjourney.com/jobs/e2c9a063-76f8-456a-b7cd-3a103706e94d?index=2`. |
 | Night23b | Done | 3 | Accepted: variant 3, Chropot in a doorway between offices, points at the phone on the desk, does not hold it. CDN `https://cdn.midjourney.com/4d29d8f1-2735-47ce-8ced-d19fb3957453/0_3.png`; job `https://www.midjourney.com/jobs/4d29d8f1-2735-47ce-8ced-d19fb3957453?index=3`. |
 | Night24a | Done | 0 | Accepted: variant 0, lid halfway down, stranger one step away, face in shadow, empty hands. CDN `https://cdn.midjourney.com/a456239d-8364-4846-93a9-1462e294195d/0_0.png`; job `https://www.midjourney.com/jobs/a456239d-8364-4846-93a9-1462e294195d?index=0`. |
-| Night24b | Pending | — | B = obcy prosi o wokandę (nie flashback wyjścia Chropota). |
+| Night24b | Done | 0 | Accepted: Chropot from behind, one bare hand raised in a five-finger wave, entering the courtroom. CDN `https://cdn.midjourney.com/70430e74-f7ce-4f55-8285-2df884db34e2/0_0.png`; job `https://www.midjourney.com/jobs/70430e74-f7ce-4f55-8285-2df884db34e2?index=0`. |
 
 Po akceptacji Grega: ustaw wariant (`0`–`3`), Status → `Done`, uzupełnij AssetRegistry i PNG; gdy a+b nocy gotowe → `artPending: false`.
 
