@@ -28,7 +28,7 @@ Przypomnienie: lead accepted plates; reroll przy dryfie likeness/lokalizacji; do
 | Night22a | Done | 1 | Accepted: variant 1, hands pulled back to the desk edge, closed folder, blank laptop window, rooftop view. CDN `https://cdn.midjourney.com/09468f61-365b-4497-a625-395c3b40cca1/0_1.png`; job `https://www.midjourney.com/jobs/09468f61-365b-4497-a625-395c3b40cca1?index=1`. |
 | Night22b | Done | 0 | Accepted: variant 0, Irena no chain, small desk, blank laptop, he does not reach. CDN `https://cdn.midjourney.com/411a4b1a-75b6-4345-89ca-9565faad17b4/0_0.png`; job `https://www.midjourney.com/jobs/411a4b1a-75b6-4345-89ca-9565faad17b4?index=0`. |
 | Night23a | Done | 2 | Accepted: variant 2, speaker dark, phone face down, pencil on blank paper. CDN `https://cdn.midjourney.com/e2c9a063-76f8-456a-b7cd-3a103706e94d/0_2.png`; job `https://www.midjourney.com/jobs/e2c9a063-76f8-456a-b7cd-3a103706e94d?index=2`. |
-| Night23b | Pending | — |  |
+| Night23b | Done | 3 | Accepted: variant 3, Chropot in a doorway between offices, points at the phone on the desk, does not hold it. CDN `https://cdn.midjourney.com/4d29d8f1-2735-47ce-8ced-d19fb3957453/0_3.png`; job `https://www.midjourney.com/jobs/4d29d8f1-2735-47ce-8ced-d19fb3957453?index=3`. |
 | Night24a | Pending | — | **Causal:** A = Chropot zostawia otwarty laptop / wchodzi na salę. |
 | Night24b | Pending | — | B = obcy prosi o wokandę (nie flashback wyjścia Chropota). |
 
