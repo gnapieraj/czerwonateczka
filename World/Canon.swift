@@ -11,14 +11,23 @@ enum Noir {
 }
 
 enum Typeface {
-    /// Comic lettering (Gobo Caps, OFL). Latin Extended-A — ą ę ć ł ń ó ś ź ż.
-    static let comic = "Gobo Caps"
-    static let comicItalic = "Gobo Caps Italic"
+    /// Comic lettering (Gobo Caps, OFL). Latin Extended-A — ą ę ć ł ń ó ś ź ż, „ ” and —.
+    ///
+    /// PostScript names only. A full name ("Gobo Caps Italic") resolves at launch, but after the
+    /// app comes back from the background iOS no longer finds it, and SwiftUI silently draws
+    /// the balloon in the system font. `ComicFontTests` keeps these names honest.
+    static let comic = "GoboCaps-Regular"
+    static let comicItalic = "GoboCaps-Italic"
 
     static func display(_ size: CGFloat) -> Font { .custom(comic, size: size) }
     static func body(_ size: CGFloat) -> Font { .custom(comic, size: size) }
     static func italic(_ size: CGFloat) -> Font { .custom(comicItalic, size: size) }
     static func mono(_ size: CGFloat) -> Font { .custom(comic, size: size) }
+
+    /// The one style for words on a comic plate: captions upright, balloons (speech) italic.
+    static func lettering(_ voice: ComicVoice, size: CGFloat = 20) -> Font {
+        voice == .balloon ? italic(size) : display(size)
+    }
 }
 
 /// Locked fiction. Names are invented; they must not track a real Warsaw firm or street parcel.

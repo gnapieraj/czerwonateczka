@@ -7,7 +7,7 @@ struct ComicLettering: View {
 
     var body: some View {
         Text(text)
-            .font(voice == .balloon ? Typeface.italic(20) : Typeface.display(20))
+            .font(Typeface.lettering(voice))
             .foregroundStyle(Color.black)
             .lineSpacing(4)
             .multilineTextAlignment(voice == .balloon ? .center : .leading)
