@@ -196,7 +196,7 @@ def draw_page2(ax):
 
     g_items = [
         ('Sezony = ścieżka.', 'Od awareness (S0–S1) do kontroli i AML (S2–S3).'),
-        ('Postacie prowadzą.', 'Mecenas → Aplikant → Audytor (Szczelińska) — rosnąca odpowiedzialność.'),
+        ('Postacie prowadzą.', 'Mecenas → Aplikant → Audytor — trzy perspektywy w kancelarii.'),
         ('12 nocy na sezon.', 'Krótki rytm, który da się domknąć w kalendarzu kancelarii.'),
         ('Jedna noc dziennie.', 'Następnego dnia karta przypomina nawyk, zanim wrócisz do teczki.'),
         ('Mierzalny efekt.', 'TRAFNE ≥ 90% + dyplom PDF z weryfikacją QR — dowód, nie checklista.'),
