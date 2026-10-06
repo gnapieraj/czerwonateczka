@@ -8,7 +8,7 @@ Dwustronicowa mapa PL dla rozmowy B2B (16 × 9, ciemny noir).
 - **B2B · Compliance pack:** S2 Kontrola + S3 AML, razem 24 noce. Rola: Audytor Sylwia Szczelińska; pierwszy produkt komercyjny dla kancelarii.
 - **Później / roadmapa:** S4 AI deployer, S5 Cyfryzacja, S6 Etyka / ustrój — wariant roboczy, jeszcze nie sprzedajemy jako packów.
 
-**Strona 2 — wizja:** cztery bloki dla partnera / HR / compliance — wizja gry, dystrybucji, opłat i projektu łącznie (immersyjny trening, free→B2B, model licencji, marka Colgante).
+**Strona 2 — wizja:** cztery bloki dla partnera / HR / compliance — wizja gry, dystrybucji, opłat i projektu łącznie (immersyjny trening, jedna noc dziennie z kartą nawyku, free→B2B, model licencji, marka Colgante).
 
 ## Kontrakt layoutu
 

@@ -185,8 +185,8 @@ def draw_page2(ax):
     # top row y=4.05 h=3.20; bottom row y=1.05 h=2.80
     lw, rw = 7.15, 7.15
     lx, rx = .72, 8.13
-    top_y, top_h = 4.10, 3.15
-    bot_y, bot_h = 1.05, 2.85
+    top_y, top_h = 3.98, 3.27
+    bot_y, bot_h = 1.05, 2.78
 
     # --- 1. Wizja gry (top-left, accent) ---
     box(ax, lx, top_y, lw, top_h, card, red2, 1.5, .13)
@@ -198,14 +198,16 @@ def draw_page2(ax):
         ('Sezony = ścieżka.', 'Od awareness (S0–S1) do kontroli i AML (S2–S3).'),
         ('Postacie prowadzą.', 'Mecenas → Aplikant → Audytor (Szczelińska) — rosnąca odpowiedzialność.'),
         ('12 nocy na sezon.', 'Krótki rytm, który da się domknąć w kalendarzu kancelarii.'),
+        ('Jedna noc dziennie.', 'Następnego dnia karta przypomina nawyk, zanim wrócisz do teczki.'),
         ('Mierzalny efekt.', 'TRAFNE ≥ 90% + dyplom PDF z weryfikacją QR — dowód, nie checklista.'),
     ]
-    gy = top_y + top_h - 1.10
+    # Five bullets: start a touch higher and step tighter so the block clears the card edge.
+    gy = top_y + top_h - 1.02
     for head, body in g_items:
-        txt(ax, lx + .26, gy, '▸', 7.4, red2, 'bold')
-        txt(ax, lx + .46, gy, head, 7.8, white, 'bold')
-        txt(ax, lx + .46, gy - .28, body, 7.35, cream, linespacing=1.2)
-        gy -= 0.52
+        txt(ax, lx + .26, gy, '▸', 7.2, red2, 'bold')
+        txt(ax, lx + .46, gy, head, 7.5, white, 'bold')
+        txt(ax, lx + .46, gy - .24, body, 7.05, cream, linespacing=1.15)
+        gy -= 0.42
 
     # --- 2. Wizja dystrybucji (top-right) ---
     box(ax, rx, top_y, rw, top_h, card, line, 1, .13)
