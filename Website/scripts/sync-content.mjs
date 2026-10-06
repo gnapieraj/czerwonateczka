@@ -40,8 +40,8 @@ const sources =
             en: "SANS OUCH! — security-awareness newsletter",
           },
           note: {
-            pl: "Noce biorą tematy z newslettera SANS OUCH. Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna ani cytat z newslettera.",
-            en: "The nights take their topics from the SANS OUCH newsletter. The scenes, names and Colgante firm are fiction. This is not legal advice and not a quotation from the newsletter.",
+            pl: "Noce opisują codzienne zagrożenia w pracy biura — w duchu materiałów o świadomości bezpieczeństwa, takich jak newsletter SANS OUCH!. Nie opierają się na konkretnych wydaniach i ich nie cytują. Sceny, nazwiska i kancelaria Colgante są fikcją. To nie jest porada prawna.",
+            en: "The nights cover everyday office threats, in the spirit of security-awareness material such as the SANS OUCH! newsletter. They are not based on, or quoted from, specific issues. The scenes, names and Colgante firm are fiction. This is not legal advice.",
           },
           url: "https://www.sans.org/newsletters/ouch",
         },

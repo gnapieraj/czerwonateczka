@@ -2,14 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const stages = [
-        ["Wokanda", "Dwa sezony, ciągła numeracja nocy. Kolejna otwiera się dopiero po stemplu poprzedniej. Sezon aplikanta czeka na koniec sezonu mecenasa."],
+  ["Wokanda", "24 noce w dwóch sezonach: Mecenas (1–12) i Aplikant (13–24), numeracja ciągła. Kolejna otwiera się dopiero po stemplu poprzedniej, więc Aplikant czeka na koniec Mecenasa. Noc ze stemplem zagrasz jeszcze raz."],
   ["Biblia wizualna", "Obsada i stały wygląd bohaterów. To orientacja w fabule, nie materiał prawny."],
   ["Komiks", "Dwa kadry. Na iPhonie termin, kontekst i pytanie są następną stroną; na iPadzie leżą pod kadrami. Nie ujawnia rozwiązania."],
-  ["Teczka", "Ruch na przedmiocie nocy. Część przycisków kończy noc od razu, resztę zaznaczasz i domykasz na dole. Wynik jest jeden z trzech: trafny, błędny albo niepełny."],
-  ["Werdykt", "Krótki stempel: TRAFNE, BŁĘDNE albo NIEPEŁNE — z możliwością stuknięcia dalej."],
-  ["Ratio", "Uzasadnienie wybranego ruchu: refleks i, poza trybem fabularnym, przepis oraz wzorzec."],
-  ["Briefing", "Obowiązkowy po Ratio: jak to działa, sygnały, minimalizacja i praktyka — zanim wrócisz na wokandę."],
-  ["Źródła", "Tematy nocy pochodzą z newslettera SANS OUCH; sceny i Colgante są fikcją. Kadry komiksu są ilustracjami do tej historii, nie dokumentacją z kancelarii."],
+  ["Teczka", "Ruch na przedmiocie nocy. Zwykle jeden ruch kończy noc; w kilku nocach najpierw zaznaczasz, potem domykasz na dole. Wynik jest jeden z trzech: trafny, błędny albo niepełny."],
+  ["Werdykt", "Jedna plansza: stempel TRAFNE, BŁĘDNE albo NIEPEŁNE, raz, pod nim refleks i czerwona lampka."],
+  ["Briefing", "Obowiązkowy po werdykcie: jak to działa, na co uważać, jak minimalizować, praktyka w kancelarii. Na dole „Kończymy na dziś” — albo, w tym samym sezonie, jeszcze jedna noc."],
+  ["Koniec dnia", "Jedna noc dziennie to rytm, nie blokada. Biurko pokazuje „Na dziś wystarczy”. Przypomnienie jest opcjonalne: dzień roboczy, wybrana godzina (domyślnie 17:30), bez dźwięku."],
+  ["Nawyki", "Każda noc ze stemplem zapala nazwany nawyk na biurku — 12 na sezon. Karta nawyku wraca następnego dnia, po trzech kolejnych nocach i na koniec sezonu. Najwyżej jedna dziennie."],
+  ["Raport", "W ustawieniach. Sezon z ≥ 90% TRAFNE i przeczytanymi briefingami daje dyplom PDF, CSV, JSON i odznakę PNG dla pracodawcy. Pliki powstają na urządzeniu; nic nie wychodzi samo."],
+  ["Źródła", "Tematy to codzienne zagrożenia biurowe w duchu SANS OUCH!, bez odniesień do konkretnych wydań. Sceny i Colgante są fikcją; kadry komiksu to ilustracje do tej historii, nie dokumentacja z kancelarii."],
 ];
 
 const ratio = [
@@ -24,10 +26,6 @@ const ratio = [
   <section class="reading section">
     <p class="eyebrow">SŁOWNIK EKRANÓW</p>
     <h1>Jak czytać grę</h1>
-    <p class="lead">
-      Mapa pól Czerwonej Teczki — żeby fabuła, mechanika i warstwa edukacyjna nie
-      zlewały się w jedno.
-    </p>
     <ol class="check-list">
       {stages.map(([name, description]) => (
         <li><strong>{name}:</strong> {description}</li>
@@ -67,9 +65,10 @@ const ratio = [
       <p><strong>Najczęstsze pomyłki:</strong></p>
       <p>
         Głos wewnętrzny jest pytaniem <em>przed</em> wyborem, a refleks — nawykiem
-        <em>po</em> wyborze. Briefing służy profilaktyce, a Ratio ocenia konkretny
-        ruch. Stempel na wokandzie zapisuje wynik nocy; kolejna tecka otwiera się
-        dopiero potem.
+        <em>po</em> wyborze. Stempel, refleks i lampka są na jednej planszy;
+        briefing jest potem. Następnego dnia, zanim otworzysz teczkę, karta pokazuje
+        najpierw lampkę, a nawyk odsłaniasz sam. Stempel na wokandzie zapisuje wynik
+        nocy; kolejna teczka otwiera się dopiero po nim.
       </p>
     </div>
   </section>
