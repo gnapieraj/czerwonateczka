@@ -125,7 +125,7 @@ def draw_page1(ax):
     # commercial
     label(ax, x2 + .24, 5.85, 'PIERWSZA OFERTA KOMERCYJNA / B2B')
     txt(ax, x2 + .24, 5.55, 'Compliance pack', 15.2, white, 'bold')
-    txt(ax, x2 + .24, 5.18, 'S2 + S3 · 24 NOCE   |   Audytor: Sylwia Szczelińska', 7.5, '#f1c8bb', 'bold')
+    txt(ax, x2 + .24, 5.18, 'S2 + S3 · 24 NOCE   |   Audytor', 7.5, '#f1c8bb', 'bold')
     season(ax, x2 + .24, 4.55, 4.05, 'S2 · Kontrola', '12 nocy', 'Rola: Audytor · Szczelińska',
            'RODO, tajemnica zawodowa, chmura i AI: co wolno, kto odpowiada i co trzeba umieć wykazać.',
            'zasada, decyzja, właściciel i dowód.')
