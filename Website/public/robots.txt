@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /mapa-sezonow-biznes.pdf
 
 Sitemap: https://colgante.pl/sitemap-index.xml
